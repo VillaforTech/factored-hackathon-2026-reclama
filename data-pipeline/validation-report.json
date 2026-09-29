@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "provenance": "team-generated-contract-tests",
+  "demo": {
+    "customers": 2,
+    "cards": 3,
+    "transactions": 12,
+    "violations": 0
+  },
+  "integrityCases": [
+    {
+      "id": "cross_customer",
+      "expectedCode": "OWNER_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "orphan_card",
+      "expectedCode": "UNKNOWN_CARD",
+      "passed": true
+    },
+    {
+      "id": "currency_mismatch",
+      "expectedCode": "CURRENCY_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "fractional_minor_units",
+      "expectedCode": "INVALID_AMOUNT_MINOR",
+      "passed": true
+    },
+    {
+      "id": "negative_amount",
+      "expectedCode": "INVALID_AMOUNT_MINOR",
+      "passed": true
+    },
+    {
+      "id": "boolean_amount",
+      "expectedCode": "INVALID_AMOUNT_MINOR",
+      "passed": true
+    },
+    {
+      "id": "unknown_status",
+      "expectedCode": "UNKNOWN_TRANSACTION_STATUS",
+      "passed": true
+    },
+    {
+      "id": "duplicate_id",
+      "expectedCode": "DUPLICATE_ID",
+      "passed": true
+    },
+    {
+      "id": "future_event",
+      "expectedCode": "EVENT_AFTER_SNAPSHOT",
+      "passed": true
+    },
+    {
+      "id": "unknown_timezone",
+      "expectedCode": "TIMEZONE_REQUIRED",
+      "passed": true
+    },
+    {
+      "id": "invalid_calendar_date",
+      "expectedCode": "INVALID_EVENT_TIME",
+      "passed": true
+    },
+    {
+      "id": "changed_source_version",
+      "expectedCode": "SOURCE_VERSION_MISMATCH",
+      "passed": true
+    },
+    {
+      "id": "orphan_customer",
+      "expectedCode": "UNKNOWN_CUSTOMER",
+      "passed": true
+    },
+    {
+      "id": "sensitive_field_rejected",
+      "expectedCode": "UNEXPECTED_FIELD",
+      "passed": true
+    },
+    {
+      "id": "missing_merchant_is_permitted",
+      "expectedCode": null,
+      "passed": true
+    },
+    {
+      "id": "identical_amount_is_not_duplicate_identity",
+      "expectedCode": null,
+      "passed": true
+    }
+  ],
+  "arithmeticCases": 8,
+  "evidenceAggregateChecks": "passed",
+  "independentProfileMatch": false,
+  "notModelEvaluation": true
+}

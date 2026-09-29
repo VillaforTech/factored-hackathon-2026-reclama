@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "provenance": "team-generated",
+  "description": "Controlled mutations applied to a deep copy of demo.json, never to official private records. Every case has an independently stated expected contract code.",
+  "cases": [
+    {"id": "cross_customer", "operation": "set", "collection": "transactions", "index": 0, "field": "customerId", "value": "cus_c2e79604", "expectedCode": "OWNER_MISMATCH"},
+    {"id": "orphan_card", "operation": "set", "collection": "transactions", "index": 0, "field": "cardId", "value": "crd_missing00", "expectedCode": "UNKNOWN_CARD"},
+    {"id": "currency_mismatch", "operation": "set", "collection": "transactions", "index": 0, "field": "currency", "value": "ARS", "expectedCode": "CURRENCY_MISMATCH"},
+    {"id": "fractional_minor_units", "operation": "set", "collection": "transactions", "index": 0, "field": "amountMinor", "value": 8490.5, "expectedCode": "INVALID_AMOUNT_MINOR"},
+    {"id": "negative_amount", "operation": "set", "collection": "transactions", "index": 0, "field": "amountMinor", "value": -1, "expectedCode": "INVALID_AMOUNT_MINOR"},
+    {"id": "boolean_amount", "operation": "set", "collection": "transactions", "index": 0, "field": "amountMinor", "value": true, "expectedCode": "INVALID_AMOUNT_MINOR"},
+    {"id": "unknown_status", "operation": "set", "collection": "transactions", "index": 0, "field": "status", "value": "RefundGuaranteed", "expectedCode": "UNKNOWN_TRANSACTION_STATUS"},
+    {"id": "duplicate_id", "operation": "appendCopy", "collection": "transactions", "index": 0, "expectedCode": "DUPLICATE_ID"},
+    {"id": "future_event", "operation": "set", "collection": "transactions", "index": 0, "field": "occurredAt", "value": "2026-06-18T09:00:00-05:00", "expectedCode": "EVENT_AFTER_SNAPSHOT"},
+    {"id": "unknown_timezone", "operation": "set", "collection": "transactions", "index": 0, "field": "occurredAt", "value": "2026-06-16T14:22:00", "expectedCode": "TIMEZONE_REQUIRED"},
+    {"id": "invalid_calendar_date", "operation": "set", "collection": "transactions", "index": 0, "field": "occurredAt", "value": "2026-02-30T14:22:00-05:00", "expectedCode": "INVALID_EVENT_TIME"},
+    {"id": "changed_source_version", "operation": "set", "collection": "transactions", "index": 0, "field": "sourceVersion", "value": "unknown-v2", "expectedCode": "SOURCE_VERSION_MISMATCH"},
+    {"id": "orphan_customer", "operation": "set", "collection": "cards", "index": 0, "field": "customerId", "value": "cus_unknown0", "expectedCode": "UNKNOWN_CUSTOMER"},
+    {"id": "sensitive_field_rejected", "operation": "set", "collection": "customers", "index": 0, "field": "email", "value": "invented@example.invalid", "expectedCode": "UNEXPECTED_FIELD"},
+    {"id": "missing_merchant_is_permitted", "operation": "set", "collection": "transactions", "index": 0, "field": "merchant", "value": null, "expectedCode": null},
+    {"id": "identical_amount_is_not_duplicate_identity", "operation": "set", "collection": "transactions", "index": 1, "field": "amountMinor", "value": 8490, "expectedCode": null}
+  ]
+}

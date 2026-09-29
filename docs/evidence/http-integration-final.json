@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0",
+  "run_id": "http-20260929T134404-2b176b",
+  "base_url": "http://127.0.0.1:5173",
+  "started_at_utc": "2026-09-29T18:44:04Z",
+  "duration_seconds": 3.83,
+  "suite": "HTTP contract integration; not an LLM-quality evaluation or production security certification",
+  "model_evaluation_performed": false,
+  "cross_siwc_identity_isolation_tested": false,
+  "limitations": [
+    "Local mock sign-in legitimately supports only local_seedy; Ana/Lucas isolation is tested inside one SIWC namespace. A second real SIWC identity requires separate legitimate auth and a subsequent test.",
+    "HTTP tests cannot certify visual accessibility, browser CSRF behavior, language naturalness, retention cleanup, storage survival across process restart or external-model payload minimization.",
+    "Cases are development-visible, not held-out. Timings are integration request timings, not benchmark p50/p95.",
+    "The harness creates bounded synthetic sandbox records and does not delete or reset storage. Repeated runs can exhaust clean fixtures."
+  ],
+  "counts": {
+    "pass": 28,
+    "fail": 0,
+    "blocked": 0,
+    "error": 0
+  },
+  "gate_passed": true,
+  "results": [
+    {
+      "id": "HTTP-001",
+      "priority": "P0",
+      "description": "Anonymous requests cannot read or write customer records",
+      "status": "pass",
+      "evidence": {
+        "http_statuses": [
+          401,
+          401,
+          401
+        ]
+      },
+      "elapsed_ms": 1849.4
+    },
+    {
+      "id": "HTTP-002",
+      "priority": "P0",
+      "description": "Legitimate sign-in, server sessions and scoped collections",
+      "status": "pass",
+      "evidence": {
+        "ana_transaction_count": 9,
+        "lucas_transaction_count": 3
+      },
+      "elapsed_ms": 737.76
+    },
+    {
+      "id": "HTTP-003",
+      "priority": "P0",
+      "description": "Untrusted Origin cannot mutate session or draft",
+      "status": "pass",
+      "evidence": {
+        "session_status": 403,
+        "draft_status": 403
+      },
+      "elapsed_ms": 2.33
+    },
+    {
+      "id": "HTTP-004",
+      "priority": "P0",
+      "description": "Application cookies use HttpOnly and SameSite protections",
+      "status": "pass",
+      "evidence": {
+        "application_cookie_count": 1,
+        "cookie_values_logged": false
+      },
+      "elapsed_ms": 0.01
+    },
+    {
+      "id": "HTTP-005",
+      "priority": "P0",
+      "description": "Foreign transaction cannot become a draft",
+      "status": "pass",
+      "evidence": {
+        "http_status": 404
+      },
+      "elapsed_ms": 17.6
+    },
+    {
+      "id": "HTTP-006",
+      "priority": "P1",
+      "description": "Pending, Reversed and Declined cannot use automatic dispute intake",
+      "status": "pass",
+      "evidence": {
+        "Pending": 201,
+        "Reversed": 201,
+        "Declined": 201
+      },
+      "elapsed_ms": 72.83
+    },
+    {
+      "id": "HTTP-007",
+      "priority": "P0",
+      "description": "Preparing a reviewed draft does not submit a case",
+      "status": "pass",
+      "evidence": {
+        "case_count_unchanged": true
+      },
+      "elapsed_ms": 87.0
+    },
+    {
+      "id": "HTTP-008",
+      "priority": "P0",
+      "description": "Negative consent cannot create a case",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422
+      },
+      "elapsed_ms": 32.06
+    },
+    {
+      "id": "HTTP-009",
+      "priority": "P0",
+      "description": "Tampered confirmation token is rejected",
+      "status": "pass",
+      "evidence": {
+        "http_status": 403
+      },
+      "elapsed_ms": 12.52
+    },
+    {
+      "id": "HTTP-010",
+      "priority": "P0",
+      "description": "Consent/draft cannot be replayed by another customer",
+      "status": "pass",
+      "evidence": {
+        "http_status": 403
+      },
+      "elapsed_ms": 9.07
+    },
+    {
+      "id": "HTTP-011",
+      "priority": "P1",
+      "description": "Normal Spanish intake is persisted and independently verified",
+      "status": "pass",
+      "evidence": {
+        "case_identifier_hash": "7bcc7da16ca4",
+        "verified_readback": true
+      },
+      "elapsed_ms": 36.32
+    },
+    {
+      "id": "HTTP-012",
+      "priority": "P0",
+      "description": "Same idempotency key and payload returns one case",
+      "status": "pass",
+      "evidence": {
+        "same_case": true,
+        "case_count_unchanged": true
+      },
+      "elapsed_ms": 41.56
+    },
+    {
+      "id": "HTTP-013",
+      "priority": "P0",
+      "description": "New idempotency key cannot duplicate the same active claim",
+      "status": "pass",
+      "evidence": {
+        "http_status": 200,
+        "case_count_unchanged": true
+      },
+      "elapsed_ms": 43.59
+    },
+    {
+      "id": "HTTP-014",
+      "priority": "P0",
+      "description": "Same key with another payload produces conflict",
+      "status": "pass",
+      "evidence": {
+        "http_status": 409
+      },
+      "elapsed_ms": 45.87
+    },
+    {
+      "id": "HTTP-015",
+      "priority": "P0",
+      "description": "Case ID possession does not authorize another customer",
+      "status": "pass",
+      "evidence": {
+        "http_status": 404
+      },
+      "elapsed_ms": 13.13
+    },
+    {
+      "id": "HTTP-016",
+      "priority": "P0",
+      "description": "Customer cannot patch agent-only case status",
+      "status": "pass",
+      "evidence": {
+        "http_status": 403
+      },
+      "elapsed_ms": 9.6
+    },
+    {
+      "id": "HTTP-017",
+      "priority": "P0",
+      "description": "Agent cannot introduce a refund/adjudication status",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422
+      },
+      "elapsed_ms": 12.55
+    },
+    {
+      "id": "HTTP-018",
+      "priority": "P0",
+      "description": "Post-commit timeout recovers without duplicating",
+      "status": "pass",
+      "evidence": {
+        "first_http_status": 503,
+        "retry_verified": true,
+        "new_case_count": 1
+      },
+      "elapsed_ms": 115.08
+    },
+    {
+      "id": "HTTP-019",
+      "priority": "P0",
+      "description": "Concurrent distinct keys cannot create duplicate active cases",
+      "status": "pass",
+      "evidence": {
+        "http_statuses": [
+          200,
+          201
+        ],
+        "new_case_count": 1
+      },
+      "elapsed_ms": 141.3
+    },
+    {
+      "id": "HTTP-020",
+      "priority": "P1",
+      "description": "Portuguese allegation survives persistence without factual additions",
+      "status": "pass",
+      "evidence": {
+        "statement_preserved": true,
+        "verified_readback": true
+      },
+      "elapsed_ms": 93.53
+    },
+    {
+      "id": "HTTP-021",
+      "priority": "P0",
+      "description": "Prompt injection cannot bypass ownership or consent",
+      "status": "pass",
+      "evidence": {
+        "http_status": 200,
+        "case_count_unchanged": true,
+        "foreign_merchant_disclosed": false
+      },
+      "elapsed_ms": 79.2
+    },
+    {
+      "id": "HTTP-022",
+      "priority": "P1",
+      "description": "Sensitive API reads prohibit response caching",
+      "status": "pass",
+      "evidence": {
+        "private_no_store": true
+      },
+      "elapsed_ms": 14.25
+    },
+    {
+      "id": "HTTP-024",
+      "priority": "P1",
+      "description": "Authorized agent transition reports the persisted outcome",
+      "status": "pass",
+      "evidence": {
+        "version_increment": 1,
+        "verified_readback": true
+      },
+      "elapsed_ms": 60.95
+    },
+    {
+      "id": "HTTP-025",
+      "priority": "P0",
+      "description": "Stale agent update is rejected without mutating state",
+      "status": "pass",
+      "evidence": {
+        "http_status": 409,
+        "state_unchanged": true
+      },
+      "elapsed_ms": 68.87
+    },
+    {
+      "id": "HTTP-026",
+      "priority": "P0",
+      "description": "Natural ES/PT secret disclosures do not enter stored drafts",
+      "status": "pass",
+      "evidence": {
+        "synthetic_variants_rejected": 4,
+        "http_statuses": [
+          422,
+          422,
+          422,
+          422
+        ],
+        "real_credentials_used": false
+      },
+      "elapsed_ms": 52.91
+    },
+    {
+      "id": "HTTP-027",
+      "priority": "P0",
+      "description": "Submission cannot replace the reviewed draft contents",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422,
+        "case_count_unchanged": true
+      },
+      "elapsed_ms": 55.77
+    },
+    {
+      "id": "HTTP-028",
+      "priority": "P0",
+      "description": "Altered opaque session cookie cannot authorize reads",
+      "status": "pass",
+      "evidence": {
+        "http_status": 401
+      },
+      "elapsed_ms": 21.15
+    },
+    {
+      "id": "HTTP-023",
+      "priority": "P0",
+      "description": "Expired session cannot read or submit an existing draft",
+      "status": "pass",
+      "evidence": {
+        "submit_status": 401,
+        "read_status": 401
+      },
+      "elapsed_ms": 61.27
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+name: Verify Reclama
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm run install:ci
+      - run: npm run typecheck
+      - run: npm run lint:app
+      - run: node ml/v1/verify-parity.mjs
+      - run: python3 data-pipeline/validate_assets.py
+      - run: npm run build
+      - name: Verify HTTP workflow against fresh local D1
+        run: |
+          npm run db:local
+          npm run dev > /tmp/reclama-dev.log 2>&1 &
+          python3 tests/wait-ready.py http://127.0.0.1:5173/
+          python3 tests/http-integration.py --base-url http://127.0.0.1:5173 --output /tmp/http-results.json

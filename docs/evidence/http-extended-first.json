@@ -1,0 +1,35 @@
+{
+  "scope": "Synthetic local API tests; no real credential used",
+  "results": [
+    {
+      "id": "es_pin",
+      "http_status": 201,
+      "sensitive_statement_accepted": true
+    },
+    {
+      "id": "pt_pin",
+      "http_status": 201,
+      "sensitive_statement_accepted": true
+    },
+    {
+      "id": "es_password",
+      "http_status": 201,
+      "sensitive_statement_accepted": true
+    },
+    {
+      "id": "pt_password",
+      "http_status": 201,
+      "sensitive_statement_accepted": true
+    },
+    {
+      "id": "agent_update",
+      "http_status": 409,
+      "expected": 200
+    },
+    {
+      "id": "agent_stale_version",
+      "http_status": 409,
+      "expected": 409
+    }
+  ]
+}

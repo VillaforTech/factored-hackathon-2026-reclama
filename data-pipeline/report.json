@@ -1,0 +1,503 @@
+{
+  "schemaVersion": "1.0.0",
+  "reportVersion": "reclama-profile-v1",
+  "sourceVersion": "sha256:7bfdfaf9a90cfac256b76d690f3f9844df2666f59b7282c697536643f125307d",
+  "generatedAt": "2026-09-29T18:26:37.530411+00:00",
+  "provenance": "computed-from-organizer-synthetic-data",
+  "containsOriginalRecords": false,
+  "officialSources": [
+    {
+      "label": "Dataset summary",
+      "url": "https://factored-hackathon.slack.com/files/U0C3R316RQT/F0C4MV86KA5/latam_bank_dataset_summary__1_.pdf"
+    },
+    {
+      "label": "Data dictionary",
+      "url": "https://factored-hackathon.slack.com/files/U0C3R316RQT/F0C4LF2AVLJ/latam_bank_complete_data_dictionary__2_.pdf"
+    }
+  ],
+  "scope": {
+    "fileCount": 50,
+    "temporalCutsPerFactTable": 12,
+    "sampling": "bounded-temporal-coverage-not-random",
+    "partitionDates": [
+      "2023-06-17",
+      "2023-09-25",
+      "2024-01-02",
+      "2024-04-11",
+      "2024-07-20",
+      "2024-10-27",
+      "2025-02-04",
+      "2025-05-14",
+      "2025-08-22",
+      "2025-11-30",
+      "2026-03-09",
+      "2026-06-17"
+    ],
+    "dimensions": [
+      "customers",
+      "products"
+    ],
+    "tables": {
+      "customers": {
+        "rows": 150000,
+        "files": 1
+      },
+      "products": {
+        "rows": 400000,
+        "files": 1
+      },
+      "transactions": {
+        "rows": 48810,
+        "files": 12
+      },
+      "complaints": {
+        "rows": 700,
+        "files": 12
+      },
+      "call_center_interactions": {
+        "rows": 7095,
+        "files": 12
+      },
+      "call_transcripts": {
+        "rows": 1748,
+        "files": 12
+      }
+    },
+    "populationInferencePermitted": false
+  },
+  "metrics": {
+    "transactions": 48810,
+    "ownershipMatches": 48810,
+    "currencyMatches": 48810,
+    "structurallyValidTransactions": 48810,
+    "cardPurchases": 11872,
+    "approvedCardPurchases": 10903,
+    "approvedCardPurchaseCustomers": 10036,
+    "approvedCardPurchasesMissingMerchant": 531,
+    "cardPurchaseStatuses": {
+      "Approved": 10903,
+      "Declined": 579,
+      "Pending": 250,
+      "Reversed": 140
+    },
+    "approvedCardPurchaseCurrencies": {
+      "ARS": 1998,
+      "COP": 2947,
+      "USD": 5958
+    },
+    "complaintRows": 700,
+    "complaintsWithProduct": 448,
+    "complaintProductOwnerMismatch": 448,
+    "complaintProductOwnerMatches": 0,
+    "complaintsWithOriginInteraction": 0,
+    "uniqueComplaintDescriptions": 5,
+    "transcripts": 1748,
+    "transcriptLanguages": {
+      "es": 1748
+    },
+    "uniqueCustomerUtterances": 42,
+    "transcriptsContainingSaldo": 1748,
+    "transcriptsMatchingDisputeKeywords": 0
+  },
+  "contracts": {
+    "schemaFilesPassed": 50,
+    "duplicateRowsByTable": {
+      "customers": 0,
+      "products": 0,
+      "transactions": 0,
+      "complaints": 0,
+      "call_center_interactions": 0,
+      "call_transcripts": 0
+    },
+    "products": {
+      "acceptedStructural": 400000,
+      "quarantinedStructural": 0,
+      "reasonCounts": {}
+    },
+    "transactions": {
+      "acceptedStructural": 48810,
+      "quarantinedStructural": 0,
+      "reasonCounts": {}
+    },
+    "complaintProductJoin": {
+      "acceptedLinks": 0,
+      "quarantinedLinks": 448,
+      "unavailableLinks": 252,
+      "policy": "Never expose another customer's product through a complaint foreign key."
+    },
+    "quarantineRetention": "Counts only in public artifacts; no original identifiers or financial records exported."
+  },
+  "temporal": {
+    "verifiedLiveRecords": 0,
+    "transactionTimesWithoutTimezone": 48810,
+    "processTimesWithoutTimezone": 48810,
+    "invalidTransactionTimes": 0,
+    "invalidProcessTimes": 0,
+    "processDateBeforeTransactionCalendarDate": 12268,
+    "productUpdatesWithoutTimezone": 400000,
+    "productUpdatesAfterDeclaredCalendarCoverage": 25113,
+    "eventCalendarMin": "2023-06-17T06:01:30",
+    "eventCalendarMax": "2026-06-18T05:59:41",
+    "interpretation": "Source-local calendar values only. process_date is not a trusted available-at timestamp. Static product dimensions are not as-of ownership history. No source-live freshness claim is justified."
+  },
+  "sourceFiles": [
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20230617.csv",
+      "sha256": "483aff3c2114ffda278adefc48fbe86d10175da2d493b6d4749f0f4d700362f8",
+      "bytes": 71071,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20230925.csv",
+      "sha256": "9d2064056cda93b1749b0556f9333dbd43a4b06c57bcf3f693e56929395e3e7f",
+      "bytes": 132917,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20240102.csv",
+      "sha256": "b9e92aae6be9c95365691e20d555016c088aba77c01a7d76afdd05dc373ffde4",
+      "bytes": 111655,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20240411.csv",
+      "sha256": "87688975b122ac43995cc73cc08acc7611169450ca9cd52aa9c475db397dd661",
+      "bytes": 179468,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20240720.csv",
+      "sha256": "2f5d4b35993ed11a4bfe7edeaefbc1a4beb8b1196741326592bdafe4c2e814bc",
+      "bytes": 56183,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20241027.csv",
+      "sha256": "667aba1d0dbeb174b4fe90c54c8819a55878caa13596fd044320c4be436f52df",
+      "bytes": 54774,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20250204.csv",
+      "sha256": "5006872351de2df5b7259e28ce3c7a5eceb40635ca3b9cf71c9ca2ffcce4ecae",
+      "bytes": 127391,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20250514.csv",
+      "sha256": "de7474d320efab2d6f8490ff90b09aa65cdee17aa30a189895a3f1315f5605ee",
+      "bytes": 142088,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20250822.csv",
+      "sha256": "466d217fd81f2e588851f0ae8165cc57183a3ea56d59a87391bc218c10e1f5ff",
+      "bytes": 174964,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20251130.csv",
+      "sha256": "6c209e5b6634c82d078d2b818883b421fd3bad59c3fcd7e8ecd3b16c71a9f85e",
+      "bytes": 74119,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20260309.csv",
+      "sha256": "ebd8ff220d4e50a77626ed2b2545e39e64ea4fbca774eef56a2b676ad93978ac",
+      "bytes": 153106,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_transcripts",
+      "path": "data/call_transcripts/call_transcripts_20260617.csv",
+      "sha256": "c2f4b895cdc8b0c6f2a761e6a995eb696b9d350702b75656fa558ec73c1bef98",
+      "bytes": 124401,
+      "schemaColumns": 18
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20230617.csv",
+      "sha256": "6d961692a981036bdd6d00d41b2a542e0a8dd54b57d0af3b1a32dc4251f4e6e1",
+      "bytes": 77678,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20230925.csv",
+      "sha256": "e79929e67c6ac6989380b10178509b14b2999b44a130c8f5865342082f0ed1f5",
+      "bytes": 128822,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20240102.csv",
+      "sha256": "5612452088f3b2482cf2a9dc21fb84be1ce53c19d42b148eeb0abd662c63f0b1",
+      "bytes": 119412,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20240411.csv",
+      "sha256": "d89612f79af515bd716c650e87a9f74b9d12b00baad6fedfe458be287e447634",
+      "bytes": 175404,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20240720.csv",
+      "sha256": "e67db1e41841fef0880ceeffac909fc4e760a7940181cde6b7c961379b021e76",
+      "bytes": 64752,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20241027.csv",
+      "sha256": "c6cee7dc6480a11cca51f2f1c824380bb6be3b9d6aad3fdcb40265fef0999c2b",
+      "bytes": 67932,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20250204.csv",
+      "sha256": "11aab977e1faed8764bad0dbbd637bf4a64d22622717896e05631ede64d6080c",
+      "bytes": 126640,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20250514.csv",
+      "sha256": "ef35e3e4f67c0ef138c0655b5a65294a7ba376a44da64c4f55c7cd8c5de570b4",
+      "bytes": 149501,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20250822.csv",
+      "sha256": "439aec37583e89b7538f75ea6e790436259f7c1fa6c6629a6ebb3ac0754f7b1a",
+      "bytes": 176350,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20251130.csv",
+      "sha256": "0f57042e8f67fcc8f474838302eefd1ee258a862240f9e54ad64331674a920d3",
+      "bytes": 80457,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20260309.csv",
+      "sha256": "77e2513e208ef1f7b5a068846be4ba9ac0748930f38bf29b2299a24a198cb866",
+      "bytes": 156997,
+      "schemaColumns": 21
+    },
+    {
+      "table": "call_center_interactions",
+      "path": "data/call_center_interactions/call_center_interactions_20260617.csv",
+      "sha256": "23d0245aac0077844efd412929e0f2c5c4520965f746a346e5cf8978f5fa821a",
+      "bytes": 120535,
+      "schemaColumns": 21
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20230617.csv",
+      "sha256": "b4f4e2f58ce4dcf610a97438cf74986e8c7b321b14ca93f68719abe5504e8c63",
+      "bytes": 10557,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20230925.csv",
+      "sha256": "865c9afd376cc0efd11cf1785466b4d67f6355b46b2f3da0af5c383bd79f9bfe",
+      "bytes": 15775,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20240102.csv",
+      "sha256": "7d40dcc65e4565580bcdde26172ef138773039c4e7c553819f2582d1591dbdf3",
+      "bytes": 16494,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20240411.csv",
+      "sha256": "4732b11bb69bdf2343b666ce385e9604a1f9cbbf3e19bbbe7af9be9879b63a0a",
+      "bytes": 17669,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20240720.csv",
+      "sha256": "e3a6ff5a04a021569113a9c36b58bf17ceb00233eafa4d7d7c38ff1beded96c4",
+      "bytes": 9364,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20241027.csv",
+      "sha256": "1a3f16b162593a1b568220d762ee9a5579212e16b3a93b32bba5170cbad377bc",
+      "bytes": 9520,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20250204.csv",
+      "sha256": "43e0472a2f2e7180c3163b737b200b33f1b243ae6d2e318aa36603cb16216500",
+      "bytes": 17406,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20250514.csv",
+      "sha256": "4f3bf943badc02a3805aba58c3ae53c3e6d8d56fd9a55d2e4db9fb5d5c8e5990",
+      "bytes": 19639,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20250822.csv",
+      "sha256": "a6208b5c28ec5ddc6ead0d970a1eee60937f866bc8011f8aea368b923d59b19e",
+      "bytes": 17545,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20251130.csv",
+      "sha256": "338080faa4602c5a876feb9c03da9ef24b0a5aeb8ba3e76b2556bf672570b72e",
+      "bytes": 7832,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20260309.csv",
+      "sha256": "705d0badc0218be1153d19e9398cc3a6ef4fb0f31a82018e64c4772f40c4bfb7",
+      "bytes": 21061,
+      "schemaColumns": 27
+    },
+    {
+      "table": "complaints",
+      "path": "data/complaints/complaints_20260617.csv",
+      "sha256": "884abc85c80a24c79db55a16364a3b0ebf95e591b1ddfa4f623e5b24d0011106",
+      "bytes": 22297,
+      "schemaColumns": 27
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20230617.csv",
+      "sha256": "b49e81fd5c5fb19dcb8330543c845cab0d7a23091c423b91c383a9173e80f68b",
+      "bytes": 526368,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20230925.csv",
+      "sha256": "3eb433cd071b06ad1b87cb714ca2400d0546d41147adde5840a1defcf953d63f",
+      "bytes": 901301,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20240102.csv",
+      "sha256": "7cda77f9d7d810eba268c8512a7ceb3104f6284d75ffffe0c005b100503253af",
+      "bytes": 962726,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20240411.csv",
+      "sha256": "256f30bbcacac21c4156ce95fbc262860a6437504d1eae44597b80e0d291523d",
+      "bytes": 925132,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20240720.csv",
+      "sha256": "10b17fc290b7658e531e5c6b74f4e1be7666e390852dfa9811190c2398487971",
+      "bytes": 432443,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20241027.csv",
+      "sha256": "890bea8df05099edd1ad1b90a6ff542ff4b2b0a493c821542e28ddc3d00b23a5",
+      "bytes": 453928,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20250204.csv",
+      "sha256": "9d968ba4bfc330fae55ada4f6c0a92d6d164d2ba9ab9e2b100e9051066570683",
+      "bytes": 877798,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20250514.csv",
+      "sha256": "48776f0fb9ed6cdbbc561ba856d325abf48f08004b03f63a6b140be1b30648d1",
+      "bytes": 950038,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20250822.csv",
+      "sha256": "2d6aead425f840e0668939920e699b1a5b6641839281160c043a8d5226edfadf",
+      "bytes": 834316,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20251130.csv",
+      "sha256": "493e121d0c91461bbe444de2300392ad51f24629ace8c9fbc1d540f893d821ae",
+      "bytes": 403645,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20260309.csv",
+      "sha256": "34375db8edc68b30865a626fdeb8f0e49876b502c6eeccc2ce6046bcf1961b45",
+      "bytes": 667257,
+      "schemaColumns": 22
+    },
+    {
+      "table": "transactions",
+      "path": "data/transactions/transactions_20260617.csv",
+      "sha256": "4c8d48292f240dfa3ce3d6314138e6d2c3649f04d07c900923551739e7236bee",
+      "bytes": 975928,
+      "schemaColumns": 22
+    },
+    {
+      "table": "customers",
+      "path": "data/customers/customers.csv",
+      "sha256": "c5bb1f835d688b6191c7447e32b6334ce03641a24b3c060dceaf138514db34c6",
+      "bytes": 46897358,
+      "schemaColumns": 27
+    },
+    {
+      "table": "products",
+      "path": "data/products/products.csv",
+      "sha256": "f071906b4342b35f80fb634cba46f74b3ccacc373fe96bbe55377d29553698df",
+      "bytes": 68213646,
+      "schemaColumns": 17
+    }
+  ],
+  "limitations": [
+    "Synthetic organizer data and bounded temporal coverage; no estimate of real banking demand or fraud prevalence.",
+    "Structurally valid approved purchases support selecting a transaction, not proving fraud, posted settlement, reimbursement rights or policy eligibility.",
+    "Ownership is internally consistent with the provided static dimension, not independently verified identity or historical ownership.",
+    "The public demo uses separate, entirely team-generated records and explicit sandbox time; it does not expose these source records.",
+    "Portuguese dialogues require separately authored or translated cases and human review. No Portuguese corpus was observed.",
+    "No raw transcripts, outcome labels, personal fields or secrets appear in this report. Aggregated research metrics are not product evaluation scores."
+  ]
+}

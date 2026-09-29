@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "sourceVersion": "reclama-demo-v1",
+  "provenance": "team-generated",
+  "snapshotAt": "2026-06-17T18:00:00-05:00",
+  "isLive": false,
+  "description": "Entirely invented sandbox fixtures. No organizer records, identifiers, merchants or customer identities were copied. No fraud or refund outcome is asserted.",
+  "customers": [
+    {"id": "cus_58d410ab", "name": "Ana Torres", "language": "es"},
+    {"id": "cus_c2e79604", "name": "Lucas Costa", "language": "pt"}
+  ],
+  "cards": [
+    {"id": "crd_070b6f52", "customerId": "cus_58d410ab", "label": "Tarjeta USD", "last4": "1842", "currency": "USD", "status": "Active"},
+    {"id": "crd_965ea3d1", "customerId": "cus_58d410ab", "label": "Tarjeta COP", "last4": "7306", "currency": "COP", "status": "Active"},
+    {"id": "crd_e4c2318a", "customerId": "cus_c2e79604", "label": "Cartão ARS", "last4": "5921", "currency": "ARS", "status": "Active"}
+  ],
+  "transactions": [
+    {"id": "txn_bf51a0c9", "customerId": "cus_58d410ab", "cardId": "crd_070b6f52", "merchant": "Luna Digital", "amountMinor": 8490, "currency": "USD", "occurredAt": "2026-06-16T14:22:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-01", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_63ea729b", "customerId": "cus_58d410ab", "cardId": "crd_070b6f52", "merchant": "Luna Digital", "amountMinor": 8490, "currency": "USD", "occurredAt": "2026-06-16T14:29:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-02", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_d41c087e", "customerId": "cus_58d410ab", "cardId": "crd_070b6f52", "merchant": "Café Nube", "amountMinor": 1275, "currency": "USD", "occurredAt": "2026-06-17T08:10:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-03", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_a7098be3", "customerId": "cus_58d410ab", "cardId": "crd_070b6f52", "merchant": "Tienda Brisa", "amountMinor": 3499, "currency": "USD", "occurredAt": "2026-06-17T10:15:00-05:00", "status": "Pending", "sourceRef": "authored-demo/record-04", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_28cd547f", "customerId": "cus_58d410ab", "cardId": "crd_070b6f52", "merchant": "Estudio Faro", "amountMinor": 4500, "currency": "USD", "occurredAt": "2026-06-15T12:30:00-05:00", "status": "Reversed", "sourceRef": "authored-demo/record-05", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_efd82310", "customerId": "cus_58d410ab", "cardId": "crd_070b6f52", "merchant": "Atlas Cursos", "amountMinor": 9900, "currency": "USD", "occurredAt": "2026-06-14T16:40:00-05:00", "status": "Declined", "sourceRef": "authored-demo/record-06", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_91aeb4cd", "customerId": "cus_58d410ab", "cardId": "crd_965ea3d1", "merchant": "Mercado Horizonte", "amountMinor": 7580000, "currency": "COP", "occurredAt": "2026-06-16T18:45:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-07", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_36c80dab", "customerId": "cus_58d410ab", "cardId": "crd_965ea3d1", "merchant": null, "amountMinor": 12990000, "currency": "COP", "occurredAt": "2026-06-15T11:05:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-08", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_c981254d", "customerId": "cus_58d410ab", "cardId": "crd_965ea3d1", "merchant": "Parque Solar", "amountMinor": 2500000, "currency": "COP", "occurredAt": "2026-06-17T13:50:00-05:00", "status": "Pending", "sourceRef": "authored-demo/record-09", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_417fdc86", "customerId": "cus_c2e79604", "cardId": "crd_e4c2318a", "merchant": "Livraria Aurora", "amountMinor": 1850000, "currency": "ARS", "occurredAt": "2026-06-16T15:10:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-10", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_7cab2190", "customerId": "cus_c2e79604", "cardId": "crd_e4c2318a", "merchant": "Música Vento", "amountMinor": 420000, "currency": "ARS", "occurredAt": "2026-06-15T20:25:00-05:00", "status": "Approved", "sourceRef": "authored-demo/record-11", "sourceVersion": "reclama-demo-v1"},
+    {"id": "txn_0da724cf", "customerId": "cus_c2e79604", "cardId": "crd_e4c2318a", "merchant": "Oficina Prisma", "amountMinor": 6300000, "currency": "ARS", "occurredAt": "2026-06-14T09:35:00-05:00", "status": "Reversed", "sourceRef": "authored-demo/record-12", "sourceVersion": "reclama-demo-v1"}
+  ]
+}
