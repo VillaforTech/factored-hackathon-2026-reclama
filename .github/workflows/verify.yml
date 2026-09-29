@@ -14,6 +14,7 @@ jobs:
       - run: npm run lint:app
       - run: node ml/v1/verify-parity.mjs
       - run: node ml/v2/verify-parity.mjs
+      - run: npm run test:assistant
       - run: python3 data-pipeline/validate_assets.py
       - run: npm run build
       - name: Verify HTTP workflow against fresh local D1
@@ -22,3 +23,5 @@ jobs:
           npm run dev > /tmp/reclama-dev.log 2>&1 &
           python3 tests/wait-ready.py http://127.0.0.1:5173/
           python3 tests/http-integration.py --base-url http://127.0.0.1:5173 --output /tmp/http-results.json
+          python3 tests/http-runs-regressions.py --base-url http://127.0.0.1:5173 --output /tmp/http-runs-results.json
+          python3 tests/http-context-regressions.py --base-url http://127.0.0.1:5173 --output /tmp/http-context-results.json

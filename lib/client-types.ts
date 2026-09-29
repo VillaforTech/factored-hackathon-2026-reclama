@@ -13,9 +13,12 @@ export type Tx = {
   sourceVersion: string;
 };
 export type SessionView = {
+  contextId: string;
   role: "customer" | "agent";
   locale: Locale;
   expiresAt: number;
+  runId: string;
+  snapshot: { snapshotAt: string; sourceVersion: string; isLive: false };
   customer: { id: string; name: string; language: string };
 };
 export type Draft = {
@@ -60,12 +63,18 @@ export async function api<T>(
   path: string,
   method = "GET",
   body?: unknown,
+  signal?: AbortSignal,
+  contextId?: string,
 ): Promise<T> {
   const r = await fetch("/api/" + path, {
     method,
-    headers: body ? { "Content-Type": "application/json" } : undefined,
+    headers: {
+      ...(body ? { "Content-Type": "application/json" } : {}),
+      ...(contextId ? { "X-Reclama-Context": contextId } : {}),
+    },
     body: body ? JSON.stringify(body) : undefined,
     credentials: "same-origin",
+    signal,
   });
   const data = (await r.json()) as Record<string, unknown>;
   if (!r.ok)

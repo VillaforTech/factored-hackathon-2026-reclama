@@ -4,9 +4,9 @@
 
 Reclama identifies a customer's transaction, keeps source facts separate from their statement, obtains specific consent, persists one case and gives a human reviewer an auditable handoff. It does **not** adjudicate fraud, approve credit, issue refunds, freeze cards or move money.
 
-**[Open the public demo](https://reclama-factored-2026.villafortech.chatgpt.site)** · **[Public source](https://github.com/VillaforTech/factored-hackathon-2026-reclama)**
+**[Open the private team demo](https://reclama-factored-2026.villafortech.chatgpt.site)** · **[Private team source](https://github.com/VillaforTech/factored-hackathon-2026-reclama)**
 
-The page is public. Case operations use normal ChatGPT sign-in and an isolated sandbox; there are no bank integrations. Hosted sign-in was blocked by the identity provider’s security verification in our automated browser, so the hosted authenticated workflow remains a separate acceptance item.
+The demo and repository are private at the owner’s request. Access is restricted to the owner and explicitly invited teammates. Case operations use normal ChatGPT sign-in and an isolated sandbox; there are no bank integrations. Hosted sign-in was blocked by the identity provider’s security verification in our automated browser, so the hosted authenticated workflow remains a separate acceptance item.
 
 Team: Roberto Villafuerte, Jorge Arguello and Daniel Andrade. Responsibilities proposed in `docs/DELIVERY_PLAN.md` must be agreed with the team; no individual expertise is assumed.
 
@@ -26,6 +26,14 @@ Open the exact loopback URL printed by the server. Use **Entrar con ChatGPT**; t
 Choose Ana (Spanish, USD/COP) or Lucas (Portuguese, ARS). Select a movement, explicitly choose the reason, write a statement and review the immutable summary. The confirmation checkbox is required. In **Mesa de revisión**, explicitly enter the sandbox reviewer role to add a review note. This role switch is an educational simulation within your own workspace, not a real bank workforce identity system.
 
 **Laboratorio de resiliencia** can simulate a lost response after a successful database commit. Retry the same request to recover the existing case. A different request for an already registered movement returns a conflict; find the original in the review inbox. Expired sessions cannot write; after starting a new session, the inbox recovers existing cases.
+
+## Guided case workflow
+
+The assistant now returns source-backed transaction candidates from the message (ES/PT amount, merchant, currency, card suffix and exact date). Similar purchases are shown side by side and never automatically selected. The learned model proposes an unconfirmed intent; deterministic matching and server authorization are separate.
+
+Use **Usar este relato** to copy a message into the declaration without paraphrasing. Switching ES/PT preserves the active transaction, declaration and confirmation. The confirmation sheet separates source data, the customer statement and questions still requiring investigation. The receipt links to the reviewer’s persisted case.
+
+**Nuevo recorrido** creates a fresh owner-scoped scenario so the team can repeat the demo. Previous cases are retained and can be reopened from the run selector. Changing runs discards an unconfirmed form; the dialog says so before creation. Session expiry clears sensitive UI context and cancels pending requests. A hashed session-context marker rejects stale-tab reads and writes after another tab changes persona, role or run; it never grants authorization. The guest/public sandbox proposal was not implemented: every API still requires platform identity.
 
 ## Architecture
 
@@ -62,7 +70,7 @@ On the independent **256-message synthetic reserved set**, v2 scored **218/256 (
 
 **We rejected autonomous routing.** The frozen validation gate failed; the system always requires clarification and explicit choice. It shows raw top-1 only as an unconfirmed hypothesis. `other` recall is 9/32 and `unrecognized` precision is 25/34. There were zero normalized exact train/validation overlaps with the heldout set; broader semantic and author biases remain possible. Portuguese text and synthetic labels need human review. The earlier exploratory 64-message evaluation remains preserved separately.
 
-Measured system evidence: **28/28 HTTP checks** passed in fresh-database CI after the idempotency correction; **160/160 contract assertions** passed across 16 bilingual scenarios. These assertions are not 160 financial resolutions. Four workflow readback scenarios split into two intake and two support handoffs; financial resolutions are **zero by design**. Local warm model CPU p95 was 0.082 ms; local API scenario p95 ranged 6.35–22.75 ms with ten measurements each. Neither measure is production end-to-end latency. No external model API calls were made; total hosting/CPU cost has not been measured.
+Measured system evidence: **16/16 additional run/locale regressions**, **9/9 stale-session context regressions** and **20/20 deterministic assistant tests** passed locally. These are separate from the frozen classifier evaluation. **28/28 HTTP checks** passed in fresh-database CI after the idempotency correction; **160/160 contract assertions** passed across 16 bilingual scenarios. These assertions are not 160 financial resolutions. Four workflow readback scenarios split into two intake and two support handoffs; financial resolutions are **zero by design**. Local warm model CPU p95 was 0.082 ms; local API scenario p95 ranged 6.35–22.75 ms with ten measurements each. Neither measure is production end-to-end latency. No external model API calls were made; total hosting/CPU cost has not been measured.
 
 ## Security boundaries
 
@@ -82,7 +90,7 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 
 ## Delivery artifacts
 
-- `docs/presentation/`: editable six-slide deck and PDF with sourced evidence and limitations.
+- `docs/presentation/`: editable six-slide V2 draft and PDF with sourced evidence and limitations; update access wording and captures before final submission.
 - `docs/DEMO_175S.md`: demonstration script; the narrated video is a clearly labeled montage of real screenshots, not an uninterrupted live screen recording.
 - `docs/DELIVERY_PLAN.md`: daily plan and proposed team assignments through 5 October.
 - `docs/DELIVERY_STATUS.md`: verified delivery state and remaining external checks.
@@ -93,4 +101,4 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 - [Event hub](https://www.factored.ai/careers/ai-data-hackathon)
 - [Deadline and three-minute video clarification](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809)
 
-The verified deadline is **5 October 2026, 23:59 UTC−5 (continental Ecuador)**. The public repository, working demo or documented local exception, 4–6 slides and maximum-three-minute video are prepared as distinct deliverables. A built package is not an organizer submission receipt.
+The verified deadline is **5 October 2026, 23:59 UTC−5 (continental Ecuador)**. The challenge requires a public repository, working demo or documented local exception, 4–6 slides and maximum-three-minute video. The owner has explicitly kept this project private for now; public release and the final submission package remain separate decisions. A built package is not an organizer submission receipt.

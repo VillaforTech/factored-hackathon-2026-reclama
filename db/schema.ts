@@ -73,3 +73,14 @@ export const attempts = sqliteTable("attempts", {
   latencyMs: integer("latency_ms").notNull(),
   createdAt: text("created_at").notNull(),
 });
+
+// Each named demo run belongs to one trusted platform identity. No shared anonymous namespace.
+export const demoRuns = sqliteTable(
+  "demo_runs",
+  {
+    id: text("id").primaryKey(),
+    ownerWorkspace: text("owner_workspace").notNull(),
+    createdAt: text("created_at").notNull(),
+  },
+  (t) => [uniqueIndex("demo_run_owner").on(t.ownerWorkspace, t.id)],
+);

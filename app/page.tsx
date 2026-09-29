@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -22,6 +22,10 @@ import {
   LogIn,
   Download,
   X,
+  Play,
+  Plus,
+  History,
+  ClipboardCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -43,7 +47,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  api,
+  api as transport,
   ClientError,
   money,
   date,
@@ -54,13 +58,53 @@ import {
   type CaseView,
   type Audit,
 } from "@/lib/client-types";
+import { matchTransactions, type AssistantResult } from "@/lib/assistant";
 import { useWebMCP } from "@/lib/use-webmcp";
 import dataReport from "@/lib/data/data-report.json";
 import modelReport from "@/lib/data/model-report.json";
 
 type Chat = { side: "assistant" | "user"; text: string; model?: string };
+type RunView = { id: string; created_at: string | null };
 const reasons = ["unrecognized", "duplicate", "merchant_issue", "other"];
 export default function Home() {
+  const pendingRequests = useRef(new Set<AbortController>());
+  const activeContext = useRef<string | undefined>(undefined);
+  const contextEpoch = useRef(0);
+  const api = useCallback(
+    async <T,>(path: string, method = "GET", body?: unknown): Promise<T> => {
+      const controller = new AbortController();
+      const epoch = contextEpoch.current;
+      pendingRequests.current.add(controller);
+      try {
+        const contextFree =
+          path === "runs" || (path === "session" && method !== "PATCH");
+        const data = await transport<T>(
+          path,
+          method,
+          body,
+          controller.signal,
+          contextFree ? undefined : activeContext.current,
+        );
+        if (controller.signal.aborted || epoch !== contextEpoch.current)
+          throw new DOMException("Context changed", "AbortError");
+        if (
+          (path === "session" || (path === "runs" && method === "POST")) &&
+          data &&
+          typeof data === "object" &&
+          "contextId" in data
+        )
+          activeContext.current = String(data.contextId);
+        return data;
+      } finally {
+        pendingRequests.current.delete(controller);
+      }
+    },
+    [],
+  );
+  const [assistance, setAssistance] = useState<AssistantResult | null>(null);
+  const [runs, setRuns] = useState<RunView[]>([]);
+  const [guided, setGuided] = useState(false);
+  const [newRunOpen, setNewRunOpen] = useState(false);
   const [locale, setLocale] = useState<Locale>("es");
   const [session, setSession] = useState<SessionView | null>(null);
   const [auth, setAuth] = useState<"loading" | "login" | "ready">("loading");
@@ -107,13 +151,18 @@ export default function Home() {
       Pending: t("Pendiente", "Pendente"),
       Reversed: t("Reversado", "Revertida"),
       Declined: t("Rechazado", "Recusada"),
-      received: t("Recibido", "Recebida"),
+      received: t("Recibido", "Recebido"),
       in_review: t("En revisión", "Em análise"),
       needs_information: t("Información solicitada", "Informações solicitadas"),
     })[s] || s;
   function errorText(e: unknown) {
+    if (e instanceof DOMException && e.name === "AbortError") return "";
     const code = e instanceof ClientError ? e.code : "SERVICE_UNAVAILABLE";
     const map: Record<string, [string, string]> = {
+      RUN_LIMIT: [
+        "Alcanzaste los 50 recorridos. Puedes recuperar uno guardado.",
+        "Você atingiu 50 percursos. Pode recuperar um salvo.",
+      ],
       CASE_ALREADY_EXISTS: [
         "Ya existe un expediente para este movimiento. Cierra el resumen y ábrelo en Mesa de revisión.",
         "Já existe um caso para esta transação. Feche o resumo e abra-o na Mesa de análise.",
@@ -151,10 +200,20 @@ export default function Home() {
         "A confirmação não corresponde a esta sessão. Prepare outro resumo.",
       ],
     };
-    if (code === "SESSION_EXPIRED") {
+    if (
+      code === "SESSION_EXPIRED" ||
+      code === "SIGN_IN_REQUIRED" ||
+      code === "SESSION_CONTEXT_CHANGED"
+    ) {
+      clearContext();
       setSession(null);
-      setAuth("ready");
+      setAuth(code === "SIGN_IN_REQUIRED" ? "login" : "ready");
     }
+    if (code === "SESSION_CONTEXT_CHANGED")
+      return t(
+        "La sesión cambió en otra pestaña. Vuelve a abrir el recorrido antes de continuar.",
+        "A sessão mudou em outra aba. Abra o percurso novamente antes de continuar.",
+      );
     return map[code]
       ? t(...map[code])
       : t(
@@ -165,18 +224,96 @@ export default function Home() {
           code +
           ")";
   }
+  const clearContext = useCallback(() => {
+    contextEpoch.current += 1;
+    for (const controller of pendingRequests.current) controller.abort();
+    pendingRequests.current.clear();
+    setAssistance(null);
+    setTransactions([]);
+    setSelected(null);
+    setDraft(null);
+    setResult(null);
+    setReason("");
+    setStatement("");
+    setChats([]);
+    setConsent(false);
+    setFault(false);
+    setCases([]);
+    setDetail(null);
+    setNote("");
+    setText("");
+    setQuery("");
+    setMetrics([]);
+    setNotice("");
+    setGuided(false);
+  }, []);
+  async function loadRuns() {
+    setRuns((await api<{ runs: RunView[] }>("runs")).runs);
+  }
+  async function changeLocale() {
+    const next = locale === "es" ? "pt" : "es";
+    if (!session) {
+      setLocale(next);
+      return;
+    }
+    setBusy(true);
+    setError("");
+    try {
+      setSession(await api<SessionView>("session", "PATCH", { locale: next }));
+      setLocale(next);
+    } catch (e) {
+      setError(errorText(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function newRun() {
+    setBusy(true);
+    setError("");
+    try {
+      const s = await api<SessionView>("runs", "POST", {
+        persona,
+        locale,
+      });
+      clearContext();
+      setSession(s);
+      setAuth("ready");
+      setNewRunOpen(false);
+      setTab("attention");
+      setGuided(true);
+      const [tx, rs] = await Promise.all([
+        api<{ transactions: Tx[] }>("transactions"),
+        api<{ runs: RunView[] }>("runs"),
+      ]);
+      setTransactions(tx.transactions);
+      setRuns(rs.runs);
+      setNotice(
+        t(
+          "Recorrido nuevo. Los anteriores siguen guardados.",
+          "Novo percurso. Os anteriores continuam salvos.",
+        ),
+      );
+    } catch (e) {
+      setError(errorText(e));
+    } finally {
+      setBusy(false);
+    }
+  }
   const loadCases = useCallback(async () => {
     const r = await api<{ cases: CaseView[] }>("cases");
     setCases(r.cases);
-  }, []);
+  }, [api]);
   useEffect(() => {
     let cancelled = false;
+    const requests = pendingRequests.current;
     api<SessionView>("session")
       .then(async (s) => {
         if (cancelled) return;
         setSession(s);
         setLocale(s.locale);
         setAuth("ready");
+        const savedRuns = await api<{ runs: RunView[] }>("runs");
+        if (!cancelled) setRuns(savedRuns.runs);
         const c = await api<{ cases: CaseView[] }>("cases");
         if (!cancelled) setCases(c.cases);
         if (s.role === "customer") {
@@ -194,15 +331,34 @@ export default function Home() {
       });
     return () => {
       cancelled = true;
+      for (const controller of requests) controller.abort();
     };
-  }, []);
+  }, [api]);
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
+  useEffect(() => {
+    if (!session) return;
+    const timer = setTimeout(
+      () => {
+        clearContext();
+        setSession(null);
+        setAuth("ready");
+        setNotice(
+          session.locale === "es"
+            ? "La sesión venció. Recupera tu recorrido para continuar; los casos guardados se conservan."
+            : "A sessão expirou. Recupere seu percurso para continuar; os casos salvos são preservados.",
+        );
+      },
+      Math.max(0, session.expiresAt - Date.now()),
+    );
+    return () => clearTimeout(timer);
+  }, [session, clearContext]);
   async function start(
     persona: "ana" | "lucas",
     role: "customer" | "agent" = "customer",
     lang: Locale = locale,
+    runId?: string,
   ) {
     setBusy(true);
     setError("");
@@ -211,7 +367,9 @@ export default function Home() {
         persona,
         role,
         locale: lang,
+        ...(runId ? { runId } : {}),
       });
+      clearContext();
       setSession(s);
       setLocale(lang);
       setSelected(null);
@@ -227,7 +385,7 @@ export default function Home() {
           (await api<{ transactions: Tx[] }>("transactions")).transactions,
         );
       } else setTransactions([]);
-      await loadCases();
+      await Promise.all([loadCases(), loadRuns()]);
       setAuth("ready");
     } catch (e) {
       if (e instanceof ClientError && e.code === "SIGN_IN_REQUIRED")
@@ -238,27 +396,53 @@ export default function Home() {
     }
   }
   async function send(value = text) {
-    if (!value.trim() || busy) return;
+    if (!value.trim() || busy || !session) return;
     setBusy(true);
     setError("");
-    setChats((c) => [...c, { side: "user", text: value }]);
-    setText("");
+
     try {
       const r = await api<{
         message: string;
         abstain: boolean;
         modelVersion: string;
-      }>("message", "POST", { text: value });
+        intent: string;
+        assistance: AssistantResult;
+      }>("message", "POST", {
+        text: value,
+        ...(selected ? { selectedTransactionId: selected.id } : {}),
+        ...(reason ? { confirmedReason: reason } : {}),
+      });
+      setAssistance(r.assistance);
+      setText("");
       setChats((c) => [
         ...c,
+        { side: "user", text: value },
         {
           side: "assistant",
           text: r.message,
           model: r.abstain
-            ? t(
-                "Confirma o corrige la interpretación",
-                "Confirme ou corrija a interpretação",
-              )
+            ? t("Hipótesis sin confirmar: ", "Hipótese não confirmada: ") +
+              (
+                {
+                  unrecognized: t(
+                    "cargo no reconocido",
+                    "compra não reconhecida",
+                  ),
+                  duplicate: t("posible duplicado", "possível duplicidade"),
+                  merchant_issue: t(
+                    "problema con el comercio",
+                    "problema com estabelecimento",
+                  ),
+                  refund_request: t(
+                    "solicitud de reembolso",
+                    "pedido de reembolso",
+                  ),
+                  card_lost: t("tarjeta perdida", "cartão perdido"),
+                  account_query: t("consulta de cuenta", "consulta de conta"),
+                  credit_query: t("consulta de crédito", "consulta de crédito"),
+                  other: t("otra consulta", "outra consulta"),
+                } as Record<string, string>
+              )[r.intent]
             : t(
                 "Orientación del modelo · confirma el motivo",
                 "Orientação do modelo · confirme o motivo",
@@ -272,6 +456,7 @@ export default function Home() {
     }
   }
   function selectTx(tx: Tx) {
+    setAssistance(null);
     setSelected(tx);
     setDraft(null);
     setResult(null);
@@ -279,7 +464,7 @@ export default function Home() {
     setError("");
   }
   async function prepare() {
-    if (!selected || !reason) return;
+    if (!session || !selected || !reason) return;
     setBusy(true);
     setError("");
     try {
@@ -298,7 +483,7 @@ export default function Home() {
     }
   }
   async function confirm() {
-    if (!draft || !consent) return;
+    if (!session || !draft || !consent) return;
     setBusy(true);
     setError("");
     try {
@@ -424,19 +609,31 @@ export default function Home() {
         setError(errorText(e));
       }
   }
-  const visible = transactions.filter((x) =>
-    (
-      (x.merchant || "") +
-      " " +
-      x.currency +
-      " " +
-      x.id +
-      " " +
-      x.amountMinor / 100
-    )
-      .toLowerCase()
-      .includes(query.toLowerCase()),
-  );
+  const queryMatches =
+    query.trim() && session
+      ? matchTransactions({
+          text: query,
+          customerId: session.customer.id,
+          transactions,
+          snapshotAt: session.snapshot.snapshotAt,
+        }).candidates.map((c) => c.id)
+      : [];
+  const normalizedQuery = query
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+  const visible = !query.trim()
+    ? transactions
+    : transactions.filter(
+        (tx) =>
+          queryMatches.includes(tx.id) ||
+          `${tx.merchant || ""} ${tx.currency} ${tx.id} ${tx.cardLast4 || ""} ${money(tx, locale)} ${(tx.amountMinor / 100).toFixed(2)}`
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .includes(normalizedQuery),
+      );
   const persona = session?.customer.id === "cus_c2e79604" ? "lucas" : "ana";
   const latest = metrics.map((m) => m.latency_ms).sort((a, b) => a - b);
   const percentile = (p: number) =>
@@ -479,20 +676,13 @@ export default function Home() {
             </span>
           </div>
           <div className="topbar-right">
-            <span className="sandbox-dot" /> Sandbox · Factored 2026{" "}
+            <span className="sandbox-dot" />{" "}
+            {t("Equipo privado", "Equipe privada")} · Factored 2026{" "}
             <Button
               variant="outline"
               size="sm"
               disabled={busy}
-              onClick={() =>
-                session
-                  ? void start(
-                      persona,
-                      session.role,
-                      locale === "es" ? "pt" : "es",
-                    )
-                  : setLocale(locale === "es" ? "pt" : "es")
-              }
+              onClick={() => void changeLocale()}
             >
               <Globe2 />
               {locale.toUpperCase()}
@@ -512,8 +702,8 @@ export default function Home() {
               </h1>
               <p className="subheading">
                 {t(
-                  "Identifica el movimiento. Confirma los hechos. Conserva la evidencia.",
-                  "Identifique a transação. Confirme os fatos. Preserve as evidências.",
+                  "Revisa el movimiento y tu declaración. Conserva la evidencia.",
+                  "Revise a transação e seu relato. Preserve as evidências.",
                 )}
               </p>
             </div>
@@ -544,8 +734,8 @@ export default function Home() {
                 </strong>
                 <p>
                   {t(
-                    "Identidades y movimientos ficticios. Cada cuenta tiene su propio espacio aislado.",
-                    "Identidades e transações fictícias. Cada conta tem seu próprio espaço isolado.",
+                    "Datos ficticios en tu espacio de prueba. Acceso restringido al equipo.",
+                    "Dados fictícios no seu espaço de teste. Acesso restrito à equipe.",
                   )}
                 </p>
               </div>
@@ -562,6 +752,110 @@ export default function Home() {
                   {t("Iniciar sandbox", "Iniciar sandbox")}
                 </Button>
               )}
+            </section>
+          )}
+          {session && (
+            <section
+              className="run-toolbar"
+              aria-label={t(
+                "Recorridos de demostración",
+                "Percursos de demonstração",
+              )}
+            >
+              <div className="run-current">
+                <History size={17} />
+                <span>{t("Tu recorrido", "Seu percurso")}</span>
+                <Select
+                  value={session.runId || "default"}
+                  disabled={busy}
+                  onValueChange={(id) =>
+                    void start(persona, "customer", locale, id)
+                  }
+                >
+                  <SelectTrigger
+                    aria-label={t("Recorrido guardado", "Percurso salvo")}
+                    className="run-select"
+                  >
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {runs.map((r, i) => (
+                      <SelectItem key={r.id} value={r.id}>
+                        {r.id === "default"
+                          ? t("Inicial", "Inicial")
+                          : `${t("Recorrido", "Percurso")} ${runs.length - i} · ${r.created_at ? date(r.created_at, locale) : ""}`}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="button-row">
+                <Button
+                  size="sm"
+                  variant={guided ? "secondary" : "outline"}
+                  onClick={() => setGuided(!guided)}
+                >
+                  <Play size={14} />
+                  {t("Guía de 3 minutos", "Guia de 3 minutos")}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={busy}
+                  onClick={() => setNewRunOpen(true)}
+                >
+                  <Plus size={15} />
+                  {t("Nuevo recorrido", "Novo percurso")}
+                </Button>
+              </div>
+            </section>
+          )}
+          {guided && session && (
+            <section
+              className="guided-strip"
+              aria-label={t("Pasos del recorrido", "Etapas do percurso")}
+            >
+              <div className={!selected && !result ? "current" : "done"}>
+                <span>01</span>
+                <strong>{t("Encuentra el cargo", "Encontre a compra")}</strong>
+                <p>
+                  {persona === "lucas"
+                    ? t(
+                        "Prueba «Livraria Aurora, 18.500,00 ARS» y revisa el movimiento.",
+                        "Experimente «Livraria Aurora, 18.500,00 ARS» e confira a compra.",
+                      )
+                    : t(
+                        "Prueba «Luna Digital, 84,90 USD» y compara las horas.",
+                        "Experimente «Luna Digital, 84,90 USD» e compare os horários.",
+                      )}
+                </p>
+              </div>
+              <div
+                className={
+                  selected && !result ? "current" : result ? "done" : ""
+                }
+              >
+                <span>02</span>
+                <strong>
+                  {t("Documenta y confirma", "Documente e confirme")}
+                </strong>
+                <p>
+                  {t(
+                    "Elige el motivo y revisa tu relato antes de enviar.",
+                    "Escolha o motivo e revise seu relato antes de enviar.",
+                  )}
+                </p>
+              </div>
+              <div className={result ? "current" : ""}>
+                <span>03</span>
+                <strong>{t("Sigue la revisión", "Acompanhe a análise")}</strong>
+                <p>
+                  {t(
+                    "Abre la mesa y verifica el expediente y su historial.",
+                    "Abra a mesa e confira o caso e seu histórico.",
+                  )}
+                </p>
+              </div>
             </section>
           )}
           {error && (
@@ -652,8 +946,8 @@ export default function Home() {
                         <p>
                           {locale === "es" ? "Español" : "Português"} ·{" "}
                           {t(
-                            "clasificador aprendido + confirmación explícita",
-                            "classificador treinado + confirmação explícita",
+                            "Encuentra el movimiento y prepara tu solicitud",
+                            "Encontre a transação e prepare sua solicitação",
                           )}
                         </p>
                       </div>
@@ -685,6 +979,28 @@ export default function Home() {
                             key={i}
                           >
                             <p>{c.text}</p>
+                            {c.side === "user" &&
+                              c.text.trim().length >= 12 && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  className="reuse-statement"
+                                  disabled={busy || !session}
+                                  onClick={() => {
+                                    setStatement(c.text);
+                                    setDraft(null);
+                                    setNotice(
+                                      t(
+                                        "Relato copiado sin cambios. Elige el movimiento y confirma el motivo.",
+                                        "Relato copiado sem alterações. Escolha a transação e confirme o motivo.",
+                                      ),
+                                    );
+                                  }}
+                                >
+                                  <ClipboardCheck size={14} />
+                                  {t("Usar este relato", "Usar este relato")}
+                                </Button>
+                              )}
                             {c.model && (
                               <small className="model-note">
                                 <Activity size={11} />
@@ -694,6 +1010,108 @@ export default function Home() {
                           </div>
                         ))}
                       </div>
+                      {assistance && (
+                        <section
+                          className="candidate-panel"
+                          aria-label={t(
+                            "Coincidencias del mensaje",
+                            "Correspondências da mensagem",
+                          )}
+                        >
+                          {assistance.candidates.length > 0 && (
+                            <>
+                              <div className="candidate-heading">
+                                <Search size={17} />
+                                {assistance.candidates.length > 1
+                                  ? t(
+                                      "Compara antes de elegir",
+                                      "Compare antes de escolher",
+                                    )
+                                  : t(
+                                      "Revisa esta coincidencia",
+                                      "Confira esta correspondência",
+                                    )}
+                              </div>
+                              <div className="candidate-grid">
+                                {assistance.candidates.map((candidate) => (
+                                  <button
+                                    type="button"
+                                    className="candidate-card"
+                                    key={candidate.id}
+                                    aria-pressed={selected?.id === candidate.id}
+                                    disabled={busy || !session}
+                                    onClick={() => {
+                                      const tx = transactions.find(
+                                        (x) => x.id === candidate.id,
+                                      );
+                                      if (tx) selectTx(tx);
+                                    }}
+                                  >
+                                    <strong>
+                                      {candidate.merchant ||
+                                        t(
+                                          "Comercio no informado",
+                                          "Estabelecimento não informado",
+                                        )}
+                                    </strong>
+                                    <span className="candidate-amount">
+                                      {new Intl.NumberFormat(
+                                        locale === "es" ? "es-EC" : "pt-BR",
+                                        {
+                                          style: "currency",
+                                          currency: candidate.currency,
+                                        },
+                                      ).format(candidate.amountMinor / 100)}
+                                    </span>
+                                    <small>
+                                      {date(candidate.occurredAt, locale)} ·{" "}
+                                      {candidate.currency}
+                                    </small>
+                                    <small>
+                                      {statusName(candidate.status)} · •
+                                      {
+                                        transactions.find(
+                                          (x) => x.id === candidate.id,
+                                        )?.cardLast4
+                                      }
+                                    </small>
+                                    <span className="candidate-action">
+                                      {t(
+                                        "Elegir este movimiento",
+                                        "Escolher esta transação",
+                                      )}
+                                    </span>
+                                  </button>
+                                ))}
+                              </div>
+                              <p className="candidate-caption">
+                                {t(
+                                  "Coincidencias con tu fuente ficticia. Ninguna transacción se selecciona automáticamente.",
+                                  "Correspondências com sua fonte fictícia. Nenhuma transação é selecionada automaticamente.",
+                                )}
+                              </p>
+                            </>
+                          )}
+                          <div className="assistance-next">
+                            {assistance.guidance.nextStep}
+                          </div>
+                          {assistance.guidance.code ===
+                            "selection_conflict" && (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => {
+                                setSelected(null);
+                                setDraft(null);
+                                setReason("");
+                                setConsent(false);
+                              }}
+                            >
+                              {t("Revisar la selección", "Rever a seleção")}
+                            </Button>
+                          )}
+                        </section>
+                      )}
                       {chats.length === 0 && (
                         <div className="suggestions">
                           <Button
@@ -701,10 +1119,15 @@ export default function Home() {
                             disabled={!session || busy}
                             onClick={() =>
                               void send(
-                                t(
-                                  "No reconozco un cargo de Luna Digital.",
-                                  "Não reconheço uma compra da Livraria Aurora.",
-                                ),
+                                persona === "lucas"
+                                  ? t(
+                                      "No reconozco una compra de 18.500,00 ARS en Livraria Aurora.",
+                                      "Não reconheço uma compra de 18.500,00 ARS na Livraria Aurora.",
+                                    )
+                                  : t(
+                                      "No reconozco una compra de 84,90 USD en Luna Digital.",
+                                      "Não reconheço uma compra de 84,90 USD na Luna Digital.",
+                                    ),
                               )
                             }
                           >
@@ -723,10 +1146,28 @@ export default function Home() {
                           <strong className="case-code">{result.id}</strong>
                           <p>
                             {t(
-                              "Guardado y leído de vuelta. Pendiente de revisión humana; no es una resolución ni una promesa de reembolso.",
-                              "Salvo e verificado após a gravação. Aguarda análise humana; não é uma resolução nem uma promessa de reembolso.",
+                              "Solicitud recibida. El equipo revisará el movimiento y tu declaración. No implica que se haya autorizado un reembolso.",
+                              "Solicitação recebida. A equipe analisará a transação e seu relato. Não significa que um reembolso foi autorizado.",
                             )}
                           </p>
+                          <dl className="receipt-details">
+                            <div>
+                              <dt>{t("Movimiento", "Transação")}</dt>
+                              <dd>
+                                {result.facts.merchant ||
+                                  t("Sin comercio", "Sem estabelecimento")}{" "}
+                                · {money(result.facts, locale)}
+                              </dd>
+                            </div>
+                            <div>
+                              <dt>{t("Recibido", "Recebido")}</dt>
+                              <dd>{date(result.created_at, locale)}</dd>
+                            </div>
+                            <div>
+                              <dt>{t("Siguiente paso", "Próxima etapa")}</dt>
+                              <dd>{t("Revisión humana", "Análise humana")}</dd>
+                            </div>
+                          </dl>
                           <div className="button-row">
                             <Button
                               size="sm"
@@ -825,7 +1266,12 @@ export default function Home() {
                             <Button
                               className="prepare-button"
                               disabled={
-                                busy || !reason || statement.trim().length < 12
+                                busy ||
+                                !session ||
+                                assistance?.guidance.code ===
+                                  "selection_conflict" ||
+                                !reason ||
+                                statement.trim().length < 12
                               }
                               onClick={() => void prepare()}
                             >
@@ -975,6 +1421,7 @@ export default function Home() {
                           className={`transaction ${selected?.id === tx.id ? "selected" : ""}`}
                           key={tx.id}
                           onClick={() => selectTx(tx)}
+                          disabled={busy || !session}
                           aria-pressed={selected?.id === tx.id}
                         >
                           <span className="merchant-icon">
@@ -1068,8 +1515,8 @@ export default function Home() {
                     onClick={async () => {
                       try {
                         await api("demo/fault", "POST", { kind: "expire" });
+                        clearContext();
                         setSession(null);
-                        setDraft(null);
                         setNotice(
                           t(
                             "Sesión expirada intencionalmente. El servidor rechazará acciones con ella.",
@@ -1168,6 +1615,10 @@ export default function Home() {
                           <p>
                             {c.id} · {reasonName(c.reason)}
                           </p>
+                          <p>
+                            {t("Recibido", "Recebido")} ·{" "}
+                            {date(c.created_at, locale)}
+                          </p>
                         </div>
                         <span className="case-money">
                           {money(c.facts, locale)}
@@ -1251,8 +1702,8 @@ export default function Home() {
                   <Activity />
                   <h3>
                     {t(
-                      "Un modelo que reconoce sus límites",
-                      "Um modelo que reconhece seus limites",
+                      "Un modelo orientativo, con límites medidos",
+                      "Um modelo orientativo, com limites medidos",
                     )}
                   </h3>
                   <p>
@@ -1284,7 +1735,7 @@ export default function Home() {
                     <AlertCircle size={17} />
                     {t(
                       "La exactitud global no autoriza acciones: solo reconoce 9 de 32 casos «other». La apertura autónoma quedó deshabilitada; tú confirmas el motivo.",
-                      "A precisão global não autoriza ações: reconhece apenas 9 de 32 casos «other». A abertura autônoma ficou desativada; você confirma o motivo.",
+                      "A acurácia global não autoriza ações: reconhece apenas 9 de 32 casos «other». A abertura autônoma ficou desativada; você confirma o motivo.",
                     )}
                   </div>
                   <details>
@@ -1461,6 +1912,17 @@ export default function Home() {
                 <p>{draft.statement}</p>
                 <small>{reasonName(draft.reason)}</small>
               </div>
+              <div className="unknown-block">
+                <p className="eyebrow">
+                  {t("LO QUE AÚN NO SABEMOS", "O QUE AINDA NÃO SABEMOS")}
+                </p>
+                <p>
+                  {t(
+                    "Quién autorizó la compra, qué evidencia tiene el comercio y si corresponde un reembolso. Tu confirmación abre una revisión; no verifica estos puntos.",
+                    "Quem autorizou a compra, quais evidências o estabelecimento possui e se cabe reembolso. Sua confirmação inicia uma análise; não verifica esses pontos.",
+                  )}
+                </p>
+              </div>
               <div className="inline-warning">
                 <AlertCircle size={16} />
                 {draft.kind === "dispute_intake"
@@ -1492,7 +1954,7 @@ export default function Home() {
                 </p>
               )}
               <Button
-                disabled={!consent || busy}
+                disabled={!session || !consent || busy}
                 onClick={() => void confirm()}
               >
                 {busy ? <Loader2 className="spin" /> : <ShieldCheck />}
@@ -1511,6 +1973,25 @@ export default function Home() {
               </small>
             </>
           )}
+        </DialogContent>
+      </Dialog>
+      <Dialog open={newRunOpen} onOpenChange={setNewRunOpen}>
+        <DialogContent closeLabel={t("Cerrar", "Fechar")}>
+          <DialogHeader>
+            <DialogTitle>
+              {t("Un recorrido limpio", "Um novo percurso")}
+            </DialogTitle>
+            <DialogDescription>
+              {t(
+                "Tendrás las mismas transacciones ficticias para repetir la demostración. Los casos anteriores se conservan y puedes recuperarlos desde el selector de recorridos. Se descartará cualquier formulario que aún no hayas confirmado.",
+                "Você terá as mesmas transações fictícias para repetir a demonstração. Os casos anteriores são preservados e podem ser recuperados pelo seletor de percursos. Formulários ainda não confirmados serão descartados.",
+              )}
+            </DialogDescription>
+          </DialogHeader>
+          <Button disabled={busy} onClick={() => void newRun()}>
+            {busy ? <Loader2 className="spin" /> : <Plus />}
+            {t("Crear recorrido", "Criar percurso")}
+          </Button>
         </DialogContent>
       </Dialog>
       <Dialog
@@ -1615,7 +2096,10 @@ export default function Home() {
                       disabled={busy || note.trim().length < 12}
                       onClick={() => void updateCase("needs_information")}
                     >
-                      {t("Solicitar información", "Solicitar informações")}
+                      {t(
+                        "Marcar que falta información",
+                        "Marcar informações pendentes",
+                      )}
                     </Button>
                   </div>
                 </div>

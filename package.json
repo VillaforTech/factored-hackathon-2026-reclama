@@ -13,9 +13,10 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "typecheck": "tsc --noEmit",
-    "lint:app": "eslint app/page.tsx app/layout.tsx app/api lib/server lib/client-types.ts lib/use-webmcp.ts db/schema.ts",
+    "lint:app": "eslint app/page.tsx app/layout.tsx app/api lib/server lib/client-types.ts lib/assistant.ts lib/use-webmcp.ts db/schema.ts",
     "db:local": "node scripts/local-db.mjs",
-    "check": "npm run typecheck && npm run lint:app"
+    "check": "npm run typecheck && npm run lint:app",
+    "test:assistant": "node --experimental-strip-types --test tests/assistant.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

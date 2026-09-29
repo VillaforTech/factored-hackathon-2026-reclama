@@ -1398,3 +1398,259 @@ summary {
     max-height: 320px;
   }
 }
+
+/* V3: a working case desk; the task stays above the fold. */
+.page-content {
+  padding: 28px 34px;
+}
+.page-intro {
+  margin-bottom: 24px;
+}
+.page-intro h1 {
+  font-size: clamp(27px, 2.8vw, 36px);
+}
+.subheading,
+.trust-note strong,
+.panel-title p,
+.snapshot {
+  font-size: 14px;
+}
+.eyebrow,
+.product-label {
+  font-size: 12px;
+}
+.assistant-message,
+.user-message,
+.intake-form label,
+.statement-block p,
+.unknown-block p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+.run-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border: 1px solid #d8e3e9;
+  background: #fff;
+  border-radius: 12px;
+}
+.run-current {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #466273;
+  min-width: 0;
+}
+.run-select {
+  min-width: 230px;
+  background: #f6f9fb;
+}
+.guided-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid #d7e4e7;
+  border-radius: 12px;
+  background: #d7e4e7;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.guided-strip > div {
+  padding: 18px 20px;
+  background: #f8fafb;
+  position: relative;
+}
+.guided-strip .current {
+  background: #103b4b;
+  color: white;
+}
+.guided-strip .done {
+  background: #e8f5ef;
+}
+.guided-strip span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-right: 10px;
+}
+.guided-strip strong {
+  font-size: 15px;
+}
+.guided-strip p {
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 8px 0 0;
+  opacity: 0.85;
+}
+.reuse-statement {
+  margin-top: 8px;
+  color: inherit;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+.receipt-details {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+  text-align: left;
+  background: #ffffffb3;
+  border: 1px solid #c7e7d9;
+  padding: 14px;
+  border-radius: 10px;
+}
+.receipt-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: 14px;
+}
+.receipt-details dt {
+  color: #48665e;
+}
+.receipt-details dd {
+  margin: 0;
+  font-weight: 600;
+}
+.transaction:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+.candidate-panel {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #d6e4e8;
+}
+.candidate-heading {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.candidate-card {
+  text-align: left;
+  border: 1px solid #bed6da;
+  border-radius: 10px;
+  padding: 14px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #173c4b;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.candidate-card:hover {
+  border-color: #248975;
+  box-shadow: 0 0 0 2px #309d831f;
+}
+.candidate-card[aria-pressed="true"] {
+  border: 2px solid #238b72;
+  background: #e9f8f1;
+  padding: 13px;
+}
+.candidate-card strong {
+  font-size: 16px;
+}
+.candidate-card .candidate-amount {
+  font-size: 21px;
+  font-weight: 700;
+}
+.candidate-card small {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.candidate-card .candidate-action {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #21735f;
+  font-weight: 700;
+}
+.candidate-caption {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5b7280;
+  margin: 10px 0 0;
+}
+.assistance-next {
+  border-left: 3px solid #338f79;
+  padding: 10px 14px;
+  background: #f1f8f5;
+  font-size: 14px;
+  margin-top: 14px;
+}
+.case-row time {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+  color: #627b89;
+}
+@media (max-width: 900px) {
+  .page-content {
+    padding: 22px;
+  }
+  .guided-strip {
+    grid-template-columns: 1fr;
+  }
+  .guided-strip > div {
+    padding: 14px 16px;
+  }
+  .run-select {
+    min-width: 0;
+    width: 190px;
+  }
+}
+@media (max-width: 600px) {
+  .page-content {
+    padding: 16px;
+  }
+  .run-toolbar {
+    align-items: stretch;
+    padding: 12px;
+  }
+  .run-current {
+    flex-wrap: wrap;
+  }
+  .run-select {
+    width: 100%;
+  }
+  .run-current > span {
+    font-size: 13px;
+  }
+  .run-toolbar .button-row {
+    flex-wrap: wrap;
+  }
+  .candidate-grid {
+    grid-template-columns: 1fr;
+  }
+  .receipt-details > div {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .topbar-right {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

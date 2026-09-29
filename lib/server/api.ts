@@ -68,24 +68,35 @@ function cookieId(req: Request) {
       ?.slice(COOKIE.length + 1) || ""
   );
 }
-async function session(req: Request, workspace: string) {
+async function session(req: Request, workspace: string, ignoreContext = false) {
   const s = await one<Session>(
     "SELECT * FROM sessions WHERE id = ? AND workspace = ?",
     cookieId(req),
     workspace,
   );
   if (!s || s.expires_at < Date.now()) fail(401, "SESSION_EXPIRED");
+  const expected = req.headers.get("X-Reclama-Context");
+  if (
+    !ignoreContext &&
+    expected &&
+    expected !== (await hash("reclama-context:" + s.id))
+  )
+    fail(409, "SESSION_CONTEXT_CHANGED");
   return s;
 }
 function role(s: Session, wanted: "customer" | "agent") {
   if (s.role !== wanted) fail(403, "ROLE_REQUIRED");
 }
-const sessionView = (s: Session) => ({
+const sessionView = async (s: Session) => ({
+  contextId: await hash("reclama-context:" + s.id),
   role: s.role,
   locale: s.locale,
   expiresAt: s.expires_at,
   customer: personas.find((p) => p.id === s.customer_id),
   snapshot,
+  runId: s.workspace.includes(":run:")
+    ? s.workspace.split(":run:")[1]
+    : "default",
 });
 function publicCase(row: Row) {
   const { workspace, idempotency_key, payload_hash, last_actor, ...rest } = row;
@@ -125,7 +136,23 @@ export async function handle(req: Request) {
   try {
     const user = await getChatGPTUser();
     if (!user) fail(401, "SIGN_IN_REQUIRED");
-    const workspace = await hash("reclama-v1:" + user.userId);
+    const ownerWorkspace = await hash("reclama-v1:" + user.userId);
+    let workspace = ownerWorkspace;
+    const previous = await one<Session>(
+      "SELECT * FROM sessions WHERE id=?",
+      cookieId(req),
+    );
+    if (previous?.workspace.startsWith(ownerWorkspace + ":run:")) {
+      const runId = previous.workspace.slice((ownerWorkspace + ":run:").length);
+      if (
+        await one(
+          "SELECT id FROM demo_runs WHERE id=? AND owner_workspace=?",
+          runId,
+          ownerWorkspace,
+        )
+      )
+        workspace = previous.workspace;
+    }
     const path = new URL(req.url).pathname
       .replace(/^\/api\/?/, "")
       .split("/")
@@ -138,15 +165,88 @@ export async function handle(req: Request) {
       if (req.headers.get("sec-fetch-site") === "cross-site")
         fail(403, "ORIGIN_REQUIRED");
     }
+    if (path[0] === "runs" && method === "GET") {
+      const runs = await db()
+        .prepare(
+          "SELECT id,created_at FROM demo_runs WHERE owner_workspace=? ORDER BY created_at DESC LIMIT 50",
+        )
+        .bind(ownerWorkspace)
+        .all();
+      return json({
+        runs: [{ id: "default", created_at: null }, ...runs.results],
+      });
+    }
+    if (path[0] === "runs" && method === "POST") {
+      const b = z
+        .object({
+          persona: z.enum(["ana", "lucas"]),
+          locale: z.enum(["es", "pt"]),
+        })
+        .strict()
+        .parse(await body(req));
+      const runId = identifier();
+      const nextWorkspace = ownerWorkspace + ":run:" + runId;
+      const nextSession: Session = {
+        id: identifier(),
+        workspace: nextWorkspace,
+        customer_id: personas[b.persona === "ana" ? 0 : 1].id,
+        role: "customer",
+        locale: b.locale,
+        expires_at: Date.now() + 30 * 60 * 1000,
+        fault: null,
+      };
+      const inserted = await db().batch([
+        db()
+          .prepare(
+            "INSERT INTO demo_runs (id,owner_workspace,created_at) SELECT ?,?,? WHERE (SELECT COUNT(*) FROM demo_runs WHERE owner_workspace=?)<50 RETURNING id",
+          )
+          .bind(
+            runId,
+            ownerWorkspace,
+            new Date().toISOString(),
+            ownerWorkspace,
+          ),
+        db()
+          .prepare(
+            "INSERT INTO sessions (id,workspace,customer_id,role,locale,expires_at) SELECT ?,?,?,?,?,? WHERE EXISTS (SELECT id FROM demo_runs WHERE id=?)",
+          )
+          .bind(
+            nextSession.id,
+            nextSession.workspace,
+            nextSession.customer_id,
+            nextSession.role,
+            nextSession.locale,
+            nextSession.expires_at,
+            runId,
+          ),
+      ]);
+      if (!inserted[0].results?.length) fail(429, "RUN_LIMIT");
+      const secure = new URL(req.url).protocol === "https:" ? "; Secure" : "";
+      return json(await sessionView(nextSession), 201, {
+        "Set-Cookie": `${COOKIE}=${nextSession.id}; Path=/; HttpOnly; SameSite=Lax; Max-Age=1800${secure}`,
+      });
+    }
     if (path[0] === "session" && method === "POST") {
       const b = z
         .object({
           persona: z.enum(["ana", "lucas"]),
           role: z.enum(["customer", "agent"]),
           locale: z.enum(["es", "pt"]),
+          runId: z.string().max(80).optional(),
         })
         .strict()
         .parse(await body(req));
+      if (b.runId && b.runId !== "default") {
+        if (
+          !(await one(
+            "SELECT id FROM demo_runs WHERE id=? AND owner_workspace=?",
+            b.runId,
+            ownerWorkspace,
+          ))
+        )
+          fail(404, "NOT_FOUND");
+        workspace = ownerWorkspace + ":run:" + b.runId;
+      } else if (b.runId === "default") workspace = ownerWorkspace;
       const s: Session = {
         id: identifier(),
         workspace,
@@ -166,12 +266,30 @@ export async function handle(req: Request) {
         s.expires_at,
       );
       const secure = new URL(req.url).protocol === "https:" ? "; Secure" : "";
-      return json(sessionView(s), 201, {
+      return json(await sessionView(s), 201, {
         "Set-Cookie": `${COOKIE}=${s.id}; Path=/; HttpOnly; SameSite=Lax; Max-Age=1800${secure}`,
       });
     }
-    const s = await session(req, workspace);
-    if (path[0] === "session" && method === "GET") return json(sessionView(s));
+    const s = await session(
+      req,
+      workspace,
+      path[0] === "session" && method === "GET",
+    );
+    if (path[0] === "session" && method === "GET")
+      return json(await sessionView(s));
+    if (path[0] === "session" && method === "PATCH") {
+      const b = z
+        .object({ locale: z.enum(["es", "pt"]) })
+        .strict()
+        .parse(await body(req));
+      await run(
+        "UPDATE sessions SET locale=? WHERE id=? AND workspace=?",
+        b.locale,
+        s.id,
+        workspace,
+      );
+      return json(await sessionView({ ...s, locale: b.locale }));
+    }
     if (path[0] === "transactions" && method === "GET") {
       role(s, "customer");
       return json({
@@ -181,16 +299,33 @@ export async function handle(req: Request) {
     }
     if (path[0] === "message" && method === "POST") {
       role(s, "customer");
-      const { text } = z
-        .object({ text: z.string().min(1).max(2000) })
+      const { text, selectedTransactionId, confirmedReason } = z
+        .object({
+          text: z.string().min(1).max(2000),
+          selectedTransactionId: z.string().max(100).optional(),
+          confirmedReason: z.enum(reasonValues).optional(),
+        })
         .strict()
         .parse(await body(req));
       safeStatement(text.length < 12 ? text.padEnd(12, " ") + "." : text);
       // The learned classifier is advisory only; it has no permission to create drafts or cases.
       const { classifyMessage } = await import("./model");
       const result = classifyMessage(text, s.locale);
+      if (selectedTransactionId)
+        ownTransaction(s.customer_id, selectedTransactionId);
+      const { buildAssistant } = await import("../assistant");
+      const assistance = buildAssistant({
+        text,
+        locale: s.locale,
+        customerId: s.customer_id,
+        transactions: customerTransactions(s.customer_id),
+        snapshotAt: snapshot.snapshotAt,
+        selectedTransactionId,
+        confirmedReason,
+        intentHint: result.intent,
+      });
       await record(s, "message", "advisory", start);
-      return json(result);
+      return json({ ...result, message: assistance.message, assistance });
     }
     if (path[0] === "drafts" && method === "POST") {
       role(s, "customer");

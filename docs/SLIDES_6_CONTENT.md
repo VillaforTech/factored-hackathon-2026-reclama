@@ -100,7 +100,7 @@ La diapositiva muestra reglas y v2. v1 permanece aquí y en notas para conservar
 **Implementado y verificado localmente:** cliente ES/PT, vista de agente, casos persistidos, trazas, contratos y pruebas. La CI comprobó typecheck, lint, build, paridad de inferencia, fixtures y suite HTTP con base nueva.
 
 - [Prototipo](https://reclama-factored-2026.villafortech.chatgpt.site): despliegue completado, política pública y render del frontend verificados. Login real de plataforma pendiente de validación. No afirmar autenticación pública completa.
-- [Repositorio público](https://github.com/VillaforTech/factored-hackathon-2026-reclama): código y reproducción.
+- [Repositorio privado del equipo](https://github.com/VillaforTech/factored-hackathon-2026-reclama): código y reproducción.
 - [PPTX editable](presentation/Reclama_Hackathon_6_slides_v3.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v3.pdf): seis diapositivas finales de esta revisión.
 
 Antes de operar con un banco hacen falta identidad institucional, políticas aprobadas, integración con gestión de casos y evaluación con datos representativos autorizados. El sistema actual es un sandbox de recepción.

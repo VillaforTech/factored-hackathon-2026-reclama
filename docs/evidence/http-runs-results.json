@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "suite": "reclama-demo-runs-and-locale",
+  "target": "http://127.0.0.1:5173",
+  "created_at_utc": "2026-09-29T20:03:27Z",
+  "duration_seconds": 0.595,
+  "gate_passed": true,
+  "counts": {
+    "pass": 16,
+    "fail": 0,
+    "blocked": 0,
+    "error": 0
+  },
+  "limits": [
+    "Loopback-only documented local authentication; no production identity is fabricated.",
+    "Two namespaces under ONE authenticated local identity; cross-owner SIWC isolation is not dynamically established.",
+    "Creates at most two runs and two synthetic cases, never deletes or resets storage.",
+    "Development-visible regressions, not held-out ML quality or full browser user-experience evaluation."
+  ],
+  "results": [
+    {
+      "id": "RUN-001",
+      "description": "New run and locale endpoints require platform sign-in",
+      "status": "pass",
+      "evidence": {
+        "statuses": [
+          401,
+          401,
+          401
+        ]
+      },
+      "elapsed_ms": 29.77
+    },
+    {
+      "id": "RUN-002",
+      "description": "Documented sign-in and explicit default workspace",
+      "status": "pass",
+      "evidence": {
+        "existing_run_count": 5,
+        "cookies_logged": false
+      },
+      "elapsed_ms": 83.16
+    },
+    {
+      "id": "RUN-003",
+      "description": "Two owned runs start empty and have distinct IDs",
+      "status": "pass",
+      "evidence": {
+        "runs_created": 2,
+        "new_namespaces_empty": true
+      },
+      "elapsed_ms": 67.58
+    },
+    {
+      "id": "RUN-004",
+      "description": "Invented run cannot be opened and leaves active session intact",
+      "status": "pass",
+      "evidence": {
+        "status": 404,
+        "session_unchanged": true
+      },
+      "elapsed_ms": 21.87
+    },
+    {
+      "id": "RUN-005",
+      "description": "ES to PT preserves cookie, ownership, expiry and pending draft",
+      "status": "pass",
+      "evidence": {
+        "cookie_preserved": true,
+        "customer_role_run_expiry_preserved": true,
+        "draft_not_committed": true
+      },
+      "elapsed_ms": 44.95
+    },
+    {
+      "id": "RUN-006",
+      "description": "Locale endpoint rejects role, run and owner injection",
+      "status": "pass",
+      "evidence": {
+        "rejected_payloads": 4,
+        "session_unchanged": true
+      },
+      "elapsed_ms": 41.61
+    },
+    {
+      "id": "RUN-007",
+      "description": "Run/session mutations reject cross-origin requests",
+      "status": "pass",
+      "evidence": {
+        "statuses": [
+          403,
+          403,
+          403
+        ]
+      },
+      "elapsed_ms": 15.33
+    },
+    {
+      "id": "RUN-008",
+      "description": "A draft from one run cannot be committed in another",
+      "status": "pass",
+      "evidence": {
+        "status": 403,
+        "no_case_created": true
+      },
+      "elapsed_ms": 13.57
+    },
+    {
+      "id": "RUN-009",
+      "description": "Application session cookie alone cannot replace platform identity",
+      "status": "pass",
+      "evidence": {
+        "status": 401,
+        "fabricated_identity": false
+      },
+      "elapsed_ms": 11.06
+    },
+    {
+      "id": "RUN-010",
+      "description": "Pre-switch draft commits after locale change and survives timeout",
+      "status": "pass",
+      "evidence": {
+        "timeout_http": 503,
+        "persisted_cases": 1,
+        "original_statement_preserved": true
+      },
+      "elapsed_ms": 28.64
+    },
+    {
+      "id": "RUN-011",
+      "description": "Concurrent original-key retries recover one committed case",
+      "status": "pass",
+      "evidence": {
+        "retries": 2,
+        "same_case": true,
+        "case_count": 1
+      },
+      "elapsed_ms": 35.28
+    },
+    {
+      "id": "RUN-012",
+      "description": "Run isolation covers customer and reviewer read/update",
+      "status": "pass",
+      "evidence": {
+        "customer_read": 404,
+        "agent_read": 404,
+        "agent_update": 404,
+        "original_version": 1
+      },
+      "elapsed_ms": 58.17
+    },
+    {
+      "id": "RUN-013",
+      "description": "Idempotency and transaction uniqueness are scoped to each run",
+      "status": "pass",
+      "evidence": {
+        "cases_created_total": 2,
+        "same_transaction_and_key_isolated": true,
+        "reciprocal_read": 404
+      },
+      "elapsed_ms": 29.81
+    },
+    {
+      "id": "RUN-014",
+      "description": "Metrics stay within active run",
+      "status": "pass",
+      "evidence": {
+        "run_a_attempts": 3,
+        "run_b_attempts": 1,
+        "messages_do_not_cross_runs": true
+      },
+      "elapsed_ms": 33.72
+    },
+    {
+      "id": "RUN-015",
+      "description": "Owned earlier runs can be recovered and reviewed",
+      "status": "pass",
+      "evidence": {
+        "both_runs_recoverable": true,
+        "own_run_review_version": 2
+      },
+      "elapsed_ms": 46.26
+    },
+    {
+      "id": "RUN-016",
+      "description": "Default run remains recoverable without deleting earlier records",
+      "status": "pass",
+      "evidence": {
+        "legacy_cases_preserved": true,
+        "legacy_metrics_preserved": true,
+        "deletions": 0
+      },
+      "elapsed_ms": 33.46
+    }
+  ]
+}
