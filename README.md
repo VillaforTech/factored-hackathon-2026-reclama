@@ -10,6 +10,8 @@ The demo and repository are private at the owner’s request. Access is restrict
 
 Team: Roberto Villafuerte, Jorge Arguello and Daniel Andrade. Responsibilities proposed in `docs/DELIVERY_PLAN.md` must be agreed with the team; no individual expertise is assumed.
 
+**[Explore the interactive project guide (Spanish)](https://reclama-factored-2026.villafortech.chatgpt.site/guia)** — eleven chapters explain the product decision, data limitations, case lifecycle, architecture, learned model, evaluation, safeguards and delivery process. Interactive examples run locally in the page and do not create cases. The guide links to the exact V3 source and evidence it explains; it shares the demo's private access policy.
+
 ## Run locally
 
 Node.js 22.13+ and Python 3.11+ are sufficient for the web app, data-contract fixtures and HTTP tests. No paid API key is required.

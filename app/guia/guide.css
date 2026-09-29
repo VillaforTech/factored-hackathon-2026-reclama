@@ -1,0 +1,958 @@
+#reclama-guide {
+  --g-navy: #102f42;
+  --g-text: #18364a;
+  --g-muted: #526d80;
+  --g-teal: #087e71;
+  --g-line: #d6e2e9;
+  --g-soft: #edf5f7;
+  background: #f4f7fa;
+  color: var(--g-text);
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+#reclama-guide * {
+  box-sizing: border-box;
+}
+#reclama-guide button,
+#reclama-guide input,
+#reclama-guide select {
+  font: inherit;
+}
+#reclama-guide button,
+#reclama-guide a {
+  touch-action: manipulation;
+}
+#reclama-guide button {
+  cursor: pointer;
+}
+#reclama-guide :focus-visible {
+  outline: 3px solid #087e71;
+  outline-offset: 4px;
+}
+#reclama-guide a {
+  color: #066e83;
+  text-underline-offset: 4px;
+}
+#reclama-guide h1,
+#reclama-guide h2,
+#reclama-guide h3 {
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+#reclama-guide h1 {
+  font-size: 2rem;
+  margin: 0.65rem 0 1rem;
+}
+#reclama-guide h2 {
+  font-size: clamp(1.9rem, 3vw, 2.65rem);
+  max-width: 850px;
+  margin: 0.5rem 0 1.2rem;
+}
+#reclama-guide h3 {
+  font-size: 1.22rem;
+  margin: 1.7rem 0 0.8rem;
+}
+#reclama-guide p {
+  margin: 0.6rem 0 1rem;
+}
+#reclama-guide code {
+  background: #eaf1f5;
+  padding: 0.13rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+}
+#reclama-guide pre {
+  background: var(--g-navy);
+  color: #e7f4f9;
+  padding: 1.2rem;
+  border-radius: 12px;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+#reclama-guide pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+#reclama-guide .guide-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--g-teal);
+  margin: 0 0 0.5rem;
+}
+#reclama-guide .guide-header {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--g-line);
+  background: white;
+  padding: 0 max(24px, calc((100vw - 1500px) / 2));
+}
+#reclama-guide .guide-brand {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--g-navy);
+  text-decoration: none;
+  letter-spacing: -0.06em;
+}
+#reclama-guide .guide-brand span {
+  color: var(--g-teal);
+}
+#reclama-guide .guide-header-caption {
+  font-size: 0.85rem;
+  border-left: 1px solid var(--g-line);
+  padding-left: 24px;
+  color: var(--g-muted);
+}
+#reclama-guide .guide-demo-link {
+  margin-left: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+#reclama-guide .guide-layout {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+#reclama-guide .guide-sidebar {
+  padding: 36px 26px;
+  border-right: 1px solid var(--g-line);
+  align-self: start;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow: auto;
+}
+#reclama-guide .guide-sidebar > p:not(.guide-eyebrow) {
+  font-size: 0.9rem;
+  color: var(--g-muted);
+}
+#reclama-guide .guide-sidebar nav {
+  margin: 30px -12px 18px;
+  display: grid;
+  gap: 5px;
+}
+#reclama-guide .guide-sidebar nav button {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 9px;
+  border: 0;
+  background: transparent;
+  color: var(--g-text);
+  width: 100%;
+  line-height: 1.25;
+}
+#reclama-guide .guide-sidebar nav button[aria-current] {
+  background: var(--g-navy);
+  color: white;
+}
+#reclama-guide .guide-sidebar nav button:hover:not([aria-current]) {
+  background: #e6eff3;
+}
+#reclama-guide .guide-chapter-number {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  font-variant-numeric: tabular-nums;
+}
+#reclama-guide .guide-sidebar nav strong {
+  font-size: 0.9rem;
+  display: block;
+  font-weight: 600;
+}
+#reclama-guide .guide-sidebar nav small {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+#reclama-guide .guide-sidebar nav svg {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+#reclama-guide .guide-read-all {
+  font-size: 0.85rem;
+  border: 1px solid var(--g-line);
+  background: white;
+  border-radius: 7px;
+  width: 100%;
+  padding: 9px;
+}
+#reclama-guide .guide-cut {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--g-line);
+  font-size: 0.75rem;
+  color: var(--g-muted);
+}
+#reclama-guide .guide-cut strong {
+  display: block;
+  font-size: 0.8rem;
+  margin: 4px 0;
+}
+#reclama-guide .guide-main {
+  min-width: 0;
+  padding: 34px clamp(24px, 4vw, 60px) 30px;
+  background: white;
+}
+#reclama-guide .guide-main-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 32px;
+  font-size: 0.75rem;
+  color: var(--g-muted);
+  scroll-margin-top: 24px;
+}
+#reclama-guide .guide-private {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+#reclama-guide .guide-intro {
+  font-size: 1.15rem;
+  color: var(--g-muted);
+  max-width: 850px;
+  margin-bottom: 2rem;
+}
+#reclama-guide .guide-chapter + .guide-chapter {
+  margin-top: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--g-line);
+}
+#reclama-guide .guide-contrast {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr;
+  gap: 24px;
+  padding: 28px;
+  background: var(--g-navy);
+  color: #f5fafc;
+  border-radius: 14px;
+  margin: 28px 0;
+}
+#reclama-guide .guide-contrast > svg {
+  align-self: center;
+  color: #77d5c5;
+}
+#reclama-guide .guide-contrast h3 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+#reclama-guide .guide-contrast p {
+  color: #d2e3ed;
+  margin-bottom: 0;
+}
+#reclama-guide .guide-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+#reclama-guide .guide-grid {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0;
+}
+#reclama-guide .guide-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+#reclama-guide .guide-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+#reclama-guide .guide-grid article {
+  padding: 22px;
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: #fbfdfe;
+}
+#reclama-guide .guide-grid article > svg {
+  color: var(--g-teal);
+  width: 23px;
+}
+#reclama-guide .guide-grid h3 {
+  margin: 10px 0;
+}
+#reclama-guide .guide-grid p {
+  font-size: 0.94rem;
+  margin-bottom: 0;
+}
+#reclama-guide .guide-note {
+  border-left: 3px solid var(--g-teal);
+  background: #edf8f5;
+  padding: 18px 22px;
+  margin: 24px 0;
+  border-radius: 0 8px 8px 0;
+}
+#reclama-guide .guide-note > strong {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #096b5d;
+  margin-bottom: 6px;
+}
+#reclama-guide .guide-note div {
+  font-size: 0.96rem;
+}
+#reclama-guide .guide-note.limit {
+  background: #fff7e8;
+  border-color: #b27813;
+}
+#reclama-guide .guide-note.limit > strong {
+  color: #80570d;
+}
+#reclama-guide .guide-note.pending {
+  background: #f1f3fb;
+  border-color: #6a70a1;
+}
+#reclama-guide .guide-note.pending > strong {
+  color: #535985;
+}
+#reclama-guide .guide-note.decision {
+  background: #eef4f9;
+  border-color: #337495;
+}
+#reclama-guide .guide-note.decision > strong {
+  color: #2c6685;
+}
+#reclama-guide .guide-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 15px 0 0;
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+#reclama-guide .guide-detail {
+  border-top: 1px solid var(--g-line);
+  padding: 16px 0;
+}
+#reclama-guide .guide-detail summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+}
+#reclama-guide .guide-detail > div {
+  padding: 10px 0 0;
+  color: var(--g-muted);
+}
+#reclama-guide .guide-detail:last-of-type {
+  border-bottom: 1px solid var(--g-line);
+}
+#reclama-guide .guide-reading-list {
+  padding-left: 22px;
+}
+#reclama-guide .guide-reading-list li {
+  margin: 10px 0;
+  padding-left: 7px;
+}
+#reclama-guide .guide-segment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 25px 0 18px;
+}
+#reclama-guide .guide-segment button {
+  border: 1px solid var(--g-line);
+  background: white;
+  border-radius: 8px;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.88rem;
+}
+#reclama-guide .guide-segment button[aria-pressed="true"] {
+  background: var(--g-navy);
+  color: white;
+  border-color: var(--g-navy);
+}
+#reclama-guide .guide-selection {
+  background: var(--g-soft);
+  padding: 26px;
+  border-radius: 12px;
+}
+#reclama-guide .guide-selection h3 {
+  margin: 0.55rem 0 1rem;
+  font-size: 1.45rem;
+}
+#reclama-guide dl {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 14px 20px;
+  margin: 18px 0 0;
+}
+#reclama-guide dt {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+#reclama-guide dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+#reclama-guide .guide-pagination {
+  border-top: 1px solid var(--g-line);
+  margin-top: 45px;
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+#reclama-guide .guide-pagination button {
+  font-size: 0.9rem;
+  border: 1px solid var(--g-line);
+  background: white;
+  border-radius: 7px;
+  padding: 9px 13px;
+}
+#reclama-guide .guide-pagination button:last-child {
+  background: var(--g-navy);
+  color: white;
+}
+#reclama-guide button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+#reclama-guide .guide-pagination span {
+  font-size: 0.8rem;
+  color: var(--g-muted);
+}
+#reclama-guide .guide-footer {
+  margin-top: 35px;
+  font-size: 0.75rem;
+  color: var(--g-muted);
+}
+#reclama-guide .guide-footer a {
+  display: inline-block;
+  margin-left: 5px;
+}
+#reclama-guide .guide-skip {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  padding: 12px;
+  background: white;
+  z-index: 20;
+}
+#reclama-guide .guide-skip:focus {
+  top: 12px;
+}
+@media (max-width: 1100px) {
+  #reclama-guide .guide-layout {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+  #reclama-guide .guide-grid.three {
+    grid-template-columns: 1fr;
+  }
+  #reclama-guide .guide-sidebar {
+    padding: 28px 20px;
+  }
+  #reclama-guide .guide-main {
+    padding: 28px;
+  }
+}
+@media (max-width: 760px) {
+  #reclama-guide .guide-layout {
+    display: block;
+  }
+  #reclama-guide .guide-sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    border-right: 0;
+    border-bottom: 1px solid var(--g-line);
+    padding: 24px 20px;
+  }
+  #reclama-guide .guide-sidebar h1 {
+    font-size: 1.75rem;
+  }
+  #reclama-guide .guide-sidebar nav {
+    display: flex;
+    overflow-x: auto;
+    margin: 20px -4px 12px;
+    padding: 3px 3px 10px;
+  }
+  #reclama-guide .guide-sidebar nav button {
+    flex: 0 0 180px;
+    min-width: 0;
+  }
+  #reclama-guide .guide-sidebar nav small {
+    font-size: 0.75rem;
+  }
+  #reclama-guide .guide-cut {
+    display: none;
+  }
+  #reclama-guide .guide-main {
+    padding: 25px 20px;
+  }
+  #reclama-guide .guide-grid.two,
+  #reclama-guide .guide-grid.three {
+    grid-template-columns: 1fr;
+  }
+  #reclama-guide .guide-header {
+    height: 68px;
+    padding: 0 20px;
+    gap: 12px;
+  }
+  #reclama-guide .guide-header-caption {
+    display: none;
+  }
+  #reclama-guide .guide-demo-link {
+    font-size: 0.82rem;
+  }
+  #reclama-guide .guide-contrast {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 23px;
+  }
+  #reclama-guide .guide-contrast > svg {
+    transform: rotate(90deg);
+  }
+  #reclama-guide dl {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  #reclama-guide dd {
+    margin-bottom: 12px;
+  }
+  #reclama-guide .guide-pagination span {
+    display: none;
+  }
+  #reclama-guide .guide-main-top {
+    font-size: 0.75rem;
+    align-items: center;
+  }
+  #reclama-guide .guide-private {
+    font-size: 0.75rem;
+  }
+  #reclama-guide .guide-intro {
+    font-size: 1.05rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #reclama-guide * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+#reclama-guide ul {
+  padding-left: 22px;
+}
+#reclama-guide li {
+  margin: 8px 0;
+}
+#reclama-guide h4 {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 24px 0 7px;
+}
+#reclama-guide .guide-small {
+  font-size: 0.82rem;
+  color: var(--g-muted);
+  line-height: 1.65;
+}
+#reclama-guide .guide-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--g-line);
+  border-radius: 10px;
+}
+#reclama-guide table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+#reclama-guide th {
+  background: #edf3f6;
+  color: var(--g-navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: left;
+  padding: 14px 18px;
+}
+#reclama-guide td {
+  padding: 15px 18px;
+  border-top: 1px solid var(--g-line);
+  vertical-align: top;
+  min-width: 130px;
+}
+#reclama-guide caption {
+  text-align: left;
+  padding: 13px 18px;
+  font-size: 0.8rem;
+  color: var(--g-muted);
+  background: #fbfdfe;
+}
+#reclama-guide .guide-lab {
+  background: #f2f8f9;
+  border: 1px solid #bbd5db;
+  border-radius: 14px;
+  padding: 26px;
+  margin: 28px 0;
+}
+#reclama-guide .guide-lab > h3 {
+  margin: 0.7rem 0 1rem;
+  font-size: 1.35rem;
+}
+#reclama-guide .guide-code-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+#reclama-guide .guide-code-pair code {
+  padding: 10px 13px;
+  border-radius: 7px;
+}
+#reclama-guide .guide-answer {
+  background: #fff4de;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 3px solid #b27813;
+}
+#reclama-guide .guide-answer.good {
+  background: #e4f5ed;
+  border-color: var(--g-teal);
+}
+#reclama-guide .guide-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 20px 0;
+}
+#reclama-guide .guide-controls label,
+#reclama-guide .guide-input-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: grid;
+  gap: 7px;
+}
+#reclama-guide select,
+#reclama-guide input {
+  width: 100%;
+  min-width: 0;
+  background: white;
+  color: var(--g-text);
+  border: 1px solid #adbdc8;
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-weight: 400;
+}
+#reclama-guide .guide-lab-result {
+  background: white;
+  padding: 22px;
+  border-radius: 9px;
+  border: 1px solid var(--g-line);
+}
+#reclama-guide .guide-lab-result > strong {
+  display: block;
+  font-size: 1.5rem;
+  margin: 8px 0;
+}
+#reclama-guide .guide-flowsteps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 24px 0 18px;
+}
+#reclama-guide .guide-flowsteps button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  text-align: left;
+  border: 1px solid var(--g-line);
+  border-radius: 8px;
+  padding: 11px;
+  background: white;
+}
+#reclama-guide .guide-flowsteps button span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: var(--g-soft);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+#reclama-guide .guide-flowsteps button[aria-pressed="true"] {
+  background: var(--g-navy);
+  color: white;
+}
+#reclama-guide .guide-flowsteps button[aria-pressed="true"] span {
+  background: #2e596c;
+}
+#reclama-guide .guide-flowcard {
+  background: var(--g-navy);
+  color: #f5fafc;
+  padding: 30px;
+  border-radius: 13px;
+  min-height: 300px;
+}
+#reclama-guide .guide-flowcard h3 {
+  font-size: 2rem;
+  margin: 0.6rem 0 1.1rem;
+}
+#reclama-guide .guide-flow-rule {
+  display: flex;
+  gap: 12px;
+  padding-top: 19px;
+  margin-top: 22px;
+  border-top: 1px solid #446373;
+  color: #b9efe1;
+}
+#reclama-guide .guide-flow-rule svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+#reclama-guide .guide-inline-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 24px;
+}
+#reclama-guide .guide-inline-actions button {
+  background: #f4fafb;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--g-navy);
+  font-size: 0.85rem;
+}
+#reclama-guide .guide-architecture {
+  border: 1px solid var(--g-line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 26px 0;
+}
+#reclama-guide .guide-architecture-map {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 20px;
+  background: #f1f6f9;
+}
+#reclama-guide .guide-architecture-map button {
+  padding: 15px 12px;
+  background: white;
+  border: 1px solid #c2d6e0;
+  border-radius: 9px;
+  text-align: left;
+  min-width: 0;
+}
+#reclama-guide .guide-architecture-map strong {
+  display: block;
+  font-size: 0.94rem;
+  margin: 6px 0;
+}
+#reclama-guide .guide-architecture-map small {
+  font-size: 0.75rem;
+  display: block;
+}
+#reclama-guide .guide-architecture-map button[aria-pressed="true"] {
+  background: var(--g-navy);
+  color: white;
+  border-color: var(--g-navy);
+}
+#reclama-guide .guide-module {
+  padding: 27px;
+}
+#reclama-guide .guide-module h3 {
+  font-size: 1.6rem;
+  margin: 0.6rem 0 1rem;
+}
+#reclama-guide .guide-pipeline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 0.86rem;
+}
+#reclama-guide .guide-pipeline span {
+  background: var(--g-soft);
+  padding: 12px;
+  border-radius: 7px;
+}
+#reclama-guide .guide-pipeline b {
+  color: var(--g-muted);
+}
+#reclama-guide .guide-chips,
+#reclama-guide .guide-grams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+#reclama-guide .guide-chips span {
+  background: #edf3f6;
+  border-radius: 6px;
+  padding: 8px 11px;
+  font-size: 0.8rem;
+}
+#reclama-guide .guide-grams code {
+  font-size: 1rem;
+  background: white;
+  border: 1px solid #c4d9e1;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #125e72;
+}
+#reclama-guide .guide-timeline {
+  margin: 28px 0;
+}
+#reclama-guide .guide-timeline article {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 24px;
+  padding-bottom: 28px;
+}
+#reclama-guide .guide-timeline article > span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--g-teal);
+  padding-top: 4px;
+}
+#reclama-guide .guide-timeline article > div {
+  border-left: 2px solid var(--g-line);
+  padding-left: 22px;
+}
+#reclama-guide .guide-timeline h3 {
+  margin: 0 0 10px;
+}
+#reclama-guide .guide-timeline p {
+  margin: 0;
+}
+#reclama-guide .guide-chart {
+  padding: 26px;
+  background: #f2f6f9;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+#reclama-guide .guide-bar-row + .guide-bar-row {
+  margin-top: 24px;
+}
+#reclama-guide .guide-bar-row > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+#reclama-guide .guide-bar-row span {
+  font-variant-numeric: tabular-nums;
+}
+#reclama-guide .guide-bar-track {
+  height: 16px;
+  border-radius: 3px;
+  background: #dfe9ef;
+  overflow: hidden;
+}
+#reclama-guide .guide-bar-track > div {
+  height: 100%;
+  background: #54778d;
+  border-radius: 3px;
+  transition: width 0.25s ease;
+}
+#reclama-guide .guide-bar-track > div.candidate {
+  background: var(--g-teal);
+}
+#reclama-guide .guide-failure {
+  background: #f0f5f8;
+  border: 1px solid var(--g-line);
+  padding: 26px;
+  border-radius: 13px;
+}
+#reclama-guide .guide-failure > code {
+  background: #fff5e1;
+  color: #825909;
+  font-weight: 600;
+}
+#reclama-guide .guide-failure h3 {
+  font-size: 1.6rem;
+  margin: 15px 0;
+}
+#reclama-guide .guide-failure ol {
+  padding-left: 20px;
+}
+#reclama-guide .guide-failure li {
+  padding-left: 7px;
+  margin-bottom: 14px;
+}
+#reclama-guide .guide-source-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 15px;
+  margin: 20px 0 32px;
+}
+#reclama-guide .guide-source-list a {
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--g-line);
+  font-size: 0.88rem;
+}
+#reclama-guide .guide-source-list svg {
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  #reclama-guide .guide-flowsteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #reclama-guide .guide-architecture-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 13px;
+  }
+  #reclama-guide .guide-controls {
+    grid-template-columns: 1fr;
+  }
+  #reclama-guide .guide-lab,
+  #reclama-guide .guide-flowcard,
+  #reclama-guide .guide-module,
+  #reclama-guide .guide-failure,
+  #reclama-guide .guide-chart {
+    padding: 20px;
+  }
+  #reclama-guide .guide-timeline article {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  #reclama-guide .guide-timeline article > div {
+    padding-left: 15px;
+  }
+  #reclama-guide .guide-source-list {
+    grid-template-columns: 1fr;
+  }
+  #reclama-guide .guide-bar-row > div:first-child {
+    flex-wrap: wrap;
+  }
+  #reclama-guide .guide-code-pair code {
+    font-size: 0.75rem;
+  }
+  #reclama-guide .guide-sidebar nav button {
+    flex-basis: 190px;
+  }
+  #reclama-guide .guide-official a {
+    overflow-wrap: anywhere;
+  }
+}
