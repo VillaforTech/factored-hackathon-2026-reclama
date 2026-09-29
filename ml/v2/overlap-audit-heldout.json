@@ -1,0 +1,13 @@
+{
+  "normalization": "NFKD; remove U+0300-U+036F; lowercase; join /[a-z0-9]+/ tokens by one space",
+  "checked_messages": {
+    "train": 634,
+    "validation": 128,
+    "heldout": 256
+  },
+  "exact_matches": [],
+  "matched_heldout_messages": 0,
+  "posthoc_exclusions": 0,
+  "scores_unchanged": true,
+  "caveat": "Exact normalized overlap only; absence does not establish semantic independence."
+}

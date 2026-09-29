@@ -1,0 +1,65 @@
+intent	family	es	pt
+unrecognized	su01	Ese gasto es de otra persona. Nadie tenía mi permiso para pagarlo con mi tarjeta.	Essa despesa é de outra pessoa. Ninguém tinha minha permissão para pagá-la com meu cartão.
+unrecognized	su02	Me llegó un aviso de compra mientras trabajaba y yo no estaba pagando nada.	Chegou um aviso de compra enquanto eu trabalhava e eu não estava pagando nada.
+unrecognized	su03	Están usando mis datos para comprar, necesito denunciar estos cargos que no hice.	Estão usando meus dados para comprar, preciso denunciar essas cobranças que não fiz.
+unrecognized	su04	Quiero aclarar que no fui yo quien hizo el pago de ayer por la noche.	Quero esclarecer que não fui eu quem fez o pagamento ontem à noite.
+unrecognized	su05	Hay dinero descontado por una compra que no realicé. Necesito reportarlo al banco.	Há dinheiro descontado por uma compra que não realizei. Preciso informar ao banco.
+unrecognized	su06	El cobro del gimnasio sí es mío, pero ese cargo de muebles jamás lo autoricé.	A cobrança da academia é minha, mas aquela despesa de móveis nunca autorizei.
+unrecognized	su07	Me están cobrando algo que desconozco y no lo contrató nadie autorizado por mí.	Estão me cobrando algo que desconheço e ninguém autorizado por mim o contratou.
+unrecognized	su08	No reconozco el origen de ese débito; quiero dejar una constancia de desconocimiento.	Não reconheço a origem desse débito; quero registrar que desconheço essa operação.
+duplicate	sd01	Una compra, dos cargos. Necesito corregir el segundo sin desconocer el primero.	Uma compra, duas cobranças. Preciso corrigir a segunda sem contestar a primeira.
+duplicate	sd02	El pago se duplicó después de que la terminal perdió señal y volvimos a intentar.	O pagamento duplicou depois que a máquina perdeu sinal e tentamos novamente.
+duplicate	sd03	No son dos compras separadas. Se descontó el mismo pedido una vez más.	Não são duas compras separadas. O mesmo pedido foi descontado mais uma vez.
+duplicate	sd04	La pantalla se trabó y repetí la confirmación; ahora aparecen ambos débitos.	A tela travou e repeti a confirmação; agora aparecem os dois débitos.
+duplicate	sd05	El comercio reconoce que pasó dos veces la transacción y quiero reclamar el adicional.	A loja reconhece que passou a transação duas vezes e quero reclamar do valor adicional.
+duplicate	sd06	Veo dos renglones iguales, misma fecha y monto, por una única reserva.	Vejo duas linhas iguais, mesma data e valor, por uma única reserva.
+duplicate	sd07	La primera compra es legítima, la repetición de ese mismo cobro es el problema.	A primeira compra é legítima, a repetição daquela mesma cobrança é o problema.
+duplicate	sd08	Mi recibo dice una unidad; el banco registró ese pago por partida doble.	Meu recibo diz uma unidade; o banco registrou aquele pagamento em dobro.
+merchant_issue	sm01	Yo sí pagué, pero el negocio cerró antes de entregarme lo comprado.	Eu paguei, mas o negócio fechou antes de me entregar o que comprei.
+merchant_issue	sm02	La entrega decía completa y llegó media caja vacía; el vendedor no reconoce el faltante.	A entrega dizia completa e metade da caixa chegou vazia; o vendedor não reconhece a falta.
+merchant_issue	sm03	El técnico instaló un repuesto usado cuando pagué por uno nuevo.	O técnico instalou uma peça usada quando paguei por uma nova.
+merchant_issue	sm04	Anunciaban acceso ilimitado y me cerraron el servicio tras usarlo una vez.	Anunciavam acesso ilimitado e encerraram meu serviço depois de eu usá-lo uma vez.
+merchant_issue	sm05	Mi compra es real; el reclamo es por una descripción engañosa del producto.	Minha compra é real; a reclamação é pela descrição enganosa do produto.
+merchant_issue	sm06	El proveedor canceló a último momento el transporte que ya le había pagado.	O fornecedor cancelou na última hora o transporte que eu já havia pago.
+merchant_issue	sm07	El paquete llegó mojado y el contenido quedó inservible, ¿cómo reporto ese problema?	O pacote chegou molhado e o conteúdo ficou inutilizável, como informo esse problema?
+merchant_issue	sm08	Compré un sofá a medida y sus dimensiones no corresponden a lo acordado.	Comprei um sofá sob medida e suas dimensões não correspondem ao combinado.
+refund_request	sr01	Dejé el artículo en la tienda; quiero pedir la devolución del importe.	Deixei o artigo na loja; quero pedir a devolução do valor.
+refund_request	sr02	Acordamos cancelar el servicio. Ahora necesito que me reintegren lo abonado.	Combinamos cancelar o serviço. Agora preciso que estornem o valor pago.
+refund_request	sr03	Tengo la aceptación del reembolso, ¿me ayudan a rastrear su acreditación?	Tenho a aprovação do reembolso, podem me ajudar a rastrear o crédito?
+refund_request	sr04	No niego que compré eso; quiero recuperar el dinero porque ya lo devolví.	Não nego que comprei isso; quero recuperar o dinheiro porque já o devolvi.
+refund_request	sr05	La devolución figura emitida por el comercio pero aún no aparece el abono.	A devolução consta como emitida pela loja, mas o crédito ainda não aparece.
+refund_request	sr06	Quiero tramitar la restitución de un pago cancelado de común acuerdo.	Quero solicitar a restituição de um pagamento cancelado de comum acordo.
+refund_request	sr07	Me enviaron la constancia de reintegro; necesito conocer el estado de ese dinero.	Enviaram o comprovante do estorno; preciso conhecer a situação desse dinheiro.
+refund_request	sr08	Reconozco el gasto original; mi consulta trata del reembolso que sigo esperando.	Reconheço a despesa original; minha consulta é sobre o reembolso que continuo esperando.
+card_lost	sl01	No tengo el plástico, desapareció después de pagar y necesito dejarlo bloqueado.	Não estou com o cartão, desapareceu depois de pagar e preciso deixá-lo bloqueado.
+card_lost	sl02	Acaban de robarme y necesito que nadie pueda utilizar mi tarjeta.	Acabaram de me roubar e preciso impedir que alguém use meu cartão.
+card_lost	sl03	Mi cartera quedó en un asiento del tren. Pongan en pausa la tarjeta.	Minha carteira ficou num banco do trem. Coloquem o cartão em pausa.
+card_lost	sl04	La tarjeta está extraviada desde anoche. Quiero deshabilitarla por precaución.	O cartão está extraviado desde ontem à noite. Quero desabilitá-lo por precaução.
+card_lost	sl05	Se llevaron mi bolso con el plástico adentro; no quiero que siga funcionando.	Levaram minha bolsa com o cartão dentro; não quero que ele continue funcionando.
+card_lost	sl06	Estoy buscando la tarjeta sin encontrarla, ayúdenme a congelarla temporalmente.	Estou procurando o cartão sem encontrar, ajudem-me a congelá-lo temporariamente.
+card_lost	sl07	Retuvieron mi tarjeta en el cajero. Prefiero bloquearla hasta resolverlo.	Reteram meu cartão no caixa eletrônico. Prefiro bloqueá-lo até resolver isso.
+card_lost	sl08	Al cambiarme de ropa perdí el tarjetero; quiero reportar la pérdida.	Ao trocar de roupa perdi o porta-cartões; quero comunicar a perda.
+account_query	sa01	¿Me indican cuál fue el último depósito que entró a la cuenta?	Podem me informar qual foi o último depósito que entrou na conta?
+account_query	sa02	Solo necesito saber si el pago quedó aprobado o pendiente.	Só preciso saber se o pagamento ficou aprovado ou pendente.
+account_query	sa03	Estoy conciliando mis gastos y quiero descargar los movimientos, sin presentar reclamos.	Estou conciliando minhas despesas e quero baixar as movimentações, sem apresentar reclamações.
+account_query	sa04	Muéstrame cuánto dinero queda disponible en ahorros.	Mostre quanto dinheiro ainda está disponível na poupança.
+account_query	sa05	El depósito de nómina no figura y quiero consultar si ya fue recibido.	O depósito do salário não aparece e quero consultar se já foi recebido.
+account_query	sa06	Necesito una copia del comprobante de una operación que sí autoricé.	Preciso de uma cópia do comprovante de uma operação que autorizei.
+account_query	sa07	¿Cuál es la referencia de mi transferencia para pasársela al destinatario?	Qual é a referência da minha transferência para passar ao destinatário?
+account_query	sa08	Busco el extracto mensual y el saldo al cierre de ese período.	Procuro o extrato mensal e o saldo no fechamento daquele período.
+credit_query	sc01	Si solicito dinero prestado, ¿qué documentos usarían para comprobar mis ingresos?	Se eu solicitar dinheiro emprestado, quais documentos usariam para comprovar minha renda?
+credit_query	sc02	Estoy evaluando financiar mi vivienda, necesito conocer sus condiciones.	Estou avaliando financiar minha casa, preciso conhecer suas condições.
+credit_query	sc03	¿Qué revisan para decidir si alguien puede recibir un préstamo?	O que analisam para decidir se alguém pode receber um empréstimo?
+credit_query	sc04	¿Me alcanzaría el sueldo para calificar a una línea de crédito mayor?	Meu salário seria suficiente para me qualificar a uma linha de crédito maior?
+credit_query	sc05	Necesito información de tasas, plazos y cuotas antes de endeudarme.	Preciso de informações sobre taxas, prazos e parcelas antes de me endividar.
+credit_query	sc06	No tengo recibo de nómina; ¿qué ingresos aceptan al evaluar un crédito?	Não tenho contracheque; que rendimentos aceitam ao avaliar um crédito?
+credit_query	sc07	Quiero pedir una preevaluación para financiar un local comercial.	Quero pedir uma pré-avaliação para financiar um ponto comercial.
+credit_query	sc08	¿Cómo compruebo si cumplo los requisitos de una hipoteca?	Como verifico se cumpro os requisitos de uma hipoteca?
+other	so01	Olvidé mi clave de acceso y la aplicación no me deja recuperarla.	Esqueci minha senha de acesso e o aplicativo não permite recuperá-la.
+other	so02	El código de verificación no llega a mi celular, ¿me ayudan a entrar?	O código de verificação não chega ao meu celular, podem me ajudar a entrar?
+other	so03	Quiero corregir mi dirección porque cambié de residencia.	Quero corrigir meu endereço porque mudei de residência.
+other	so04	La pantalla muestra un error de conexión antes de iniciar sesión.	A tela mostra um erro de conexão antes de iniciar a sessão.
+other	so05	¿Puedo hablar con una persona que me atienda en portugués?	Posso falar com uma pessoa que me atenda em português?
+other	so06	Necesito saber qué sucursales atienden sin cita previa.	Preciso saber quais agências atendem sem agendamento prévio.
+other	so07	Me están llegando promociones y deseo cancelar esos mensajes.	Estão chegando promoções e quero cancelar essas mensagens.
+other	so08	Hola, es mi primera vez usando el chat. ¿Qué trámites puedo hacer?	Olá, é minha primeira vez usando o chat. Que procedimentos posso fazer?

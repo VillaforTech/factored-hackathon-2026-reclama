@@ -1,0 +1,28 @@
+{
+  "kind": "local CPU warm inference only",
+  "model_version": "reclama-intent-v2-frozen",
+  "messages": 256,
+  "repetitions": 20,
+  "timed_calls": 5120,
+  "p50_ms": 0.043250000000000455,
+  "p95_ms": 0.08158399999999233,
+  "p99_ms": 0.12008399999999142,
+  "max_ms": 0.7023330000000101,
+  "mean_ms": 0.047599234960937174,
+  "environment": {
+    "node": "v26.0.0",
+    "platform": "darwin",
+    "architecture": "arm64"
+  },
+  "excluded": [
+    "network",
+    "model JSON parsing",
+    "cold start",
+    "authentication",
+    "database",
+    "UI",
+    "all end-to-end latency"
+  ],
+  "api_calls": 0,
+  "not_a_hosting_cost_estimate": true
+}

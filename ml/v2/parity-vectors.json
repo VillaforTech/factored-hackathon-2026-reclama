@@ -1,0 +1,205 @@
+{
+  "tolerance": 1e-09,
+  "classes": [
+    "account_query",
+    "card_lost",
+    "credit_query",
+    "duplicate",
+    "merchant_issue",
+    "other",
+    "refund_request",
+    "unrecognized"
+  ],
+  "cases": [
+    {
+      "text": "No reconozco un cargo de 83 dólares.",
+      "intent": "unrecognized",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9545722107533884,
+      "margin": 0.94363552212246,
+      "feature_coverage": 0.7878787878787878,
+      "probabilities": {
+        "account_query": 0.0035435035756758333,
+        "card_lost": 0.003437654095764764,
+        "credit_query": 0.005848854908430885,
+        "duplicate": 0.010868740330714765,
+        "merchant_issue": 0.006162215761816244,
+        "other": 0.01093668863092836,
+        "refund_request": 0.004630131943280647,
+        "unrecognized": 0.9545722107533884
+      }
+    },
+    {
+      "text": "Não reconheço essa cobrança de R$ 83,00!",
+      "intent": "unrecognized",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9896149611409079,
+      "margin": 0.9857511310076105,
+      "feature_coverage": 0.9,
+      "probabilities": {
+        "account_query": 0.0008414708579938947,
+        "card_lost": 0.0006126238114756681,
+        "credit_query": 0.0007293316724129819,
+        "duplicate": 0.0038638301332973423,
+        "merchant_issue": 0.0009702891121541788,
+        "other": 0.0022820595449569232,
+        "refund_request": 0.0010854337268011599,
+        "unrecognized": 0.9896149611409079
+      }
+    },
+    {
+      "text": "Me cobraron dos veces la misma compra.",
+      "intent": "duplicate",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9858061397512665,
+      "margin": 0.9818421141858321,
+      "feature_coverage": 0.9861111111111112,
+      "probabilities": {
+        "account_query": 0.0024996956994576334,
+        "card_lost": 0.000991352628765659,
+        "credit_query": 0.0009628693151771865,
+        "duplicate": 0.9858061397512665,
+        "merchant_issue": 0.0036677646665738803,
+        "other": 0.000885983127387626,
+        "refund_request": 0.001222169245936825,
+        "unrecognized": 0.003964025565434412
+      }
+    },
+    {
+      "text": "Perdi meu cartão; quero bloqueá-lo.",
+      "intent": "card_lost",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9992164700244033,
+      "margin": 0.9990664720272255,
+      "feature_coverage": 1.0,
+      "probabilities": {
+        "account_query": 0.00014282680367430766,
+        "card_lost": 0.9992164700244033,
+        "credit_query": 7.523203504137509e-05,
+        "duplicate": 8.936944990094002e-05,
+        "merchant_issue": 9.061797381178919e-05,
+        "other": 0.00013739228462470978,
+        "refund_request": 9.809343136579868e-05,
+        "unrecognized": 0.00014999799717774778
+      }
+    },
+    {
+      "text": "Quiero un préstamo para estudios.",
+      "intent": "credit_query",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9922566711967614,
+      "margin": 0.9897533196413401,
+      "feature_coverage": 0.7971014492753623,
+      "probabilities": {
+        "account_query": 0.0006305235826639326,
+        "card_lost": 0.001020693288735349,
+        "credit_query": 0.9922566711967614,
+        "duplicate": 0.0007499918697597295,
+        "merchant_issue": 0.001211760150123822,
+        "other": 0.0008306977771744819,
+        "refund_request": 0.0007963105793599722,
+        "unrecognized": 0.002503351555421312
+      }
+    },
+    {
+      "text": "Qual é meu saldo disponível?",
+      "intent": "account_query",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9560646385496584,
+      "margin": 0.9449532066894957,
+      "feature_coverage": 1.0,
+      "probabilities": {
+        "account_query": 0.9560646385496584,
+        "card_lost": 0.0024306334775119815,
+        "credit_query": 0.007544067262303348,
+        "duplicate": 0.004046005416782472,
+        "merchant_issue": 0.01111143186016267,
+        "other": 0.009340512879391773,
+        "refund_request": 0.004952411889587217,
+        "unrecognized": 0.0045102986646021566
+      }
+    },
+    {
+      "text": "No reconozco, no reconozco, no reconozco ese cargo.",
+      "intent": "unrecognized",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.9785923051497031,
+      "margin": 0.9731963374564263,
+      "feature_coverage": 1.0,
+      "probabilities": {
+        "account_query": 0.002133411798272727,
+        "card_lost": 0.0017226055972560802,
+        "credit_query": 0.0017882839406099297,
+        "duplicate": 0.003945829653791344,
+        "merchant_issue": 0.003622059857717796,
+        "other": 0.005395967693276823,
+        "refund_request": 0.002799536309372229,
+        "unrecognized": 0.9785923051497031
+      }
+    },
+    {
+      "text": "¿¿¿",
+      "intent": "other",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.31139888655177705,
+      "margin": 0.14697839227104761,
+      "feature_coverage": 0.0,
+      "probabilities": {
+        "account_query": 0.16442049428072944,
+        "card_lost": 0.06918304800836332,
+        "credit_query": 0.08326012395932485,
+        "duplicate": 0.08302877500318662,
+        "merchant_issue": 0.11069571789911024,
+        "other": 0.31139888655177705,
+        "refund_request": 0.058000038485098895,
+        "unrecognized": 0.12001291581240965
+      }
+    },
+    {
+      "text": "",
+      "intent": "other",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.31139888655177705,
+      "margin": 0.14697839227104761,
+      "feature_coverage": 0.0,
+      "probabilities": {
+        "account_query": 0.16442049428072944,
+        "card_lost": 0.06918304800836332,
+        "credit_query": 0.08326012395932485,
+        "duplicate": 0.08302877500318662,
+        "merchant_issue": 0.11069571789911024,
+        "other": 0.31139888655177705,
+        "refund_request": 0.058000038485098895,
+        "unrecognized": 0.12001291581240965
+      }
+    },
+    {
+      "text": "𝙃𝙤𝙡𝙖 CAFÉ café\tCAFÉ — １２３",
+      "intent": "other",
+      "accepted": false,
+      "decision": "clarify",
+      "confidence": 0.7471681475146,
+      "margin": 0.6844523313813218,
+      "feature_coverage": 0.16666666666666666,
+      "probabilities": {
+        "account_query": 0.028000245642037833,
+        "card_lost": 0.06271581613327822,
+        "credit_query": 0.020491464972572003,
+        "duplicate": 0.027123058539698056,
+        "merchant_issue": 0.03956155223041692,
+        "other": 0.7471681475146,
+        "refund_request": 0.027581260500135357,
+        "unrecognized": 0.0473584544672615
+      }
+    }
+  ]
+}

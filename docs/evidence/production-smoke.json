@@ -1,0 +1,16 @@
+{
+  "source": "official Sites scoped automation credential; no browser session or spoofed identity headers",
+  "productionUrl": "https://reclama-factored-2026.villafortech.chatgpt.site",
+  "passed": false,
+  "syntheticOnly": true,
+  "twoRealIdentitiesTested": false,
+  "requests": [
+    {
+      "path": "/api/session",
+      "method": "POST",
+      "status": 401,
+      "ms": 1851.76,
+      "error": "SIGN_IN_REQUIRED"
+    }
+  ]
+}

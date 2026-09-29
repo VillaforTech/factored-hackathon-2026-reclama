@@ -1,0 +1,65 @@
+intent	family	es	pt
+unrecognized	vu01	Jamás fui a ese spa; necesito avisar que su cobro no fue autorizado por mí.	Nunca fui a esse spa; preciso avisar que a cobrança não foi autorizada por mim.
+unrecognized	vu02	Me aparece un consumo de juegos y nadie tiene permiso para usar mi tarjeta en eso.	Apareceu uma despesa de jogos e ninguém tem permissão para usar meu cartão nisso.
+unrecognized	vu03	Buenas, el cargo nuevo no es una compra mía. ¿Cómo dejo constancia?	Oi, a cobrança nova não é uma compra minha. Como registro isso?
+unrecognized	vu04	Yo pagué la matrícula; la compra del domingo que aparece al lado no la hice.	Eu paguei a matrícula; a compra de domingo que aparece ao lado não fui eu que fiz.
+unrecognized	vu05	No recuerdo contratar esa plataforma y quiero reportar que desconozco el débito.	Não lembro de contratar essa plataforma e quero comunicar que desconheço o débito.
+unrecognized	vu06	Hicieron un pago con mi tarjeta sin avisarme ni pedirme autorización.	Fizeram um pagamento com meu cartão sem me avisar nem pedir autorização.
+unrecognized	vu07	Apareció un gasto estando yo hospitalizado; nadie estaba autorizado a comprar por mí.	Surgiu uma despesa enquanto eu estava internado; ninguém tinha autorização para comprar por mim.
+unrecognized	vu08	No estoy pidiendo un préstamo; quiero reclamar una operación ajena en mis movimientos.	Não estou pedindo empréstimo; quero reclamar de uma operação alheia nas minhas movimentações.
+duplicate	vd01	Solo compré un almuerzo y el extracto muestra el cobro triplicado.	Só comprei um almoço e o extrato mostra a cobrança triplicada.
+duplicate	vd02	Esa operación sí es mía, pero se repitió el descuento sin que hiciera otra compra.	Essa operação é minha, mas o desconto se repetiu sem que eu fizesse outra compra.
+duplicate	vd03	El pago del estacionamiento aparece dos veces; solo entré una vez.	O pagamento do estacionamento aparece duas vezes; só entrei uma vez.
+duplicate	vd04	La cajera volvió a pasar la tarjeta y terminó cobrándome ambos intentos.	A atendente passou o cartão outra vez e acabou cobrando as duas tentativas.
+duplicate	vd05	Se generaron dos movimientos por una sola compra del repuesto.	Foram geradas duas movimentações por uma única compra da peça.
+duplicate	vd06	Uno de los cargos es correcto. El otro es copia del mismo pago.	Uma das cobranças está correta. A outra é cópia do mesmo pagamento.
+duplicate	vd07	El recibo del médico tiene el mismo monto debitado en dos renglones; no hubo segunda consulta.	O recibo do médico tem o mesmo valor debitado em duas linhas; não houve segunda consulta.
+duplicate	vd08	Quiero reclamar el cobro por duplicado del abono del estadio.	Quero reclamar da cobrança em duplicidade da assinatura do estádio.
+merchant_issue	vm01	La bicicleta que compré llegó sin frenos y el vendedor no responde.	A bicicleta que comprei chegou sem freios e o vendedor não responde.
+merchant_issue	vm02	Reservé un salón y al llegar estaba cerrado. Quiero reportar que no prestaron el servicio.	Reservei um salão e ao chegar estava fechado. Quero comunicar que não prestaram o serviço.
+merchant_issue	vm03	Pagué por un libro impreso y me enviaron un archivo que no abre.	Paguei por um livro impresso e enviaram um arquivo que não abre.
+merchant_issue	vm04	El envío llevaba tres piezas, solo recibí una, y necesito dejar mi reclamación.	A entrega tinha três peças, só recebi uma, e preciso registrar minha reclamação.
+merchant_issue	vm05	No desconozco el pago: compré una herramienta nueva y me entregaron una oxidada.	Não desconheço o pagamento: comprei uma ferramenta nova e me entregaram uma enferrujada.
+merchant_issue	vm06	El profesor canceló todas las clases del curso que ya pagué.	O professor cancelou todas as aulas do curso que já paguei.
+merchant_issue	vm07	Me vendieron un equipo original y lo que recibí es una imitación.	Venderam um aparelho original e o que recebi é uma imitação.
+merchant_issue	vm08	El comercio dice que entregó el regalo en otra dirección. Aquí no llegó nada.	A loja diz que entregou o presente em outro endereço. Aqui não chegou nada.
+refund_request	vr01	Entregué de vuelta la mesa y quiero que me devuelvan lo que pagué.	Devolvi a mesa e quero que devolvam o que paguei.
+refund_request	vr02	La compra fue mía. Ya acordé la devolución y necesito ubicar el reintegro.	A compra foi minha. Já combinei a devolução e preciso localizar o estorno.
+refund_request	vr03	El vendedor hizo un abono por la cancelación, ¿pueden revisar si llegó?	O vendedor fez um crédito pelo cancelamento, podem verificar se chegou?
+refund_request	vr04	Necesito iniciar el trámite para recuperar el pago de una reserva que anulé.	Preciso iniciar o processo para recuperar o pagamento de uma reserva que cancelei.
+refund_request	vr05	La devolución está autorizada por el local, pero no encuentro ese dinero en mi cuenta.	A devolução foi autorizada pela loja, mas não encontro esse dinheiro na minha conta.
+refund_request	vr06	¿Dónde veo si ya terminó de procesarse mi reembolso?	Onde vejo se o processamento do meu reembolso já terminou?
+refund_request	vr07	Cambiaré de servicio y quisiera pedir que me reintegren el mes que pagué por adelantado.	Vou trocar de serviço e gostaria de pedir o estorno do mês que paguei adiantado.
+refund_request	vr08	Me dijeron que devolvieron el importe del pasaje. Sigo esperando el crédito.	Disseram que devolveram o valor da passagem. Continuo esperando o crédito.
+card_lost	vl01	Se me perdió el tarjetero. Quiero dejar inutilizadas las tarjetas hasta encontrarlas.	Perdi meu porta-cartões. Quero deixar os cartões inutilizados até encontrá-los.
+card_lost	vl02	El niño salió con mi tarjeta y ahora no sabe dónde la dejó. Necesito bloquearla.	Meu filho saiu com meu cartão e agora não sabe onde o deixou. Preciso bloqueá-lo.
+card_lost	vl03	Robaron mi cartera en el mercado. Primero quiero impedir que usen el plástico.	Roubaram minha carteira na feira. Primeiro quero impedir que usem o cartão.
+card_lost	vl04	Alguien se llevó mi tarjeta del vestidor, ¿me ayudan a suspenderla?	Alguém levou meu cartão do vestiário, podem me ajudar a suspendê-lo?
+card_lost	vl05	No hay compras extrañas; únicamente perdí la tarjeta y quiero congelarla.	Não há compras estranhas; apenas perdi o cartão e quero congelá-lo.
+card_lost	vl06	Olvidé mi tarjeta en otra provincia y no puedo recogerla hoy. Bloquéenla por favor.	Esqueci meu cartão em outro estado e não consigo buscá-lo hoje. Bloqueiem, por favor.
+card_lost	vl07	El cajero no devolvió mi tarjeta y ya cerró la agencia. Quiero desactivarla.	O caixa não devolveu meu cartão e a agência já fechou. Quero desativá-lo.
+card_lost	vl08	Busqué por toda la casa y no aparece el plástico. ¿Cómo le pongo una pausa?	Procurei pela casa toda e o cartão não aparece. Como faço para pausá-lo?
+account_query	va01	¿Cuánto quedó en mi cuenta después del último depósito? Solo necesito el saldo.	Quanto ficou na minha conta depois do último depósito? Só preciso do saldo.
+account_query	va02	Quiero un listado de los retiros de la quincena para mis cuentas personales.	Quero uma lista dos saques da quinzena para meu controle pessoal.
+account_query	va03	No quiero cancelar nada, solo comprobar si se hizo la transferencia del alquiler.	Não quero cancelar nada, só verificar se a transferência do aluguel foi feita.
+account_query	va04	¿Se acreditó ya el depósito que hice en ventanilla?	Já foi creditado o depósito que fiz no caixa da agência?
+account_query	va05	Necesito consultar la fecha y referencia de un pago que sí reconozco.	Preciso consultar a data e referência de um pagamento que reconheço.
+account_query	va06	Me pidieron el estado de cuenta para un trámite; ¿cómo lo obtengo?	Pediram meu extrato para um procedimento; como consigo obtê-lo?
+account_query	va07	Veo un pago en proceso y quiero saber qué estado tiene ahora.	Vejo um pagamento em processamento e quero saber qual é a situação dele agora.
+account_query	va08	Quiero verificar las entradas de dinero del viernes; no estoy iniciando una disputa.	Quero verificar as entradas de dinheiro de sexta-feira; não estou iniciando uma contestação.
+credit_query	vc01	Tengo un negocio pequeño. ¿Podría obtener financiación para comprar equipo?	Tenho um pequeno negócio. Poderia obter financiamento para comprar equipamentos?
+credit_query	vc02	¿Qué salario necesito demostrar para que evalúen mi préstamo?	Qual salário preciso comprovar para avaliarem meu empréstimo?
+credit_query	vc03	Mi crédito actual es pequeño; me gustaría saber si pueden elevar el límite.	Meu crédito atual é pequeno; gostaria de saber se podem aumentar o limite.
+credit_query	vc04	¿Cuántos meses de empleo exigen para solicitar una hipoteca?	Quantos meses de emprego exigem para solicitar uma hipoteca?
+credit_query	vc05	Necesito comparar intereses y cuotas antes de pedir dinero prestado.	Preciso comparar juros e parcelas antes de pedir dinheiro emprestado.
+credit_query	vc06	¿Aceptan una pensión como ingreso para evaluar la elegibilidad de un crédito?	Aceitam aposentadoria como renda para avaliar a elegibilidade de um crédito?
+credit_query	vc07	Busco requisitos para financiar estudios, no información sobre cargos de mi tarjeta.	Procuro requisitos para financiar estudos, não informações sobre cobranças no meu cartão.
+credit_query	vc08	Quiero saber cuánto podría pedir y si exigen un garante.	Quero saber quanto poderia pedir emprestado e se exigem um fiador.
+other	vo01	El sitio se queda en blanco después de entrar. Necesito ayuda técnica.	O site fica em branco depois que entro. Preciso de ajuda técnica.
+other	vo02	No recibo el código para iniciar sesión y quiero recuperar mi acceso.	Não recebo o código para iniciar a sessão e quero recuperar meu acesso.
+other	vo03	Cambió mi apellido y necesito actualizar los datos del perfil.	Meu sobrenome mudou e preciso atualizar os dados do perfil.
+other	vo04	¿Atienden en la sucursal los sábados por la mañana?	Atendem na agência aos sábados pela manhã?
+other	vo05	Quiero que dejen de enviarme ofertas al correo.	Quero que parem de me enviar ofertas por e-mail.
+other	vo06	Necesito conversar con alguien de atención al cliente, sin iniciar otro trámite.	Preciso conversar com alguém do atendimento ao cliente, sem iniciar outro procedimento.
+other	vo07	Explícame cómo podar un árbol de limón.	Explique como podar um limoeiro.
+other	vo08	Tengo una pregunta pero aún no sé cómo explicarla.	Tenho uma pergunta, mas ainda não sei como explicá-la.

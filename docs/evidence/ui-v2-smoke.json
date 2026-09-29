@@ -1,0 +1,19 @@
+{
+  "observed_at": "2026-09-29T19:17:08.615160+00:00",
+  "environment": "local loopback, actual browser UI",
+  "checks": [
+    {
+      "name": "ES raw intent hypothesis appears with correction request",
+      "passed": true
+    },
+    {
+      "name": "PT raw intent hypothesis appears with correction request",
+      "passed": true
+    },
+    {
+      "name": "Evidence tab displays218/256 versus168/256 with synthetic-test and other9/32 limitations",
+      "passed": true
+    }
+  ],
+  "scope": "No new cases created in this smoke; initial UI case/readback/reviewer and fresh-CI HTTP are separate evidence. No hosted authentication claim."
+}

@@ -1,0 +1,527 @@
+{
+  "rejections": [
+    {
+      "file": "train-account_query.json",
+      "row": 19,
+      "reason": "AI curation: unknown transaction primary intent"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 20,
+      "reason": "AI curation: duplicate charge primary intent"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 21,
+      "reason": "AI curation: ambiguous dispute"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 22,
+      "reason": "AI curation: refund request"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 24,
+      "reason": "AI curation: profile update"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 25,
+      "reason": "AI curation: human agent request"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 27,
+      "reason": "AI curation: account blocking action outside query"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 28,
+      "reason": "AI curation: limit change action outside query"
+    },
+    {
+      "file": "train-account_query.json",
+      "row": 31,
+      "reason": "AI curation: branch location"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 0,
+      "reason": "AI curation: card found, no loss allegation"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 12,
+      "reason": "AI curation: unused-card closure, not lost"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 14,
+      "reason": "AI curation: found-card activity query"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 16,
+      "reason": "AI curation: activity question with mixed purpose"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 22,
+      "reason": "AI curation: found-card activity query"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 23,
+      "reason": "AI curation: unused-card closure"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 26,
+      "reason": "AI curation: insufficient intent evidence"
+    },
+    {
+      "file": "train-card_lost.json",
+      "row": 27,
+      "reason": "AI curation: activity query mixed with loss"
+    },
+    {
+      "file": "train-credit_query.json",
+      "row": 14,
+      "reason": "AI curation: unspecified need for money without lending intent"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 3,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 4,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 6,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 7,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 8,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 9,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 10,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 11,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 12,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 13,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 14,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 15,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 16,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 17,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 18,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 19,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 20,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 21,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 22,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 23,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 24,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 25,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 26,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 27,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 28,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-duplicate.json",
+      "row": 29,
+      "reason": "AI curation: repeated two-charges template"
+    },
+    {
+      "file": "train-merchant_issue.json",
+      "row": 10,
+      "reason": "AI curation: rescheduling appointment without dispute"
+    },
+    {
+      "file": "train-merchant_issue.json",
+      "row": 15,
+      "reason": "AI curation: different primary purpose in Portuguese"
+    },
+    {
+      "file": "train-merchant_issue.json",
+      "row": 18,
+      "reason": "AI curation: buyer remorse/refund purpose"
+    },
+    {
+      "file": "train-merchant_issue.json",
+      "row": 20,
+      "reason": "AI curation: explicit primary request for refund"
+    },
+    {
+      "file": "train-merchant_issue.json",
+      "row": 21,
+      "reason": "AI curation: exchange preference not merchant failure"
+    },
+    {
+      "file": "train-merchant_issue.json",
+      "row": 25,
+      "reason": "AI curation: explicit primary request for refund"
+    },
+    {
+      "file": "train-other.json",
+      "row": 0,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 2,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 4,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 6,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 8,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 9,
+      "reason": "AI curation: account product information"
+    },
+    {
+      "file": "train-other.json",
+      "row": 10,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 12,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 14,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 15,
+      "reason": "AI curation: transfer information"
+    },
+    {
+      "file": "train-other.json",
+      "row": 16,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 17,
+      "reason": "AI curation: account balance"
+    },
+    {
+      "file": "train-other.json",
+      "row": 18,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 20,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 21,
+      "reason": "AI curation: transfer cost"
+    },
+    {
+      "file": "train-other.json",
+      "row": 22,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 23,
+      "reason": "AI curation: credit request"
+    },
+    {
+      "file": "train-other.json",
+      "row": 24,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 25,
+      "reason": "AI curation: account statement"
+    },
+    {
+      "file": "train-other.json",
+      "row": 26,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 28,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 30,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 32,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 33,
+      "reason": "AI curation: account information"
+    },
+    {
+      "file": "train-other.json",
+      "row": 34,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 36,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 37,
+      "reason": "length outside 4-60 tokens"
+    },
+    {
+      "file": "train-other.json",
+      "row": 38,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 39,
+      "reason": "AI curation: payment status"
+    },
+    {
+      "file": "train-other.json",
+      "row": 40,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 41,
+      "reason": "AI curation: account statement"
+    },
+    {
+      "file": "train-other.json",
+      "row": 42,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 43,
+      "reason": "AI curation: account information"
+    },
+    {
+      "file": "train-other.json",
+      "row": 44,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 46,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 47,
+      "reason": "AI curation: ambiguous complaint request"
+    },
+    {
+      "file": "train-other.json",
+      "row": 48,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 50,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-other.json",
+      "row": 52,
+      "reason": "missing language text"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 3,
+      "reason": "AI curation: insufficient evidence of denial"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 12,
+      "reason": "AI curation: account information query"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 13,
+      "reason": "AI curation: ambiguous error/status question"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 18,
+      "reason": "AI curation: uncertain information query"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 21,
+      "reason": "AI curation: merchant non-delivery"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 23,
+      "reason": "AI curation: vague suspicious operation"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 24,
+      "reason": "AI curation: unspecified error"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 25,
+      "reason": "AI curation: duplicate charge"
+    },
+    {
+      "file": "train-unrecognized.json",
+      "row": 26,
+      "reason": "AI curation: insufficient intent evidence"
+    },
+    {
+      "family": "gemma_unrecognized_017",
+      "reason": "exact training duplicate"
+    }
+  ],
+  "near_overlap_training_families_removed": [],
+  "near_overlap_details": [],
+  "source": "v1 train only + local Gemma-generated train; separate AI-curated validation",
+  "counts": {
+    "train": 634,
+    "validation": 128
+  },
+  "per_class": {
+    "train": {
+      "unrecognized": 74,
+      "duplicate": 48,
+      "merchant_issue": 84,
+      "refund_request": 96,
+      "card_lost": 82,
+      "account_query": 86,
+      "credit_query": 94,
+      "other": 70
+    },
+    "validation": {
+      "unrecognized": 16,
+      "duplicate": 16,
+      "merchant_issue": 16,
+      "refund_request": 16,
+      "card_lost": 16,
+      "account_query": 16,
+      "credit_query": 16,
+      "other": 16
+    }
+  }
+}

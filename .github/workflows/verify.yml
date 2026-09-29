@@ -13,6 +13,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint:app
       - run: node ml/v1/verify-parity.mjs
+      - run: node ml/v2/verify-parity.mjs
       - run: python3 data-pipeline/validate_assets.py
       - run: npm run build
       - name: Verify HTTP workflow against fresh local D1

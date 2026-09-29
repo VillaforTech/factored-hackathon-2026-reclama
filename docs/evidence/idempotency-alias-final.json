@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "2026-09-29T19:04:40Z",
+  "scope": "Two new-key duplicate submissions against existing synthetic cases; no new successful idempotent response is issued.",
+  "results": [
+    {
+      "http_status": 409,
+      "error": "CASE_ALREADY_EXISTS",
+      "pass": true
+    },
+    {
+      "http_status": 409,
+      "error": "CASE_ALREADY_EXISTS",
+      "pass": true
+    }
+  ],
+  "case_count_delta": 0,
+  "passed": true
+}

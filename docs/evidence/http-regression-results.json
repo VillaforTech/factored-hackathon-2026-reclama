@@ -1,0 +1,62 @@
+{
+  "scope": "Six local regression checks only; not the full acceptance or held-out suite.",
+  "timestamp_utc": "2026-09-29T18:41:14Z",
+  "real_credentials_used": false,
+  "cases_created": 0,
+  "results": [
+    {
+      "id": "es_pin",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422,
+        "real_credentials_used": false
+      }
+    },
+    {
+      "id": "pt_pin",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422,
+        "real_credentials_used": false
+      }
+    },
+    {
+      "id": "es_password",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422,
+        "real_credentials_used": false
+      }
+    },
+    {
+      "id": "pt_password",
+      "status": "pass",
+      "evidence": {
+        "http_status": 422,
+        "real_credentials_used": false
+      }
+    },
+    {
+      "id": "valid_agent_update",
+      "status": "pass",
+      "evidence": {
+        "http_status": 200,
+        "version_delta": 1,
+        "readback_verified": true
+      }
+    },
+    {
+      "id": "stale_agent_update",
+      "status": "pass",
+      "evidence": {
+        "http_status": 409,
+        "state_unchanged": true
+      }
+    }
+  ],
+  "counts": {
+    "pass": 6,
+    "fail": 0,
+    "error": 0
+  }
+}

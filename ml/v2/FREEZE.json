@@ -1,0 +1,17 @@
+{
+  "frozen_at_utc": "2026-09-29T19:04:13.884252+00:00",
+  "heldout_v2_accessed": false,
+  "decision": "Advisory only, explicit user intent confirmation required. Validation routing gate failed; abstain all. No threshold relaxation permitted after heldout.",
+  "sha256": {
+    "model.json": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+    "inference.mjs": "363667b67a23b2eec7e0fadbaca226e81d274d7bd8f5931ec8edc6cfc6de8590",
+    "train_v2.py": "28c92fb8f80f0b0adceced82911c7647ee719f78b099c4fd92c54df40cb01d23",
+    "corpus.jsonl": "fcf8bce66fb0baf1e9009e06392fb030964751086a97106d552d1f6fd4b60c30",
+    "validation-source.tsv": "5faf00d905de7c1c59831a30eb32ed5a6382f5cb5c2457e2bf2bfddb716a0545",
+    "training-supplement.tsv": "02e928a340fbfd9a94972eb2f86e99a2dacc12e10872d0bb628fd94bbf77001f",
+    "curation.json": "c2cc95526f5c9d0658f1bedf9ec3417a2edb365f02b85644e5d898e27955ecb8",
+    "protocol.md": "660d68ee22c68ed4acc89a69f4272364b8d3b52fdf463b2d4f3663c41acca2db",
+    "validation-report.json": "20a5c52e596575bf72753d29f0854a61a1a07c61f920b804b423e016c6bcaecb",
+    "parity-vectors.json": "9ad9b14d2ffff4aaf2f7bcd9e3b67bb2054aa5ec95623a4a8192097f0d351503"
+  }
+}

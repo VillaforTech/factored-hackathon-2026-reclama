@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-09-29T19:14:35.218846+00:00",
+  "status": "team_review_draft_not_submitted",
+  "output": "Reclama_demo_draft.mp4",
+  "duration_seconds": 172.741,
+  "duration_limit_seconds": 175,
+  "duration_limit_pass": true,
+  "file_bytes": 6391066,
+  "sha256": "cb16063b246f212ee9dfda5180f4da47ffa8ea8ba05452dd243978319c269c14",
+  "media": [
+    {
+      "index": 0,
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30/1"
+    },
+    {
+      "index": 1,
+      "codec_name": "aac",
+      "codec_type": "audio",
+      "r_frame_rate": "0/0"
+    },
+    {
+      "index": 2,
+      "codec_name": "mov_text",
+      "codec_type": "subtitle",
+      "r_frame_rate": "0/0"
+    }
+  ],
+  "voice": {
+    "name": "Paulina",
+    "language": "es-MX",
+    "type": "Generic locally synthesized macOS voice; no person imitation or voice cloning",
+    "speech_rate_setting_wpm": 170
+  },
+  "format_disclosure": "Recorrido narrado con capturas reales; no es una sesión continua. Borrador.",
+  "subtitles": {
+    "file": "Reclama_demo_draft.srt",
+    "cue_count": 26,
+    "embedded_codec": "mov_text",
+    "default_track": true,
+    "alignment": "Measured per-sentence synthesis durations"
+  },
+  "visual_sources": [
+    {
+      "scene": "01",
+      "visual": "slide-1",
+      "input": "presentation/output/slides-v3/slide-1.png",
+      "sha256": "2f81b5497c2f2fa40b609ebf90a6faa3e0b8acfdca4c5a79d680b8a04a26facf",
+      "treatment": "Slide scaled intact"
+    },
+    {
+      "scene": "02",
+      "visual": "slide-4",
+      "input": "presentation/output/slides-v3/slide-4.png",
+      "sha256": "c74afeece1cc3a46fb8b0f9fb60b1d7f4b214a559344e9d3ceeb48c17893210a",
+      "treatment": "Slide scaled intact"
+    },
+    {
+      "scene": "03",
+      "visual": "review-es",
+      "input": "screenshots/review-es.png",
+      "sha256": "ce8cb7dc33061bf992a99ae1c6fc13a315c1fa3c5ad9082ed6d91bc4b3d7dbf9",
+      "treatment": "Labelled static crop of actual screenshot; no simulated UI events"
+    },
+    {
+      "scene": "04",
+      "visual": "mobile-pt",
+      "input": "screenshots/mobile-pt.png",
+      "sha256": "2fffef124f3fefb43de7c136bb97298b76dfb8f3777f3f73d293a0be564b1ec5",
+      "treatment": "Labelled static crop of actual screenshot; no simulated UI events"
+    },
+    {
+      "scene": "05",
+      "visual": "slide-3",
+      "input": "presentation/output/slides-v3/slide-3.png",
+      "sha256": "0b6977a37086425ee301c14a1c836a7334e0cec436d213fcd82d458a448a1330",
+      "treatment": "Slide scaled intact"
+    },
+    {
+      "scene": "06",
+      "visual": "checks",
+      "input": "original_vector_style_title_and_metric_card",
+      "sha256": "ac7c90388b053baf8026fe4897cf6427b1f8b61f6cd34ebf5b50a0e7bcf36c1f",
+      "treatment": "Original evidence card based on measured reports"
+    },
+    {
+      "scene": "07",
+      "visual": "slide-5",
+      "input": "presentation/output/slides-v3/slide-5.png",
+      "sha256": "7a7c5fa8e91f3cee1f971ebb5240997f0a4c43a7779166d6956c58769b1e84c8",
+      "treatment": "Slide scaled intact"
+    },
+    {
+      "scene": "08",
+      "visual": "slide-6",
+      "input": "presentation/output/slides-v3/slide-6.png",
+      "sha256": "4da073e9e8f51c90c9a16659383671c2ef3f075b37f08829ffc11a741308d7cd",
+      "treatment": "Slide scaled intact"
+    }
+  ],
+  "claims": {
+    "system_http_checks": "28/28 on prepared local/fresh CI fixture workload",
+    "api_contract_probes": "160/160 assertions:16 scenario-language pairs repeated10 times, not160 independent customers",
+    "classification": "218/256 vs rules168/256 team-generated held-out texts; AI-assisted annotation, human review pending; advisory-only model",
+    "public_site": "Public URL verified by parent task; action API requires ChatGPT identity",
+    "public_browser_login": "Not verified complete; explicitly pending in voice and slide"
+  },
+  "technical_validation": {
+    "full_decode_errors": 0,
+    "audio_mean_volume_db": -19.7,
+    "audio_peak_db": -6.8,
+    "contact_sheet_inspected": true,
+    "slide_to_narration_alignment_checked": true,
+    "human_pronunciation_review": "pending"
+  },
+  "distribution": "Public project review draft; not submitted to organizers. The release publishes this exact file for team review.",
+  "reproduction_files": [
+    "narration.json",
+    "make_audio.py",
+    "render_video.py",
+    "timing.json",
+    "frames.txt"
+  ],
+  "remaining_before_final_delivery": [
+    "Team listens to the generic Spanish narration and checks subtitle readability.",
+    "Replace with or append an actual continuous run if judges need uninterrupted interaction evidence.",
+    "Revalidate public-browser authenticated flow; do not remove the pending limitation without evidence."
+  ],
+  "official_duration_limit_seconds": 180,
+  "internal_duration_target_seconds": 175
+}

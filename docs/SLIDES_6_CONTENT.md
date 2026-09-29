@@ -1,112 +1,116 @@
-# Reclama — contenido de seis diapositivas
+# Reclama: contenido de seis diapositivas, revisión 3
 
-Documento de contenido, no presentación creada ni entrega realizada. Fecha 29 septiembre 2026. Cifras de perfil medidas el 28 septiembre; resultados del sistema aún pendientes. Incluir pie “Sandbox · fixtures de demostración propios · ninguna decisión financiera real” en las láminas de producto.
+Actualizado el 29 de septiembre de 2026. Esta revisión incorpora el resultado del modelo v2. [PowerPoint editable](presentation/Reclama_Hackathon_6_slides_v3.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v3.pdf) contienen seis diapositivas con enlaces al sitio y repositorio.
 
-## 1. Del cargo no reconocido a un expediente verificable
+Alcance común: **sandbox con datos de demostración propios, recepción de solicitudes para revisión humana**. El sistema no confirma fraude, no adjudica disputas, no aprueba reembolsos y no mueve dinero. La interfaz pública y la ejecución local se verifican por separado.
 
-**Mensaje principal:** El cliente sabe qué está reclamando y el agente recibe hechos, declaración y preguntas pendientes en un expediente confirmado.
+## 1. Reclama: disputas de tarjeta con evidencia verificable
 
-- Recepción de reclamos por compras de tarjeta en español y portugués.
-- Una acción concreta: registrar la solicitud y verificar su persistencia.
-- El resultado es “recibido, pendiente de revisión”.
-- Equipo: Roberto Villafuerte · Jorge Arguello · Daniel Andrade.
+**Mensaje:** el cliente identifica el cargo y el agente recibe un expediente confirmado.
 
-**Visual propuesto:** Cliente → cargo identificado → borrador confirmado → expediente para revisión. Usar captura real solo cuando la aplicación funcione.
+El flujo recibe un reclamo nuevo por una compra de tarjeta no reconocida. El cliente revisa el cargo exacto y su declaración. El sistema registra la solicitud y verifica su persistencia. El resultado significa **recibido, pendiente de revisión**, no resolución económica.
 
-**Nota de presentación:** No afirmar que automatizamos la resolución económica de disputas o identificamos fraude. La selección del proyecto prioriza un resultado evaluable y datos utilizables, no una demanda bancaria estimada sin evidencia.
+Equipo: Roberto Villafuerte, Jorge Arguello y Daniel Andrade.
 
-## 2. Lo que los datos permiten, y lo que no
+**Visual:** portada tipográfica navy, blanco y teal. No muestra un banco ni un cliente real.
 
-**Mensaje principal:** Validamos relaciones antes de automatizar; un ID existente no garantiza titularidad.
+**Nota de exposición:** el análisis de datos sintéticos no estima demanda o fraude real. La oportunidad demostrada es la calidad verificable de recepción del caso.
 
-| Hallazgo medido | Decisión de ingeniería |
-|---|---|
-| 10.903 compras de tarjeta Approved, de 10.036 clientes | Identificar el cargo mediante transacción y producto con titular coherente |
-| 531 compras aprobadas sin comercio | Admitir ausencia si el cargo es inequívoco; nunca completar con invención |
-| 448 quejas con producto; 0 propietarios coincidentes | Excluir esa unión del expediente operativo |
-| 1.748 transcripciones, todas ES; 42 textos de cliente distintos con “saldo” | No tratarlas como etiquetas de disputa ni corpus portugués |
+## 2. Una solicitud completa, en español y portugués
 
-**Pie de evidencia:** Datos sintéticos. Doce cortes temporales, no aleatorios. No estiman prevalencia real de reclamos. Análisis local reproducible: `dispute-intake-profile.json`, `relations-profile.json`.
+**Mensaje:** identificar, confirmar y registrar tienen resultados observables.
 
-**Visual propuesto:** Dos columnas, “Usamos para recibir una solicitud nueva” y “No usamos como evidencia de esa solicitud”, cada una con la decisión correspondiente. Nada de filas individuales.
+1. **Identificar:** consultar compras del titular y seleccionar la transacción exacta. Cargos parecidos requieren aclaración.
+2. **Confirmar:** revisar hechos de fuente y declaración del cliente por separado. La confirmación corresponde a una versión del borrador.
+3. **Registrar:** persistir con controles de duplicados y realizar lectura posterior antes de mostrar el recibo.
 
-## 3. El flujo completo, con límites observables
+El agente recibe hechos verificables, la declaración y preguntas abiertas. Ante estados o peticiones que requieren revisión humana, el sistema conserva ese contexto sin prometer devolución.
 
-**Mensaje principal:** El sistema pide aclaración, permite corregir y solo confirma resultados verificados.
+**Visual:** tres pasos y captura real de la vista de agente ejecutada localmente, con fixtures inventados. La captura no demuestra autenticación de producción ni acceso público de principio a fin.
 
-1. Sesión confiable de prueba; búsqueda de compras propias.
-2. Interpretación ES/PT; selección inequívoca de la transacción.
-3. Declaración mínima del cliente separada de hechos de fuente.
-4. Borrador revisado; confirmación ligada a su versión.
-5. Escritura idempotente; lectura posterior; recibo y vista de agente.
+**Demo:** los cargos ambiguos actuales son dos compras de Luna Digital por **USD 84,90**, con horas distinguibles.
 
-**Caso humano:** Pending/Reversed/Declined, información crítica inconsistente o solicitud fuera del alcance. Se transfieren hechos, alegaciones, acciones realizadas y preguntas pendientes.
+## 3. Arquitectura implementada
 
-**Visual propuesto:** Tres capturas verificadas: aclaración ES, confirmación, handoff PT. Marcar con claridad las rutas que aún no estén implementadas; no presentar mockup como evidencia de ejecución.
+**Mensaje:** el modelo sugiere una intención y el servicio aplica permisos y controla la escritura.
 
-## 4. El modelo interpreta; el servicio controla
+| Componente | Implementación y función |
+| --- | --- |
+| Cliente ES/PT | React 19, TypeScript y Vinext. Selección y confirmación visibles. |
+| Clasificador | TF-IDF y regresión logística exportados a JSON. Inferencia local en Worker, sin API paga para clasificar. |
+| Servicio | Cloudflare Worker. Sesión, aislamiento por cliente, estados y consentimiento versionado. |
+| Persistencia | D1 / SQLite. Restricciones de unicidad, auditoría, idempotencia y lectura posterior. |
+| Vista de agente | Expediente persistido, declaración, hechos, pendientes y revisión. |
+| Datos | Pipeline Python sobre fuentes privadas. La app contiene únicamente fixtures inventados y agregados. |
 
-**Mensaje principal:** La autorización y las acciones no dependen de una respuesta persuasiva del LLM.
+La integración con identidad SIWC confía en el header de plataforma y una sesión HTTPS opaca. El flujo local con identidad de prueba está verificado. **El login de una sesión real de plataforma sigue pendiente de validación** por la barrera observada de Cloudflare. Esto no equivale a autenticación bancaria de producción.
 
-```text
-Fuentes privadas autorizadas / fixtures públicos propios
-                 ↓ contratos · titularidad · versión
-         Snapshot mínimo y trazable
-                 ↓
-UI ES/PT → intérprete aprendido → herramientas tipadas
-                 ↓                   ↓
-            aclaración         sesión · permisos · estado
-                                     ↓
-                         borrador + consentimiento específico
-                                     ↓
-                         persistencia atómica + readback
-                                     ↓
-                         recibo · bandeja de agente · trazas
-```
+**Visual:** diagrama nativo editable con componentes, dirección del flujo y controles junto al servicio. Las fronteras de confianza no se delegan al texto del modelo.
 
-- Idempotencia y prevención de duplicados, incluidos envíos concurrentes.
-- Instrucciones en mensajes o datos carecen de autoridad sobre herramientas.
-- Reintentos limitados, fallo explícito, fallback y política de retención.
-- Las etiquetas de sandbox no sustituyen pruebas de aislamiento.
+## 4. Un ID existente no garantiza titularidad
 
-**Estado de evidencia:** Sustituir este diagrama por componentes realmente implementados antes de cerrar la presentación; explicar cualquier diferencia.
+**Mensaje:** validar una relación requiere verificar quién es dueño del producto.
 
-## 5. Evaluación: mismo workload, resultados honestos
+| Observación | Decisión |
+| --- | --- |
+| 10.903 compras de tarjeta aprobadas con relaciones coherentes | Base para identificar un cargo propio. |
+| 531 de esas compras carecen de comercio | Conservar la ausencia, sin completar por inferencia. |
+| 448 de 448 quejas con referencia de producto tienen otro propietario | Excluir esa unión del expediente operativo. |
+| 1.748 transcripciones ES, 42 textos distintos de cliente con “saldo” | No usarlas como etiquetas de disputa ni corpus portugués. |
 
-**Mensaje principal:** Comparamos contra un baseline y hacemos visibles los errores.
+Perfil: **50 archivos, doce cortes temporales no aleatorios**, más dimensiones suministradas de clientes/productos. Datos sintéticos. No permite estimar prevalencia bancaria real. Las 48.810 transacciones inspeccionadas tienen titularidad y moneda coherentes con la dimensión estática suministrada.
 
-| Medida | Baseline [VERSIÓN] | Reclama [VERSIÓN] |
-|---|---:|---:|
-| Casos reservados ES / PT | PENDIENTE | PENDIENTE |
-| Recepción segura / todos los casos del alcance | PENDIENTE | PENDIENTE |
-| Intentos de automatización / casos | PENDIENTE | PENDIENTE |
-| Transferencias requeridas omitidas / requeridas | PENDIENTE | PENDIENTE |
-| Incidentes de acceso/acción / intentos | PENDIENTE | PENDIENTE |
-| p50 / p95 E2E | PENDIENTE | PENDIENTE |
-| Costo por intento / recepción segura | PENDIENTE | PENDIENTE |
+Los timestamps originales no permiten afirmar frescura bancaria en vivo. El snapshot de demo declara corte fijo y procedencia propia.
 
-**Preparación ya realizada, no resultado de la app:** se diseñaron 58 casos de aceptación / 116 variantes ES/PT. Son pruebas visibles de desarrollo, no held-out. Conversaciones de evaluación propias y etiquetadas; separar familias, clientes/transacciones y pares ES/PT. Validar la calidad del portugués con revisión humana.
+**Fuente reproducible pública:** [reporte agregado del pipeline](../data-pipeline/report.json). No se distribuyen registros originales, credenciales, archivos de acceso ni enlaces firmados en esta presentación.
 
-**Visual propuesto:** Gráfico o tabla solo desde reporte real. Mostrar un fallo concreto y la corrección/limitación. No dibujar barras con cifras objetivo ni anunciar “0 riesgo”.
+## 5. Evaluación con errores y límites visibles
 
-**Nota de presentación:** Si no se completa la evaluación, decir que está pendiente; no afirmar que se cumple el requisito ni ocultar n=0.
+**Mensaje:** v2 mejora frente a reglas en clasificación del conjunto reservado. No demuestra resolución autónoma de disputas.
 
-## 6. Qué entregamos y qué falta para un banco real
+Único corpus reservado independiente: **256 textos, 128 familias con parejas ES/PT**. Anotación IA independiente de entrenamiento y predicciones, revisión humana pendiente. Comparación de los mismos textos y etiquetas.
 
-**Mensaje principal:** Un flujo reproducible, con alcance y fronteras explícitos.
+| Método | Aciertos | Exactitud | Macro-F1 |
+| --- | ---: | ---: | ---: |
+| Reglas | 168/256 | 65,63% | 0,6752 |
+| Modelo v1 | 211/256 | 82,42% | 0,7904 |
+| Modelo v2 | 218/256 | 85,16% | 0,8310 |
 
-**Checklist para marcar únicamente tras verificar:**
+La diapositiva muestra reglas y v2. v1 permanece aquí y en notas para conservar contexto sin mezclar experimentos.
 
-- [ ] Cliente ES/PT y bandeja de agentes persistentes.
-- [ ] Modelo aprendido ejecutado y baseline comparable.
-- [ ] Contratos de datos, pruebas críticas y reporte de evaluación.
-- [ ] Reproducción limpia, versiones y límites operativos documentados.
-- [ ] Video <3 minutos, GitHub público seguro y acceso verificable al prototipo.
+- v2 frente a reglas: **+19,53 puntos porcentuales**, IC 95% mediante bootstrap por familias **[11,72; 27,34] pp**.
+- v2 frente a v1: diferencia **no concluyente**, IC 95% **[-1,17; 6,64] pp**.
+- v2: ES **85,94%** y PT **84,38%**. Los pares bilingües no son observaciones independientes.
+- El gate de autonomía **no se superó por abstención total**. El despliegue utiliza la clasificación como sugerencia con confirmación explícita.
 
-**Límites:** Fuentes sintéticas; conversaciones propias; banco/política real no integrados; no adjudicación, reembolsos ni dinero. Latencia/costo offline no prueban ahorro de producción. Antes de operar: identidad real, autorización institucional, política documentada, integración con gestión de casos y validación con datos autorizados representativos.
+**Pruebas distintas y denominadores distintos:**
 
-**Enlaces finales:** [URL REAL DEL PROTOTIPO] · [REPOSITORIO VERIFICADO] · [REPORTE DE EVALUACIÓN]. Mantener placeholders hasta disponer de destinos reales; comprobar acceso desde sesión independiente.
+- **28/28 pruebas HTTP de integración** con base nueva.
+- **160/160 aserciones de contratos** del flujo API.
+- Tres fallos encontrados y corregidos durante la revisión. Estas comprobaciones funcionales no son un benchmark lingüístico end-to-end, no demuestran riesgo cero y no se suman al denominador 256.
 
----
+**Antecedente exploratorio:** v1 obtuvo 46/64 y reglas 43/64 en un conjunto previo. Esa diferencia no justificó superioridad. No se mezcla ese experimento con el corpus independiente de 256 textos ni se presenta como otra evaluación reservada.
 
-Fuentes oficiales: [enunciado](https://factored-hackathon.slack.com/files/U0C3R316RQT/F0C4J2YFMHC/factored_ai___data_hackathon_2026__1_.pdf), [kickoff](https://factored-hackathon.slack.com/files/U0C3R316RQT/F0C4EU9MQS1/datathon_2026_kickoff.pdf), [duración máxima del video y cierre](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809). Esta pieza reutiliza hechos ya verificados en el registro local; no afirma una revisión nueva de Slack el 29 septiembre.
+**Fuentes:** [test-report v2](../ml/v2/test-report.json), [model card](../ml/v2/model-card.md), [integración final](evidence/http-integration-final.json), [evaluación del flujo API](evidence/WORKFLOW_API_EVALUATION.md) y [reporte de contratos](evidence/workflow-api-report.json).
+
+**Límites:** la clasificación no prueba recepción segura en conversaciones completas, adjudicación, ahorro operativo o rendimiento con clientes reales. No presentar latencia de inferencia como latencia conversacional end-to-end ni costo local por llamada como costo total de operación.
+
+## 6. Entrega reproducible y próximos pasos
+
+**Implementado y verificado localmente:** cliente ES/PT, vista de agente, casos persistidos, trazas, contratos y pruebas. La CI comprobó typecheck, lint, build, paridad de inferencia, fixtures y suite HTTP con base nueva.
+
+- [Prototipo](https://reclama-factored-2026.villafortech.chatgpt.site): despliegue completado, política pública y render del frontend verificados. Login real de plataforma pendiente de validación. No afirmar autenticación pública completa.
+- [Repositorio público](https://github.com/VillaforTech/factored-hackathon-2026-reclama): código y reproducción.
+- [PPTX editable](presentation/Reclama_Hackathon_6_slides_v3.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v3.pdf): seis diapositivas finales de esta revisión.
+
+Antes de operar con un banco hacen falta identidad institucional, políticas aprobadas, integración con gestión de casos y evaluación con datos representativos autorizados. El sistema actual es un sandbox de recepción.
+
+**Entrega del hackathon:** 5 de octubre de 2026 a las **23:59 UTC−5**. Video máximo tres minutos. Plazo confirmado previamente en fuentes oficiales, no una afirmación de envío realizado. Consultar la [página oficial](https://www.factored.ai/careers/ai-data-hackathon) y el registro de requisitos del equipo antes del envío final.
+
+## Edición y procedencia
+
+Los valores visibles están también en [metrics-v3.json](presentation/metrics-v3.json). Cada cambio debe conservar denominadores, split y límites. La revisión pública no contiene registros privados ni referencia al archivo que proporciona acceso al dataset. Las otras referencias oficiales en notas están sujetas al acceso de sus propietarios.
+
+Paleta navy #112d40, teal #33917b y blanco. El PPTX contiene texto, tabla y diagrama nativos editables. El PDF conserva enlaces al prototipo y repositorio. No se verificó el comportamiento de edición dentro de Microsoft PowerPoint.
+
+El envío final y la autenticación pública completa requieren verificación aparte.

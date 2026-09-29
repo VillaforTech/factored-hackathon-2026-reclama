@@ -4,6 +4,10 @@
 
 Reclama identifies a customer's transaction, keeps source facts separate from their statement, obtains specific consent, persists one case and gives a human reviewer an auditable handoff. It does **not** adjudicate fraud, approve credit, issue refunds, freeze cards or move money.
 
+**[Open the public demo](https://reclama-factored-2026.villafortech.chatgpt.site)** · **[Public source](https://github.com/VillaforTech/factored-hackathon-2026-reclama)**
+
+The page is public. Case operations use normal ChatGPT sign-in and an isolated sandbox; there are no bank integrations. Hosted sign-in was blocked by the identity provider’s security verification in our automated browser, so the hosted authenticated workflow remains a separate acceptance item.
+
 Team: Roberto Villafuerte, Jorge Arguello and Daniel Andrade. Responsibilities proposed in `docs/DELIVERY_PLAN.md` must be agreed with the team; no individual expertise is assumed.
 
 ## Run locally
@@ -47,14 +51,18 @@ The learned model only interprets a message. It cannot select an account, change
 ## Evidence and reproducibility
 
 - `data-pipeline/`: structural checks and explicitly authored demo fixtures. The private organizer CSVs and the access-bearing dictionary are deliberately absent. Run `python3 data-pipeline/validate_assets.py` for fixture validation. See `data-pipeline/data-card.md` before reproducing the optional private-data profile.
-- `ml/v1/`: frozen exploratory model, synthetic corpus, training script, rule baseline, predictions, model card and Python/JavaScript parity checks. `node ml/v1/verify-parity.mjs`.
+- `ml/`: frozen v1/v2 models, authored corpora, rule baseline, independent reserved set, predictions, model cards and Python/JavaScript parity checks. See `ml/README.md`; run `node ml/v2/verify-parity.mjs`. The UI uses v2.
 - `tests/`: acceptance specification and real HTTP harness. `python3 tests/http-integration.py --base-url http://127.0.0.1:5173`. It creates synthetic cases; run against a fresh local fixture database for a complete first pass. It never deletes cases and reports exhausted fixtures instead of silently resetting them.
 - `docs/evidence/`: timestamped measured reports. Designed tests, executed integration checks, exploratory model scores and reserved evaluations are different evidence types.
 - `npm run check` verifies TypeScript and application lint; `npm run build` produces the Worker bundle.
 
 Measured official sample: 48,810 coherent transaction/product/customer links; 10,903 approved card purchases, including 531 with no merchant. All 448 non-null complaint/product links inspected had different owners and were quarantined. The sample uses 12 time cuts, not a representative random sample. No inspected record is certified as live bank state. Only aggregates are published.
 
-The first learned model scored 46/64 correct versus 43/64 for a rule baseline, with slightly worse macro-F1. That exploratory result does not establish superiority or justify autonomous routing. Explicit user confirmation remains mandatory. Portuguese text and synthetic labels still need human review.
+On the independent **256-message synthetic reserved set**, v2 scored **218/256 (85.16%)** versus **168/256 (65.63%)** for rules; macro-F1 was 0.8310 versus 0.6752. The paired-family bootstrap accuracy difference against rules was +19.53 percentage points (95% interval +11.72 to +27.34). ES accuracy: 85.94%; PT: 84.38%. V1 scored 211/256; the v2–v1 difference is not conclusive. These are authored, balanced scenarios, not a representative bank benchmark.
+
+**We rejected autonomous routing.** The frozen validation gate failed; the system always requires clarification and explicit choice. It shows raw top-1 only as an unconfirmed hypothesis. `other` recall is 9/32 and `unrecognized` precision is 25/34. There were zero normalized exact train/validation overlaps with the heldout set; broader semantic and author biases remain possible. Portuguese text and synthetic labels need human review. The earlier exploratory 64-message evaluation remains preserved separately.
+
+Measured system evidence: **28/28 HTTP checks** passed in fresh-database CI after the idempotency correction; **160/160 contract assertions** passed across 16 bilingual scenarios. These assertions are not 160 financial resolutions. Four workflow readback scenarios split into two intake and two support handoffs; financial resolutions are **zero by design**. Local warm model CPU p95 was 0.082 ms; local API scenario p95 ranged 6.35–22.75 ms with ten measurements each. Neither measure is production end-to-end latency. No external model API calls were made; total hosting/CPU cost has not been measured.
 
 ## Security boundaries
 
@@ -71,6 +79,13 @@ The first learned model scored 46/64 correct versus 43/64 for a rule baseline, w
 The project uses the Sites Vinext starter, Cloudflare Worker and D1. `.openai/hosting.json` declares the D1 binding; migrations are versioned in `drizzle/`. Production publication must use the exact pushed source commit and built archive. Deployment status and access audience are documented separately from local tests in `docs/DELIVERY_STATUS.md`.
 
 A bank deployment would replace invented fixtures with an authenticated, read-only bank adapter, use workforce identity for reviewers, add retention/rate limits and operational monitoring, and validate time semantics, jurisdiction-specific policies and language quality. Those integrations are not silently simulated as complete.
+
+## Delivery artifacts
+
+- `docs/presentation/`: editable six-slide deck and PDF with sourced evidence and limitations.
+- `docs/DEMO_175S.md`: demonstration script; the narrated video is a clearly labeled montage of real screenshots, not an uninterrupted live screen recording.
+- `docs/DELIVERY_PLAN.md`: daily plan and proposed team assignments through 5 October.
+- `docs/DELIVERY_STATUS.md`: verified delivery state and remaining external checks.
 
 ## Official challenge references
 

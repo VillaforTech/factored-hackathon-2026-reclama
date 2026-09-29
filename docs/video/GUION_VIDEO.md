@@ -2,7 +2,7 @@
 
 Duración de narración: **172.74 segundos**. Voz genérica local macOS **Paulina (es-MX)**; no imita la voz de ninguna persona del equipo.
 
-**Formato:** recorrido narrado con capturas reales y diapositivas. No es una grabación continua ni una prueba del login público. Video de revisión publicado con el proyecto; no enviado al organizador.
+**Formato:** recorrido narrado con capturas reales y diapositivas. No es una grabación continua ni una prueba del login público. Video local de revisión; no enviado al organizador.
 
 | Tiempo | Visual | Narración |
 |---|---|---|

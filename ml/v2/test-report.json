@@ -1,0 +1,2309 @@
+{
+  "protocol": "Single frozen heldout evaluation, no tuning after access",
+  "dataset_sha256": "fbc39220225f6f55eb32110c3e400ae038f8ebd4ec7731ae911906cdde682ea9",
+  "freeze": {
+    "frozen_at_utc": "2026-09-29T19:04:13.884252+00:00",
+    "heldout_v2_accessed": false,
+    "decision": "Advisory only, explicit user intent confirmation required. Validation routing gate failed; abstain all. No threshold relaxation permitted after heldout.",
+    "sha256": {
+      "model.json": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+      "inference.mjs": "363667b67a23b2eec7e0fadbaca226e81d274d7bd8f5931ec8edc6cfc6de8590",
+      "train_v2.py": "28c92fb8f80f0b0adceced82911c7647ee719f78b099c4fd92c54df40cb01d23",
+      "corpus.jsonl": "fcf8bce66fb0baf1e9009e06392fb030964751086a97106d552d1f6fd4b60c30",
+      "validation-source.tsv": "5faf00d905de7c1c59831a30eb32ed5a6382f5cb5c2457e2bf2bfddb716a0545",
+      "training-supplement.tsv": "02e928a340fbfd9a94972eb2f86e99a2dacc12e10872d0bb628fd94bbf77001f",
+      "curation.json": "c2cc95526f5c9d0658f1bedf9ec3417a2edb365f02b85644e5d898e27955ecb8",
+      "protocol.md": "660d68ee22c68ed4acc89a69f4272364b8d3b52fdf463b2d4f3663c41acca2db",
+      "validation-report.json": "20a5c52e596575bf72753d29f0854a61a1a07c61f920b804b423e016c6bcaecb",
+      "parity-vectors.json": "9ad9b14d2ffff4aaf2f7bcd9e3b67bb2054aa5ec95623a4a8192097f0d351503"
+    }
+  },
+  "provenance": "Independent AI-authored synthetic holdout, not a real banking sample or human-reviewed Portuguese benchmark.",
+  "counts": {
+    "messages": 256,
+    "families": 128,
+    "pairs": 128,
+    "class_counts": {
+      "unrecognized": 32,
+      "refund_request": 32,
+      "account_query": 32,
+      "merchant_issue": 32,
+      "card_lost": 32,
+      "duplicate": 32,
+      "credit_query": 32,
+      "other": 32
+    }
+  },
+  "results": {
+    "v2": {
+      "n": 256,
+      "accuracy": 0.8515625,
+      "macro_f1": 0.8310163431444331,
+      "classes": [
+        "account_query",
+        "card_lost",
+        "credit_query",
+        "duplicate",
+        "merchant_issue",
+        "other",
+        "refund_request",
+        "unrecognized"
+      ],
+      "confusion_matrix": [
+        [
+          32,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          30,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          31,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          27,
+          0,
+          2,
+          2
+        ],
+        [
+          5,
+          3,
+          4,
+          1,
+          2,
+          9,
+          2,
+          6
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          32,
+          0
+        ],
+        [
+          1,
+          5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          25
+        ]
+      ],
+      "class_report": {
+        "account_query": {
+          "precision": 0.8421052631578947,
+          "recall": 1.0,
+          "f1-score": 0.9142857142857143,
+          "support": 32.0
+        },
+        "card_lost": {
+          "precision": 0.7894736842105263,
+          "recall": 0.9375,
+          "f1-score": 0.8571428571428571,
+          "support": 32.0
+        },
+        "credit_query": {
+          "precision": 0.8888888888888888,
+          "recall": 1.0,
+          "f1-score": 0.9411764705882353,
+          "support": 32.0
+        },
+        "duplicate": {
+          "precision": 0.9117647058823529,
+          "recall": 0.96875,
+          "f1-score": 0.9393939393939394,
+          "support": 32.0
+        },
+        "merchant_issue": {
+          "precision": 0.9310344827586207,
+          "recall": 0.84375,
+          "f1-score": 0.8852459016393442,
+          "support": 32.0
+        },
+        "other": {
+          "precision": 1.0,
+          "recall": 0.28125,
+          "f1-score": 0.43902439024390244,
+          "support": 32.0
+        },
+        "refund_request": {
+          "precision": 0.8421052631578947,
+          "recall": 1.0,
+          "f1-score": 0.9142857142857143,
+          "support": 32.0
+        },
+        "unrecognized": {
+          "precision": 0.7352941176470589,
+          "recall": 0.78125,
+          "f1-score": 0.7575757575757576,
+          "support": 32.0
+        },
+        "accuracy": 0.8515625,
+        "macro avg": {
+          "precision": 0.8675833007129046,
+          "recall": 0.8515625,
+          "f1-score": 0.8310163431444331,
+          "support": 256.0
+        },
+        "weighted avg": {
+          "precision": 0.8675833007129046,
+          "recall": 0.8515625,
+          "f1-score": 0.8310163431444331,
+          "support": 256.0
+        }
+      },
+      "by_language": {
+        "es": {
+          "n": 128,
+          "accuracy": 0.859375
+        },
+        "pt": {
+          "n": 128,
+          "accuracy": 0.84375
+        }
+      }
+    },
+    "v1": {
+      "n": 256,
+      "accuracy": 0.82421875,
+      "macro_f1": 0.7904025572657066,
+      "classes": [
+        "account_query",
+        "card_lost",
+        "credit_query",
+        "duplicate",
+        "merchant_issue",
+        "other",
+        "refund_request",
+        "unrecognized"
+      ],
+      "confusion_matrix": [
+        [
+          29,
+          0,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          29,
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          26,
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          5,
+          5,
+          0,
+          2,
+          4,
+          6,
+          9
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          31,
+          0
+        ],
+        [
+          1,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          28
+        ]
+      ],
+      "class_report": {
+        "account_query": {
+          "precision": 0.90625,
+          "recall": 0.90625,
+          "f1-score": 0.90625,
+          "support": 32.0
+        },
+        "card_lost": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1-score": 0.8888888888888888,
+          "support": 32.0
+        },
+        "credit_query": {
+          "precision": 0.8205128205128205,
+          "recall": 1.0,
+          "f1-score": 0.9014084507042254,
+          "support": 32.0
+        },
+        "duplicate": {
+          "precision": 1.0,
+          "recall": 0.90625,
+          "f1-score": 0.9508196721311475,
+          "support": 32.0
+        },
+        "merchant_issue": {
+          "precision": 0.8387096774193549,
+          "recall": 0.8125,
+          "f1-score": 0.8253968253968254,
+          "support": 32.0
+        },
+        "other": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "f1-score": 0.2222222222222222,
+          "support": 32.0
+        },
+        "refund_request": {
+          "precision": 0.775,
+          "recall": 0.96875,
+          "f1-score": 0.8611111111111112,
+          "support": 32.0
+        },
+        "unrecognized": {
+          "precision": 0.6829268292682927,
+          "recall": 0.875,
+          "f1-score": 0.7671232876712328,
+          "support": 32.0
+        },
+        "accuracy": 0.82421875,
+        "macro avg": {
+          "precision": 0.8529249159000585,
+          "recall": 0.82421875,
+          "f1-score": 0.7904025572657066,
+          "support": 256.0
+        },
+        "weighted avg": {
+          "precision": 0.8529249159000585,
+          "recall": 0.82421875,
+          "f1-score": 0.7904025572657066,
+          "support": 256.0
+        }
+      },
+      "by_language": {
+        "es": {
+          "n": 128,
+          "accuracy": 0.8515625
+        },
+        "pt": {
+          "n": 128,
+          "accuracy": 0.796875
+        }
+      }
+    },
+    "baseline": {
+      "n": 256,
+      "accuracy": 0.65625,
+      "macro_f1": 0.6751964564471725,
+      "classes": [
+        "account_query",
+        "card_lost",
+        "credit_query",
+        "duplicate",
+        "merchant_issue",
+        "other",
+        "refund_request",
+        "unrecognized"
+      ],
+      "confusion_matrix": [
+        [
+          27,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          1,
+          0,
+          0,
+          14,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          25,
+          0,
+          5,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          15,
+          15,
+          2,
+          0
+        ],
+        [
+          6,
+          4,
+          2,
+          0,
+          0,
+          18,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          2,
+          3,
+          3,
+          22,
+          0
+        ],
+        [
+          2,
+          2,
+          0,
+          1,
+          0,
+          15,
+          0,
+          12
+        ]
+      ],
+      "class_report": {
+        "account_query": {
+          "precision": 0.75,
+          "recall": 0.84375,
+          "f1-score": 0.7941176470588235,
+          "support": 32.0
+        },
+        "card_lost": {
+          "precision": 0.7391304347826086,
+          "recall": 0.53125,
+          "f1-score": 0.6181818181818182,
+          "support": 32.0
+        },
+        "credit_query": {
+          "precision": 0.8648648648648649,
+          "recall": 1.0,
+          "f1-score": 0.927536231884058,
+          "support": 32.0
+        },
+        "duplicate": {
+          "precision": 0.8928571428571429,
+          "recall": 0.78125,
+          "f1-score": 0.8333333333333334,
+          "support": 32.0
+        },
+        "merchant_issue": {
+          "precision": 0.8333333333333334,
+          "recall": 0.46875,
+          "f1-score": 0.6,
+          "support": 32.0
+        },
+        "other": {
+          "precision": 0.24,
+          "recall": 0.5625,
+          "f1-score": 0.3364485981308411,
+          "support": 32.0
+        },
+        "refund_request": {
+          "precision": 0.8461538461538461,
+          "recall": 0.6875,
+          "f1-score": 0.7586206896551724,
+          "support": 32.0
+        },
+        "unrecognized": {
+          "precision": 0.9230769230769231,
+          "recall": 0.375,
+          "f1-score": 0.5333333333333333,
+          "support": 32.0
+        },
+        "accuracy": 0.65625,
+        "macro avg": {
+          "precision": 0.7611770681335899,
+          "recall": 0.65625,
+          "f1-score": 0.6751964564471725,
+          "support": 256.0
+        },
+        "weighted avg": {
+          "precision": 0.7611770681335899,
+          "recall": 0.65625,
+          "f1-score": 0.6751964564471725,
+          "support": 256.0
+        }
+      },
+      "by_language": {
+        "es": {
+          "n": 128,
+          "accuracy": 0.65625
+        },
+        "pt": {
+          "n": 128,
+          "accuracy": 0.65625
+        }
+      }
+    }
+  },
+  "routing": {
+    "v2": {
+      "n": 256,
+      "accepted": 0,
+      "coverage": 0.0,
+      "selective_accuracy": null,
+      "unrecognized_accepted": 0,
+      "unrecognized_false_accept": 0,
+      "unrecognized_accept_precision": null,
+      "unrecognized_accept_recall": 0.0
+    },
+    "v1": {
+      "n": 256,
+      "accepted": 160,
+      "coverage": 0.625,
+      "selective_accuracy": 0.96875,
+      "unrecognized_accepted": 21,
+      "unrecognized_false_accept": 4,
+      "unrecognized_accept_precision": 0.8095238095238095,
+      "unrecognized_accept_recall": 0.53125
+    }
+  },
+  "comparisons": {
+    "baseline": {
+      "paired_accuracy_difference": 0.1953125,
+      "family_bootstrap_95_percentile_interval": [
+        0.1171875,
+        0.2734375
+      ],
+      "replicates": 4000,
+      "seed": 29092028
+    },
+    "v1": {
+      "paired_accuracy_difference": 0.02734375,
+      "family_bootstrap_95_percentile_interval": [
+        -0.01171875,
+        0.06640625
+      ],
+      "replicates": 4000,
+      "seed": 29092028
+    }
+  },
+  "errors": [
+    {
+      "id": "h2_0014_pt",
+      "family": "fam_0014",
+      "pair": "pair_0014",
+      "language": "pt",
+      "intent": "unrecognized",
+      "text": "Não perdi o cartão e não quero pedir outro; quero comunicar uma compra que não fiz numa loja de ferramentas.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.3033906110630195,
+        "margin": 0.06901863707873615,
+        "known_token_ratio": 0.9,
+        "probabilities": {
+          "account_query": 0.055012587180402084,
+          "card_lost": 0.3033906110630195,
+          "credit_query": 0.05810222189421518,
+          "duplicate": 0.06107855067487131,
+          "merchant_issue": 0.09839051350798775,
+          "other": 0.06502536098353384,
+          "refund_request": 0.124628180711687,
+          "unrecognized": 0.23437197398428336
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.7164857025962349,
+        "margin": 0.5330839485545165,
+        "feature_coverage": 0.8472906403940886,
+        "probabilities": {
+          "account_query": 0.013103821068365823,
+          "card_lost": 0.7164857025962349,
+          "credit_query": 0.010505976460750258,
+          "duplicate": 0.018406189274027027,
+          "merchant_issue": 0.028652363862634835,
+          "other": 0.005428434873288793,
+          "refund_request": 0.024015757822979766,
+          "unrecognized": 0.1834017540417185
+        }
+      }
+    },
+    {
+      "id": "h2_0124_es",
+      "family": "fam_0124",
+      "pair": "pair_0124",
+      "language": "es",
+      "intent": "other",
+      "text": "Cuando digo que quiero reclamar, todavía no sé si es por el producto, por el cobro o por el servicio del banco.",
+      "baseline": "other",
+      "v1": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.18889651141949504,
+        "margin": 0.012077412384150304,
+        "known_token_ratio": 0.9545454545454546,
+        "probabilities": {
+          "account_query": 0.07546497560953157,
+          "card_lost": 0.09230995869925333,
+          "credit_query": 0.05537542185008649,
+          "duplicate": 0.17681909903534473,
+          "merchant_issue": 0.17310211427293923,
+          "other": 0.11651100492342102,
+          "refund_request": 0.18889651141949504,
+          "unrecognized": 0.12152091418992861
+        }
+      },
+      "v2": {
+        "intent": "merchant_issue",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.52116471148739,
+        "margin": 0.3893586390105891,
+        "feature_coverage": 0.9387755102040817,
+        "probabilities": {
+          "account_query": 0.056007259143929955,
+          "card_lost": 0.025050801479515678,
+          "credit_query": 0.01006136884219243,
+          "duplicate": 0.12473954532550413,
+          "merchant_issue": 0.52116471148739,
+          "other": 0.039869604850153374,
+          "refund_request": 0.13180607247680087,
+          "unrecognized": 0.09130063639451362
+        }
+      }
+    },
+    {
+      "id": "h2_0119_es",
+      "family": "fam_0119",
+      "pair": "pair_0119",
+      "language": "es",
+      "intent": "other",
+      "text": "Me preocupa un mensaje sobre dinero, pero no sé de qué cuenta o servicio se trata.",
+      "baseline": "other",
+      "v1": {
+        "intent": "merchant_issue",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.17209067512911577,
+        "margin": 0.01957037620184718,
+        "known_token_ratio": 0.8125,
+        "probabilities": {
+          "account_query": 0.13560758095698483,
+          "card_lost": 0.09769477372346513,
+          "credit_query": 0.1237114555816522,
+          "duplicate": 0.0775287817913522,
+          "merchant_issue": 0.17209067512911577,
+          "other": 0.08945479028662828,
+          "refund_request": 0.1513916436035331,
+          "unrecognized": 0.1525202989272686
+        }
+      },
+      "v2": {
+        "intent": "account_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5168209252301803,
+        "margin": 0.33103721560521077,
+        "feature_coverage": 0.8175675675675675,
+        "probabilities": {
+          "account_query": 0.5168209252301803,
+          "card_lost": 0.021770655188588135,
+          "credit_query": 0.0452033962105369,
+          "duplicate": 0.01551242846033964,
+          "merchant_issue": 0.07884497811276397,
+          "other": 0.04416647646861229,
+          "refund_request": 0.18578370962496954,
+          "unrecognized": 0.09189743070400917
+        }
+      }
+    },
+    {
+      "id": "h2_0016_es",
+      "family": "fam_0016",
+      "pair": "pair_0016",
+      "language": "es",
+      "intent": "unrecognized",
+      "text": "El restaurante sí me suena, pero hace meses que no voy. La compra de anoche con mi tarjeta no la hice yo.",
+      "baseline": "unrecognized",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": true,
+        "decision": "unrecognized",
+        "confidence": 0.3238761587316479,
+        "margin": 0.17073225825329938,
+        "known_token_ratio": 0.8636363636363636,
+        "probabilities": {
+          "account_query": 0.0680468102166241,
+          "card_lost": 0.10884589715279468,
+          "credit_query": 0.04993260289895048,
+          "duplicate": 0.09171083822775782,
+          "merchant_issue": 0.1531439004783485,
+          "other": 0.0619580347471554,
+          "refund_request": 0.14248575754672124,
+          "unrecognized": 0.3238761587316479
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.3744249769184447,
+        "margin": 0.10415100346255374,
+        "feature_coverage": 0.8305084745762712,
+        "probabilities": {
+          "account_query": 0.07436229074517807,
+          "card_lost": 0.3744249769184447,
+          "credit_query": 0.020413590107709354,
+          "duplicate": 0.07924919492950679,
+          "merchant_issue": 0.09235076391366431,
+          "other": 0.015092243035960117,
+          "refund_request": 0.07383296689364569,
+          "unrecognized": 0.27027397345589094
+        }
+      }
+    },
+    {
+      "id": "h2_0113_pt",
+      "family": "fam_0113",
+      "pair": "pair_0113",
+      "language": "pt",
+      "intent": "other",
+      "text": "Preciso de ajuda com uma coisa que apareceu ontem, mas primeiro teria que conferir o que foi.",
+      "baseline": "other",
+      "v1": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.1711484764054689,
+        "margin": 0.00530142045409035,
+        "known_token_ratio": 0.7647058823529411,
+        "probabilities": {
+          "account_query": 0.12351241751222658,
+          "card_lost": 0.10574157025787019,
+          "credit_query": 0.08244113860023784,
+          "duplicate": 0.09895060231000695,
+          "merchant_issue": 0.13857419050938533,
+          "other": 0.16584705595137855,
+          "refund_request": 0.1711484764054689,
+          "unrecognized": 0.11378454845342559
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.24356384716308277,
+        "margin": 0.023226268727439547,
+        "feature_coverage": 0.8285714285714286,
+        "probabilities": {
+          "account_query": 0.11320346400556666,
+          "card_lost": 0.06056783121756751,
+          "credit_query": 0.08399984882157611,
+          "duplicate": 0.09416318004162699,
+          "merchant_issue": 0.08076548661377203,
+          "other": 0.22033757843564322,
+          "refund_request": 0.10339876370116469,
+          "unrecognized": 0.24356384716308277
+        }
+      }
+    },
+    {
+      "id": "h2_0047_es",
+      "family": "fam_0047",
+      "pair": "pair_0047",
+      "language": "es",
+      "intent": "merchant_issue",
+      "text": "No veo un cobro doble ni estoy solicitando un reembolso todavía. Quiero reclamar porque el servicio contratado nunca se activó.",
+      "baseline": "refund_request",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.23013295009250892,
+        "margin": 0.017550773834709793,
+        "known_token_ratio": 0.85,
+        "probabilities": {
+          "account_query": 0.06368269163714226,
+          "card_lost": 0.08166209255207377,
+          "credit_query": 0.08092984793797552,
+          "duplicate": 0.10761396679750716,
+          "merchant_issue": 0.1533970896291535,
+          "other": 0.06999918509583973,
+          "refund_request": 0.21258217625779913,
+          "unrecognized": 0.23013295009250892
+        }
+      },
+      "v2": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5268250620320089,
+        "margin": 0.1830370916098883,
+        "feature_coverage": 0.875968992248062,
+        "probabilities": {
+          "account_query": 0.007347871323249885,
+          "card_lost": 0.011774461808577262,
+          "credit_query": 0.006901644198549812,
+          "duplicate": 0.02925539003293367,
+          "merchant_issue": 0.05085650334821497,
+          "other": 0.023251096834344915,
+          "refund_request": 0.5268250620320089,
+          "unrecognized": 0.34378797042212056
+        }
+      }
+    },
+    {
+      "id": "h2_0015_es",
+      "family": "fam_0015",
+      "pair": "pair_0015",
+      "language": "es",
+      "intent": "unrecognized",
+      "text": "No estoy consultando el saldo: estoy diciendo que el débito de la clínica no lo autoricé yo.",
+      "baseline": "unrecognized",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.1735482079628326,
+        "margin": 0.0013324854457392177,
+        "known_token_ratio": 0.8235294117647058,
+        "probabilities": {
+          "account_query": 0.16798498282789384,
+          "card_lost": 0.09253172154366625,
+          "credit_query": 0.049331934449775135,
+          "duplicate": 0.09146010842300517,
+          "merchant_issue": 0.17221572251709338,
+          "other": 0.0824055045830114,
+          "refund_request": 0.17052181769272226,
+          "unrecognized": 0.1735482079628326
+        }
+      },
+      "v2": {
+        "intent": "account_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.4336958672856572,
+        "margin": 0.10806441193656052,
+        "feature_coverage": 0.8654970760233918,
+        "probabilities": {
+          "account_query": 0.4336958672856572,
+          "card_lost": 0.014587116170848702,
+          "credit_query": 0.020822801387567234,
+          "duplicate": 0.01266200999922505,
+          "merchant_issue": 0.03257098862493502,
+          "other": 0.042944808626191884,
+          "refund_request": 0.11708495255647837,
+          "unrecognized": 0.32563145534909665
+        }
+      }
+    },
+    {
+      "id": "h2_0013_pt",
+      "family": "fam_0013",
+      "pair": "pair_0013",
+      "language": "pt",
+      "intent": "unrecognized",
+      "text": "O cartão novo tem um gasto numa loja de animais antes da minha primeira compra. Não sei quem fez isso.",
+      "baseline": "other",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2152751554192947,
+        "margin": 0.0407744784256063,
+        "known_token_ratio": 0.8,
+        "probabilities": {
+          "account_query": 0.10248602864037801,
+          "card_lost": 0.2152751554192947,
+          "credit_query": 0.07305143098954028,
+          "duplicate": 0.14296278111800112,
+          "merchant_issue": 0.10533204639437609,
+          "other": 0.08327921440253064,
+          "refund_request": 0.10311266604219084,
+          "unrecognized": 0.1745006769936884
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.3062922667859231,
+        "margin": 0.08645268958889077,
+        "feature_coverage": 0.8206521739130435,
+        "probabilities": {
+          "account_query": 0.054750454342079,
+          "card_lost": 0.3062922667859231,
+          "credit_query": 0.02917895787481428,
+          "duplicate": 0.07702392187156235,
+          "merchant_issue": 0.1629594444322277,
+          "other": 0.10501617779480513,
+          "refund_request": 0.04493919970155611,
+          "unrecognized": 0.21983957719703232
+        }
+      }
+    },
+    {
+      "id": "h2_0011_pt",
+      "family": "fam_0011",
+      "pair": "pair_0011",
+      "language": "pt",
+      "intent": "unrecognized",
+      "text": "Uma loja me ligou para confirmar uma compra em meu nome. Agora vejo a cobrança, mas nunca fiz um pedido lá.",
+      "baseline": "other",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.25116702354560316,
+        "margin": 0.0169441479083636,
+        "known_token_ratio": 0.8571428571428571,
+        "probabilities": {
+          "account_query": 0.0490813413537953,
+          "card_lost": 0.051380557340941845,
+          "credit_query": 0.09878575412261992,
+          "duplicate": 0.23422287563723956,
+          "merchant_issue": 0.10916501031129948,
+          "other": 0.06547447073890937,
+          "refund_request": 0.14072296694959144,
+          "unrecognized": 0.25116702354560316
+        }
+      },
+      "v2": {
+        "intent": "duplicate",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5466518473517188,
+        "margin": 0.2863028652618803,
+        "feature_coverage": 0.9105263157894737,
+        "probabilities": {
+          "account_query": 0.025424272708205204,
+          "card_lost": 0.006483919553765257,
+          "credit_query": 0.02236549117639579,
+          "duplicate": 0.5466518473517188,
+          "merchant_issue": 0.09389826120224139,
+          "other": 0.0060306356326198,
+          "refund_request": 0.03879659028521516,
+          "unrecognized": 0.2603489820898385
+        }
+      }
+    },
+    {
+      "id": "h2_0123_pt",
+      "family": "fam_0123",
+      "pair": "pair_0123",
+      "language": "pt",
+      "intent": "other",
+      "text": "Apareceu um alerta e eu o fechei sem ler. Por onde começo para saber o que aconteceu?",
+      "baseline": "other",
+      "v1": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.18987983418381313,
+        "margin": 0.020883973642890852,
+        "known_token_ratio": 0.7058823529411765,
+        "probabilities": {
+          "account_query": 0.11715277101212214,
+          "card_lost": 0.07858573494530487,
+          "credit_query": 0.18987983418381313,
+          "duplicate": 0.10831105056947322,
+          "merchant_issue": 0.16899586054092228,
+          "other": 0.10329366040535984,
+          "refund_request": 0.11552418678889849,
+          "unrecognized": 0.11825690155410601
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.4424679968206944,
+        "margin": 0.2800407583041775,
+        "feature_coverage": 0.7647058823529411,
+        "probabilities": {
+          "account_query": 0.060003172147156184,
+          "card_lost": 0.03721409491619743,
+          "credit_query": 0.0820839491814172,
+          "duplicate": 0.06167190476439219,
+          "merchant_issue": 0.16242723851651683,
+          "other": 0.1015954106920101,
+          "refund_request": 0.05253623296161569,
+          "unrecognized": 0.4424679968206944
+        }
+      }
+    },
+    {
+      "id": "h2_0118_es",
+      "family": "fam_0118",
+      "pair": "pair_0118",
+      "language": "es",
+      "intent": "other",
+      "text": "Algo cambió en mi tarjeta y no sé qué. No estoy diciendo que esté perdida ni que haya cargos extraños.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": true,
+        "decision": "unrecognized",
+        "confidence": 0.31868866743517094,
+        "margin": 0.10846741808967195,
+        "known_token_ratio": 0.7,
+        "probabilities": {
+          "account_query": 0.08870772824027152,
+          "card_lost": 0.210221249345499,
+          "credit_query": 0.044917650900988065,
+          "duplicate": 0.0472912484914556,
+          "merchant_issue": 0.1089319467152237,
+          "other": 0.08050410538239768,
+          "refund_request": 0.10073740348899354,
+          "unrecognized": 0.31868866743517094
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.6306723006821184,
+        "margin": 0.353436172260718,
+        "feature_coverage": 0.8097826086956522,
+        "probabilities": {
+          "account_query": 0.025283504781750052,
+          "card_lost": 0.6306723006821184,
+          "credit_query": 0.007020823146623641,
+          "duplicate": 0.013212208787266259,
+          "merchant_issue": 0.01589748936357208,
+          "other": 0.0171134332179697,
+          "refund_request": 0.013564111599299291,
+          "unrecognized": 0.27723612842140044
+        }
+      }
+    },
+    {
+      "id": "h2_0079_es",
+      "family": "fam_0079",
+      "pair": "pair_0079",
+      "language": "es",
+      "intent": "card_lost",
+      "text": "No estoy reclamando una compra ni pidiendo un reembolso. Me robaron la tarjeta y necesito reportarla.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": true,
+        "decision": "card_lost",
+        "confidence": 0.3207286938008197,
+        "margin": 0.13431776231948905,
+        "known_token_ratio": 0.875,
+        "probabilities": {
+          "account_query": 0.04207532056421609,
+          "card_lost": 0.3207286938008197,
+          "credit_query": 0.06878428087062839,
+          "duplicate": 0.08292449012353041,
+          "merchant_issue": 0.09204334831264191,
+          "other": 0.05877344273989452,
+          "refund_request": 0.18641093148133064,
+          "unrecognized": 0.14825949210693837
+        }
+      },
+      "v2": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.43205891930100404,
+        "margin": 0.0693673525808044,
+        "feature_coverage": 0.8829268292682927,
+        "probabilities": {
+          "account_query": 0.011192383402799462,
+          "card_lost": 0.36269156672019964,
+          "credit_query": 0.008818356121047324,
+          "duplicate": 0.020786892353405778,
+          "merchant_issue": 0.0418466311590154,
+          "other": 0.008094920043519485,
+          "refund_request": 0.43205891930100404,
+          "unrecognized": 0.11451033089900872
+        }
+      }
+    },
+    {
+      "id": "h2_0122_es",
+      "family": "fam_0122",
+      "pair": "pair_0122",
+      "language": "es",
+      "intent": "other",
+      "text": "Creo que era una tarjeta o quizá una transferencia; la información me la pasó otra persona y está incompleta.",
+      "baseline": "account_query",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2042916664296967,
+        "margin": 0.027984827278121405,
+        "known_token_ratio": 0.8947368421052632,
+        "probabilities": {
+          "account_query": 0.1027411854534025,
+          "card_lost": 0.2042916664296967,
+          "credit_query": 0.09549277857527824,
+          "duplicate": 0.1763068391515753,
+          "merchant_issue": 0.10126532792503326,
+          "other": 0.13350506932224163,
+          "refund_request": 0.09012216592081156,
+          "unrecognized": 0.09627496722196087
+        }
+      },
+      "v2": {
+        "intent": "account_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5157421198030765,
+        "margin": 0.3779335984149902,
+        "feature_coverage": 0.839622641509434,
+        "probabilities": {
+          "account_query": 0.5157421198030765,
+          "card_lost": 0.1378085213880863,
+          "credit_query": 0.05328298480898095,
+          "duplicate": 0.06046154506872051,
+          "merchant_issue": 0.021135128348772656,
+          "other": 0.10364385557387834,
+          "refund_request": 0.022846434993412632,
+          "unrecognized": 0.08507941001507208
+        }
+      }
+    },
+    {
+      "id": "h2_0120_es",
+      "family": "fam_0120",
+      "pair": "pair_0120",
+      "language": "es",
+      "intent": "other",
+      "text": "No quiero consultar el saldo, pedir un crédito ni reportar un cargo. Necesito entender qué opciones de ayuda tienen.",
+      "baseline": "account_query",
+      "v1": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2142562201348158,
+        "margin": 0.024019028220085115,
+        "known_token_ratio": 0.8421052631578947,
+        "probabilities": {
+          "account_query": 0.1781179593616962,
+          "card_lost": 0.07509892462647037,
+          "credit_query": 0.19023719191473068,
+          "duplicate": 0.08289628564218486,
+          "merchant_issue": 0.08411669917048886,
+          "other": 0.07014490111859135,
+          "refund_request": 0.2142562201348158,
+          "unrecognized": 0.1051318180310219
+        }
+      },
+      "v2": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5280110991700809,
+        "margin": 0.3834205972674327,
+        "feature_coverage": 0.9298245614035088,
+        "probabilities": {
+          "account_query": 0.08226860486374184,
+          "card_lost": 0.06356286426231868,
+          "credit_query": 0.5280110991700809,
+          "duplicate": 0.022134924433691257,
+          "merchant_issue": 0.02947033759862835,
+          "other": 0.07815667870322011,
+          "refund_request": 0.14459050190264824,
+          "unrecognized": 0.051804989065670576
+        }
+      }
+    },
+    {
+      "id": "h2_0043_pt",
+      "family": "fam_0043",
+      "pair": "pair_0043",
+      "language": "pt",
+      "intent": "merchant_issue",
+      "text": "A hospedagem cobrou uma taxa de limpeza que estava incluída no preço anunciado. Quero contestar essa condição do estabelecimento.",
+      "baseline": "other",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": true,
+        "decision": "unrecognized",
+        "confidence": 0.34947779085851927,
+        "margin": 0.21481682560058118,
+        "known_token_ratio": 0.6842105263157895,
+        "probabilities": {
+          "account_query": 0.07276363767102442,
+          "card_lost": 0.06773810881338758,
+          "credit_query": 0.09387412147283454,
+          "duplicate": 0.0724962984337475,
+          "merchant_issue": 0.0992266847943748,
+          "other": 0.10976239269817392,
+          "refund_request": 0.13466096525793808,
+          "unrecognized": 0.34947779085851927
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.763968695442494,
+        "margin": 0.7066772657466192,
+        "feature_coverage": 0.6826568265682657,
+        "probabilities": {
+          "account_query": 0.010880416541074456,
+          "card_lost": 0.017329876683474528,
+          "credit_query": 0.057291429695874835,
+          "duplicate": 0.02581973409035799,
+          "merchant_issue": 0.05452847137259932,
+          "other": 0.04894996467246577,
+          "refund_request": 0.02123141150165911,
+          "unrecognized": 0.763968695442494
+        }
+      }
+    },
+    {
+      "id": "h2_0040_es",
+      "family": "fam_0040",
+      "pair": "pair_0040",
+      "language": "es",
+      "intent": "merchant_issue",
+      "text": "Me cobraron el plan anual de almacenamiento, pero mi cuenta sigue sin acceso. El soporte del comercio no lo soluciona.",
+      "baseline": "other",
+      "v1": {
+        "intent": "merchant_issue",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.17617738597439878,
+        "margin": 0.004713940594082533,
+        "known_token_ratio": 0.65,
+        "probabilities": {
+          "account_query": 0.17146344538031624,
+          "card_lost": 0.0972640946073387,
+          "credit_query": 0.0690344377990132,
+          "duplicate": 0.1132229192704978,
+          "merchant_issue": 0.17617738597439878,
+          "other": 0.09324058784447088,
+          "refund_request": 0.16128740525446283,
+          "unrecognized": 0.1183097238695015
+        }
+      },
+      "v2": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.22187413630331984,
+        "margin": 0.026516476466034833,
+        "feature_coverage": 0.7587719298245614,
+        "probabilities": {
+          "account_query": 0.14182414813746272,
+          "card_lost": 0.07112943473521906,
+          "credit_query": 0.02938963223995082,
+          "duplicate": 0.195357659837285,
+          "merchant_issue": 0.18911769514432947,
+          "other": 0.06914789175326673,
+          "refund_request": 0.22187413630331984,
+          "unrecognized": 0.08215940184916636
+        }
+      }
+    },
+    {
+      "id": "h2_0007_pt",
+      "family": "fam_0007",
+      "pair": "pair_0007",
+      "language": "pt",
+      "intent": "unrecognized",
+      "text": "Ontem fizeram um saque em um caixa eletrônico com meu cartão, mas eu não saquei nada. Preciso registrar isso.",
+      "baseline": "other",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.22807725152033856,
+        "margin": 0.0737788779086895,
+        "known_token_ratio": 0.6842105263157895,
+        "probabilities": {
+          "account_query": 0.08128826248258447,
+          "card_lost": 0.15429837361164905,
+          "credit_query": 0.10821736295043491,
+          "duplicate": 0.09076304395975074,
+          "merchant_issue": 0.13799600023433298,
+          "other": 0.10958410881470901,
+          "refund_request": 0.08977559642620038,
+          "unrecognized": 0.22807725152033856
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2744365931130155,
+        "margin": 0.008162724756996198,
+        "feature_coverage": 0.8454106280193237,
+        "probabilities": {
+          "account_query": 0.012584324389008313,
+          "card_lost": 0.2744365931130155,
+          "credit_query": 0.01764094722034191,
+          "duplicate": 0.028881377587127742,
+          "merchant_issue": 0.1495185321224047,
+          "other": 0.2346157653806914,
+          "refund_request": 0.01604859183139104,
+          "unrecognized": 0.2662738683560193
+        }
+      }
+    },
+    {
+      "id": "h2_0027_pt",
+      "family": "fam_0027",
+      "pair": "pair_0027",
+      "language": "pt",
+      "intent": "duplicate",
+      "text": "No supermercado paguei uma única compra e não voltei a comprar nada, mas há dois lançamentos iguais daquele caixa.",
+      "baseline": "duplicate",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.29641906932177003,
+        "margin": 0.10728390502975724,
+        "known_token_ratio": 0.5789473684210527,
+        "probabilities": {
+          "account_query": 0.04368026030421519,
+          "card_lost": 0.05669245966214649,
+          "credit_query": 0.05147213672700984,
+          "duplicate": 0.1891351642920128,
+          "merchant_issue": 0.14702173122041598,
+          "other": 0.09200255088149002,
+          "refund_request": 0.12357662759093972,
+          "unrecognized": 0.29641906932177003
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.43319288401252015,
+        "margin": 0.11382352846707022,
+        "feature_coverage": 0.7048458149779736,
+        "probabilities": {
+          "account_query": 0.03629962537919295,
+          "card_lost": 0.014199527770674231,
+          "credit_query": 0.017601273708577555,
+          "duplicate": 0.31936935554544993,
+          "merchant_issue": 0.11296314873338302,
+          "other": 0.020091477240478484,
+          "refund_request": 0.04628270760972368,
+          "unrecognized": 0.43319288401252015
+        }
+      }
+    },
+    {
+      "id": "h2_0014_es",
+      "family": "fam_0014",
+      "pair": "pair_0014",
+      "language": "es",
+      "intent": "unrecognized",
+      "text": "No perdí la tarjeta ni quiero pedir otra; quiero reportar una compra que no hice en una tienda de herramientas.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.29404679262043465,
+        "margin": 0.0800350239366093,
+        "known_token_ratio": 0.95,
+        "probabilities": {
+          "account_query": 0.05350174956786234,
+          "card_lost": 0.21401176868382535,
+          "credit_query": 0.06505726671876758,
+          "duplicate": 0.07769242979630545,
+          "merchant_issue": 0.0849010313575459,
+          "other": 0.0746822225651512,
+          "refund_request": 0.13610673869010761,
+          "unrecognized": 0.29404679262043465
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.774529753279617,
+        "margin": 0.6732849865424103,
+        "feature_coverage": 0.8809523809523809,
+        "probabilities": {
+          "account_query": 0.01667399872715187,
+          "card_lost": 0.774529753279617,
+          "credit_query": 0.020007230632882775,
+          "duplicate": 0.025144025021925837,
+          "merchant_issue": 0.03171823503268909,
+          "other": 0.009461861759958301,
+          "refund_request": 0.021220128808568543,
+          "unrecognized": 0.10124476673720668
+        }
+      }
+    },
+    {
+      "id": "h2_0043_es",
+      "family": "fam_0043",
+      "pair": "pair_0043",
+      "language": "es",
+      "intent": "merchant_issue",
+      "text": "El alojamiento me cobró una limpieza que el precio publicado decía incluida. Quiero cuestionar esa condición del comercio.",
+      "baseline": "other",
+      "v1": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2618734369008608,
+        "margin": 0.11345665629812862,
+        "known_token_ratio": 0.5555555555555556,
+        "probabilities": {
+          "account_query": 0.07857762873714759,
+          "card_lost": 0.08191348519521333,
+          "credit_query": 0.08038259565129817,
+          "duplicate": 0.14841678060273217,
+          "merchant_issue": 0.12135864115281599,
+          "other": 0.08144311827864087,
+          "refund_request": 0.2618734369008608,
+          "unrecognized": 0.1460343134812911
+        }
+      },
+      "v2": {
+        "intent": "duplicate",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.28075155713372335,
+        "margin": 0.09669576922247985,
+        "feature_coverage": 0.6627450980392157,
+        "probabilities": {
+          "account_query": 0.0646344592629703,
+          "card_lost": 0.05245805570781398,
+          "credit_query": 0.15189117705531438,
+          "duplicate": 0.28075155713372335,
+          "merchant_issue": 0.05970064618913981,
+          "other": 0.06861784453728798,
+          "refund_request": 0.1840557879112435,
+          "unrecognized": 0.1378904722025067
+        }
+      }
+    },
+    {
+      "id": "h2_0122_pt",
+      "family": "fam_0122",
+      "pair": "pair_0122",
+      "language": "pt",
+      "intent": "other",
+      "text": "Acho que era um cartão ou talvez uma transferência; outra pessoa me passou a informação e ela está incompleta.",
+      "baseline": "account_query",
+      "v1": {
+        "intent": "other",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.158968011374191,
+        "margin": 0.00528986461373393,
+        "known_token_ratio": 0.7894736842105263,
+        "probabilities": {
+          "account_query": 0.1065337812157429,
+          "card_lost": 0.13790134488802747,
+          "credit_query": 0.11935494108846523,
+          "duplicate": 0.15367814676045707,
+          "merchant_issue": 0.09591757713638545,
+          "other": 0.158968011374191,
+          "refund_request": 0.11116346726270987,
+          "unrecognized": 0.116482730274021
+        }
+      },
+      "v2": {
+        "intent": "account_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.589677803304665,
+        "margin": 0.4593701705646548,
+        "feature_coverage": 0.772093023255814,
+        "probabilities": {
+          "account_query": 0.589677803304665,
+          "card_lost": 0.1303076327400102,
+          "credit_query": 0.029663114551283346,
+          "duplicate": 0.04964470158714296,
+          "merchant_issue": 0.02502904608231707,
+          "other": 0.06573992228311451,
+          "refund_request": 0.023396355537075482,
+          "unrecognized": 0.08654142391439143
+        }
+      }
+    },
+    {
+      "id": "h2_0115_es",
+      "family": "fam_0115",
+      "pair": "pair_0115",
+      "language": "es",
+      "intent": "other",
+      "text": "No sé si estoy viendo una compra, una devolución o solo un aviso. Todavía no pude abrir el detalle.",
+      "baseline": "refund_request",
+      "v1": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2995833604393603,
+        "margin": 0.126167903142541,
+        "known_token_ratio": 0.7368421052631579,
+        "probabilities": {
+          "account_query": 0.05254681279276097,
+          "card_lost": 0.07523710000876478,
+          "credit_query": 0.06374051534736076,
+          "duplicate": 0.11575437553891489,
+          "merchant_issue": 0.1703116586725025,
+          "other": 0.04941071990351648,
+          "refund_request": 0.2995833604393603,
+          "unrecognized": 0.1734154572968193
+        }
+      },
+      "v2": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.6959683293738249,
+        "margin": 0.6047171254888727,
+        "feature_coverage": 0.7584269662921348,
+        "probabilities": {
+          "account_query": 0.05271976930344353,
+          "card_lost": 0.01688776989798402,
+          "credit_query": 0.026627146761556607,
+          "duplicate": 0.03049410345570614,
+          "merchant_issue": 0.04930195650890017,
+          "other": 0.036749720813632536,
+          "refund_request": 0.6959683293738249,
+          "unrecognized": 0.0912512038849522
+        }
+      }
+    },
+    {
+      "id": "h2_0115_pt",
+      "family": "fam_0115",
+      "pair": "pair_0115",
+      "language": "pt",
+      "intent": "other",
+      "text": "Não sei se estou vendo uma compra, uma devolução ou só um aviso. Ainda não consegui abrir os detalhes.",
+      "baseline": "refund_request",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.26376028716785715,
+        "margin": 0.03704179588202239,
+        "known_token_ratio": 0.6842105263157895,
+        "probabilities": {
+          "account_query": 0.05411039233381661,
+          "card_lost": 0.07791206112147664,
+          "credit_query": 0.07701141889204687,
+          "duplicate": 0.1206786765297598,
+          "merchant_issue": 0.10053937510991387,
+          "other": 0.07926929755929439,
+          "refund_request": 0.22671849128583477,
+          "unrecognized": 0.26376028716785715
+        }
+      },
+      "v2": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.7339161744966209,
+        "margin": 0.5990318823478911,
+        "feature_coverage": 0.7634408602150538,
+        "probabilities": {
+          "account_query": 0.022945134634261802,
+          "card_lost": 0.015463967559173121,
+          "credit_query": 0.017738614139767402,
+          "duplicate": 0.018337300471810435,
+          "merchant_issue": 0.039109896378508105,
+          "other": 0.017604620171128346,
+          "refund_request": 0.7339161744966209,
+          "unrecognized": 0.13488429214872993
+        }
+      }
+    },
+    {
+      "id": "h2_0116_es",
+      "family": "fam_0116",
+      "pair": "pair_0116",
+      "language": "es",
+      "intent": "other",
+      "text": "En la aplicación hay dos líneas parecidas, pero no sé si son movimientos ni qué representan. Necesito orientarme.",
+      "baseline": "other",
+      "v1": {
+        "intent": "merchant_issue",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.16667417418036545,
+        "margin": 0.003876855333807161,
+        "known_token_ratio": 0.7222222222222222,
+        "probabilities": {
+          "account_query": 0.07627869563830421,
+          "card_lost": 0.12569003767906073,
+          "credit_query": 0.0793743499116023,
+          "duplicate": 0.13204215289316767,
+          "merchant_issue": 0.16667417418036545,
+          "other": 0.1627973188465583,
+          "refund_request": 0.10051732576147603,
+          "unrecognized": 0.1566259450894652
+        }
+      },
+      "v2": {
+        "intent": "duplicate",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.29351834539567645,
+        "margin": 0.0522431091137896,
+        "feature_coverage": 0.8088888888888889,
+        "probabilities": {
+          "account_query": 0.12024576257914572,
+          "card_lost": 0.05451154306218789,
+          "credit_query": 0.15742697036663236,
+          "duplicate": 0.29351834539567645,
+          "merchant_issue": 0.05416784989319213,
+          "other": 0.24127523628188685,
+          "refund_request": 0.03189206214003981,
+          "unrecognized": 0.046962230281238665
+        }
+      }
+    },
+    {
+      "id": "h2_0119_pt",
+      "family": "fam_0119",
+      "pair": "pair_0119",
+      "language": "pt",
+      "intent": "other",
+      "text": "Estou preocupado com uma mensagem sobre dinheiro, mas não sei de qual conta ou serviço se trata.",
+      "baseline": "other",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.23210919068608632,
+        "margin": 0.09615783037384915,
+        "known_token_ratio": 0.7647058823529411,
+        "probabilities": {
+          "account_query": 0.11866524866571963,
+          "card_lost": 0.08474681738884235,
+          "credit_query": 0.13203557600595664,
+          "duplicate": 0.08671219280128672,
+          "merchant_issue": 0.09233927034266748,
+          "other": 0.13595136031223717,
+          "refund_request": 0.11744034379720361,
+          "unrecognized": 0.23210919068608632
+        }
+      },
+      "v2": {
+        "intent": "account_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.4011686598581694,
+        "margin": 0.21848168082202563,
+        "feature_coverage": 0.8087431693989071,
+        "probabilities": {
+          "account_query": 0.4011686598581694,
+          "card_lost": 0.021388900416558637,
+          "credit_query": 0.06665647962725592,
+          "duplicate": 0.015460437214804109,
+          "merchant_issue": 0.10551370279035148,
+          "other": 0.049180166862827696,
+          "refund_request": 0.157944674193889,
+          "unrecognized": 0.18268697903614378
+        }
+      }
+    },
+    {
+      "id": "h2_0127_es",
+      "family": "fam_0127",
+      "pair": "pair_0127",
+      "language": "es",
+      "intent": "other",
+      "text": "La palabra que aparece es crédito, pero no sé si habla de un préstamo, de un abono o de otra cosa. No tengo más detalles.",
+      "baseline": "credit_query",
+      "v1": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.20439902147524197,
+        "margin": 0.017626593322921047,
+        "known_token_ratio": 0.84,
+        "probabilities": {
+          "account_query": 0.08747407629134424,
+          "card_lost": 0.07747340773527701,
+          "credit_query": 0.20439902147524197,
+          "duplicate": 0.0708468558493689,
+          "merchant_issue": 0.13743040106068263,
+          "other": 0.08857364529568032,
+          "refund_request": 0.14703016414008402,
+          "unrecognized": 0.18677242815232092
+        }
+      },
+      "v2": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.8736589032568811,
+        "margin": 0.8318548883535113,
+        "feature_coverage": 0.7853658536585366,
+        "probabilities": {
+          "account_query": 0.009119662254567552,
+          "card_lost": 0.00821057016811517,
+          "credit_query": 0.8736589032568811,
+          "duplicate": 0.007262938398714963,
+          "merchant_issue": 0.021506903591238725,
+          "other": 0.010496628300066107,
+          "refund_request": 0.027940379127046718,
+          "unrecognized": 0.04180401490336983
+        }
+      }
+    },
+    {
+      "id": "h2_0118_pt",
+      "family": "fam_0118",
+      "pair": "pair_0118",
+      "language": "pt",
+      "intent": "other",
+      "text": "Alguma coisa mudou no meu cartão e não sei o quê. Não estou dizendo que ele foi perdido nem que há cobranças estranhas.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.25751021672407887,
+        "margin": 0.027379533944558443,
+        "known_token_ratio": 0.782608695652174,
+        "probabilities": {
+          "account_query": 0.07010402872142218,
+          "card_lost": 0.23013068277952042,
+          "credit_query": 0.041758589872396654,
+          "duplicate": 0.06398973291303038,
+          "merchant_issue": 0.14217887311738217,
+          "other": 0.08205164466078957,
+          "refund_request": 0.11227623121137978,
+          "unrecognized": 0.25751021672407887
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5007698078916879,
+        "margin": 0.08020538603554095,
+        "feature_coverage": 0.7660550458715596,
+        "probabilities": {
+          "account_query": 0.0062683182902059905,
+          "card_lost": 0.42056442185614695,
+          "credit_query": 0.0036924549640287123,
+          "duplicate": 0.028182265732525635,
+          "merchant_issue": 0.022648580635500574,
+          "other": 0.008113512488677106,
+          "refund_request": 0.00976063814122711,
+          "unrecognized": 0.5007698078916879
+        }
+      }
+    },
+    {
+      "id": "h2_0126_es",
+      "family": "fam_0126",
+      "pair": "pair_0126",
+      "language": "es",
+      "intent": "other",
+      "text": "Necesito revisar lo de ayer, aunque puede ser una notificación antigua y no un movimiento nuevo. Aún no sé qué consultar.",
+      "baseline": "other",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.21325725340477758,
+        "margin": 0.073055419010216,
+        "known_token_ratio": 0.8095238095238095,
+        "probabilities": {
+          "account_query": 0.12095807915981523,
+          "card_lost": 0.10340130322265395,
+          "credit_query": 0.10531479236874787,
+          "duplicate": 0.08720804708981514,
+          "merchant_issue": 0.14020183439456158,
+          "other": 0.10455739067116852,
+          "refund_request": 0.1251012996884602,
+          "unrecognized": 0.21325725340477758
+        }
+      },
+      "v2": {
+        "intent": "account_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.23172917161434317,
+        "margin": 0.06659977411747306,
+        "feature_coverage": 0.8318965517241379,
+        "probabilities": {
+          "account_query": 0.23172917161434317,
+          "card_lost": 0.10904010370080958,
+          "credit_query": 0.10218398945065559,
+          "duplicate": 0.08366493682862627,
+          "merchant_issue": 0.05570806343397589,
+          "other": 0.1651293974968701,
+          "refund_request": 0.1191181095922963,
+          "unrecognized": 0.13342622788242303
+        }
+      }
+    },
+    {
+      "id": "h2_0127_pt",
+      "family": "fam_0127",
+      "pair": "pair_0127",
+      "language": "pt",
+      "intent": "other",
+      "text": "A palavra que aparece é crédito, mas não sei se fala de um empréstimo, de um valor recebido ou de outra coisa. Não tenho mais detalhes.",
+      "baseline": "credit_query",
+      "v1": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.22612106918478686,
+        "margin": 0.011065126521324714,
+        "known_token_ratio": 0.7692307692307693,
+        "probabilities": {
+          "account_query": 0.06940404801052616,
+          "card_lost": 0.05638291784458662,
+          "credit_query": 0.22612106918478686,
+          "duplicate": 0.07484078334376491,
+          "merchant_issue": 0.09438956249581873,
+          "other": 0.1086153002943792,
+          "refund_request": 0.15519037616267542,
+          "unrecognized": 0.21505594266346215
+        }
+      },
+      "v2": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.8692857232117901,
+        "margin": 0.8223882170301527,
+        "feature_coverage": 0.7644628099173554,
+        "probabilities": {
+          "account_query": 0.00792591216303784,
+          "card_lost": 0.007492973595327692,
+          "credit_query": 0.8692857232117901,
+          "duplicate": 0.012343101921672579,
+          "merchant_issue": 0.04689750618163739,
+          "other": 0.0069311535343219224,
+          "refund_request": 0.030227326830521963,
+          "unrecognized": 0.018896302561690413
+        }
+      }
+    },
+    {
+      "id": "h2_0128_es",
+      "family": "fam_0128",
+      "pair": "pair_0128",
+      "language": "es",
+      "intent": "other",
+      "text": "Veo un importe en una pantalla y no sé de dónde salió. No puedo afirmar si es un cargo, un saldo o una simulación.",
+      "baseline": "account_query",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": true,
+        "decision": "unrecognized",
+        "confidence": 0.4062121123105862,
+        "margin": 0.3004198291025008,
+        "known_token_ratio": 0.875,
+        "probabilities": {
+          "account_query": 0.08229738288513291,
+          "card_lost": 0.0612517215391063,
+          "credit_query": 0.09209418547014586,
+          "duplicate": 0.10579228320808537,
+          "merchant_issue": 0.10108774922513936,
+          "other": 0.06086049321932979,
+          "refund_request": 0.09040407214247427,
+          "unrecognized": 0.4062121123105862
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.3323714601108807,
+        "margin": 0.13044010000111314,
+        "feature_coverage": 0.7577319587628866,
+        "probabilities": {
+          "account_query": 0.20193136010976756,
+          "card_lost": 0.030119817191737654,
+          "credit_query": 0.04744548145829286,
+          "duplicate": 0.14984000157169114,
+          "merchant_issue": 0.05378629437967754,
+          "other": 0.11310132438762313,
+          "refund_request": 0.07140426079032931,
+          "unrecognized": 0.3323714601108807
+        }
+      }
+    },
+    {
+      "id": "h2_0125_es",
+      "family": "fam_0125",
+      "pair": "pair_0125",
+      "language": "es",
+      "intent": "other",
+      "text": "No confirmo que me falte la tarjeta: primero debo revisar mi bolso. Tampoco estoy pidiendo bloquearla por ahora.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2906357154295193,
+        "margin": 0.13868689939474246,
+        "known_token_ratio": 0.7222222222222222,
+        "probabilities": {
+          "account_query": 0.10029714479274292,
+          "card_lost": 0.2906357154295193,
+          "credit_query": 0.053386823722094724,
+          "duplicate": 0.09781988245185838,
+          "merchant_issue": 0.07030301861105087,
+          "other": 0.15194881603477686,
+          "refund_request": 0.11061572142231048,
+          "unrecognized": 0.12499287753564649
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.7522054624789849,
+        "margin": 0.6748158488068609,
+        "feature_coverage": 0.7702702702702703,
+        "probabilities": {
+          "account_query": 0.02182852895572061,
+          "card_lost": 0.7522054624789849,
+          "credit_query": 0.010344214631755376,
+          "duplicate": 0.054083772683052894,
+          "merchant_issue": 0.011483782652933656,
+          "other": 0.045828418729895716,
+          "refund_request": 0.07738961367212409,
+          "unrecognized": 0.02683620619553274
+        }
+      }
+    },
+    {
+      "id": "h2_0128_pt",
+      "family": "fam_0128",
+      "pair": "pair_0128",
+      "language": "pt",
+      "intent": "other",
+      "text": "Vejo um valor numa tela e não sei de onde veio. Não consigo afirmar se é uma cobrança, um saldo ou uma simulação.",
+      "baseline": "account_query",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": true,
+        "decision": "unrecognized",
+        "confidence": 0.39051052006604126,
+        "margin": 0.2649967661795462,
+        "known_token_ratio": 0.8260869565217391,
+        "probabilities": {
+          "account_query": 0.06764459375564727,
+          "card_lost": 0.054693889428444636,
+          "credit_query": 0.08750153697162467,
+          "duplicate": 0.12551375388649505,
+          "merchant_issue": 0.08451058723649753,
+          "other": 0.09815903915667211,
+          "refund_request": 0.09146607949857741,
+          "unrecognized": 0.39051052006604126
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.6228548130575061,
+        "margin": 0.45154231248212645,
+        "feature_coverage": 0.7563451776649747,
+        "probabilities": {
+          "account_query": 0.05950235068952998,
+          "card_lost": 0.01627998891963666,
+          "credit_query": 0.01875401685732419,
+          "duplicate": 0.17131250057537967,
+          "merchant_issue": 0.025216860935194384,
+          "other": 0.021335787406327845,
+          "refund_request": 0.06474368155910101,
+          "unrecognized": 0.6228548130575061
+        }
+      }
+    },
+    {
+      "id": "h2_0124_pt",
+      "family": "fam_0124",
+      "pair": "pair_0124",
+      "language": "pt",
+      "intent": "other",
+      "text": "Quando digo que quero reclamar, ainda não sei se é pelo produto, pela cobrança ou pelo serviço do banco.",
+      "baseline": "other",
+      "v1": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.18750517845180664,
+        "margin": 0.027208878570081307,
+        "known_token_ratio": 0.8947368421052632,
+        "probabilities": {
+          "account_query": 0.07372432111483193,
+          "card_lost": 0.10121491093755505,
+          "credit_query": 0.07153847031921434,
+          "duplicate": 0.11745521205403057,
+          "merchant_issue": 0.1282153648899854,
+          "other": 0.16029629988172533,
+          "refund_request": 0.18750517845180664,
+          "unrecognized": 0.16005024235085066
+        }
+      },
+      "v2": {
+        "intent": "merchant_issue",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.5500564004261352,
+        "margin": 0.3713217435968704,
+        "feature_coverage": 0.9637305699481865,
+        "probabilities": {
+          "account_query": 0.03701199777235386,
+          "card_lost": 0.025909526412078884,
+          "credit_query": 0.007124332322798561,
+          "duplicate": 0.07945942228400696,
+          "merchant_issue": 0.5500564004261352,
+          "other": 0.03864009405136362,
+          "refund_request": 0.08306356990199797,
+          "unrecognized": 0.17873465682926482
+        }
+      }
+    },
+    {
+      "id": "h2_0126_pt",
+      "family": "fam_0126",
+      "pair": "pair_0126",
+      "language": "pt",
+      "intent": "other",
+      "text": "Preciso conferir aquela coisa de ontem, embora possa ser uma notificação antiga e não um lançamento novo. Ainda não sei o que perguntar.",
+      "baseline": "other",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.2440775135096504,
+        "margin": 0.10516332605371725,
+        "known_token_ratio": 0.6521739130434783,
+        "probabilities": {
+          "account_query": 0.08643359954946046,
+          "card_lost": 0.09285962901787086,
+          "credit_query": 0.10206702207051187,
+          "duplicate": 0.11142513922981172,
+          "merchant_issue": 0.13891418745593315,
+          "other": 0.09985945602156658,
+          "refund_request": 0.12436345314519504,
+          "unrecognized": 0.2440775135096504
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.24845390238769743,
+        "margin": 0.05624446504446054,
+        "feature_coverage": 0.6729323308270677,
+        "probabilities": {
+          "account_query": 0.06266497038022771,
+          "card_lost": 0.08553694949977218,
+          "credit_query": 0.06635723871631674,
+          "duplicate": 0.11032735346551886,
+          "merchant_issue": 0.048383951811130456,
+          "other": 0.1922094373432369,
+          "refund_request": 0.18606619639609961,
+          "unrecognized": 0.24845390238769743
+        }
+      }
+    },
+    {
+      "id": "h2_0079_pt",
+      "family": "fam_0079",
+      "pair": "pair_0079",
+      "language": "pt",
+      "intent": "card_lost",
+      "text": "Não estou reclamando de uma compra nem pedindo reembolso. Roubaram meu cartão e preciso comunicar isso.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.256292966303337,
+        "margin": 0.049202515409840525,
+        "known_token_ratio": 0.875,
+        "probabilities": {
+          "account_query": 0.062098181789199805,
+          "card_lost": 0.256292966303337,
+          "credit_query": 0.05684141415849593,
+          "duplicate": 0.0708032727059732,
+          "merchant_issue": 0.06633130109245693,
+          "other": 0.08080391878623228,
+          "refund_request": 0.20709045089349645,
+          "unrecognized": 0.19973849427080836
+        }
+      },
+      "v2": {
+        "intent": "refund_request",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.4775054586051059,
+        "margin": 0.16263238647772754,
+        "feature_coverage": 0.8672985781990521,
+        "probabilities": {
+          "account_query": 0.008564592316153937,
+          "card_lost": 0.31487307212737836,
+          "credit_query": 0.0065639707754161,
+          "duplicate": 0.016272349510304762,
+          "merchant_issue": 0.08206506238910208,
+          "other": 0.007978453200447273,
+          "refund_request": 0.4775054586051059,
+          "unrecognized": 0.08617704107609163
+        }
+      }
+    },
+    {
+      "id": "h2_0120_pt",
+      "family": "fam_0120",
+      "pair": "pair_0120",
+      "language": "pt",
+      "intent": "other",
+      "text": "Não quero consultar saldo, pedir crédito nem comunicar uma cobrança. Preciso entender quais opções de ajuda vocês oferecem.",
+      "baseline": "account_query",
+      "v1": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.17157892464443816,
+        "margin": 0.0052309462284835795,
+        "known_token_ratio": 0.7222222222222222,
+        "probabilities": {
+          "account_query": 0.15619025225974997,
+          "card_lost": 0.08128262751033424,
+          "credit_query": 0.17157892464443816,
+          "duplicate": 0.10527457719129853,
+          "merchant_issue": 0.06210642555993595,
+          "other": 0.0952933340107463,
+          "refund_request": 0.16634797841595458,
+          "unrecognized": 0.16192588040754227
+        }
+      },
+      "v2": {
+        "intent": "credit_query",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.4226693667572894,
+        "margin": 0.194682616505481,
+        "feature_coverage": 0.9058823529411765,
+        "probabilities": {
+          "account_query": 0.09803722644398168,
+          "card_lost": 0.043294121770904435,
+          "credit_query": 0.4226693667572894,
+          "duplicate": 0.04349579362167741,
+          "merchant_issue": 0.01434645432226423,
+          "other": 0.2279867502518084,
+          "refund_request": 0.08030670033092982,
+          "unrecognized": 0.06986358650114458
+        }
+      }
+    },
+    {
+      "id": "h2_0047_pt",
+      "family": "fam_0047",
+      "pair": "pair_0047",
+      "language": "pt",
+      "intent": "merchant_issue",
+      "text": "Não há cobrança em dobro e ainda não estou pedindo reembolso. Quero reclamar porque o serviço contratado nunca foi ativado.",
+      "baseline": "refund_request",
+      "v1": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.19401114250255472,
+        "margin": 0.02343939739018544,
+        "known_token_ratio": 0.85,
+        "probabilities": {
+          "account_query": 0.056910402018075144,
+          "card_lost": 0.1159884058708731,
+          "credit_query": 0.0591597013269403,
+          "duplicate": 0.16495444353171218,
+          "merchant_issue": 0.1662964675436504,
+          "other": 0.07210769209382493,
+          "refund_request": 0.17057174511236928,
+          "unrecognized": 0.19401114250255472
+        }
+      },
+      "v2": {
+        "intent": "unrecognized",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.6062498725155223,
+        "margin": 0.3371764355404395,
+        "feature_coverage": 0.907258064516129,
+        "probabilities": {
+          "account_query": 0.006433941915269239,
+          "card_lost": 0.014471079880696366,
+          "credit_query": 0.0022266625491122695,
+          "duplicate": 0.027568166093599918,
+          "merchant_issue": 0.0673878626164674,
+          "other": 0.006588977454249706,
+          "refund_request": 0.2690734369750828,
+          "unrecognized": 0.6062498725155223
+        }
+      }
+    },
+    {
+      "id": "h2_0125_pt",
+      "family": "fam_0125",
+      "pair": "pair_0125",
+      "language": "pt",
+      "intent": "other",
+      "text": "Não estou confirmando que perdi o cartão: primeiro preciso olhar minha bolsa. Também não estou pedindo bloqueio por enquanto.",
+      "baseline": "card_lost",
+      "v1": {
+        "intent": "card_lost",
+        "accepted": true,
+        "decision": "card_lost",
+        "confidence": 0.3595157172947825,
+        "margin": 0.2226457727963106,
+        "known_token_ratio": 0.7368421052631579,
+        "probabilities": {
+          "account_query": 0.06970602484323458,
+          "card_lost": 0.3595157172947825,
+          "credit_query": 0.05712109388541771,
+          "duplicate": 0.08454433134513856,
+          "merchant_issue": 0.09736256498430569,
+          "other": 0.11536720298595617,
+          "refund_request": 0.07951312016269285,
+          "unrecognized": 0.1368699444984719
+        }
+      },
+      "v2": {
+        "intent": "card_lost",
+        "accepted": false,
+        "decision": "clarify",
+        "confidence": 0.8635301152450915,
+        "margin": 0.8199245175289908,
+        "feature_coverage": 0.78125,
+        "probabilities": {
+          "account_query": 0.022821976149516327,
+          "card_lost": 0.8635301152450915,
+          "credit_query": 0.009338450568143739,
+          "duplicate": 0.009914642620698607,
+          "merchant_issue": 0.009699640715389988,
+          "other": 0.016970981814218807,
+          "refund_request": 0.04360559771610077,
+          "unrecognized": 0.02411859517084014
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic, balanced and AI-authored; not representative of demand or financial risk.",
+    "Familial bootstrap retains correlated ES/PT/paraphrases but excludes author and labeling biases.",
+    "V2 abstains all under its frozen routing controls; raw classification improvement does not validate automatic routing.",
+    "No measured production savings, real fraud outcomes, human language adjudication or end-to-end action safety."
+  ]
+}

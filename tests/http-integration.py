@@ -322,7 +322,7 @@ class Suite:
         def duplicate_key():
             client=self.need('ana');before=len(self.records(client));payload=self.drafts(client,self.need('normal_tx'),self.need('normal_statement'))
             r=client.request('POST','/api/cases',payload)
-            require((200<=r['status']<300 and case_id(r)==self.need('normal_case')) or r['status']==409,'Equivalent new-key submission neither linked original nor returned duplicate conflict.')
+            require(r['status']==409 and (r['json'] or {}).get('error')=='CASE_ALREADY_EXISTS','Equivalent new-key submission must return 409 CASE_ALREADY_EXISTS; read the original case separately.')
             require(len(self.records(client))==before,'A new key bypassed duplicate prevention.')
             return {'http_status':r['status'],'case_count_unchanged':True}
         self.test('HTTP-013','P0','New idempotency key cannot duplicate the same active claim',duplicate_key)

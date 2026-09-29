@@ -255,7 +255,10 @@ export default function Home() {
           side: "assistant",
           text: r.message,
           model: r.abstain
-            ? t("Modelo: pide aclaración", "Modelo: pede esclarecimento")
+            ? t(
+                "Confirma o corrige la interpretación",
+                "Confirme ou corrija a interpretação",
+              )
             : t(
                 "Orientación del modelo · confirma el motivo",
                 "Orientação do modelo · confirme o motivo",
@@ -649,8 +652,8 @@ export default function Home() {
                         <p>
                           {locale === "es" ? "Español" : "Português"} ·{" "}
                           {t(
-                            "clasificador aprendido + flujo verificado",
-                            "classificador treinado + fluxo verificado",
+                            "clasificador aprendido + confirmación explícita",
+                            "classificador treinado + confirmação explícita",
                           )}
                         </p>
                       </div>
@@ -1254,34 +1257,34 @@ export default function Home() {
                   </h3>
                   <p>
                     {t(
-                      "TF-IDF + regresión logística. Ocho intenciones, corpus sintético ES/PT creado por IA, sin revisión humana.",
-                      "TF-IDF + regressão logística. Oito intenções, corpus sintético ES/PT criado por IA, sem revisão humana.",
+                      "TF-IDF de caracteres + regresión logística. Ocho intenciones; 256 mensajes reservados, creados por IA independientemente del entrenamiento. Revisión humana pendiente.",
+                      "TF-IDF de caracteres + regressão logística. Oito intenções; 256 mensagens reservadas, criadas por IA independentemente do treino. Revisão humana pendente.",
                     )}
                   </p>
                   <div className="comparison">
                     <div>
                       <span>
                         {t(
-                          "Modelo · aciertos exploratorios",
-                          "Modelo · acertos exploratórios",
+                          "Modelo · aciertos en casos reservados",
+                          "Modelo · acertos em casos reservados",
                         )}
                       </span>
-                      <strong>46 / 64</strong>
-                      <div style={{ width: "71.875%" }} />
+                      <strong>218 / 256</strong>
+                      <div style={{ width: "85.15625%" }} />
                     </div>
                     <div>
                       <span>
                         {t("Reglas · mismos casos", "Regras · mesmos casos")}
                       </span>
-                      <strong>43 / 64</strong>
-                      <div style={{ width: "67.1875%" }} />
+                      <strong>168 / 256</strong>
+                      <div style={{ width: "65.625%" }} />
                     </div>
                   </div>
                   <div className="inline-warning">
                     <AlertCircle size={17} />
                     {t(
-                      "No demuestra superioridad: macro-F1 ligeramente peor. El modelo orienta; la persona confirma el motivo.",
-                      "Não demonstra superioridade: macro-F1 ligeiramente menor. O modelo orienta; a pessoa confirma o motivo.",
+                      "La exactitud global no autoriza acciones: solo reconoce 9 de 32 casos «other». La apertura autónoma quedó deshabilitada; tú confirmas el motivo.",
+                      "A precisão global não autoriza ações: reconhece apenas 9 de 32 casos «other». A abertura autônoma ficou desativada; você confirma o motivo.",
                     )}
                   </div>
                   <details>
@@ -1294,8 +1297,8 @@ export default function Home() {
                     <p>
                       {modelReport.experiment} ·{" "}
                       {t(
-                        "192 entrenamiento / 64 validación / 64 exploratorios. Familias ES/PT separadas. Diez vectores de paridad Python/JS.",
-                        "192 treino / 64 validação / 64 exploratórios. Famílias ES/PT separadas. Dez vetores de paridade Python/JS.",
+                        "634 entrenamiento / 128 validación / 256 reservados. Modelo y protocolo congelados antes de evaluar. Exactitud: ES 85,94%; PT 84,38%. Son etiquetas sintéticas, no resultados de un banco real.",
+                        "634 treino / 128 validação / 256 reservados. Modelo e protocolo congelados antes da avaliação. Acurácia: ES 85,94%; PT 84,38%. São rótulos sintéticos, não resultados de um banco real.",
                       )}
                     </p>
                   </details>

@@ -1,0 +1,978 @@
+{
+  "experiment": "v2",
+  "evaluation_partition": "validation only; independent heldout-v2 never read",
+  "protocol": {
+    "model_selection": "maximize macro-F1, then accuracy, then fewer features, then lower C",
+    "threshold_selection": "maximize coverage with >=95% selective accuracy, >=8 accepted unrecognized and zero observed false unrecognized. Otherwise abstain all. Never autonomous.",
+    "random_seed": 29092027
+  },
+  "corpus": {
+    "rejections": [
+      {
+        "file": "train-account_query.json",
+        "row": 19,
+        "reason": "AI curation: unknown transaction primary intent"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 20,
+        "reason": "AI curation: duplicate charge primary intent"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 21,
+        "reason": "AI curation: ambiguous dispute"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 22,
+        "reason": "AI curation: refund request"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 24,
+        "reason": "AI curation: profile update"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 25,
+        "reason": "AI curation: human agent request"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 27,
+        "reason": "AI curation: account blocking action outside query"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 28,
+        "reason": "AI curation: limit change action outside query"
+      },
+      {
+        "file": "train-account_query.json",
+        "row": 31,
+        "reason": "AI curation: branch location"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 0,
+        "reason": "AI curation: card found, no loss allegation"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 12,
+        "reason": "AI curation: unused-card closure, not lost"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 14,
+        "reason": "AI curation: found-card activity query"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 16,
+        "reason": "AI curation: activity question with mixed purpose"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 22,
+        "reason": "AI curation: found-card activity query"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 23,
+        "reason": "AI curation: unused-card closure"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 26,
+        "reason": "AI curation: insufficient intent evidence"
+      },
+      {
+        "file": "train-card_lost.json",
+        "row": 27,
+        "reason": "AI curation: activity query mixed with loss"
+      },
+      {
+        "file": "train-credit_query.json",
+        "row": 14,
+        "reason": "AI curation: unspecified need for money without lending intent"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 3,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 4,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 6,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 7,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 8,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 9,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 10,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 11,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 12,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 13,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 14,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 15,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 16,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 17,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 18,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 19,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 20,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 21,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 22,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 23,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 24,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 25,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 26,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 27,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 28,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-duplicate.json",
+        "row": 29,
+        "reason": "AI curation: repeated two-charges template"
+      },
+      {
+        "file": "train-merchant_issue.json",
+        "row": 10,
+        "reason": "AI curation: rescheduling appointment without dispute"
+      },
+      {
+        "file": "train-merchant_issue.json",
+        "row": 15,
+        "reason": "AI curation: different primary purpose in Portuguese"
+      },
+      {
+        "file": "train-merchant_issue.json",
+        "row": 18,
+        "reason": "AI curation: buyer remorse/refund purpose"
+      },
+      {
+        "file": "train-merchant_issue.json",
+        "row": 20,
+        "reason": "AI curation: explicit primary request for refund"
+      },
+      {
+        "file": "train-merchant_issue.json",
+        "row": 21,
+        "reason": "AI curation: exchange preference not merchant failure"
+      },
+      {
+        "file": "train-merchant_issue.json",
+        "row": 25,
+        "reason": "AI curation: explicit primary request for refund"
+      },
+      {
+        "file": "train-other.json",
+        "row": 0,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 2,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 4,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 6,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 8,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 9,
+        "reason": "AI curation: account product information"
+      },
+      {
+        "file": "train-other.json",
+        "row": 10,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 12,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 14,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 15,
+        "reason": "AI curation: transfer information"
+      },
+      {
+        "file": "train-other.json",
+        "row": 16,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 17,
+        "reason": "AI curation: account balance"
+      },
+      {
+        "file": "train-other.json",
+        "row": 18,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 20,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 21,
+        "reason": "AI curation: transfer cost"
+      },
+      {
+        "file": "train-other.json",
+        "row": 22,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 23,
+        "reason": "AI curation: credit request"
+      },
+      {
+        "file": "train-other.json",
+        "row": 24,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 25,
+        "reason": "AI curation: account statement"
+      },
+      {
+        "file": "train-other.json",
+        "row": 26,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 28,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 30,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 32,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 33,
+        "reason": "AI curation: account information"
+      },
+      {
+        "file": "train-other.json",
+        "row": 34,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 36,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 37,
+        "reason": "length outside 4-60 tokens"
+      },
+      {
+        "file": "train-other.json",
+        "row": 38,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 39,
+        "reason": "AI curation: payment status"
+      },
+      {
+        "file": "train-other.json",
+        "row": 40,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 41,
+        "reason": "AI curation: account statement"
+      },
+      {
+        "file": "train-other.json",
+        "row": 42,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 43,
+        "reason": "AI curation: account information"
+      },
+      {
+        "file": "train-other.json",
+        "row": 44,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 46,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 47,
+        "reason": "AI curation: ambiguous complaint request"
+      },
+      {
+        "file": "train-other.json",
+        "row": 48,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 50,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-other.json",
+        "row": 52,
+        "reason": "missing language text"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 3,
+        "reason": "AI curation: insufficient evidence of denial"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 12,
+        "reason": "AI curation: account information query"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 13,
+        "reason": "AI curation: ambiguous error/status question"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 18,
+        "reason": "AI curation: uncertain information query"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 21,
+        "reason": "AI curation: merchant non-delivery"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 23,
+        "reason": "AI curation: vague suspicious operation"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 24,
+        "reason": "AI curation: unspecified error"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 25,
+        "reason": "AI curation: duplicate charge"
+      },
+      {
+        "file": "train-unrecognized.json",
+        "row": 26,
+        "reason": "AI curation: insufficient intent evidence"
+      },
+      {
+        "family": "gemma_unrecognized_017",
+        "reason": "exact training duplicate"
+      }
+    ],
+    "near_overlap_training_families_removed": [],
+    "near_overlap_details": [],
+    "source": "v1 train only + local Gemma-generated train; separate AI-curated validation",
+    "counts": {
+      "train": 634,
+      "validation": 128
+    },
+    "per_class": {
+      "train": {
+        "unrecognized": 74,
+        "duplicate": 48,
+        "merchant_issue": 84,
+        "refund_request": 96,
+        "card_lost": 82,
+        "account_query": 86,
+        "credit_query": 94,
+        "other": 70
+      },
+      "validation": {
+        "unrecognized": 16,
+        "duplicate": 16,
+        "merchant_issue": 16,
+        "refund_request": 16,
+        "card_lost": 16,
+        "account_query": 16,
+        "credit_query": 16,
+        "other": 16
+      }
+    }
+  },
+  "selected": {
+    "feature_mode": "char",
+    "C": 12.0,
+    "features": 3500
+  },
+  "candidates": [
+    {
+      "mode": "word",
+      "C": 1.0,
+      "features": 1649,
+      "accuracy": 0.7421875,
+      "macro_f1": 0.7402427637721756
+    },
+    {
+      "mode": "word",
+      "C": 4.0,
+      "features": 1649,
+      "accuracy": 0.75,
+      "macro_f1": 0.7470238095238095
+    },
+    {
+      "mode": "word",
+      "C": 12.0,
+      "features": 1649,
+      "accuracy": 0.7578125,
+      "macro_f1": 0.754697947727478
+    },
+    {
+      "mode": "char",
+      "C": 1.0,
+      "features": 3500,
+      "accuracy": 0.8125,
+      "macro_f1": 0.8068562865142397
+    },
+    {
+      "mode": "char",
+      "C": 4.0,
+      "features": 3500,
+      "accuracy": 0.828125,
+      "macro_f1": 0.8242051001305565
+    },
+    {
+      "mode": "char",
+      "C": 12.0,
+      "features": 3500,
+      "accuracy": 0.8359375,
+      "macro_f1": 0.8326421085675649
+    },
+    {
+      "mode": "hybrid",
+      "C": 1.0,
+      "features": 3500,
+      "accuracy": 0.8125,
+      "macro_f1": 0.8051800413035117
+    },
+    {
+      "mode": "hybrid",
+      "C": 4.0,
+      "features": 3500,
+      "accuracy": 0.8203125,
+      "macro_f1": 0.817133877923752
+    },
+    {
+      "mode": "hybrid",
+      "C": 12.0,
+      "features": 3500,
+      "accuracy": 0.8359375,
+      "macro_f1": 0.8323587119622533
+    }
+  ],
+  "baseline": {
+    "n": 128,
+    "accuracy": 0.5078125,
+    "macro_f1": 0.5216270099533589,
+    "classes": [
+      "account_query",
+      "card_lost",
+      "credit_query",
+      "duplicate",
+      "merchant_issue",
+      "other",
+      "refund_request",
+      "unrecognized"
+    ],
+    "confusion_matrix": [
+      [
+        7,
+        0,
+        0,
+        0,
+        0,
+        9,
+        0,
+        0
+      ],
+      [
+        0,
+        7,
+        0,
+        0,
+        0,
+        9,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        14,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0,
+        4,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        5,
+        9,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        0,
+        1,
+        3,
+        9,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        0,
+        0,
+        11,
+        0,
+        3
+      ]
+    ],
+    "class_report": {
+      "account_query": {
+        "precision": 0.6363636363636364,
+        "recall": 0.4375,
+        "f1-score": 0.5185185185185185,
+        "support": 16.0
+      },
+      "card_lost": {
+        "precision": 1.0,
+        "recall": 0.4375,
+        "f1-score": 0.6086956521739131,
+        "support": 16.0
+      },
+      "credit_query": {
+        "precision": 0.7368421052631579,
+        "recall": 0.875,
+        "f1-score": 0.8,
+        "support": 16.0
+      },
+      "duplicate": {
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1-score": 0.4,
+        "support": 16.0
+      },
+      "merchant_issue": {
+        "precision": 0.8333333333333334,
+        "recall": 0.3125,
+        "f1-score": 0.45454545454545453,
+        "support": 16.0
+      },
+      "other": {
+        "precision": 0.23880597014925373,
+        "recall": 1.0,
+        "f1-score": 0.3855421686746988,
+        "support": 16.0
+      },
+      "refund_request": {
+        "precision": 1.0,
+        "recall": 0.5625,
+        "f1-score": 0.72,
+        "support": 16.0
+      },
+      "unrecognized": {
+        "precision": 0.6,
+        "recall": 0.1875,
+        "f1-score": 0.2857142857142857,
+        "support": 16.0
+      },
+      "accuracy": 0.5078125,
+      "macro avg": {
+        "precision": 0.7556681306386727,
+        "recall": 0.5078125,
+        "f1-score": 0.5216270099533589,
+        "support": 128.0
+      },
+      "weighted avg": {
+        "precision": 0.7556681306386727,
+        "recall": 0.5078125,
+        "f1-score": 0.5216270099533589,
+        "support": 128.0
+      }
+    },
+    "by_language": {
+      "es": {
+        "n": 64,
+        "accuracy": 0.515625
+      },
+      "pt": {
+        "n": 64,
+        "accuracy": 0.5
+      }
+    }
+  },
+  "learned": {
+    "n": 128,
+    "accuracy": 0.8359375,
+    "macro_f1": 0.8326421085675649,
+    "classes": [
+      "account_query",
+      "card_lost",
+      "credit_query",
+      "duplicate",
+      "merchant_issue",
+      "other",
+      "refund_request",
+      "unrecognized"
+    ],
+    "confusion_matrix": [
+      [
+        10,
+        0,
+        1,
+        0,
+        1,
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        15,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        13,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        4,
+        1,
+        11,
+        0
+      ],
+      [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        12
+      ]
+    ],
+    "class_report": {
+      "account_query": {
+        "precision": 0.7692307692307693,
+        "recall": 0.625,
+        "f1-score": 0.6896551724137931,
+        "support": 16.0
+      },
+      "card_lost": {
+        "precision": 0.8888888888888888,
+        "recall": 1.0,
+        "f1-score": 0.9411764705882353,
+        "support": 16.0
+      },
+      "credit_query": {
+        "precision": 0.8333333333333334,
+        "recall": 0.9375,
+        "f1-score": 0.8823529411764706,
+        "support": 16.0
+      },
+      "duplicate": {
+        "precision": 1.0,
+        "recall": 0.8125,
+        "f1-score": 0.896551724137931,
+        "support": 16.0
+      },
+      "merchant_issue": {
+        "precision": 0.75,
+        "recall": 0.9375,
+        "f1-score": 0.8333333333333334,
+        "support": 16.0
+      },
+      "other": {
+        "precision": 0.8333333333333334,
+        "recall": 0.9375,
+        "f1-score": 0.8823529411764706,
+        "support": 16.0
+      },
+      "refund_request": {
+        "precision": 0.9166666666666666,
+        "recall": 0.6875,
+        "f1-score": 0.7857142857142857,
+        "support": 16.0
+      },
+      "unrecognized": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1-score": 0.75,
+        "support": 16.0
+      },
+      "accuracy": 0.8359375,
+      "macro avg": {
+        "precision": 0.8426816239316239,
+        "recall": 0.8359375,
+        "f1-score": 0.8326421085675649,
+        "support": 128.0
+      },
+      "weighted avg": {
+        "precision": 0.8426816239316239,
+        "recall": 0.8359375,
+        "f1-score": 0.8326421085675649,
+        "support": 128.0
+      }
+    },
+    "by_language": {
+      "es": {
+        "n": 64,
+        "accuracy": 0.8125
+      },
+      "pt": {
+        "n": 64,
+        "accuracy": 0.859375
+      }
+    }
+  },
+  "routing": {
+    "n": 128,
+    "accepted": 0,
+    "coverage": 0.0,
+    "correct": 0,
+    "selective_accuracy": null,
+    "unrecognized_accepted": 0,
+    "unrecognized_false_accept": 0,
+    "unrecognized_total": 16,
+    "thresholds": {
+      "min_probability": 1.0,
+      "min_margin": 1.0,
+      "min_feature_coverage": 1.0,
+      "selection": "validation_constraints_failed_abstain_all"
+    }
+  },
+  "export": {
+    "bytes": 682953,
+    "sha256": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "sklearn": "1.9.1",
+    "numpy": "2.3.5"
+  },
+  "limitations": [
+    "Synthetic train and validation, no independent human Portuguese or labeling review.",
+    "Gemma labels are prompt-assigned, not independently adjudicated.",
+    "Validation selected model and thresholds; its metrics are optimistic selection evidence, not a heldout generalization estimate.",
+    "No autonomous intent routing or financial decisions.",
+    "No evaluation of cross-customer authorization, action safety or end-to-end resolution by this component."
+  ]
+}

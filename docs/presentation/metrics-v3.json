@@ -1,0 +1,12 @@
+{
+  "systemTests": "28/28",
+  "systemTestScope": "Integración HTTP con base nueva",
+  "bugsCorrected": 3,
+  "rulesCorrect": "168/256",
+  "modelCorrect": "218/256",
+  "v2Title": "Sin autonomía: sugerencias con confirmación",
+  "v2Detail": "ES 85,94%, PT 84,38%. Revisión humana pendiente. v2 vs v1: no concluyente.",
+  "deploymentStatus": "Sitio público verificado. Login de plataforma: validación pendiente.",
+  "siteUrl": "https://reclama-factored-2026.villafortech.chatgpt.site",
+  "repoUrl": "https://github.com/VillaforTech/factored-hackathon-2026-reclama"
+}

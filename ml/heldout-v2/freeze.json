@@ -1,0 +1,30 @@
+{
+  "version": "heldout-v2",
+  "frozenAt": "2026-09-29T18:38:09.430081+00:00",
+  "corpusSha256": "fbc39220225f6f55eb32110c3e400ae038f8ebd4ec7731ae911906cdde682ea9",
+  "encoding": "UTF-8",
+  "texts": 256,
+  "families": 128,
+  "classCounts": {
+    "account_query": 32,
+    "card_lost": 32,
+    "credit_query": 32,
+    "duplicate": 32,
+    "merchant_issue": 32,
+    "other": 32,
+    "refund_request": 32,
+    "unrecognized": 32
+  },
+  "localeCounts": {
+    "es": 128,
+    "pt": 128
+  },
+  "annotationMethod": "independent-AI-authored-without-model-predictions",
+  "humanReviewed": false,
+  "trainingFilesInspected": false,
+  "modelPredictionsInspected": false,
+  "containsOrganizerRecords": false,
+  "designatedChallengeFamilies": 32,
+  "designatedChallengeTexts": 64,
+  "humanReviewStatus": "pending"
+}

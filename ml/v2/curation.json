@@ -1,0 +1,90 @@
+{
+  "reviewer": "AI agent, not a human reviewer",
+  "policy": "Reject wrong/ambiguous primary intent and downsample repeated template clusters. Keep raw responses intact. Indices are zero based within raw families.",
+  "rejected": {
+    "unrecognized": {
+      "3": "insufficient evidence of denial",
+      "12": "account information query",
+      "13": "ambiguous error/status question",
+      "18": "uncertain information query",
+      "21": "merchant non-delivery",
+      "23": "vague suspicious operation",
+      "24": "unspecified error",
+      "25": "duplicate charge",
+      "26": "insufficient intent evidence"
+    },
+    "duplicate": {
+      "3": "repeated two-charges template",
+      "4": "repeated two-charges template",
+      "6": "repeated two-charges template",
+      "7": "repeated two-charges template",
+      "8": "repeated two-charges template",
+      "9": "repeated two-charges template",
+      "10": "repeated two-charges template",
+      "11": "repeated two-charges template",
+      "12": "repeated two-charges template",
+      "13": "repeated two-charges template",
+      "14": "repeated two-charges template",
+      "15": "repeated two-charges template",
+      "16": "repeated two-charges template",
+      "17": "repeated two-charges template",
+      "18": "repeated two-charges template",
+      "19": "repeated two-charges template",
+      "20": "repeated two-charges template",
+      "21": "repeated two-charges template",
+      "22": "repeated two-charges template",
+      "23": "repeated two-charges template",
+      "24": "repeated two-charges template",
+      "25": "repeated two-charges template",
+      "26": "repeated two-charges template",
+      "27": "repeated two-charges template",
+      "28": "repeated two-charges template",
+      "29": "repeated two-charges template"
+    },
+    "merchant_issue": {
+      "10": "rescheduling appointment without dispute",
+      "15": "different primary purpose in Portuguese",
+      "18": "buyer remorse/refund purpose",
+      "20": "explicit primary request for refund",
+      "21": "exchange preference not merchant failure",
+      "25": "explicit primary request for refund"
+    },
+    "card_lost": {
+      "0": "card found, no loss allegation",
+      "12": "unused-card closure, not lost",
+      "14": "found-card activity query",
+      "16": "activity question with mixed purpose",
+      "22": "found-card activity query",
+      "23": "unused-card closure",
+      "26": "insufficient intent evidence",
+      "27": "activity query mixed with loss"
+    },
+    "account_query": {
+      "19": "unknown transaction primary intent",
+      "20": "duplicate charge primary intent",
+      "21": "ambiguous dispute",
+      "22": "refund request",
+      "24": "profile update",
+      "25": "human agent request",
+      "27": "account blocking action outside query",
+      "28": "limit change action outside query",
+      "31": "branch location"
+    },
+    "credit_query": {
+      "14": "unspecified need for money without lending intent"
+    },
+    "other": {
+      "9": "account product information",
+      "15": "transfer information",
+      "17": "account balance",
+      "21": "transfer cost",
+      "23": "credit request",
+      "25": "account statement",
+      "33": "account information",
+      "39": "payment status",
+      "41": "account statement",
+      "43": "account information",
+      "47": "ambiguous complaint request"
+    }
+  }
+}
