@@ -84,3 +84,29 @@ test("uncorrected media exports remain blocked from being represented as correct
   }
   assert.equal(sha(manifest.subtitles.path), manifest.subtitles.sha256);
 });
+
+test("corrected V5 deck matches its verified exports without relabeling the old video", () => {
+  const manifest = json("docs/video/manifest-v4.json");
+  const presentation = manifest.corrected_presentation;
+  const metrics = json("docs/presentation/metrics-v5.json");
+  const receipt = json("docs/presentation/render-v5.json");
+  assert.equal(
+    presentation.status,
+    "v5_pptx_pdf_rendered_and_visually_checked",
+  );
+  assert.equal(presentation.used_in_existing_mp4, false);
+  assert.equal(receipt.allSixSlidesVisuallyInspected, true);
+  assert.equal(receipt.packageAndLayoutFindings, 0);
+  assert.equal(receipt.pdfPageCount, 6);
+  assert.equal(receipt.historicalV4Preserved, true);
+  for (const extension of ["pptx", "pdf"]) {
+    assert.equal(
+      sha(presentation[extension]),
+      presentation[`${extension}_sha256`],
+    );
+    assert.equal(
+      metrics.renderedArtifacts[extension].sha256,
+      presentation[`${extension}_sha256`],
+    );
+  }
+});

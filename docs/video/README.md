@@ -15,3 +15,5 @@ La escena final dice que la demo y el repositorio son privados, y que faltan acc
 Antes de usar una nueva versión, regenerar slide 5 y audio, renderizar el MP4 con los subtítulos corregidos, comprobar todos los textos y tiempos, verificar duración inferior a tres minutos y actualizar hashes. También faltan escucha humana de pronunciación y revisión visual de cada subtítulo. El manifest conserva las comprobaciones antiguas como evidencia histórica, sin atribuirlas a una versión regenerada.
 
 `Reclama_demo_draft.mp4`, `Reclama_demo_draft.srt` y `manifest.json` documentan la versión anterior y no son materiales vigentes de entrega: esa narración afirmaba acceso público. No se modificaron esos antecedentes.
+
+La presentación corregida ya existe como [PPTX/PDF V5](../presentation/README.md). Esto no actualiza las diapositivas incrustadas en el MP4 V4; al re-renderizar, usar V5.

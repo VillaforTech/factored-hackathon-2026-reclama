@@ -1,6 +1,6 @@
 # Estado de entrega de Reclama
 
-**Actualización de procedencia, 1 de octubre de 2026:** se corrigieron las fuentes de app/documentación y medios. El resultado del modelo es un experimento de desarrollo de autoría IA, no validación independiente ni benchmark admisible del reto. PPTX/PDF/MP4 V4 conservan afirmaciones obsoletas hasta regeneración. La corrección no despliega ni cambia accesos. [Alcance y evidencia](evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
+**Actualización de procedencia, 1 de octubre de 2026:** se corrigieron las fuentes de app/documentación y medios. El resultado del modelo es un experimento de desarrollo de autoría IA, no validación independiente ni benchmark admisible del reto. La presentación V5 ya está regenerada y revisada visualmente; los PPTX/PDF V4 históricos y el MP4 V4 conservan afirmaciones obsoletas. La corrección no despliega ni cambia accesos. [Alcance y evidencia](evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
 
 El siguiente corte es histórico, con resultados locales del 30 de septiembre; no acredita la validación del código corregido. Corte local: 30 de septiembre de 2026. Esta copia parte de `6715df4936a1c7f18064ea7210d1d1172f024c10`; los cambios de este corte no se han subido ni desplegado. Sites y GitHub se consultaron en modo lectura; no se ejecutó aceptación alojada nueva.
 
@@ -12,7 +12,7 @@ El siguiente corte es histórico, con resultados locales del 30 de septiembre; n
 | Demo privada | Sites versión 4, fuente `6715df4`, despliegue correcto y política `custom` para Roberto y dos invitados externos del equipo. No se hizo despliegue nuevo en este corte. URL: https://reclama-factored-2026.villafortech.chatgpt.site. |
 | Login alojado | Sin prueba completa de login normal, persistencia tras recarga ni aislamiento entre dos cuentas reales. Una prueba anterior se detuvo en la verificación de seguridad del proveedor de identidad; no se eludió. |
 | Repositorio | https://github.com/VillaforTech/factored-hackathon-2026-reclama sigue privado según la consulta de solo lectura; rama predeterminada `codex/reclama`. La CI de `6715df4` constaba como correcta; los cambios locales actuales no tienen CI remota. |
-| Presentación | [PPTX V4](presentation/Reclama_Hackathon_6_slides_v4.pptx) y [PDF V4](presentation/Reclama_Hackathon_6_slides_v4.pdf) históricos; sus afirmaciones de evaluación están obsoletas. Fuentes corregidas, regeneración de ambos binarios y revisión del equipo pendientes. La V3 queda histórica por su afirmación de sitio público. |
+| Presentación (actualizada 1 oct) | [PPTX V5](presentation/Reclama_Hackathon_6_slides_v5.pptx) y [PDF V5](presentation/Reclama_Hackathon_6_slides_v5.pdf) corregidos y revisados visualmente; tabla nativa y enlaces conservados. [Verificación](presentation/render-v5.json). Revisión del equipo pendiente. V4/V3 quedan históricos y obsoletos para entrega. |
 | Video | [V4 de revisión](video/Reclama_demo_v4_review.mp4), 169,6 s, con 45 subtítulos y escena de acceso privado. El MP4 y sus pistas conservan afirmaciones de evaluación obsoletas; las fuentes corregidas requieren nuevo render. [Revisión automática](evidence/LANGUAGE_VIDEO_AUDIT_2026-09-30.md) completada; escucha y portugués humanos siguen recomendados. Es un montaje narrado, no una sesión continua. |
 | Entrega al organizador | Ningún formulario, correo ni recibo final confirmado. |
 
@@ -22,7 +22,7 @@ La [página oficial](https://www.factored.ai/careers/ai-data-hackathon) pide rep
 
 1. En navegador normal, iniciar sesión en la demo privada con una cuenta autorizada, crear un caso ficticio, recargar y verificar el mismo expediente.
 2. Repetir la consulta de aislamiento con una segunda cuenta real autorizada, sin compartir cookies ni credenciales. Registrar 403/404 y ausencia de datos ajenos.
-3. Regenerar presentación y video desde las fuentes corregidas; establecer un protocolo de evaluación admisible antes de anunciar rendimiento independiente. Como recomendación interna, obtener revisión humana competente del texto PT y escuchar la locución/subtítulos V4. Registrar correcciones sin retocar el test congelado a posteriori.
+3. Revisar la presentación V5 y regenerar el video desde las fuentes corregidas; establecer un protocolo de evaluación admisible antes de anunciar rendimiento independiente. Como recomendación interna, obtener revisión humana competente del texto PT y escuchar la locución/subtítulos V4. Registrar correcciones sin retocar el test congelado a posteriori.
 4. Acordar el acceso de jueces y los enlaces que realmente podrán abrir; después comprobarlos con su audiencia prevista.
 5. Verificar anuncios finales, nombre de equipo, archivos, destinatario y recibo de entrega. El objetivo interno sigue siendo terminar antes de las 20:00 de Ecuador del 5 de octubre.
 

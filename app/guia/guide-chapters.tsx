@@ -752,7 +752,10 @@ export function ModelChapter() {
         combinación cumplió todo. V2 se abstiene siempre: muestra top-1 como
         hipótesis, no como motivo confirmado.
       </Note>
-      <Source path="ml/v2/model-card.md" label="Model card V2 histórica" />
+      <Source
+        path="ml/v2/model-card.md"
+        label="Model card V2 con procedencia corregida"
+      />
       <Source path="ml/v2/protocol.md" label="Protocolo histórico congelado" />
       <Source path="lib/assistant.ts" label="Componente determinista" />
     </Section>
@@ -989,6 +992,10 @@ export function EvaluationChapter() {
         de «independiente» quedan supersedidos por esta corrección de
         procedencia; los archivos congelados no se reescriben.
       </p>
+      <Source
+        path="docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md"
+        label="Corrección de procedencia · 1 oct 2026"
+      />
       <Source
         path="ml/v2/test-report.json"
         label="Experimento de desarrollo histórico"

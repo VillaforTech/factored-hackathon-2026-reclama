@@ -1,6 +1,6 @@
 # Borrador de entrega — no enviado
 
-**Corrección de evaluación, 1 de octubre:** este borrador no acredita un benchmark admisible del reto. Los binarios V4 enlazados abajo están obsoletos en sus afirmaciones de modelo; regenerarlos antes de adjuntar.
+**Corrección de evaluación, 1 de octubre:** este borrador no acredita un benchmark admisible del reto. La presentación V5 está corregida y renderizada; el MP4 V4 sigue obsoleto en sus afirmaciones de modelo y debe regenerarse antes de adjuntar.
 
 Destino indicado en la [página oficial](https://www.factored.ai/careers/ai-data-hackathon): hackathon.admin@factored.ai. Verificar el último anuncio oficial antes de enviar.
 
@@ -10,7 +10,7 @@ Somos Roberto Villafuerte, Jorge Arguello y Daniel Andrade. Presentamos Reclama,
 
 - Demo privada del equipo: https://reclama-factored-2026.villafortech.chatgpt.site
 - Repositorio privado del equipo: https://github.com/VillaforTech/factored-hackathon-2026-reclama
-- Presentación para revisión: [PDF V4](presentation/Reclama_Hackathon_6_slides_v4.pdf), seis diapositivas. El [PPTX editable](presentation/Reclama_Hackathon_6_slides_v4.pptx) queda disponible para correcciones.
+- Presentación para revisión: [PDF V5](presentation/Reclama_Hackathon_6_slides_v5.pdf), seis diapositivas. El [PPTX editable](presentation/Reclama_Hackathon_6_slides_v5.pptx) queda disponible para correcciones.
 - Video para revisión: [V4](video/Reclama_demo_v4_review.mp4), 169,6 s. Recorrido narrado de capturas locales reales y diapositivas, identificado como borrador; no sesión alojada continua.
 - Reproducción local y evaluación: README.md y ml/README.md.
 
@@ -23,7 +23,7 @@ El sistema utiliza datos de demo inventados. No emite reembolsos, bloquea tarjet
 - Confirmar el nombre de equipo registrado: «Reclama» es la identidad elegida para el proyecto, no una afirmación de registro oficial del equipo. Alinear el sufijo del repositorio si la inscripción usa otro nombre.
 - Completar sign-in normal en la URL privada del equipo, comprobar persistencia tras recarga y aislamiento con dos cuentas reales autorizadas. Registrar evidencia sin compartir credenciales.
 - No presentar el experimento de autoría IA como cumplimiento de la evaluación del reto. Documentar un protocolo y datos admisibles antes de cualquier claim de rendimiento independiente; revisión humana por sí sola no convierte estos textos en datos del organizador. Véase [corrección de procedencia](evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
-- Regenerar y revisar PPTX, PDF, locución, subtítulos integrados y MP4 con las fuentes corregidas; los binarios V4 actuales no están listos para entrega.
+- Revisar con el equipo los PPTX/PDF V5 corregidos. Regenerar y revisar locución, subtítulos integrados y MP4; el video V4 no está listo para entrega.
 - Revisar portugués con una persona competente; escuchar la locución, los subtítulos y el contenido V4. Si se graba una demo continua, conservar el máximo oficial de 180 segundos.
 - Adjuntar los archivos finales, comprobar permisos de lectura y conservar el recibo de envío real.
 

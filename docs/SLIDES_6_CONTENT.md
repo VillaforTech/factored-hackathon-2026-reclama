@@ -1,5 +1,7 @@
 # Reclama: contenido de seis diapositivas, revisión 4
 
+**Render vigente, 1 de octubre:** [PPTX V5](presentation/Reclama_Hackathon_6_slides_v5.pptx) y [PDF V5](presentation/Reclama_Hackathon_6_slides_v5.pdf) regenerados y revisados visualmente. La advertencia de obsolescencia inferior se refiere a los binarios V4, que se conservan.
+
 Fuentes corregidas el 1 de octubre de 2026, sin reentrenar el modelo v2. **El [PowerPoint V4](presentation/Reclama_Hackathon_6_slides_v4.pptx) y el [PDF V4](presentation/Reclama_Hackathon_6_slides_v4.pdf) están desactualizados: aún contienen una afirmación de evaluación del modelo que estas fuentes retiran. Requieren regeneración y revisión visual antes de usarse.** Esta corrección solo actualiza texto y metadatos, no los archivos renderizados.
 
 Alcance común: **sandbox con datos de demostración propios, recepción de solicitudes para revisión humana**. El sistema no confirma fraude, no adjudica disputas, no aprueba reembolsos y no mueve dinero. El despliegue privado documentado y la ejecución local se verifican por separado; el flujo autenticado alojado sigue pendiente.

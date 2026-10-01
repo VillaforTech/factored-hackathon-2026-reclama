@@ -78,7 +78,7 @@
     "Zero financial resolutions by design."
   ],
   "remaining": [
-    "Regenerate slide 5 and export the corrected six-slide PPTX/PDF; inspect every slide and refresh hashes.",
+    "Team review of corrected V5 presentation; use V5 slide imagery when re-rendering the MP4. Historical V4 presentation hashes above remain unchanged.",
     "Re-synthesize corrected scene 07 narration in the provisional 123.702544–146.741628 second window; remeasure timings and adjust the edit if needed.",
     "Re-render the MP4 with corrected slide imagery, audio and embedded subtitles, then verify full decode, source/audio text match, subtitle synchronization, duration under 180 seconds and new hashes.",
     "Human listening review of pronunciation and subtitle readability.",
@@ -105,7 +105,7 @@
   },
   "corrected_sources": {
     "docs/SLIDES_6_CONTENT.md": {
-      "sha256": "5b783d9736e8355442c7aa370c3b135deb2aa862727665e2545b2b74ffe709d0"
+      "sha256": "8fe69d50a8c9f0de45cd99a457dddb71b861d661e9798eb422e6a95171bc10e3"
     },
     "docs/presentation/metrics-v4.json": {
       "sha256": "8b5bfcc297a808aabefacc92c738eb2984bfd25a39e70ae49b2407a189da8f9c"
@@ -121,6 +121,18 @@
     },
     "docs/video/Reclama_demo_v4_review.srt": {
       "sha256": "8ac690fa6d3ec2830b83295c36c692cdec95704cfa5d4a01ed1b9f072d2ecf82"
+    },
+    "docs/presentation/metrics-v5.json": {
+      "sha256": "b7bdfc6c46aa980187dbff65ff6de5099b5b7a2e4584637727ea5121ee162fe2"
     }
+  },
+  "corrected_presentation": {
+    "status": "v5_pptx_pdf_rendered_and_visually_checked",
+    "pptx": "docs/presentation/Reclama_Hackathon_6_slides_v5.pptx",
+    "pptx_sha256": "6d17d16382665957b5a99b5bacfe4750a4a4b1e05c99e61d9ea428133c3a1367",
+    "pdf": "docs/presentation/Reclama_Hackathon_6_slides_v5.pdf",
+    "pdf_sha256": "874537b2866a1c96de6ae251a290495581dae474c9b6c643e499dfc15d0e78cd",
+    "verification": "docs/presentation/render-v5.json",
+    "used_in_existing_mp4": false
   }
 }

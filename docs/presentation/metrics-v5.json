@@ -1,0 +1,46 @@
+{
+  "sourceStatus": "corrected_sources_rendered",
+  "sourceCorrectedUtc": "2026-10-01",
+  "renderedArtifactsStatus": "v5_pptx_pdf_rendered_and_visually_checked",
+  "slide5Title": "QA de software y evaluación del modelo pendiente",
+  "systemTests": "28/28",
+  "systemTestScope": "Integración HTTP local con base nueva",
+  "contractAssertions": "160/160",
+  "contractAssertionScope": "Aserciones del flujo API sobre escenarios preparados y repetidos",
+  "preparedHandoffs": "2/2",
+  "preparedHandoffScope": "Rutas locales ES/PT persistidas, reconsultadas y auditadas",
+  "modelEvaluationTitle": "Validación independiente pendiente",
+  "modelEvaluationDetail": "Experimento de desarrollo creado con IA. Sin registros del organizador ni revisión humana. No es un benchmark admisible del reto.",
+  "softwareQaCaveat": "Las pruebas HTTP, contratos y handoffs son QA de software, no validación del modelo.",
+  "historicalDevelopmentExperiment": {
+    "displayPolicy": "provenance_notes_only_not_headline_performance",
+    "classification": "AI-authored development experiment",
+    "messageCount": 256,
+    "bilingualScenarioFamilies": 128,
+    "messageAuthor": "AI",
+    "labelAuthor": "AI",
+    "organizerRecordsUsed": false,
+    "humanReviewed": false,
+    "independentValidation": false,
+    "eligibleOfficialChallengeBenchmark": false,
+    "rulesCorrect": "168/256",
+    "modelV1Correct": "211/256",
+    "modelV2Correct": "218/256",
+    "v2MinusRulesPercentagePoints": 19.53,
+    "interpretation": "Resultados descriptivos de este experimento de desarrollo, sin afirmación de rendimiento generalizable."
+  },
+  "deploymentStatus": "Demo y código privados. Login alojado y acceso de jueces pendientes.",
+  "siteUrl": "https://reclama-factored-2026.villafortech.chatgpt.site",
+  "repoUrl": "https://github.com/VillaforTech/factored-hackathon-2026-reclama",
+  "renderedArtifacts": {
+    "pptx": {
+      "path": "docs/presentation/Reclama_Hackathon_6_slides_v5.pptx",
+      "sha256": "6d17d16382665957b5a99b5bacfe4750a4a4b1e05c99e61d9ea428133c3a1367"
+    },
+    "pdf": {
+      "path": "docs/presentation/Reclama_Hackathon_6_slides_v5.pdf",
+      "sha256": "874537b2866a1c96de6ae251a290495581dae474c9b6c643e499dfc15d0e78cd"
+    }
+  },
+  "verification": "render-v5.json"
+}
