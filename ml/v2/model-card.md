@@ -1,12 +1,17 @@
 # Reclama intent v2 — modelo congelado, uso orientativo
 
+## Corrección de interpretación · 1 de octubre de 2026
+
+La comparación de 218/256 frente a 168/256 es **un experimento de desarrollo de autoría IA**, no validación independiente ni un benchmark oficial/admisible del reto. Las 128 familias ES/PT reservadas no contienen registros del organizador y no tienen revisión humana. Autores separados, ausencia de duplicados y congelación no establecen independencia de validación. Se conservan modelos, corpus, predicciones, resultados y hashes históricos sin retocar.
+
+See / Véase: [provenance correction](../../docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
+
 **Estado:** apto para una sugerencia revisable de intención; **no apto para
 enrutamiento autónomo**. Siempre pedir al usuario que elija/confirme el motivo y
 permitir «otra consulta». El modelo no autoriza acceso, abre casos ni determina
 fraude, elegibilidad o devolución de dinero.
 
-La mejora frente al baseline de reglas se observa en un test sintético independiente
-del ajuste. La mejora frente a v1 es pequeña y no concluyente. La detección de
+La diferencia frente al baseline de reglas se observa en textos de desarrollo de autoría IA, reservados durante el ajuste; no valida calidad independiente. La mejora frente a v1 es pequeña y no concluyente. La detección de
 consultas ajenas sigue siendo débil; no ocultarla detrás del promedio general.
 
 ## Datos y procedencia
@@ -68,12 +73,11 @@ Modelo: `model.json`, **682.953 bytes**.
 
 SHA256: `cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a`.
 
-## Test reservado: única evaluación, sin ajustes posteriores
+## Experimento de desarrollo reservado: registro histórico, sin ajustes posteriores
 
 Un agente distinto preparó **256 mensajes, 128 familias ES/PT**, con 32 mensajes
 por cada una de las ocho clases. Se mantuvieron ocultos al entrenamiento hasta
-congelar el modelo. Es independencia del ajuste, no revisión humana ni una muestra
-representativa de consultas bancarias.
+congelar el modelo. Esto describe separación del ajuste, no validación independiente, revisión humana, admisibilidad para el reto ni una muestra representativa de consultas bancarias.
 
 Hash del corpus de test:
 `fbc39220225f6f55eb32110c3e400ae038f8ebd4ec7731ae911906cdde682ea9`.

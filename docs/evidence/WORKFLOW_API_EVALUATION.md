@@ -17,7 +17,7 @@ Informes nuevos: [integración](http-integration-rerun-2026-09-30.json), [contra
 
 En los 160 pedidos secuenciales del servidor de desarrollo, el p50 por escenario fue de **5,93 a 7,49 ms** y el p95 de **9,35 a 36,47 ms**, con sólo diez repeticiones por escenario. Son latencias de petición HTTP local. En los 15 recorridos completos preparados, p50/p95 de secuencia fue **88,33/204,16 ms** para intake ES, **20,49/31,35 ms** para aclaración PT y **69,92/80,14 ms** para handoff PT, con n=5 por ruta y p95 igual al máximo. Esta segunda medida incluye API hasta relectura/auditoría o comprobación de no escritura; excluye login, navegador, espera humana y red alojada. [Modelo de costo y faltantes](CASE_COST_MODEL_2026-09-30.md): costo total y costo por caso **desconocidos**. La inferencia empaquetada no usa un proveedor externo de modelo en esta ruta; no equivale a costo total cero. No se extrapola a latencia o ahorro operativo de un banco.
 
-La comparación aprendida tiene su propio [reporte reservado](../../ml/v2/test-report.json): 218/256 frente a 168/256 reglas sobre los mismos textos sintéticos. No se añade su denominador al de las pruebas HTTP; el modelo sólo sugiere una hipótesis y no autoriza escrituras.
+La comparación aprendida conserva un [reporte histórico de desarrollo](../../ml/v2/test-report.json): 218/256 frente a 168/256 reglas en textos de autoría IA, sin registros del organizador ni revisión humana. No es validación independiente ni benchmark admisible del reto; véase la [corrección de procedencia](EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md). No se añade su denominador al de las pruebas HTTP; el modelo sólo sugiere una hipótesis y no autoriza escrituras.
 
 ## Reproducción
 

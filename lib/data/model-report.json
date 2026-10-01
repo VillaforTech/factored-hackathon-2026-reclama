@@ -1,10 +1,18 @@
 {
   "experiment": "reclama-intent-v2-frozen",
-  "provenance": "Independent AI-authored synthetic holdout, not a real banking sample or human-reviewed Portuguese benchmark.",
+  "provenance": "AI-authored development experiment: 256 messages in 128 ES/PT scenario families. No organizer records or human-reviewed labels. Not independent validation or an official/challenge-valid benchmark.",
   "datasetHash": "fbc39220225f6f55eb32110c3e400ae038f8ebd4ec7731ae911906cdde682ea9",
   "freeze": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
   "messages": 256,
   "accuracy": 0.8515625,
   "macroF1": 0.8310163431444331,
-  "autonomousRouting": false
+  "autonomousRouting": false,
+  "evidenceType": "authored-development-experiment",
+  "scenarioFamilies": 128,
+  "containsOrganizerRecords": false,
+  "humanReviewed": false,
+  "independentValidation": false,
+  "challengeBenchmarkEstablished": false,
+  "correctionDate": "2026-10-01",
+  "historicalMetricsOnly": true
 }

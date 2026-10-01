@@ -16,7 +16,8 @@
     "lint:app": "eslint app/page.tsx app/layout.tsx app/guia app/api lib/server lib/client-types.ts lib/assistant.ts lib/use-webmcp.ts db/schema.ts",
     "db:local": "node scripts/local-db.mjs",
     "check": "npm run typecheck && npm run lint:app",
-    "test:assistant": "node --experimental-strip-types --test tests/assistant.test.mjs"
+    "test:assistant": "node --experimental-strip-types --test tests/assistant.test.mjs",
+    "test:provenance": "node --test tests/evaluation-provenance.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

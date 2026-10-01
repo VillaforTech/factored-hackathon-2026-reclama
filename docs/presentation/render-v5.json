@@ -1,0 +1,41 @@
+{
+  "sourceRef": "fde31efb50729c389c70e656c3159add9fc718b5",
+  "date": "2026-10-01",
+  "outputs": [
+    {
+      "file": "Reclama_Hackathon_6_slides_v5.pptx",
+      "sha256": "6d17d16382665957b5a99b5bacfe4750a4a4b1e05c99e61d9ea428133c3a1367",
+      "bytes": 85309
+    },
+    {
+      "file": "Reclama_Hackathon_6_slides_v5.pdf",
+      "sha256": "874537b2866a1c96de6ae251a290495581dae474c9b6c643e499dfc15d0e78cd",
+      "bytes": 271754
+    }
+  ],
+  "historicalStatsPreservedInSpeakerNotesOnly": true,
+  "noStaleVisibleModelPerformanceClaims": true,
+  "allSixSlidesVisuallyInspected": true,
+  "pptxAndPdfLinkTargetsRetained": true,
+  "pdfPageCount": 6,
+  "unchangedSlidesPixelIdenticalToPptxSourceRenders": [
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "pdfPagesPixelIdenticalToOriginalPdf": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "pdfTextVector": true,
+  "pdfExporter": "LibreOfficeDev 26.8.0.0.alpha0",
+  "pptxRenderer": "OpenAI artifact-tool",
+  "microsoftPowerPointEditingVerified": false,
+  "version": "v5-evaluation-provenance-correction",
+  "historicalV4Preserved": true,
+  "packageAndLayoutFindings": 0
+}

@@ -159,59 +159,59 @@ sesenta clientes independientes
 ni seguridad bancaria demostrada.
 
 34
-00:02:03,703 --> 00:02:08,153
+00:02:03,703 --> 00:02:08,188
 El experimento de desarrollo usa
 doscientos cincuenta y seis mensajes
 
 35
-00:02:08,153 --> 00:02:13,522
+00:02:08,188 --> 00:02:11,827
 creados por IA, en ciento
 veintiocho familias bilingües.
 
 36
-00:02:13,722 --> 00:02:16,683
+00:02:12,027 --> 00:02:14,433
 No incluye registros del
 organizador
 
 37
-00:02:16,683 --> 00:02:19,140
+00:02:14,433 --> 00:02:15,704
 ni revisión humana.
 
 38
-00:02:19,340 --> 00:02:22,850
+00:02:15,904 --> 00:02:20,264
 El conjunto no sirve como validación
 independiente ni como benchmark
 
 39
-00:02:22,850 --> 00:02:26,292
+00:02:20,264 --> 00:02:24,539
 del reto, y el modelo solo sugiere
 con confirmación obligatoria.
 
 40
-00:02:26,742 --> 00:02:31,115
+00:02:24,989 --> 00:02:29,363
 La demo y el repositorio siguen
 privados por decisión del propietario.
 
 41
-00:02:31,315 --> 00:02:34,272
+00:02:29,563 --> 00:02:32,520
 El acceso de los jueces
 y la validación alojada
 
 42
-00:02:34,272 --> 00:02:36,851
+00:02:32,520 --> 00:02:35,098
 con dos cuentas reales siguen pendientes.
 
 43
-00:02:37,051 --> 00:02:42,414
+00:02:35,298 --> 00:02:40,662
 Tenemos un sandbox reproducible con
 datos ficticios, permisos y trazas.
 
 44
-00:02:42,614 --> 00:02:46,244
+00:02:40,862 --> 00:02:44,492
 No mueve dinero ni resuelve
 financieramente disputas:
 
 45
-00:02:46,244 --> 00:02:49,600
+00:02:44,492 --> 00:02:47,848
 prepara una solicitud
 clara para revisión humana.

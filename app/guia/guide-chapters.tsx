@@ -728,7 +728,7 @@ export function ModelChapter() {
               634 mensajes train y 128 de validación. Nueve candidatos:
               word/char/hybrid y C=1/4/12. Ganó char, C=12 y 3.500
               características por macro-F1 de validación. No se eligió mirando
-              el test independiente.
+              el conjunto de desarrollo reservado, también creado por IA.
             </p>
           </div>
         </article>
@@ -752,8 +752,11 @@ export function ModelChapter() {
         combinación cumplió todo. V2 se abstiene siempre: muestra top-1 como
         hipótesis, no como motivo confirmado.
       </Note>
-      <Source path="ml/v2/model-card.md" label="Model card V2" />
-      <Source path="ml/v2/protocol.md" label="Protocolo previo al test" />
+      <Source
+        path="ml/v2/model-card.md"
+        label="Model card V2 con procedencia corregida"
+      />
+      <Source path="ml/v2/protocol.md" label="Protocolo histórico congelado" />
       <Source path="lib/assistant.ts" label="Componente determinista" />
     </Section>
   );
@@ -774,72 +777,85 @@ export function EvaluationChapter() {
       title="Cada resultado tiene un denominador y un límite."
       intro="Clasificación, seguridad de una escritura y experiencia en navegador se miden por separado. Un resultado no valida automáticamente las otras capas."
     >
-      <h3>Mismo test reservado para los tres sistemas</h3>
-      <div className="guide-segment" role="group" aria-label="Idioma evaluado">
-        {[
-          ["all", "ES + PT"],
-          ["es", "Español"],
-          ["pt", "Portugués"],
-        ].map(([id, label]) => (
-          <button
-            key={id}
-            aria-pressed={locale === id}
-            onClick={() => setLocale(id)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-      <div className="guide-chart" aria-live="polite">
-        {["Reglas", "Modelo V1", "Modelo V2"].map((name, i) => (
-          <div key={name} className="guide-bar-row">
-            <div>
-              <strong>{name}</strong>
-              <span>
-                {scores[i]}/{n} ·{" "}
-                {((100 * scores[i]) / n).toLocaleString("es-EC", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
-                %
-              </span>
-            </div>
-            <div className="guide-bar-track">
-              <div
-                className={i === 2 ? "candidate" : ""}
-                style={{ width: `${(100 * scores[i]) / n}%` }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-      <p className="guide-small">
-        Exactitud top-1: coincidencia entre la etiqueta más probable y la
-        referencia sintética. No es porcentaje de disputas resueltas.
-      </p>
-      <h3>Comparación global ES+PT · 256 mensajes</h3>
-      <div className="guide-grid two">
-        <article>
-          <h4>V2 frente a reglas</h4>
-          <p>
-            +19,53 puntos de exactitud; intervalo bootstrap por familia del 95%
-            [11,72; 27,34]. Macro-F1: 0,8310 frente a 0,6752.
-          </p>
-        </article>
-        <article>
-          <h4>V2 frente a V1</h4>
-          <p>
-            +2,73 puntos; intervalo [−1,17; 6,64]. Incluye cero: no hay
-            superioridad concluyente frente a V1.
-          </p>
-        </article>
-      </div>
-      <Note kind="limit" title="El promedio oculta errores importantes">
-        V2 reconoce solo 9/32 mensajes «other». De 34 sugerencias
-        «unrecognized», nueve son incorrectas. Su top-1 no puede sustituir la
-        elección del usuario.
+      <Note kind="limit" title="No hay validación independiente acreditada">
+        El conjunto reservado contiene 256 mensajes de autoría IA en 128
+        familias ES/PT, sin registros del organizador ni revisión humana. Es un
+        experimento de desarrollo; no constituye un benchmark oficial ni válido
+        del reto. Separar autores y congelar pesos no cambia esa procedencia.
       </Note>
-      <h3>Cómo protegimos la evaluación</h3>
+      <Detail title="Resultados históricos del experimento de desarrollo">
+        <h3>Mismos textos creados por IA para los tres sistemas</h3>
+        <div
+          className="guide-segment"
+          role="group"
+          aria-label="Idioma evaluado"
+        >
+          {[
+            ["all", "ES + PT"],
+            ["es", "Español"],
+            ["pt", "Portugués"],
+          ].map(([id, label]) => (
+            <button
+              key={id}
+              aria-pressed={locale === id}
+              onClick={() => setLocale(id)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className="guide-chart" aria-live="polite">
+          {["Reglas", "Modelo V1", "Modelo V2"].map((name, i) => (
+            <div key={name} className="guide-bar-row">
+              <div>
+                <strong>{name}</strong>
+                <span>
+                  {scores[i]}/{n} ·{" "}
+                  {((100 * scores[i]) / n).toLocaleString("es-EC", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                  %
+                </span>
+              </div>
+              <div className="guide-bar-track">
+                <div
+                  className={i === 2 ? "candidate" : ""}
+                  style={{ width: `${(100 * scores[i]) / n}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="guide-small">
+          Exactitud top-1: coincidencia entre la etiqueta más probable y la
+          referencia de autoría IA. No es validación independiente, rendimiento
+          sobre datos del reto ni porcentaje de disputas resueltas.
+        </p>
+        <h3>Comparación histórica ES+PT · 256 mensajes de desarrollo</h3>
+        <div className="guide-grid two">
+          <article>
+            <h4>V2 frente a reglas</h4>
+            <p>
+              +19,53 puntos de exactitud; intervalo bootstrap por familia del
+              95% [11,72; 27,34]. Macro-F1: 0,8310 frente a 0,6752.
+            </p>
+          </article>
+          <article>
+            <h4>V2 frente a V1</h4>
+            <p>
+              +2,73 puntos; intervalo [−1,17; 6,64]. Incluye cero: no hay
+              superioridad concluyente frente a V1.
+            </p>
+          </article>
+        </div>
+        <Note kind="limit" title="El promedio oculta errores importantes">
+          V2 reconoce solo 9/32 mensajes «other». De 34 sugerencias
+          «unrecognized», nueve son incorrectas. Su top-1 no puede sustituir la
+          elección del usuario.
+        </Note>
+      </Detail>
+      <h3>Controles del experimento y sus límites</h3>
       <ol className="guide-reading-list">
         <li>
           <strong>Pares juntos:</strong> la misma situación ES/PT permanece en
@@ -847,7 +863,8 @@ export function EvaluationChapter() {
         </li>
         <li>
           <strong>Validación para elegir:</strong> configuración y umbrales se
-          seleccionan sin el test independiente.
+          seleccionan sin el conjunto de desarrollo reservado, también creado
+          por IA.
         </li>
         <li>
           <strong>Congelación:</strong> hashes fijan modelo, corpus, scripts y
@@ -863,7 +880,8 @@ export function EvaluationChapter() {
         </li>
         <li>
           <strong>Sin retocar:</strong> si los errores del test influyen en una
-          mejora, hace falta un nuevo test para afirmar independencia.
+          mejora, deja de ser una comparación reservada. Un nuevo conjunto de
+          autoría IA tampoco acredita por sí solo validación independiente.
         </li>
       </ol>
       <Detail title="Exactitud, precisión, recall y macro-F1">
@@ -955,9 +973,11 @@ export function EvaluationChapter() {
         </table>
       </div>
       <Note kind="pending">
-        Todo el corpus es sintético y etiquetado por IA. Faltan revisión humana
-        ES/PT y aceptación con dos cuentas reales en producción. Cero
-        coincidencias textuales exactas no demuestra independencia semántica ni
+        Todo el corpus del experimento fue creado y etiquetado por IA. Las
+        pruebas de software con fixtures tampoco validan la calidad del modelo.
+        Faltan evaluación independiente admisible, revisión humana ES/PT y
+        aceptación con dos cuentas reales en producción. Cero coincidencias
+        textuales exactas no demuestra independencia semántica ni
         representatividad bancaria.
       </Note>
       <h3>Latencia y coste</h3>
@@ -967,7 +987,19 @@ export function EvaluationChapter() {
         E2E. No hay llamadas externas al modelo en runtime; hosting y operación
         no están medidos completamente, así que no afirmamos coste total cero.
       </p>
-      <Source path="ml/v2/test-report.json" label="Test reservado" />
+      <p className="guide-small">
+        Los enlaces del experimento conservan la versión histórica. Sus términos
+        de «independiente» quedan supersedidos por esta corrección de
+        procedencia; los archivos congelados no se reescriben.
+      </p>
+      <Source
+        path="docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md"
+        label="Corrección de procedencia · 1 oct 2026"
+      />
+      <Source
+        path="ml/v2/test-report.json"
+        label="Experimento de desarrollo histórico"
+      />
       <Source path="docs/evidence/BROWSER_V3.md" label="Aceptación local" />
       <a
         className="guide-source"
@@ -1454,7 +1486,9 @@ export function DeliveryChapter() {
       </p>
       <div className="guide-lab">
         <span className="guide-label">Comprueba la idea central</span>
-        <h3>Con 85,16% de exactitud, ¿puede abrir una disputa por sí solo?</h3>
+        <h3>
+          ¿Puede un resultado de desarrollo autorizar una disputa por sí solo?
+        </h3>
         <div className="guide-segment">
           <button aria-pressed={answer === 0} onClick={() => setAnswer(0)}>
             Sí, con score alto
@@ -1512,7 +1546,7 @@ export function SourcesChapter() {
           ["ml/v1/model-card.md", "V1: experimento exploratorio"],
           ["ml/v2/model-card.md", "V2: resultados y errores"],
           ["ml/v2/protocol.md", "Protocolo congelado"],
-          ["ml/heldout-v2/README.md", "Contrato del test reservado"],
+          ["ml/heldout-v2/README.md", "Procedencia del conjunto de desarrollo"],
           ["lib/server/api.ts", "API y autorización"],
           ["lib/assistant.ts", "Búsqueda determinista"],
           ["docs/evidence/BROWSER_V3.md", "Navegador"],
@@ -1582,7 +1616,7 @@ export function SourcesChapter() {
         ],
         [
           "Train, validation y holdout",
-          "Train aprende pesos; validation selecciona configuración y política; holdout evalúa después de fijar las decisiones. Si influye en ajustes, deja de ser independiente para ese experimento.",
+          "Train aprende pesos; validation selecciona configuración y política; holdout reserva datos hasta fijar decisiones. Aquí las tres particiones son de autoría IA: la separación no acredita validación independiente ni un benchmark válido del reto.",
         ],
         [
           "Leakage o fuga de evaluación",

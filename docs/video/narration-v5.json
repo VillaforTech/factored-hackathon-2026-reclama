@@ -87,7 +87,7 @@
       ]
     }
   ],
-  "status": "corrected_source_audio_video_render_required",
+  "status": "corrected_source_for_v5_render",
   "source_corrected_utc": "2026-10-01",
-  "render_status": "Existing V4 MP4 and audio are stale and do not contain this corrected narration."
+  "render_status": "V5 render source; measured output and limits are recorded in manifest-v5.json."
 }
