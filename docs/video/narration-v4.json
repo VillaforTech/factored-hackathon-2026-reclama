@@ -67,12 +67,12 @@
     },
     {
       "id": "07",
-      "title": "IA medida, autonomía limitada",
+      "title": "Experimento de desarrollo y evaluación pendiente",
       "visual": "slide-5",
       "sentences": [
-        "En doscientos cincuenta y seis textos sintéticos reservados, el clasificador acertó doscientos dieciocho; las reglas, ciento sesenta y ocho.",
-        "Las etiquetas fueron asistidas por inteligencia artificial y requieren revisión humana.",
-        "La evaluación no justificó autonomía: el modelo solo sugiere y la confirmación sigue siendo obligatoria."
+        "El experimento de desarrollo usa doscientos cincuenta y seis mensajes creados por IA, en ciento veintiocho familias bilingües.",
+        "No incluye registros del organizador ni revisión humana.",
+        "El conjunto no sirve como validación independiente ni como benchmark del reto, y el modelo solo sugiere con confirmación obligatoria."
       ]
     },
     {
@@ -86,5 +86,8 @@
         "No mueve dinero ni resuelve financieramente disputas: prepara una solicitud clara para revisión humana."
       ]
     }
-  ]
+  ],
+  "status": "corrected_source_audio_video_render_required",
+  "source_corrected_utc": "2026-10-01",
+  "render_status": "Existing V4 MP4 and audio are stale and do not contain this corrected narration."
 }

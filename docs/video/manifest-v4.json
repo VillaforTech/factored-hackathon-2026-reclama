@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "created_utc": "2026-09-30T15:13:43Z",
-  "status": "local_team_review_draft_not_submitted",
+  "status": "corrected_sources_existing_v4_binaries_stale_render_required_not_submitted",
   "source_commit": "6715df4936a1c7f18064ea7210d1d1172f024c10",
   "video": {
     "path": "docs/video/Reclama_demo_v4_review.mp4",
@@ -32,21 +32,30 @@
     ],
     "full_decode_errors": 0,
     "audio_mean_volume_db": -19.7,
-    "audio_peak_db": -6.8
+    "audio_peak_db": -6.8,
+    "status": "stale_unsupported_model_evaluation_claim_not_regenerated",
+    "metadata_scope": "Hash, duration, streams and technical checks describe the historical V4 MP4 only.",
+    "matches_corrected_sources": false
   },
   "subtitles": {
     "path": "docs/video/Reclama_demo_v4_review.srt",
-    "sha256": "816bde21995d518ac31e4eb2c2515f56809cb15e3234bb23c47e78516e13ffd9",
+    "sha256": "8ac690fa6d3ec2830b83295c36c692cdec95704cfa5d4a01ed1b9f072d2ecf82",
     "cue_count": 45,
-    "codec": "mov_text",
-    "reflow": "26 source sentences split into 45 captions of at most 2 lines and 41 characters per line; embedded mov_text and separate SRT text/timings match."
+    "reflow": "45 external SRT captions, at most 2 lines and 41 characters per line. Cues 34–39 contain corrected scene 07 text. Historical timings are preserved provisionally; audio alignment is unverified and existing embedded MP4 subtitles are stale.",
+    "historical_sha256": "816bde21995d518ac31e4eb2c2515f56809cb15e3234bb23c47e78516e13ffd9",
+    "format": "SRT",
+    "historical_embedded_codec": "mov_text",
+    "status": "corrected_external_srt_provisional_historical_timings",
+    "embedded_mp4_matches_current_srt": false
   },
   "presentation": {
     "pptx": "docs/presentation/Reclama_Hackathon_6_slides_v4.pptx",
     "pptx_sha256": "7600ff4a69ee838e1bfc3f1c36c8cb6670da87305b0f23270dd6d408f67e5d07",
     "pdf": "docs/presentation/Reclama_Hackathon_6_slides_v4.pdf",
     "pdf_sha256": "b6cd8d3720210584e27b7b36d3d8f4d446503b7d480b9d41037b0a63a06718d6",
-    "slides": 6
+    "slides": 6,
+    "status": "stale_unsupported_model_evaluation_claim_not_regenerated",
+    "hash_scope": "Historical PPTX/PDF binaries only; regenerate and visually inspect all six slides before replacing hashes."
   },
   "visual_sources": [
     {
@@ -64,21 +73,54 @@
   "claims": [
     "Site and repository remain private by owner decision.",
     "Hosted normal sign-in, reload persistence and two-real-account isolation remain unverified.",
-    "28/28 local HTTP checks, 160/160 repeated API assertions and 2/2 separate local handoff paths are different denominators.",
-    "Classifier 218/256 versus rules 168/256 uses synthetic held-out texts; no autonomous routing.",
+    "28/28 local HTTP checks, 160/160 repeated API assertions and 2/2 separate prepared local handoff paths are software QA with different denominators, not model validation.",
+    "The model evidence is an AI-authored development experiment: 256 messages in 128 bilingual scenario families, no organizer records and no human review. It is not independent validation or an eligible official/challenge benchmark.",
     "Zero financial resolutions by design."
   ],
   "remaining": [
+    "Regenerate slide 5 and export the corrected six-slide PPTX/PDF; inspect every slide and refresh hashes.",
+    "Re-synthesize corrected scene 07 narration in the provisional 123.702544–146.741628 second window; remeasure timings and adjust the edit if needed.",
+    "Re-render the MP4 with corrected slide imagery, audio and embedded subtitles, then verify full decode, source/audio text match, subtitle synchronization, duration under 180 seconds and new hashes.",
     "Human listening review of pronunciation and subtitle readability.",
     "Normal hosted sign-in and two-real-account isolation.",
     "Owner decision and validation of judge access before any delivery."
   ],
   "official_video_limit_seconds": 180,
-  "technical_audio_audit": {
+  "source_corrected_utc": "2026-10-01",
+  "source_commit_scope": "Historical render source only; this commit does not identify the corrected text sources.",
+  "claims_scope": "Corrected source statements; existing V4 MP4 audio, embedded subtitles and slide 5 do not reflect this correction.",
+  "historical_development_experiment": {
+    "v2_correct": "218/256",
+    "rules_correct": "168/256",
+    "v2_minus_rules_percentage_points": 19.53,
+    "interpretation": "Preserved descriptive development results only; excluded from headline performance and corrected narration."
+  },
+  "historical_render_technical_audio_audit": {
     "source_sentence_text_match": "26/26",
     "source_waveform_correlation": 0.99994,
     "peak_fraction_of_full_scale": 0.4555,
     "subtitle_cues_with_voice_energy": "45/45",
-    "semantic_asr_or_human_listening": "not performed; unavailable in this environment"
+    "semantic_asr_or_human_listening": "not performed; unavailable in this environment",
+    "scope": "Historical V4 MP4 only. The 26/26 source text match and audio correlations do not validate corrected narration or external SRT."
+  },
+  "corrected_sources": {
+    "docs/SLIDES_6_CONTENT.md": {
+      "sha256": "5b783d9736e8355442c7aa370c3b135deb2aa862727665e2545b2b74ffe709d0"
+    },
+    "docs/presentation/metrics-v4.json": {
+      "sha256": "8b5bfcc297a808aabefacc92c738eb2984bfd25a39e70ae49b2407a189da8f9c"
+    },
+    "docs/video/GUION_VIDEO.md": {
+      "sha256": "52e398285cebcf175400bf78ce4b452a963a1e95c959b73c4ffb9f638eb539e5"
+    },
+    "docs/video/narration-v4.json": {
+      "sha256": "d227761562d7c8f40d472208fb6f4c048bfa7e620bf48c23cd166ab00bb36fcd"
+    },
+    "docs/video/timing-v4.json": {
+      "sha256": "01dfc443c7f7f8fc7a12f5b91c8679c69c9b127e4250c91d15a0829f14d72323"
+    },
+    "docs/video/Reclama_demo_v4_review.srt": {
+      "sha256": "8ac690fa6d3ec2830b83295c36c692cdec95704cfa5d4a01ed1b9f072d2ecf82"
+    }
   }
 }

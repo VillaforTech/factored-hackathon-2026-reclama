@@ -1705,35 +1705,49 @@ export default function Home() {
                   <Activity />
                   <h3>
                     {t(
-                      "Un modelo orientativo, con límites medidos",
-                      "Um modelo orientativo, com limites medidos",
+                      "Un modelo orientativo, sin validación independiente",
+                      "Um modelo orientativo, sem validação independente",
                     )}
                   </h3>
                   <p>
                     {t(
-                      "TF-IDF de caracteres + regresión logística. Ocho intenciones; 256 mensajes reservados, creados por IA independientemente del entrenamiento. Revisión humana pendiente.",
-                      "TF-IDF de caracteres + regressão logística. Oito intenções; 256 mensagens reservadas, criadas por IA independentemente do treino. Revisão humana pendente.",
+                      "TF-IDF de caracteres + regresión logística. Ocho intenciones. Los datos de entrenamiento y del experimento de desarrollo fueron creados por IA; no son registros del organizador ni un benchmark válido del reto. Falta validación independiente y revisión humana ES/PT.",
+                      "TF-IDF de caracteres + regressão logística. Oito intenções. Os dados de treino e do experimento de desenvolvimento foram criados por IA; não são registros do organizador nem um benchmark válido do desafio. Faltam validação independente e revisão humana ES/PT.",
                     )}
                   </p>
-                  <div className="comparison">
-                    <div>
-                      <span>
-                        {t(
-                          "Modelo · aciertos en casos reservados",
-                          "Modelo · acertos em casos reservados",
-                        )}
-                      </span>
-                      <strong>218 / 256</strong>
-                      <div style={{ width: "85.15625%" }} />
+                  <details>
+                    <summary>
+                      {t(
+                        "Experimento de desarrollo histórico",
+                        "Experimento de desenvolvimento histórico",
+                      )}
+                    </summary>
+                    <p>
+                      {t(
+                        "256 mensajes creados por IA, 128 familias ES/PT, sin revisión humana. Estos aciertos describen solo ese experimento; no validan rendimiento bancario ni cumplimiento del reto.",
+                        "256 mensagens criadas por IA, 128 famílias ES/PT, sem revisão humana. Estes acertos descrevem apenas esse experimento; não validam desempenho bancário nem conformidade com o desafio.",
+                      )}
+                    </p>
+                    <div className="comparison">
+                      <div>
+                        <span>
+                          {t(
+                            "Modelo · experimento de desarrollo",
+                            "Modelo · experimento de desenvolvimento",
+                          )}
+                        </span>
+                        <strong>218 / 256</strong>
+                        <div style={{ width: "85.15625%" }} />
+                      </div>
+                      <div>
+                        <span>
+                          {t("Reglas · mismos casos", "Regras · mesmos casos")}
+                        </span>
+                        <strong>168 / 256</strong>
+                        <div style={{ width: "65.625%" }} />
+                      </div>
                     </div>
-                    <div>
-                      <span>
-                        {t("Reglas · mismos casos", "Regras · mesmos casos")}
-                      </span>
-                      <strong>168 / 256</strong>
-                      <div style={{ width: "65.625%" }} />
-                    </div>
-                  </div>
+                  </details>
                   <div className="inline-warning">
                     <AlertCircle size={17} />
                     {t(
@@ -1751,8 +1765,8 @@ export default function Home() {
                     <p>
                       {modelReport.experiment} ·{" "}
                       {t(
-                        "634 entrenamiento / 128 validación / 256 reservados. Modelo y protocolo congelados antes de evaluar. Exactitud: ES 85,94%; PT 84,38%. Son etiquetas sintéticas, no resultados de un banco real.",
-                        "634 treino / 128 validação / 256 reservados. Modelo e protocolo congelados antes da avaliação. Acurácia: ES 85,94%; PT 84,38%. São rótulos sintéticos, não resultados de um banco real.",
+                        "634 mensajes de entrenamiento / 128 de selección / 256 reservados, todos de autoría IA. Congelar el modelo y separar autores no demuestra validación independiente. Los archivos y resultados históricos se conservan sin retocar; no hay benchmark oficial acreditado.",
+                        "634 mensagens de treino / 128 de seleção / 256 reservadas, todas de autoria IA. Congelar o modelo e separar autores não demonstra validação independente. Os arquivos e resultados históricos são preservados sem alterações; não há benchmark oficial comprovado.",
                       )}
                     </p>
                   </details>

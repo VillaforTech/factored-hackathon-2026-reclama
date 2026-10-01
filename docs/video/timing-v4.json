@@ -4,7 +4,7 @@
   "language": "es-MX",
   "rate_wpm": 170,
   "audio_duration_seconds": 170.050463,
-  "subtitle_alignment": "Exact per-sentence synthesis timing with measured audio durations",
+  "subtitle_alignment": "Historical scene and cue time slots preserved as provisional edit targets. Corrected scene 07 text is not aligned to regenerated audio. Re-synthesis and alignment verification required.",
   "scenes": [
     {
       "id": "01",
@@ -87,16 +87,17 @@
     },
     {
       "id": "07",
-      "title": "IA medida, autonomía limitada",
+      "title": "Experimento de desarrollo y evaluación pendiente",
       "visual": "slide-5",
       "sentences": [
-        "En doscientos cincuenta y seis textos sintéticos reservados, el clasificador acertó doscientos dieciocho; las reglas, ciento sesenta y ocho.",
-        "Las etiquetas fueron asistidas por inteligencia artificial y requieren revisión humana.",
-        "La evaluación no justificó autonomía: el modelo solo sugiere y la confirmación sigue siendo obligatoria."
+        "El experimento de desarrollo usa doscientos cincuenta y seis mensajes creados por IA, en ciento veintiocho familias bilingües.",
+        "No incluye registros del organizador ni revisión humana.",
+        "El conjunto no sirve como validación independiente ni como benchmark del reto, y el modelo solo sugiere con confirmación obligatoria."
       ],
       "start": 123.702544,
       "duration": 23.039084000000017,
-      "end": 146.74162800000002
+      "end": 146.74162800000002,
+      "timing_status": "provisional_historical_slot_not_remeasured"
     },
     {
       "id": "08",
@@ -212,17 +213,20 @@
     {
       "start": 123.702544,
       "end": 133.521909,
-      "text": "En doscientos cincuenta y seis textos sintéticos reservados, el clasificador acertó doscientos dieciocho; las reglas, ciento sesenta y ocho."
+      "text": "El experimento de desarrollo usa doscientos cincuenta y seis mensajes creados por IA, en ciento veintiocho familias bilingües.",
+      "timing_status": "provisional_historical_slot_not_remeasured"
     },
     {
       "start": 133.721919,
       "end": 139.14046800000003,
-      "text": "Las etiquetas fueron asistidas por inteligencia artificial y requieren revisión humana."
+      "text": "No incluye registros del organizador ni revisión humana.",
+      "timing_status": "provisional_historical_slot_not_remeasured"
     },
     {
       "start": 139.340482,
       "end": 146.291593,
-      "text": "La evaluación no justificó autonomía: el modelo solo sugiere y la confirmación sigue siendo obligatoria."
+      "text": "El conjunto no sirve como validación independiente ni como benchmark del reto, y el modelo solo sugiere con confirmación obligatoria.",
+      "timing_status": "provisional_historical_slot_not_remeasured"
     },
     {
       "start": 146.74162800000002,
@@ -245,5 +249,9 @@
       "text": "No mueve dinero ni resuelve financieramente disputas: prepara una solicitud clara para revisión humana."
     }
   ],
-  "narration_sha256": "a5fcc24c4ce9dd6bc37f6b8428ff8a6998552825e04d0808032d5e1295e67bab"
+  "narration_sha256": "d227761562d7c8f40d472208fb6f4c048bfa7e620bf48c23cd166ab00bb36fcd",
+  "status": "corrected_text_provisional_historical_timing_render_required",
+  "source_corrected_utc": "2026-10-01",
+  "audio_duration_basis": "Historical V4 synthesis only; corrected narration has not been synthesized or measured.",
+  "historical_narration_sha256": "a5fcc24c4ce9dd6bc37f6b8428ff8a6998552825e04d0808032d5e1295e67bab"
 }

@@ -1,5 +1,11 @@
 # Componente de intención y evidencia reproducible
 
+## Corrección de procedencia · 1 de octubre de 2026
+
+Estos datos son un **experimento de desarrollo de autoría IA**, no validación independiente ni un benchmark oficial/admisible del reto. Entrenamiento (634), selección (128) y conjunto reservado (256 mensajes / 128 familias ES/PT) son de autoría IA. El conjunto reservado no contiene registros del organizador ni revisión humana. El resultado v1 de 46/64 frente a 43/64 también es de autoría IA. Las métricas se conservan para auditoría, sin reutilizarlas como claim de rendimiento validado. `v2/protocol.md` permanece byte por byte por estar ligado al hash de congelación; su uso histórico de «independiente» queda corregido por este aviso.
+
+See / Véase: [provenance correction](../docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
+
 Esta carpeta contiene dos clasificadores locales de intención ES/PT, sus corpus
 sintéticos, evaluación, modelos exportados y una implementación JavaScript sin
 dependencias. La app usa v2 como **hipótesis no confirmada**: el usuario elige el
@@ -15,7 +21,7 @@ confirmación y escrituras pertenecen a la aplicación, no al clasificador.
 - `v1/`: modelo inicial word-TFIDF + regresión logística, baseline bilingüe fijo,
   corpus, informe, predicciones y paridad.
 - `v2/`: char-TFIDF + regresión logística, entrenamiento/validación sintéticos,
-  modelo congelado, informe de selección, test independiente y auditorías.
+  modelo congelado, informe de selección, experimento de desarrollo y auditorías.
 - `heldout-v2/`: 256 mensajes sintéticos, 128 parejas/familias ES/PT preparadas por
   otro agente; se mantuvieron ocultos al ajuste de v2 hasta la congelación.
 - `verify_package.py`: comprueba hashes, imports y 20 ejemplos fijos de paridad,
@@ -69,17 +75,16 @@ selecciona ejemplos, cambia umbrales ni excluye errores. `--assets-dir` permite
 indicar otra copia idéntica de `v2`. `--help` muestra las opciones.
 
 Reproducir un cálculo no convierte el corpus en un nuevo test. Cualquier ajuste
-basado en estos errores necesitaría otro conjunto reservado para afirmar una
-evaluación independiente.
+basado en estos errores necesitaría un protocolo nuevo y datos admisibles realmente independientes. Crear otro conjunto IA no acredita esa independencia.
 
-## Resultado y límites
+## Resultado histórico de desarrollo y límites
 
 | Sobre los mismos 256 mensajes | Reglas | v1 | v2 |
 |---|---:|---:|---:|
 | Exactitud top-1 | 65,63% | 82,42% | 85,16% |
 | Macro-F1 | 0,6752 | 0,7904 | 0,8310 |
 
-v2 mejora frente a reglas en este test sintético. Su mejora frente a v1 no es
+v2 obtuvo más aciertos que reglas en este experimento de autoría IA; no es una mejora validada independientemente ni evidencia de cumplimiento del reto. Su mejora frente a v1 no es
 concluyente: intervalo de diferencia de exactitud del 95% [−1,17; 6,64] puntos.
 No se debe generalizar este resultado a consultas bancarias reales.
 
@@ -146,5 +151,4 @@ CLI**. Para reproducir desde el corpus público final no hacen falta Ollama, GPU
 claves de API ni descargas de pesos.
 
 Si se alteran ejemplos, configuración o decisiones a partir de errores conocidos,
-será otro experimento y requerirá un nuevo test reservado para afirmar evaluación
-independiente; conservar siempre los resultados presentes.
+será otro experimento. Una evaluación independiente requiere procedencia admisible y revisión apropiada, no solo otro conjunto IA reservado; conservar siempre los resultados presentes.

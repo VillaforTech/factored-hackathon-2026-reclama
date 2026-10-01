@@ -1,4 +1,10 @@
-# Held-out v2 — independent bilingual intent corpus
+# Held-out v2 — frozen AI-authored development corpus
+
+## Provenance correction · 1 October 2026
+
+This frozen set is an **AI-authored development experiment**, not independent validation or an official/challenge-valid benchmark. Its 256 messages are 128 bilingual scenario families, not organizer records or human-reviewed labels. A separate author and a pre-score freeze do not establish independent validation. Preserve corpus bytes, hashes and historical predictions. Do not reuse the historical scores as a headline model-quality claim.
+
+See / Véase: [provenance correction](../../docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
 
 **Status: frozen, AI-authored annotations, human review pending.** These are entirely invented scenarios. They contain no original customer data and are not sampled from the organizer's transcripts. No training corpus, ML implementation or model predictions were read while authoring this set. Do not describe these annotations as human-adjudicated banking ground truth.
 
@@ -51,7 +57,7 @@ python3 research/build-assets/heldout-v2/validate.py
 
 Only `text` and optionally `locale` may be passed to the classifier. Never send `label`, `id`, `familyId`, `pairId`, file order or this README as model input. Keep the full corpus and per-example predictions away from training/prompt authors until the model/configuration and scoring implementation have been frozen.
 
-Use this set for a single post-freeze evaluation against the locked baseline and candidate with identical inputs. If it influences feature, threshold, prompt, training-data or policy changes, retire it to validation data and create a new untouched hold-out. Do not tune on failed cases and continue calling the result held-out.
+Historical use: a single post-freeze development comparison against the locked baseline and candidate with identical inputs. If it influences feature, threshold, prompt, training-data or policy changes, retire it to validation data and create a new untouched hold-out. Do not tune on failed cases and continue calling the result held-out.
 
 Report macro-F1 and confusion matrix, recall for `other`, missed escalation/forced routing for indeterminate cases, and ES/PT results separately. Score paired-language consistency and use `familyId` as the resampling unit for confidence intervals. Do not treat 256 correlated bilingual records as 256 independent families.
 

@@ -15,6 +15,7 @@ jobs:
       - run: node ml/v1/verify-parity.mjs
       - run: node ml/v2/verify-parity.mjs
       - run: npm run test:assistant
+      - run: npm run test:provenance
       - run: python3 data-pipeline/validate_assets.py
       - run: npm run build
       - name: Verify HTTP workflow against fresh local D1

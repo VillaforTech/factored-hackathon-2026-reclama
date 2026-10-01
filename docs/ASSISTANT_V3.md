@@ -38,4 +38,4 @@ npm run test:assistant
 npm run check
 ```
 
-Twenty targeted tests verify matching, ambiguity, ownership, normalized amounts, missing merchants, relative dates, source integrity, explicit confirmation, contradiction, and safe support guidance. These are implementation tests using authored fixtures; they do not claim independent conversational quality or replace the reserved ML benchmark. Portuguese wording still needs a fluent human reviewer.
+Twenty targeted tests verify matching, ambiguity, ownership, normalized amounts, missing merchants, relative dates, source integrity, explicit confirmation, contradiction, and safe support guidance. These are implementation tests using authored fixtures; they do not claim independent conversational quality or establish independent model validation. The reserved ML comparison is an AI-authored development experiment, not an official/challenge-valid benchmark; see [the provenance correction](evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md). Portuguese wording still needs a fluent human reviewer.

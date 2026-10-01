@@ -236,9 +236,10 @@ function Decisions() {
         <p>
           También se documentaron un único flujo, español y portugués, baseline
           y evaluación reservada, manejo de ambigüedad/fallos y entrega
-          reproducible. La grabación solo se revisó parcialmente. Estas son
-          observaciones de ese corte; no una garantía de que no existan
-          aclaraciones posteriores.
+          reproducible. El experimento de desarrollo actual no acredita el
+          cumplimiento de esa evaluación. La grabación solo se revisó
+          parcialmente. Estas son observaciones de ese corte; no una garantía de
+          que no existan aclaraciones posteriores.
         </p>
       </Detail>
       <Source

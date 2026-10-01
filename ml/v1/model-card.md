@@ -1,5 +1,11 @@
 # Reclama: clasificador local de intención ES/PT
 
+## Corrección de interpretación · 1 de octubre de 2026
+
+El resultado exploratorio de 46/64 frente a 43/64 usa textos y etiquetas de autoría IA. Es un experimento de desarrollo; **no es validación independiente ni un benchmark oficial/admisible del reto**. Se conserva la evidencia histórica, sin cambiar el modelo ni los resultados.
+
+See / Véase: [provenance correction](../../docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
+
 **Versión:** `reclama-intent-2026-09-29-v1.1`.
 
 **Decisión: orientativo, no apto para enrutamiento autónomo.** El experimento

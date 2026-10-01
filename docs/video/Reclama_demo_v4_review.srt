@@ -160,32 +160,32 @@ ni seguridad bancaria demostrada.
 
 34
 00:02:03,703 --> 00:02:08,153
-En doscientos cincuenta y seis
-textos sintéticos reservados, el
+El experimento de desarrollo usa
+doscientos cincuenta y seis mensajes
 
 35
 00:02:08,153 --> 00:02:13,522
-clasificador acertó doscientos dieciocho;
-las reglas, ciento sesenta y ocho.
+creados por IA, en ciento
+veintiocho familias bilingües.
 
 36
 00:02:13,722 --> 00:02:16,683
-Las etiquetas fueron
-asistidas por inteligencia
+No incluye registros del
+organizador
 
 37
 00:02:16,683 --> 00:02:19,140
-artificial y requieren revisión humana.
+ni revisión humana.
 
 38
 00:02:19,340 --> 00:02:22,850
-La evaluación no justificó
-autonomía: el modelo solo
+El conjunto no sirve como validación
+independiente ni como benchmark
 
 39
 00:02:22,850 --> 00:02:26,292
-sugiere y la confirmación
-sigue siendo obligatoria.
+del reto, y el modelo solo sugiere
+con confirmación obligatoria.
 
 40
 00:02:26,742 --> 00:02:31,115
