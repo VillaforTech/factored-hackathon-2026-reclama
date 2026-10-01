@@ -1,0 +1,217 @@
+1
+00:00:00,000 --> 00:00:04,060
+Somos Roberto Villafuerte,
+Jorge Arguello y Daniel Andrade.
+
+2
+00:00:04,260 --> 00:00:07,523
+Reclama recibe solicitudes
+por compras de tarjeta
+
+3
+00:00:07,523 --> 00:00:10,919
+no reconocidas y prepara
+un expediente verificable.
+
+4
+00:00:11,119 --> 00:00:13,880
+Este borrador es un recorrido narrado con
+
+5
+00:00:13,880 --> 00:00:16,573
+capturas reales, no una sesión continua.
+
+6
+00:00:17,024 --> 00:00:21,485
+En doce cortes temporales del dataset
+sintético encontramos diez mil
+
+7
+00:00:21,485 --> 00:00:26,274
+novecientas tres compras de tarjeta
+aprobadas, con titularidad coherente.
+
+8
+00:00:26,474 --> 00:00:29,707
+Los enlaces defectuosos de
+las quejas históricas nos
+
+9
+00:00:29,707 --> 00:00:33,437
+hicieron descartarlos como
+evidencia de un nuevo expediente.
+
+10
+00:00:33,637 --> 00:00:38,292
+Partimos de la transacción verificada
+y de la declaración actual del cliente.
+
+11
+00:00:38,742 --> 00:00:41,979
+Esta captura real muestra
+la revisión en español.
+
+12
+00:00:42,179 --> 00:00:45,164
+La declaración del cliente
+se identifica como no
+
+13
+00:00:45,164 --> 00:00:48,710
+verificada; la autorización
+de la compra y la procedencia
+
+14
+00:00:48,710 --> 00:00:51,882
+de un reembolso quedan
+pendientes de investigación.
+
+15
+00:00:52,082 --> 00:00:56,153
+La recepción y las actualizaciones
+tienen rastro de auditoría.
+
+16
+00:00:56,353 --> 00:00:59,219
+Recibido significa pendiente de revisión,
+
+17
+00:00:59,219 --> 00:01:02,014
+no fraude confirmado ni dinero devuelto.
+
+18
+00:01:02,464 --> 00:01:05,519
+La captura móvil muestra
+la interfaz en portugués
+
+19
+00:01:05,519 --> 00:01:08,637
+y movimientos de una
+identidad ficticia de prueba.
+
+20
+00:01:08,837 --> 00:01:11,813
+El cliente selecciona
+la transacción exacta,
+
+21
+00:01:11,813 --> 00:01:15,127
+revisa su declaración y
+confirma antes de enviar.
+
+22
+00:01:15,577 --> 00:01:19,624
+El clasificador sugiere el
+motivo; el servicio controla
+
+23
+00:01:19,624 --> 00:01:23,377
+identidad, titularidad,
+consentimiento y escritura.
+
+24
+00:01:23,577 --> 00:01:25,594
+Un borrador no crea un caso.
+
+25
+00:01:25,794 --> 00:01:28,729
+La confirmación se
+vincula al borrador, y una
+
+26
+00:01:28,729 --> 00:01:31,990
+lectura posterior verifica
+el expediente guardado.
+
+27
+00:01:32,190 --> 00:01:36,599
+Una sesión vencida o una transacción
+ajena no permiten continuar.
+
+28
+00:01:37,049 --> 00:01:41,071
+Pasaron veintiocho pruebas de
+integración HTTP, incluidas
+
+29
+00:01:41,071 --> 00:01:46,082
+concurrencia, consentimiento y
+recuperación tras una respuesta perdida.
+
+30
+00:01:46,282 --> 00:01:50,214
+Otro workload tuvo ciento
+sesenta comprobaciones de API
+
+31
+00:01:50,214 --> 00:01:54,789
+aprobadas: dieciséis escenarios
+bilingües, repetidos diez veces.
+
+32
+00:01:54,989 --> 00:01:58,956
+Son pruebas locales de
+comportamiento; no representan ciento
+
+33
+00:01:58,956 --> 00:02:03,253
+sesenta clientes independientes
+ni seguridad bancaria demostrada.
+
+34
+00:02:03,703 --> 00:02:08,153
+En doscientos cincuenta y seis
+textos sintéticos reservados, el
+
+35
+00:02:08,153 --> 00:02:13,522
+clasificador acertó doscientos dieciocho;
+las reglas, ciento sesenta y ocho.
+
+36
+00:02:13,722 --> 00:02:16,683
+Las etiquetas fueron
+asistidas por inteligencia
+
+37
+00:02:16,683 --> 00:02:19,140
+artificial y requieren revisión humana.
+
+38
+00:02:19,340 --> 00:02:22,850
+La evaluación no justificó
+autonomía: el modelo solo
+
+39
+00:02:22,850 --> 00:02:26,292
+sugiere y la confirmación
+sigue siendo obligatoria.
+
+40
+00:02:26,742 --> 00:02:31,115
+La demo y el repositorio siguen
+privados por decisión del propietario.
+
+41
+00:02:31,315 --> 00:02:34,272
+El acceso de los jueces
+y la validación alojada
+
+42
+00:02:34,272 --> 00:02:36,851
+con dos cuentas reales siguen pendientes.
+
+43
+00:02:37,051 --> 00:02:42,414
+Tenemos un sandbox reproducible con
+datos ficticios, permisos y trazas.
+
+44
+00:02:42,614 --> 00:02:46,244
+No mueve dinero ni resuelve
+financieramente disputas:
+
+45
+00:02:46,244 --> 00:02:49,600
+prepara una solicitud
+clara para revisión humana.

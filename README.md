@@ -72,7 +72,7 @@ On the independent **256-message synthetic reserved set**, v2 scored **218/256 (
 
 **We rejected autonomous routing.** The frozen validation gate failed; the system always requires clarification and explicit choice. It shows raw top-1 only as an unconfirmed hypothesis. `other` recall is 9/32 and `unrecognized` precision is 25/34. There were zero normalized exact train/validation overlaps with the heldout set; broader semantic and author biases remain possible. Portuguese text and synthetic labels need human review. The earlier exploratory 64-message evaluation remains preserved separately.
 
-Measured system evidence: **16/16 additional run/locale regressions**, **9/9 stale-session context regressions** and **20/20 deterministic assistant tests** passed locally. These are separate from the frozen classifier evaluation. **28/28 HTTP checks** passed in fresh-database CI after the idempotency correction; **160/160 contract assertions** passed across 16 bilingual scenarios. These assertions are not 160 financial resolutions. Four workflow readback scenarios split into two intake and two support handoffs; financial resolutions are **zero by design**. Local warm model CPU p95 was 0.082 ms; local API scenario p95 ranged 6.35–22.75 ms with ten measurements each. Neither measure is production end-to-end latency. No external model API calls were made; total hosting/CPU cost has not been measured.
+Measured system evidence: **16/16 additional run/locale regressions**, **9/9 stale-session context regressions** and **20/20 deterministic assistant tests** passed locally in the prior V3 validation. On 30 September, a new local D1 run passed **28/28 HTTP checks**, **160/160 contract assertions** across 16 bilingual scenarios, and **2/2 separate persisted ES/PT handoff paths**. The 160 requests created no cases; the HTTP suite created four prepared dispute intakes, and the handoff suite created two prepared support cases. These are not 166 independent customers or financial resolutions. A historical report's 2/4 intake/handoff split did not reproduce with the current integration harness; see the [evidence correction](docs/evidence/WORKFLOW_API_EVALUATION.md). Local warm model CPU p95 was 0.082 ms in the earlier benchmark; the new per-scenario local API p50 ranged 5.93–7.49 ms and p95 9.35–36.47 ms with ten measurements each. Neither measure is production end-to-end latency. No external model API calls were made; total hosting/CPU cost has not been measured.
 
 ## Security boundaries
 
@@ -92,10 +92,11 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 
 ## Delivery artifacts
 
-- `docs/presentation/`: editable six-slide V2 draft and PDF with sourced evidence and limitations; update access wording and captures before final submission.
-- `docs/DEMO_175S.md`: demonstration script; the narrated video is a clearly labeled montage of real screenshots, not an uninterrupted live screen recording.
+- `docs/presentation/`: editable six-slide V4 review deck and PDF with private-access wording and separate evidence denominators. Team review remains open.
+- `docs/video/GUION_VIDEO.md`: current V4 narration, video and subtitles; it is a labeled montage of real local screenshots, not an uninterrupted live screen recording. `docs/DEMO_175S.md` redirects from the older script.
 - `docs/DELIVERY_PLAN.md`: daily plan and proposed team assignments through 5 October.
 - `docs/DELIVERY_STATUS.md`: verified delivery state and remaining external checks.
+- `docs/DEMO_GATE_2026-09-30.md`: prioritized acceptance gaps, requirement-to-evidence matrix and live rehearsal sequence.
 
 ## Official challenge references
 
@@ -103,4 +104,4 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 - [Event hub](https://www.factored.ai/careers/ai-data-hackathon)
 - [Deadline and three-minute video clarification](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809)
 
-The verified deadline is **5 October 2026, 23:59 UTC−5 (continental Ecuador)**. The challenge requires a public repository, working demo or documented local exception, 4–6 slides and maximum-three-minute video. The owner has explicitly kept this project private for now; public release and the final submission package remain separate decisions. A built package is not an organizer submission receipt.
+The 28 September organizer clarification records a deadline of **5 October 2026, 23:59 UTC−5 (continental Ecuador)**; recheck later announcements before submission. The [event hub](https://www.factored.ai/careers/ai-data-hackathon) explicitly requires a public repository, a working deployed link, 4–6 slides and a video. No exception to the public-repository requirement has been verified. The owner has explicitly kept this project private for now; public release and the final submission package remain separate decisions. A built package is not an organizer submission receipt.

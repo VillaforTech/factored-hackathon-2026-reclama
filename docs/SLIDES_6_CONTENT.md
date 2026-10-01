@@ -1,8 +1,8 @@
-# Reclama: contenido de seis diapositivas, revisión 3
+# Reclama: contenido de seis diapositivas, revisión 4
 
-Actualizado el 29 de septiembre de 2026. Esta revisión incorpora el resultado del modelo v2. [PowerPoint editable](presentation/Reclama_Hackathon_6_slides_v3.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v3.pdf) contienen seis diapositivas con enlaces al sitio y repositorio.
+Actualizado el 30 de septiembre de 2026. Esta revisión conserva el modelo v2 congelado y corrige acceso y métricas funcionales. [PowerPoint editable](presentation/Reclama_Hackathon_6_slides_v4.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v4.pdf) contienen seis diapositivas con enlaces privados del equipo.
 
-Alcance común: **sandbox con datos de demostración propios, recepción de solicitudes para revisión humana**. El sistema no confirma fraude, no adjudica disputas, no aprueba reembolsos y no mueve dinero. La interfaz pública y la ejecución local se verifican por separado.
+Alcance común: **sandbox con datos de demostración propios, recepción de solicitudes para revisión humana**. El sistema no confirma fraude, no adjudica disputas, no aprueba reembolsos y no mueve dinero. El despliegue privado documentado y la ejecución local se verifican por separado; el flujo autenticado alojado sigue pendiente.
 
 ## 1. Reclama: disputas de tarjeta con evidencia verificable
 
@@ -87,11 +87,12 @@ La diapositiva muestra reglas y v2. v1 permanece aquí y en notas para conservar
 
 - **28/28 pruebas HTTP de integración** con base nueva.
 - **160/160 aserciones de contratos** del flujo API.
+- **2/2 handoffs ES/PT** persistidos, reconsultados y auditados en rutas locales preparadas.
 - Tres fallos encontrados y corregidos durante la revisión. Estas comprobaciones funcionales no son un benchmark lingüístico end-to-end, no demuestran riesgo cero y no se suman al denominador 256.
 
 **Antecedente exploratorio:** v1 obtuvo 46/64 y reglas 43/64 en un conjunto previo. Esa diferencia no justificó superioridad. No se mezcla ese experimento con el corpus independiente de 256 textos ni se presenta como otra evaluación reservada.
 
-**Fuentes:** [test-report v2](../ml/v2/test-report.json), [model card](../ml/v2/model-card.md), [integración final](evidence/http-integration-final.json), [evaluación del flujo API](evidence/WORKFLOW_API_EVALUATION.md) y [reporte de contratos](evidence/workflow-api-report.json).
+**Fuentes:** [test-report v2](../ml/v2/test-report.json), [model card](../ml/v2/model-card.md), [integración nueva](evidence/http-integration-rerun-2026-09-30.json), [evaluación del flujo API](evidence/WORKFLOW_API_EVALUATION.md), [contratos nuevos](evidence/workflow-api-rerun-2026-09-30.json), [handoff nuevo](evidence/handoff-rerun-2026-09-30.json) y [recorridos completos](evidence/full-case-rerun-2026-09-30.json).
 
 **Límites:** la clasificación no prueba recepción segura en conversaciones completas, adjudicación, ahorro operativo o rendimiento con clientes reales. No presentar latencia de inferencia como latencia conversacional end-to-end ni costo local por llamada como costo total de operación.
 
@@ -99,9 +100,9 @@ La diapositiva muestra reglas y v2. v1 permanece aquí y en notas para conservar
 
 **Implementado y verificado localmente:** cliente ES/PT, vista de agente, casos persistidos, trazas, contratos y pruebas. La CI comprobó typecheck, lint, build, paridad de inferencia, fixtures y suite HTTP con base nueva.
 
-- [Prototipo](https://reclama-factored-2026.villafortech.chatgpt.site): despliegue completado, política pública y render del frontend verificados. Login real de plataforma pendiente de validación. No afirmar autenticación pública completa.
+- [Prototipo privado](https://reclama-factored-2026.villafortech.chatgpt.site): Sites confirma V4 sobre `6715df4` con política `custom` para el propietario y dos invitados del equipo. Login real de plataforma y acceso de jueces pendientes de validación.
 - [Repositorio privado del equipo](https://github.com/VillaforTech/factored-hackathon-2026-reclama): código y reproducción.
-- [PPTX editable](presentation/Reclama_Hackathon_6_slides_v3.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v3.pdf): seis diapositivas finales de esta revisión.
+- [PPTX editable](presentation/Reclama_Hackathon_6_slides_v4.pptx) y [PDF](presentation/Reclama_Hackathon_6_slides_v4.pdf): seis diapositivas de revisión; no enviadas.
 
 Antes de operar con un banco hacen falta identidad institucional, políticas aprobadas, integración con gestión de casos y evaluación con datos representativos autorizados. El sistema actual es un sandbox de recepción.
 
@@ -109,7 +110,7 @@ Antes de operar con un banco hacen falta identidad institucional, políticas apr
 
 ## Edición y procedencia
 
-Los valores visibles están también en [metrics-v3.json](presentation/metrics-v3.json). Cada cambio debe conservar denominadores, split y límites. La revisión pública no contiene registros privados ni referencia al archivo que proporciona acceso al dataset. Las otras referencias oficiales en notas están sujetas al acceso de sus propietarios.
+Los valores visibles están también en [metrics-v4.json](presentation/metrics-v4.json). Cada cambio debe conservar denominadores, split y límites. La presentación no contiene registros privados ni referencia al archivo que proporciona acceso al dataset. Las otras referencias oficiales en notas están sujetas al acceso de sus propietarios.
 
 Paleta navy #112d40, teal #33917b y blanco. El PPTX contiene texto, tabla y diagrama nativos editables. El PDF conserva enlaces al prototipo y repositorio. No se verificó el comportamiento de edición dentro de Microsoft PowerPoint.
 

@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-09-30T15:42:00Z",
+  "base_url": "http://127.0.0.1:5173",
+  "scope": "Three authored API-level paths, each repeated in a new owner-scoped local run with invented data.",
+  "model_sha256_before": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+  "model_sha256_after": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+  "gate_passed": true,
+  "outcome_definition": {
+    "normal_es": "Confirmed approved-card intake persisted and independently read with audit.",
+    "ambiguous_pt": "Assistant requests exact selection and creates no case; clarification is the correct stopping outcome for this input.",
+    "handoff_pt": "Confirmed reversed-card support handoff persisted and independently read with audit."
+  },
+  "latency_definition": "Client wall clock from first /api/message request through readback/audit and final case-count check, or ambiguity no-case check. Excludes sign-in, run creation, browser rendering, user thinking/selection and human review. Sequential warm local development server; n=5 per path by default; nearest-rank p95 equals maximum at n=5.",
+  "cost_basis": {
+    "measured": [
+      "API request counts",
+      "local elapsed wall time"
+    ],
+    "not_measured": [
+      "billable Worker CPU",
+      "D1 rows read/written",
+      "storage",
+      "bandwidth",
+      "total hosting cost"
+    ],
+    "external_model_api_calls_expected": 0,
+    "external_model_api_cost_not_used_as_total_cost": true
+  },
+  "financial_resolutions": 0,
+  "representative_workload": false,
+  "safe_automated_resolution_rate": null,
+  "summaries": [
+    {
+      "scenario": "normal_es",
+      "attempts": 5,
+      "passed": 5,
+      "failed": 0,
+      "api_request_count_total": 30,
+      "p50_sequence_ms_successes_only": 88.33,
+      "p95_sequence_ms_successes_only": 204.16,
+      "latency_sample_count": 5
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "attempts": 5,
+      "passed": 5,
+      "failed": 0,
+      "api_request_count_total": 10,
+      "p50_sequence_ms_successes_only": 20.49,
+      "p95_sequence_ms_successes_only": 31.35,
+      "latency_sample_count": 5
+    },
+    {
+      "scenario": "handoff_pt",
+      "attempts": 5,
+      "passed": 5,
+      "failed": 0,
+      "api_request_count_total": 30,
+      "p50_sequence_ms_successes_only": 69.92,
+      "p95_sequence_ms_successes_only": 80.14,
+      "latency_sample_count": 5
+    }
+  ],
+  "attempts": [
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 1,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 204.16,
+      "api_request_sum_ms": 203.53,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 1,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 24.3,
+      "api_request_sum_ms": 24.19,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 1,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 79.07,
+      "api_request_sum_ms": 78.57,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 2,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 88.33,
+      "api_request_sum_ms": 87.92,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 2,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 31.35,
+      "api_request_sum_ms": 31.2,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 2,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 80.14,
+      "api_request_sum_ms": 79.69,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 3,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 88.34,
+      "api_request_sum_ms": 87.95,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 3,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 20.49,
+      "api_request_sum_ms": 20.39,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 3,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 69.92,
+      "api_request_sum_ms": 69.58,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 4,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 56.36,
+      "api_request_sum_ms": 56.02,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 4,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 15.92,
+      "api_request_sum_ms": 15.83,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 4,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 42.7,
+      "api_request_sum_ms": 42.35,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 5,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 58.4,
+      "api_request_sum_ms": 58.11,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 5,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 16.17,
+      "api_request_sum_ms": 16.08,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 5,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 37.94,
+      "api_request_sum_ms": 37.66,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    }
+  ],
+  "counts": {
+    "attempts": 15,
+    "passed": 15,
+    "failed": 0,
+    "verified_dispute_intakes": 5,
+    "verified_support_handoffs": 5,
+    "clarifications_without_case": 5,
+    "measured_api_requests": 70
+  }
+}

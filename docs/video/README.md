@@ -1,9 +1,9 @@
-# Reclama — video borrador
+# Reclama — video V4 de revisión
 
-**2:52,741 · 1920×1080 · 30 fps · H.264/AAC · 6,39 MB.**
+[MP4 V4](Reclama_demo_v4_review.mp4) · [subtítulos SRT](Reclama_demo_v4_review.srt) · [guion](GUION_VIDEO.md) · [manifest de procedencia](manifest-v4.json)
 
-Archivo: `Reclama_demo_draft.mp4`. Incluye pista de subtítulos en español; `Reclama_demo_draft.srt` también está separado. El guion está en `GUION_VIDEO.md` y la procedencia/verificación técnica en `manifest.json`.
+El archivo dura **169,6 segundos**, mide 1920 × 1080 píxeles a 30 fps y contiene H.264, AAC y subtítulos mov_text. Es un montaje narrado de capturas locales reales y diapositivas, con datos ficticios; no es una grabación continua de inicio de sesión alojado. La voz genérica de macOS Paulina (es-MX) no pertenece a un integrante del equipo.
 
-Es un recorrido narrado con capturas reales y diapositivas v3, no una grabación continua. La voz es genérica de macOS (Paulina, es-MX), no pertenece a un integrante. Borrador publicado en el repositorio para revisión del equipo; no enviado a los organizadores.
+La escena final dice que la demo y el repositorio son privados, y que faltan acceso de jueces y aceptación alojada con dos cuentas reales. La decodificación completa, las pistas y el nivel de audio se verificaron técnicamente. Los 45 subtítulos pasaron revisión automática de texto, tiempos y longitud; se inspeccionaron fotogramas representativos, pero **faltan escucha humana de pronunciación y revisión visual de cada subtítulo**. No se envió a los organizadores.
 
-Validado: duración bajo 175 segundos, video/audio/subtítulos presentes, decodificación completa sin errores, audio sin clipping y composición visual. Revisión humana de pronunciación y decisión final de entrega pendientes.
+`Reclama_demo_draft.mp4`, `Reclama_demo_draft.srt` y `manifest.json` documentan la versión anterior y no son materiales vigentes de entrega: esa narración afirmaba acceso público.

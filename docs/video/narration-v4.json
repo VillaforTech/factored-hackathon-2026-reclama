@@ -1,0 +1,90 @@
+{
+  "language": "es-MX",
+  "voice": "Paulina",
+  "voice_rate_wpm": 170,
+  "disclosure": "Recorrido narrado con capturas reales; no es una sesión continua. Borrador para revisión del equipo. Voz sintética genérica local.",
+  "scenes": [
+    {
+      "id": "01",
+      "title": "Una solicitud verificable",
+      "visual": "slide-1",
+      "sentences": [
+        "Somos Roberto Villafuerte, Jorge Arguello y Daniel Andrade.",
+        "Reclama recibe solicitudes por compras de tarjeta no reconocidas y prepara un expediente verificable.",
+        "Este borrador es un recorrido narrado con capturas reales, no una sesión continua."
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Los datos definieron el alcance",
+      "visual": "slide-4",
+      "sentences": [
+        "En doce cortes temporales del dataset sintético encontramos diez mil novecientas tres compras de tarjeta aprobadas, con titularidad coherente.",
+        "Los enlaces defectuosos de las quejas históricas nos hicieron descartarlos como evidencia de un nuevo expediente.",
+        "Partimos de la transacción verificada y de la declaración actual del cliente."
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Hechos, declaración y auditoría",
+      "visual": "review-es",
+      "sentences": [
+        "Esta captura real muestra la revisión en español.",
+        "La declaración del cliente se identifica como no verificada; la autorización de la compra y la procedencia de un reembolso quedan pendientes de investigación.",
+        "La recepción y las actualizaciones tienen rastro de auditoría.",
+        "Recibido significa pendiente de revisión, no fraude confirmado ni dinero devuelto."
+      ]
+    },
+    {
+      "id": "04",
+      "title": "El mismo límite en portugués",
+      "visual": "mobile-pt",
+      "sentences": [
+        "La captura móvil muestra la interfaz en portugués y movimientos de una identidad ficticia de prueba.",
+        "El cliente selecciona la transacción exacta, revisa su declaración y confirma antes de enviar."
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Permisos fuera del modelo",
+      "visual": "slide-3",
+      "sentences": [
+        "El clasificador sugiere el motivo; el servicio controla identidad, titularidad, consentimiento y escritura.",
+        "Un borrador no crea un caso.",
+        "La confirmación se vincula al borrador, y una lectura posterior verifica el expediente guardado.",
+        "Una sesión vencida o una transacción ajena no permiten continuar."
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Pruebas de comportamiento",
+      "visual": "checks",
+      "sentences": [
+        "Pasaron veintiocho pruebas de integración HTTP, incluidas concurrencia, consentimiento y recuperación tras una respuesta perdida.",
+        "Otro workload tuvo ciento sesenta comprobaciones de API aprobadas: dieciséis escenarios bilingües, repetidos diez veces.",
+        "Son pruebas locales de comportamiento; no representan ciento sesenta clientes independientes ni seguridad bancaria demostrada."
+      ]
+    },
+    {
+      "id": "07",
+      "title": "IA medida, autonomía limitada",
+      "visual": "slide-5",
+      "sentences": [
+        "En doscientos cincuenta y seis textos sintéticos reservados, el clasificador acertó doscientos dieciocho; las reglas, ciento sesenta y ocho.",
+        "Las etiquetas fueron asistidas por inteligencia artificial y requieren revisión humana.",
+        "La evaluación no justificó autonomía: el modelo solo sugiere y la confirmación sigue siendo obligatoria."
+      ]
+    },
+    {
+      "id": "08",
+      "title": "Reproducible, con límites explícitos",
+      "visual": "slide-6",
+      "sentences": [
+        "La demo y el repositorio siguen privados por decisión del propietario.",
+        "El acceso de los jueces y la validación alojada con dos cuentas reales siguen pendientes.",
+        "Tenemos un sandbox reproducible con datos ficticios, permisos y trazas.",
+        "No mueve dinero ni resuelve financieramente disputas: prepara una solicitud clara para revisión humana."
+      ]
+    }
+  ]
+}

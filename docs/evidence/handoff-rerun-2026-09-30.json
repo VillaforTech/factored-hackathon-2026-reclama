@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-09-30T14:44:42Z",
+  "scope": "Two authored ES/PT local handoff paths; approved intake and ML quality are separate tests.",
+  "base_url": "http://127.0.0.1:5173",
+  "gate_passed": true,
+  "counts": {
+    "scenarios": 2,
+    "passed": 2,
+    "failed": 0,
+    "verified_support_handoffs": 2,
+    "financial_resolutions": 0
+  },
+  "limits": [
+    "One documented local platform identity with two demo personas; not two real platform accounts.",
+    "Readback and audit prove local persistence for these cases, not human review quality or production durability.",
+    "Statements and transactions are invented fixtures; scenarios are selected, not held out or representative."
+  ],
+  "results": [
+    {
+      "persona": "ana",
+      "language": "es",
+      "source_status": "Pending",
+      "pass": true,
+      "case_identifier_sha256_12": "b78b5fdaad26",
+      "audit_received": true,
+      "other_persona_http": 404
+    },
+    {
+      "persona": "lucas",
+      "language": "pt",
+      "source_status": "Reversed",
+      "pass": true,
+      "case_identifier_sha256_12": "c8e758393c7d",
+      "audit_received": true,
+      "other_persona_http": 404
+    }
+  ]
+}

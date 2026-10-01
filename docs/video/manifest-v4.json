@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-09-30T15:13:43Z",
+  "status": "local_team_review_draft_not_submitted",
+  "source_commit": "6715df4936a1c7f18064ea7210d1d1172f024c10",
+  "video": {
+    "path": "docs/video/Reclama_demo_v4_review.mp4",
+    "sha256": "16cb2663646a1548e3a841af492be8c00783e0f8d8128bf3902ec81fd5044bb2",
+    "duration_seconds": 169.6,
+    "file_bytes": 7244902,
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      },
+      {
+        "index": 2,
+        "codec_name": "mov_text",
+        "codec_type": "subtitle",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "full_decode_errors": 0,
+    "audio_mean_volume_db": -19.7,
+    "audio_peak_db": -6.8
+  },
+  "subtitles": {
+    "path": "docs/video/Reclama_demo_v4_review.srt",
+    "sha256": "816bde21995d518ac31e4eb2c2515f56809cb15e3234bb23c47e78516e13ffd9",
+    "cue_count": 45,
+    "codec": "mov_text",
+    "reflow": "26 source sentences split into 45 captions of at most 2 lines and 41 characters per line; embedded mov_text and separate SRT text/timings match."
+  },
+  "presentation": {
+    "pptx": "docs/presentation/Reclama_Hackathon_6_slides_v4.pptx",
+    "pptx_sha256": "7600ff4a69ee838e1bfc3f1c36c8cb6670da87305b0f23270dd6d408f67e5d07",
+    "pdf": "docs/presentation/Reclama_Hackathon_6_slides_v4.pdf",
+    "pdf_sha256": "b6cd8d3720210584e27b7b36d3d8f4d446503b7d480b9d41037b0a63a06718d6",
+    "slides": 6
+  },
+  "visual_sources": [
+    {
+      "path": "docs/video/sources/review-es.png",
+      "sha256": "ce8cb7dc33061bf992a99ae1c6fc13a315c1fa3c5ad9082ed6d91bc4b3d7dbf9",
+      "type": "actual local ES screenshot with invented data"
+    },
+    {
+      "path": "docs/video/sources/mobile-pt.png",
+      "sha256": "2fffef124f3fefb43de7c136bb97298b76dfb8f3777f3f73d293a0be564b1ec5",
+      "type": "actual local PT mobile screenshot with invented data"
+    }
+  ],
+  "format": "Narrated montage of actual local screenshots and explanatory slides; not a continuous browser login or full hosted acceptance.",
+  "claims": [
+    "Site and repository remain private by owner decision.",
+    "Hosted normal sign-in, reload persistence and two-real-account isolation remain unverified.",
+    "28/28 local HTTP checks, 160/160 repeated API assertions and 2/2 separate local handoff paths are different denominators.",
+    "Classifier 218/256 versus rules 168/256 uses synthetic held-out texts; no autonomous routing.",
+    "Zero financial resolutions by design."
+  ],
+  "remaining": [
+    "Human listening review of pronunciation and subtitle readability.",
+    "Normal hosted sign-in and two-real-account isolation.",
+    "Owner decision and validation of judge access before any delivery."
+  ],
+  "official_video_limit_seconds": 180,
+  "technical_audio_audit": {
+    "source_sentence_text_match": "26/26",
+    "source_waveform_correlation": 0.99994,
+    "peak_fraction_of_full_scale": 0.4555,
+    "subtitle_cues_with_voice_energy": "45/45",
+    "semantic_asr_or_human_listening": "not performed; unavailable in this environment"
+  }
+}

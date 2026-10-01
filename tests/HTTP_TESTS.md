@@ -7,14 +7,16 @@ El script `http-integration.py` usa únicamente Python 3 y la biblioteca estánd
 Con el preview portable iniciado y D1 migrada:
 
 ```sh
-python3 research/build-assets/review/http-integration.py \
+python3 tests/http-integration.py \
   --base-url http://127.0.0.1:5173 \
-  --output research/build-assets/review/http-integration-results.json
+  --output /tmp/reclama-http-integration.json
 ```
 
 El harness navega por `GET /signin-with-chatgpt?return_to=/` con semántica de navegación, sigue solo redirecciones al mismo origen y acepta la cookie emitida por el middleware local documentado. Luego llama a `POST /api/session`. No construye la cookie de SIWC ni inserta cabeceras de identidad. El middleware de desarrollo permite esto únicamente en loopback y su identidad es `local_seedy`; no se incluye en producción.
 
-Fuentes de este mecanismo: `app/README.md`, `app/build/sites-vite-plugin.ts` y `app/app/chatgpt-auth.ts`. No hace falta desactivar controles ni modificar código de autenticación para ejecutar las pruebas.
+Fuentes de este mecanismo: `README.md`, `build/sites-vite-plugin.ts` y `app/chatgpt-auth.ts`. No hace falta desactivar controles ni modificar código de autenticación para ejecutar las pruebas.
+
+El resultado observado el 30 de septiembre fue 28/28 en una D1 local nueva; véase `../docs/evidence/http-integration-rerun-2026-09-30.json`. Para comprobar dos handoffs persistidos en ES/PT con la misma base, ejecutar después `python3 tests/http-handoff.py --output /tmp/reclama-handoff.json`. Esa suite crea dos casos ficticios adicionales. Los 160 contratos sin nuevos casos se repiten con `python3 tests/workflow-probe.py --repeats 10 --output /tmp/reclama-contracts.json`; véase `../docs/evidence/WORKFLOW_API_EVALUATION.md`.
 
 Para un sandbox remoto se exige `--allow-remote-sandbox` y `--cookie-jar` obtenido mediante sign-in legítimo. El archivo debe tener permisos 0600. Nunca pasar tokens por CLI, publicarlos ni incluir ese archivo en Git. El harness rechaza redirecciones a proveedores externos: el login alojado se completa mediante navegador, no por una API alternativa. La opción remota es una capacidad, no una afirmación de prueba ya realizada.
 

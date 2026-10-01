@@ -66,6 +66,15 @@ import modelReport from "@/lib/data/model-report.json";
 type Chat = { side: "assistant" | "user"; text: string; model?: string };
 type RunView = { id: string; created_at: string | null };
 const reasons = ["unrecognized", "duplicate", "merchant_issue", "other"];
+const statusLabels: Record<string, [string, string]> = {
+  Approved: ["Registrado", "Registrada"],
+  Pending: ["Pendiente", "Pendente"],
+  Reversed: ["Reversado", "Revertida"],
+  Declined: ["Rechazado", "Recusada"],
+  received: ["Recibido", "Recebido"],
+  in_review: ["En revisión", "Em análise"],
+  needs_information: ["Información solicitada", "Informações solicitadas"],
+};
 export default function Home() {
   const pendingRequests = useRef(new Set<AbortController>());
   const activeContext = useRef<string | undefined>(undefined);
@@ -145,16 +154,10 @@ export default function Home() {
       ),
       other: t("Necesito revisión", "Preciso de revisão"),
     })[r] || r;
-  const statusName = (s: string) =>
-    ({
-      Approved: t("Registrado", "Registrada"),
-      Pending: t("Pendiente", "Pendente"),
-      Reversed: t("Reversado", "Revertida"),
-      Declined: t("Rechazado", "Recusada"),
-      received: t("Recibido", "Recebido"),
-      in_review: t("En revisión", "Em análise"),
-      needs_information: t("Información solicitada", "Informações solicitadas"),
-    })[s] || s;
+  const statusName = (s: string) => {
+    const label = statusLabels[s];
+    return label ? t(...label) : s;
+  };
   function errorText(e: unknown) {
     if (e instanceof DOMException && e.name === "AbortError") return "";
     const code = e instanceof ClientError ? e.code : "SERVICE_UNAVAILABLE";
@@ -1337,7 +1340,7 @@ export default function Home() {
                     <p className="composer-note">
                       {t(
                         "Nunca compartas tu PIN, CVV o contraseña.",
-                        "Nunca compartilhe sua senha ou CVV.",
+                        "Nunca compartilhe seu PIN, CVV ou senha.",
                       )}
                     </p>
                   </section>
@@ -2162,7 +2165,11 @@ function EvidenceFacts({ tx, locale }: { tx: Tx; locale: Locale }) {
         </div>
         <div>
           <dt>{t("Estado original", "Estado original")}</dt>
-          <dd>{tx.status}</dd>
+          <dd>
+            {statusLabels[tx.status]
+              ? t(...statusLabels[tx.status])
+              : tx.status}
+          </dd>
         </div>
         <div>
           <dt>{t("Movimiento", "Transação")}</dt>
