@@ -1,5 +1,7 @@
 # Paquete concreto para aprobación de Roberto
 
+**Estado actualizado al 1 de octubre:** consultar la [matriz de requisitos, evidencia y decisiones](evidence/REQUIREMENTS_EVIDENCE_MATRIX_2026-10-01.md). La tabla siguiente es una fotografía anterior a la integración y no identifica el despliegue ni el PR actuales.
+
 **Corte: 30 de septiembre de 2026. Ninguna acción de publicación/entrega se había ejecutado entonces.** El 1 de octubre Roberto autorizó integrar estos cambios, hacer push al repositorio privado y desplegar conservando el acceso restringido actual. No autorizó hacer público el repositorio, ampliar la audiencia ni enviar la entrega al organizador. Las tablas siguientes documentan el estado anterior a esa integración.
 
 ## Estado comprobado y destino

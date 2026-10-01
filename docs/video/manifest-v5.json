@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-10-01T20:24:17+00:00",
+  "status": "v5_private_review_render_not_submitted",
+  "source_base_commit": "b6dbe586bf1d45adc58a174d7c5824895ab67770",
+  "video": {
+    "path": "docs/video/Reclama_demo_v5_review.mp4",
+    "sha256": "8984a815495af1596c7f1e4b41e3b1542060ac61eaa8f311f591603e981ad5bd",
+    "bytes": 5453280,
+    "format_duration_seconds": 168.3,
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "duration": "168.300000",
+        "nb_frames": "5049"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "duration": "168.298000",
+        "nb_frames": "7890"
+      },
+      {
+        "index": 2,
+        "codec_name": "mov_text",
+        "codec_type": "subtitle",
+        "r_frame_rate": "0/0",
+        "duration": "167.848000",
+        "nb_frames": "71"
+      }
+    ],
+    "format": "Narrated montage of local sandbox screenshots and explanatory slides; not a continuous hosted login recording"
+  },
+  "sources": {
+    "docs/video/narration-v5.json": {
+      "path": "docs/video/narration-v5.json",
+      "sha256": "d2fca604924126aabd8074e3092dbe4eceea6cdfb91429bae17a204edb7300d6",
+      "bytes": 4312
+    },
+    "docs/video/timing-v5.json": {
+      "path": "docs/video/timing-v5.json",
+      "sha256": "c92763d793abf49cdfa8bb9a6c9036f841f855ad237e9b7388577bb8fc5ce63f",
+      "bytes": 9740
+    },
+    "docs/video/Reclama_demo_v5_review.srt": {
+      "path": "docs/video/Reclama_demo_v5_review.srt",
+      "sha256": "3aecaa08f3b0d05c0316d8a094512998cfdd3eb2519b55215d1049572897dafb",
+      "bytes": 4015
+    },
+    "docs/presentation/Reclama_Hackathon_6_slides_v5.pptx": {
+      "path": "docs/presentation/Reclama_Hackathon_6_slides_v5.pptx",
+      "sha256": "6d17d16382665957b5a99b5bacfe4750a4a4b1e05c99e61d9ea428133c3a1367",
+      "bytes": 85309
+    },
+    "docs/presentation/Reclama_Hackathon_6_slides_v5.pdf": {
+      "path": "docs/presentation/Reclama_Hackathon_6_slides_v5.pdf",
+      "sha256": "874537b2866a1c96de6ae251a290495581dae474c9b6c643e499dfc15d0e78cd",
+      "bytes": 271754
+    },
+    "docs/video/sources/review-es.png": {
+      "path": "docs/video/sources/review-es.png",
+      "sha256": "ce8cb7dc33061bf992a99ae1c6fc13a315c1fa3c5ad9082ed6d91bc4b3d7dbf9",
+      "bytes": 66855
+    },
+    "docs/video/sources/mobile-pt.png": {
+      "path": "docs/video/sources/mobile-pt.png",
+      "sha256": "2fffef124f3fefb43de7c136bb97298b76dfb8f3777f3f73d293a0be564b1ec5",
+      "bytes": 70418
+    },
+    "docs/video/GUION_VIDEO.md": {
+      "path": "docs/video/GUION_VIDEO.md",
+      "sha256": "b5d61b08c0a5b208d31b5bcf1bdbb6bf905accc2e8f905948419b0c2fba71ea2",
+      "bytes": 4780
+    },
+    "docs/video/README.md": {
+      "path": "docs/video/README.md",
+      "sha256": "04f8a65ef246b76283a92082fc9b3fc4cbc984277876d8d82a9b50d4c55cd3f0",
+      "bytes": 2696
+    }
+  },
+  "synthesis": {
+    "voice": "Paulina",
+    "voice_locale": "es-MX",
+    "voice_type": "generic macOS synthetic voice, not a team-member voice clone",
+    "rate_wpm": 170,
+    "sentence_count": 26,
+    "scene_count": 8,
+    "measured_source_audio_duration_seconds": 168.298108,
+    "local_source_wav_sha256": "e7a761f25ebc46be20acfd07d9141315b7c08888e4e7c03e8e00ef1c00c2bfd8",
+    "local_source_wav_not_committed": true,
+    "scene_windows_seconds": [
+      {
+        "id": "01",
+        "start": 0.0,
+        "end": 17.0235,
+        "visual": "slide-1"
+      },
+      {
+        "id": "02",
+        "start": 17.0235,
+        "end": 38.742396,
+        "visual": "slide-4"
+      },
+      {
+        "id": "03",
+        "start": 38.742396,
+        "end": 62.464022,
+        "visual": "review-es"
+      },
+      {
+        "id": "04",
+        "start": 62.464022,
+        "end": 75.577272,
+        "visual": "mobile-pt"
+      },
+      {
+        "id": "05",
+        "start": 75.577272,
+        "end": 97.048981,
+        "visual": "slide-3"
+      },
+      {
+        "id": "06",
+        "start": 97.048981,
+        "end": 123.702544,
+        "visual": "checks"
+      },
+      {
+        "id": "07",
+        "start": 123.702544,
+        "end": 144.989273,
+        "visual": "slide-5"
+      },
+      {
+        "id": "08",
+        "start": 144.989273,
+        "end": 168.298108,
+        "visual": "slide-6"
+      }
+    ]
+  },
+  "qa": {
+    "full_mp4_decode": "passed without ffmpeg errors",
+    "external_subtitle_cues": 45,
+    "embedded_subtitle_cues": 45,
+    "external_embedded_text_and_timestamp_match": true,
+    "subtitle_text_matches_narration_source": true,
+    "subtitle_cues_nonoverlapping": true,
+    "max_subtitle_lines": 2,
+    "max_subtitle_line_characters": 41,
+    "max_subtitle_characters_per_second": 16.54,
+    "last_subtitle_end_seconds": 167.848,
+    "subtitle_timing_method": "Measured per-sentence TTS windows; intra-sentence captions split proportionally, not phoneme-level transcription",
+    "scene_midpoints_extracted_and_visually_inspected": 8,
+    "corrected_scene_07_slide_visible_in_encoded_mp4": true,
+    "audio_mean_volume_db": -19.6,
+    "audio_peak_volume_db": -6.8,
+    "silence_over_two_seconds_at_minus_35_db": false,
+    "human_listening_review": false,
+    "team_subtitle_review": false
+  },
+  "claims_and_limits": [
+    "256 AI-authored messages in 128 ES/PT families are a development experiment, not independent model validation or an official/challenge benchmark.",
+    "28/28 HTTP checks, 160/160 contract assertions, and 2/2 prepared handoffs are separate local software QA denominators, not financial resolutions.",
+    "Hosted normal login, reload persistence and isolation of two real accounts remain unverified.",
+    "Demo and repository are private by owner decision; judge access and organizer submission require separate approval.",
+    "No financial decision or money movement is demonstrated."
+  ],
+  "historical_v4_mp4": "docs/video/Reclama_demo_v4_review.mp4",
+  "official_video_limit_seconds": 180
+}

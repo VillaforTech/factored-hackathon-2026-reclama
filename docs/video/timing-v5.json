@@ -1,0 +1,249 @@
+{
+  "voice": "Paulina",
+  "voice_type": "Generic macOS synthetic voice; not a clone or impression of any team member",
+  "language": "es-MX",
+  "rate_wpm": 170,
+  "audio_duration_seconds": 168.298108,
+  "subtitle_alignment": "Exact per-sentence synthesis timing with measured audio durations",
+  "scenes": [
+    {
+      "id": "01",
+      "title": "Una solicitud verificable",
+      "visual": "slide-1",
+      "sentences": [
+        "Somos Roberto Villafuerte, Jorge Arguello y Daniel Andrade.",
+        "Reclama recibe solicitudes por compras de tarjeta no reconocidas y prepara un expediente verificable.",
+        "Este borrador es un recorrido narrado con capturas reales, no una sesión continua."
+      ],
+      "start": 0.0,
+      "duration": 17.023500000000002,
+      "end": 17.023500000000002
+    },
+    {
+      "id": "02",
+      "title": "Los datos definieron el alcance",
+      "visual": "slide-4",
+      "sentences": [
+        "En doce cortes temporales del dataset sintético encontramos diez mil novecientas tres compras de tarjeta aprobadas, con titularidad coherente.",
+        "Los enlaces defectuosos de las quejas históricas nos hicieron descartarlos como evidencia de un nuevo expediente.",
+        "Partimos de la transacción verificada y de la declaración actual del cliente."
+      ],
+      "start": 17.023500000000002,
+      "duration": 21.718895999999997,
+      "end": 38.742396
+    },
+    {
+      "id": "03",
+      "title": "Hechos, declaración y auditoría",
+      "visual": "review-es",
+      "sentences": [
+        "Esta captura real muestra la revisión en español.",
+        "La declaración del cliente se identifica como no verificada; la autorización de la compra y la procedencia de un reembolso quedan pendientes de investigación.",
+        "La recepción y las actualizaciones tienen rastro de auditoría.",
+        "Recibido significa pendiente de revisión, no fraude confirmado ni dinero devuelto."
+      ],
+      "start": 38.742396,
+      "duration": 23.721626,
+      "end": 62.464022
+    },
+    {
+      "id": "04",
+      "title": "El mismo límite en portugués",
+      "visual": "mobile-pt",
+      "sentences": [
+        "La captura móvil muestra la interfaz en portugués y movimientos de una identidad ficticia de prueba.",
+        "El cliente selecciona la transacción exacta, revisa su declaración y confirma antes de enviar."
+      ],
+      "start": 62.464022,
+      "duration": 13.113249999999994,
+      "end": 75.577272
+    },
+    {
+      "id": "05",
+      "title": "Permisos fuera del modelo",
+      "visual": "slide-3",
+      "sentences": [
+        "El clasificador sugiere el motivo; el servicio controla identidad, titularidad, consentimiento y escritura.",
+        "Un borrador no crea un caso.",
+        "La confirmación se vincula al borrador, y una lectura posterior verifica el expediente guardado.",
+        "Una sesión vencida o una transacción ajena no permiten continuar."
+      ],
+      "start": 75.577272,
+      "duration": 21.471709000000004,
+      "end": 97.048981
+    },
+    {
+      "id": "06",
+      "title": "Pruebas de comportamiento",
+      "visual": "checks",
+      "sentences": [
+        "Pasaron veintiocho pruebas de integración HTTP, incluidas concurrencia, consentimiento y recuperación tras una respuesta perdida.",
+        "Otro workload tuvo ciento sesenta comprobaciones de API aprobadas: dieciséis escenarios bilingües, repetidos diez veces.",
+        "Son pruebas locales de comportamiento; no representan ciento sesenta clientes independientes ni seguridad bancaria demostrada."
+      ],
+      "start": 97.048981,
+      "duration": 26.653563000000005,
+      "end": 123.702544
+    },
+    {
+      "id": "07",
+      "title": "Experimento de desarrollo y evaluación pendiente",
+      "visual": "slide-5",
+      "sentences": [
+        "El experimento de desarrollo usa doscientos cincuenta y seis mensajes creados por IA, en ciento veintiocho familias bilingües.",
+        "No incluye registros del organizador ni revisión humana.",
+        "El conjunto no sirve como validación independiente ni como benchmark del reto, y el modelo solo sugiere con confirmación obligatoria."
+      ],
+      "start": 123.702544,
+      "duration": 21.286729000000022,
+      "end": 144.98927300000003
+    },
+    {
+      "id": "08",
+      "title": "Reproducible, con límites explícitos",
+      "visual": "slide-6",
+      "sentences": [
+        "La demo y el repositorio siguen privados por decisión del propietario.",
+        "El acceso de los jueces y la validación alojada con dos cuentas reales siguen pendientes.",
+        "Tenemos un sandbox reproducible con datos ficticios, permisos y trazas.",
+        "No mueve dinero ni resuelve financieramente disputas: prepara una solicitud clara para revisión humana."
+      ],
+      "start": 144.98927300000003,
+      "duration": 23.308834999999988,
+      "end": 168.298108
+    }
+  ],
+  "cues": [
+    {
+      "start": 0.0,
+      "end": 4.060499,
+      "text": "Somos Roberto Villafuerte, Jorge Arguello y Daniel Andrade."
+    },
+    {
+      "start": 4.2605,
+      "end": 10.919457000000001,
+      "text": "Reclama recibe solicitudes por compras de tarjeta no reconocidas y prepara un expediente verificable."
+    },
+    {
+      "start": 11.119458000000002,
+      "end": 16.573472000000002,
+      "text": "Este borrador es un recorrido narrado con capturas reales, no una sesión continua."
+    },
+    {
+      "start": 17.023500000000002,
+      "end": 26.274022000000002,
+      "text": "En doce cortes temporales del dataset sintético encontramos diez mil novecientas tres compras de tarjeta aprobadas, con titularidad coherente."
+    },
+    {
+      "start": 26.474042000000004,
+      "end": 33.436763000000006,
+      "text": "Los enlaces defectuosos de las quejas históricas nos hicieron descartarlos como evidencia de un nuevo expediente."
+    },
+    {
+      "start": 33.636771,
+      "end": 38.292372,
+      "text": "Partimos de la transacción verificada y de la declaración actual del cliente."
+    },
+    {
+      "start": 38.742396,
+      "end": 41.978995,
+      "text": "Esta captura real muestra la revisión en español."
+    },
+    {
+      "start": 42.179,
+      "end": 51.881676,
+      "text": "La declaración del cliente se identifica como no verificada; la autorización de la compra y la procedencia de un reembolso quedan pendientes de investigación."
+    },
+    {
+      "start": 52.081688,
+      "end": 56.153479,
+      "text": "La recepción y las actualizaciones tienen rastro de auditoría."
+    },
+    {
+      "start": 56.35348,
+      "end": 62.013979,
+      "text": "Recibido significa pendiente de revisión, no fraude confirmado ni dinero devuelto."
+    },
+    {
+      "start": 62.464022,
+      "end": 68.637265,
+      "text": "La captura móvil muestra la interfaz en portugués y movimientos de una identidad ficticia de prueba."
+    },
+    {
+      "start": 68.837272,
+      "end": 75.127249,
+      "text": "El cliente selecciona la transacción exacta, revisa su declaración y confirma antes de enviar."
+    },
+    {
+      "start": 75.577272,
+      "end": 83.37654599999999,
+      "text": "El clasificador sugiere el motivo; el servicio controla identidad, titularidad, consentimiento y escritura."
+    },
+    {
+      "start": 83.57656399999999,
+      "end": 85.593662,
+      "text": "Un borrador no crea un caso."
+    },
+    {
+      "start": 85.793668,
+      "end": 91.99022099999999,
+      "text": "La confirmación se vincula al borrador, y una lectura posterior verifica el expediente guardado."
+    },
+    {
+      "start": 92.190231,
+      "end": 96.598938,
+      "text": "Una sesión vencida o una transacción ajena no permiten continuar."
+    },
+    {
+      "start": 97.048981,
+      "end": 106.081543,
+      "text": "Pasaron veintiocho pruebas de integración HTTP, incluidas concurrencia, consentimiento y recuperación tras una respuesta perdida."
+    },
+    {
+      "start": 106.281544,
+      "end": 114.789208,
+      "text": "Otro workload tuvo ciento sesenta comprobaciones de API aprobadas: dieciséis escenarios bilingües, repetidos diez veces."
+    },
+    {
+      "start": 114.989211,
+      "end": 123.252522,
+      "text": "Son pruebas locales de comportamiento; no representan ciento sesenta clientes independientes ni seguridad bancaria demostrada."
+    },
+    {
+      "start": 123.702544,
+      "end": 131.826898,
+      "text": "El experimento de desarrollo usa doscientos cincuenta y seis mensajes creados por IA, en ciento veintiocho familias bilingües."
+    },
+    {
+      "start": 132.02689800000002,
+      "end": 135.70404100000002,
+      "text": "No incluye registros del organizador ni revisión humana."
+    },
+    {
+      "start": 135.90404400000003,
+      "end": 144.539237,
+      "text": "El conjunto no sirve como validación independiente ni como benchmark del reto, y el modelo solo sugiere con confirmación obligatoria."
+    },
+    {
+      "start": 144.98927300000003,
+      "end": 149.36292400000002,
+      "text": "La demo y el repositorio siguen privados por decisión del propietario."
+    },
+    {
+      "start": 149.56294000000003,
+      "end": 155.09822300000002,
+      "text": "El acceso de los jueces y la validación alojada con dos cuentas reales siguen pendientes."
+    },
+    {
+      "start": 155.298232,
+      "end": 160.662042,
+      "text": "Tenemos un sandbox reproducible con datos ficticios, permisos y trazas."
+    },
+    {
+      "start": 160.86204500000002,
+      "end": 167.84807700000002,
+      "text": "No mueve dinero ni resuelve financieramente disputas: prepara una solicitud clara para revisión humana."
+    }
+  ],
+  "narration_sha256": "d2fca604924126aabd8074e3092dbe4eceea6cdfb91429bae17a204edb7300d6"
+}

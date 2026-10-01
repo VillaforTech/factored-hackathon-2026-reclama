@@ -95,7 +95,7 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 ## Delivery artifacts
 
 - `docs/presentation/`: corrected, rendered six-slide V5 PPTX/PDF with visual and structural checks. Historical V4/V3 binaries remain superseded. Team review is still open.
-- `docs/video/GUION_VIDEO.md`: corrected narration/subtitle sources. Existing V4 MP4 is stale for evaluation claims and must be re-rendered and reviewed; it is a labeled montage of real local screenshots, not an uninterrupted live screen recording. `docs/DEMO_175S.md` redirects from the older script.
+- `docs/video/GUION_VIDEO.md`: measured narration and subtitles for the V5 review MP4. It is a labeled montage of real local screenshots, not an uninterrupted live screen recording. The V4 MP4 remains historical and stale for evaluation claims; V5 still needs team listening and hosted acceptance before external use. `docs/DEMO_175S.md` redirects from the older script.
 - `docs/DELIVERY_PLAN.md`: daily plan and proposed team assignments through 5 October.
 - `docs/DELIVERY_STATUS.md`: verified delivery state and remaining external checks.
 - `docs/DEMO_GATE_2026-09-30.md`: prioritized acceptance gaps, requirement-to-evidence matrix and live rehearsal sequence.

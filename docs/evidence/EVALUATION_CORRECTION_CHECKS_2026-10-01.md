@@ -35,3 +35,11 @@ The V4 MP4 is explicitly stale. Its old audio, embedded captions and slide image
 - Merge, deployment, access changes or organizer submission
 
 The private draft PR's checks show remote verification for its exact head commit; do not substitute a prior commit's green run for the final head.
+
+## Later V5 video render on macOS — 1 October 2026
+
+This addendum supersedes only the earlier video-render pending item; the checks and limits above remain the record of the earlier Linux pass. The 26 corrected sentences were synthesized locally with the generic macOS Paulina voice. Eight scenes use the corrected V5 slides and existing labeled local ES/PT screenshots. The new MP4, subtitle file, measured cue windows and hashes are in [manifest V5](../video/manifest-v5.json).
+
+Technical checks passed for the new file: 168.300 s total (<180 s), 1920×1080 at 30 fps, full video/audio/subtitle decode without error, 45/45 external and embedded subtitle texts and timestamps identical, no overlapping cues, at most two lines and 41 characters per line, maximum 16.54 characters/s, and no audio silence longer than two seconds at −35 dB. All eight scene midpoints were extracted from the encoded MP4 and inspected; scene 07 shows the corrected evaluation slide. The synthesized sentence text concatenates exactly to the external subtitles. These checks do not constitute a human listening review of pronunciation or a real hosted login demonstration.
+
+The V4 MP4 remains stale historical evidence. The V5 MP4 is a private team review draft; no merge, deployment, access change or organizer submission is implied by this addendum.

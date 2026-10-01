@@ -76,13 +76,30 @@ test("uncorrected media exports remain blocked from being represented as correct
     false,
   );
   for (const [path, metadata] of Object.entries(manifest.corrected_sources)) {
+    if (path === "docs/video/GUION_VIDEO.md") continue;
     assert.equal(
       sha(path),
       metadata.sha256,
       `Corrected source hash mismatch: ${path}`,
     );
   }
+  assert.notEqual(
+    sha("docs/video/GUION_VIDEO.md"),
+    manifest.corrected_sources["docs/video/GUION_VIDEO.md"].sha256,
+    "The V4 manifest must remain a historical snapshot after the V5 timing edit",
+  );
   assert.equal(sha(manifest.subtitles.path), manifest.subtitles.sha256);
+});
+
+test("V5 render and measured sources match their current manifest", () => {
+  const manifest = json("docs/video/manifest-v5.json");
+  assert.equal(manifest.status, "v5_private_review_render_not_submitted");
+  assert.ok(manifest.video.format_duration_seconds < 180);
+  assert.equal(sha(manifest.video.path), manifest.video.sha256);
+  for (const [path, metadata] of Object.entries(manifest.sources))
+    assert.equal(sha(path), metadata.sha256, `V5 source changed: ${path}`);
+  assert.equal(manifest.qa.external_embedded_text_and_timestamp_match, true);
+  assert.equal(manifest.qa.human_listening_review, false);
 });
 
 test("corrected V5 deck matches its verified exports without relabeling the old video", () => {
