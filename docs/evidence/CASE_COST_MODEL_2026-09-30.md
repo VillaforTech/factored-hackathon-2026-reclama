@@ -1,5 +1,7 @@
 # Costo de los recorridos, 30 de septiembre de 2026
 
+**Tarifas revalidadas el 2 de octubre de 2026** en las mismas fuentes oficiales enlazadas abajo. La nueva [medición local](full-case-rerun-2026-10-02.json) conserva 15 recorridos y 70 solicitudes dentro del reloj; no instrumenta factura/CPU/D1. Las solicitudes de preparación son adicionales. El costo total continúa desconocido.
+
 **Costo total medido: desconocido.** El [probe de casos completos](full-case-rerun-2026-09-30.json) registró 70 solicitudes HTTP para 15 recorridos preparados en un servidor de desarrollo local: 6 por intake ES, 2 por aclaración PT y 6 por handoff PT. Midió tiempo de pared; no registró CPU facturable, filas D1 leídas/escritas, almacenamiento, transferencia, minutos de cómputo de la plataforma ni factura. Los cinco intakes son recepción de casos, no resoluciones financieras. Por ello el costo por resolución financiera automatizada no tiene denominador y no se presenta como USD 0.
 
 ## Modelo para estimación futura

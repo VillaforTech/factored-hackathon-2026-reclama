@@ -1,0 +1,332 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-10-02T09:24:13Z",
+  "base_url": "http://127.0.0.1:5357",
+  "scope": "Three authored API-level paths, each repeated in a new owner-scoped local run with invented data.",
+  "model_sha256_before": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+  "model_sha256_after": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+  "gate_passed": true,
+  "counts": {
+    "attempts": 15,
+    "passed": 15,
+    "failed": 0,
+    "verified_dispute_intakes": 5,
+    "verified_support_handoffs": 5,
+    "clarifications_without_case": 5,
+    "measured_api_requests": 70
+  },
+  "outcome_definition": {
+    "normal_es": "Confirmed approved-card intake persisted and independently read with audit.",
+    "ambiguous_pt": "Assistant requests exact selection and creates no case; clarification is the correct stopping outcome for this input.",
+    "handoff_pt": "Confirmed reversed-card support handoff persisted and independently read with audit."
+  },
+  "latency_definition": "Client wall clock from first /api/message request through readback/audit and final case-count check, or ambiguity no-case check. Excludes sign-in, run creation, browser rendering, user thinking/selection and human review. Sequential warm local development server; n=5 per path by default; nearest-rank p95 equals maximum at n=5.",
+  "cost_basis": {
+    "measured": [
+      "API request counts",
+      "local elapsed wall time"
+    ],
+    "not_measured": [
+      "billable Worker CPU",
+      "D1 rows read/written",
+      "storage",
+      "bandwidth",
+      "total hosting cost"
+    ],
+    "external_model_api_calls_expected": 0,
+    "external_model_api_cost_not_used_as_total_cost": true
+  },
+  "financial_resolutions": 0,
+  "representative_workload": false,
+  "safe_automated_resolution_rate": null,
+  "summaries": [
+    {
+      "scenario": "normal_es",
+      "attempts": 5,
+      "passed": 5,
+      "failed": 0,
+      "api_request_count_total": 30,
+      "p50_sequence_ms_successes_only": 110.15,
+      "p95_sequence_ms_successes_only": 265.6,
+      "latency_sample_count": 5
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "attempts": 5,
+      "passed": 5,
+      "failed": 0,
+      "api_request_count_total": 10,
+      "p50_sequence_ms_successes_only": 37.01,
+      "p95_sequence_ms_successes_only": 54.38,
+      "latency_sample_count": 5
+    },
+    {
+      "scenario": "handoff_pt",
+      "attempts": 5,
+      "passed": 5,
+      "failed": 0,
+      "api_request_count_total": 30,
+      "p50_sequence_ms_successes_only": 101.37,
+      "p95_sequence_ms_successes_only": 104.55,
+      "latency_sample_count": 5
+    }
+  ],
+  "attempts": [
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 1,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 265.6,
+      "api_request_sum_ms": 265.19,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 1,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 35.42,
+      "api_request_sum_ms": 35.31,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 1,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 102.8,
+      "api_request_sum_ms": 102.22,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 2,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 110.15,
+      "api_request_sum_ms": 109.54,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 2,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 37.01,
+      "api_request_sum_ms": 36.88,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 2,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 72.69,
+      "api_request_sum_ms": 72.16,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 3,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 107.62,
+      "api_request_sum_ms": 107.16,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 3,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 54.38,
+      "api_request_sum_ms": 54.22,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 3,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 101.37,
+      "api_request_sum_ms": 100.91,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 4,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 139.21,
+      "api_request_sum_ms": 138.58,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 4,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 37.35,
+      "api_request_sum_ms": 37.24,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 4,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 93.22,
+      "api_request_sum_ms": 92.56,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "normal_es",
+      "language": "es",
+      "repeat": 5,
+      "passed": true,
+      "outcome": "dispute_intake_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 94.78,
+      "api_request_sum_ms": 94.22,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "ambiguous_pt",
+      "language": "pt",
+      "repeat": 5,
+      "passed": true,
+      "outcome": "clarification_without_case",
+      "api_request_count": 2,
+      "measured_sequence_ms": 34.15,
+      "api_request_sum_ms": 33.98,
+      "http_statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "scenario": "handoff_pt",
+      "language": "pt",
+      "repeat": 5,
+      "passed": true,
+      "outcome": "support_handoff_persisted",
+      "api_request_count": 6,
+      "measured_sequence_ms": 104.55,
+      "api_request_sum_ms": 103.99,
+      "http_statuses": [
+        200,
+        200,
+        201,
+        201,
+        200,
+        200
+      ]
+    }
+  ],
+  "source_base_sha": "3ae216e005b9625a9bc68e4bbf082d86dec7e53b",
+  "command": "python3 tests/full-case-probe.py --base-url http://127.0.0.1:5357 --repeats 5 --output docs/evidence/full-case-rerun-2026-10-02.json",
+  "measurement_conditions": "Development server; build ran concurrently on the same Mac. No controlled-load or cold-start benchmark. Counts exclude setup requests.",
+  "hosted_acceptance": false,
+  "normal_browser_login_tested": false,
+  "real_account_isolation_tested": false
+}

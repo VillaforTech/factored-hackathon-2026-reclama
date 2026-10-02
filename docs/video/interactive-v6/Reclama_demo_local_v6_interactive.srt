@@ -1,0 +1,69 @@
+1
+00:00:01,708 --> 00:00:08,984
+Reclama: recepción de disputas ES/PT.
+Grabación continua automatizada, local y con datos ficticios.
+
+2
+00:00:09,034 --> 00:00:17,353
+Inicio simulado de desarrollo.
+Esto no acredita el login de la demo alojada.
+
+3
+00:00:17,403 --> 00:00:24,840
+Dos compras parecidas no prueban duplicidad.
+La app pide elegir: no registra un caso automáticamente.
+
+4
+00:00:24,890 --> 00:00:30,959
+Elegimos la compra exacta y el motivo.
+El relato no es un hecho verificado.
+
+5
+00:00:31,009 --> 00:00:37,276
+Hechos, relato y preguntas pendientes están separados.
+El envío exige consentimiento explícito.
+
+6
+00:00:37,326 --> 00:00:45,210
+Expediente recibido para revisión humana.
+No hay decisión de fraude ni reembolso.
+
+7
+00:00:45,260 --> 00:00:53,606
+Recargo el navegador y recupero el mismo expediente.
+Persistencia local observada, no aceptación alojada.
+
+8
+00:00:53,656 --> 00:01:06,915
+El revisor simulado añade una nota y el caso pasa a versión 2.
+La auditoría conserva recepción y actualización.
+
+9
+00:01:06,965 --> 00:01:14,450
+Em português: a compra está revertida.
+O sistema prepara suporte, sem prometer reembolso.
+
+10
+00:01:14,500 --> 00:01:20,559
+Fallo simulado: caso guardado, respuesta perdida.
+Reintentamos la misma solicitud.
+
+11
+00:01:20,609 --> 00:01:28,527
+Resposta recuperada: um único expediente de suporte.
+El retry recupera el caso existente; no crea otro.
+
+12
+00:01:28,577 --> 00:01:35,410
+Relectura y auditoría del handoff portugués tras recarga.
+La revisión financiera sigue pendiente.
+
+13
+00:01:35,460 --> 00:01:41,412
+El modelo sólo orienta y sigue congelado.
+Su experimento no es validación independiente.
+
+14
+00:01:41,462 --> 00:01:47,320
+Faltan login alojado y prueba de dos cuentas reales.
+Sin resolución financiera; costo total desconocido.

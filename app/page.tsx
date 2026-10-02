@@ -176,7 +176,7 @@ export default function Home() {
       ],
       SENSITIVE_CONTENT: [
         "Retira PIN, CVV, contraseñas, correo y números completos de tarjeta.",
-        "Remova senhas, CVV, e-mail e números completos de cartão.",
+        "Remova PIN, CVV, senhas, e-mail e números completos de cartão.",
       ],
       STATEMENT_LENGTH: [
         "Describe lo ocurrido en 12 a 2.000 caracteres.",
