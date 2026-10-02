@@ -1,30 +1,27 @@
-# Borrador de entrega — no enviado
+# Submission draft — NOT SENT
 
-**Corrección de evaluación, 1 de octubre:** este borrador no acredita un benchmark admisible del reto. La presentación y el MP4 V5 están corregidos y renderizados para revisión privada. Falta escucha del equipo y aceptación alojada antes de adjuntarlos.
+**English review draft, 2 October 2026.** [Organizer André requires all deliverables in English](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790871863271959). Preserve the required Spanish/Portuguese customer interactions. This package is not ready to submit while the language and access items below remain unresolved.
 
-Destino indicado en la [página oficial](https://www.factored.ai/careers/ai-data-hackathon): hackathon.admin@factored.ai. Verificar el último anuncio oficial antes de enviar.
+Recipient listed by the event hub: `hackathon.admin@factored.ai`. Recheck final announcements before sending.
 
-Asunto propuesto: Factored AI & Data Hackathon 2026 — Reclama — Roberto Villafuerte, Jorge Arguello y Daniel Andrade
+Proposed subject: Factored AI & Data Hackathon 2026 — Reclama — Roberto Villafuerte, Jorge Arguello and Daniel Andrade
 
-Somos Roberto Villafuerte, Jorge Arguello y Daniel Andrade. Presentamos Reclama, un flujo ES/PT de recepción de disputas por compras de tarjeta: identifica una transacción propia, separa hechos de la declaración del cliente, exige confirmación y conserva un expediente con auditoría para revisión humana.
+We present Reclama, a focused Spanish/Portuguese card-dispute intake workflow. Customers select an exact transaction, review source facts separately from their unverified statement, provide explicit consent, and receive a persisted case with an audit trail for human review.
 
-- Demo privada del equipo: https://reclama-factored-2026.villafortech.chatgpt.site
-- Repositorio privado del equipo: https://github.com/VillaforTech/factored-hackathon-2026-reclama
-- Presentación para revisión: [PDF V5](presentation/Reclama_Hackathon_6_slides_v5.pdf), seis diapositivas. El [PPTX editable](presentation/Reclama_Hackathon_6_slides_v5.pptx) queda disponible para correcciones.
-- Video para revisión: [V5](video/Reclama_demo_v5_review.mp4), 168,3 s. Recorrido narrado de capturas locales reales y diapositivas, identificado como borrador; no sesión alojada continua.
-- Reproducción local y evaluación: README.md y ml/README.md.
+- Existing restricted demo: https://reclama-factored-2026.villafortech.chatgpt.site
+- Existing private repository: https://github.com/VillaforTech/factored-hackathon-2026-reclama
+- Current video for review: [continuous local interactive V6 recording](video/interactive-v6/Reclama_demo_local_v6_interactive.mp4), about 107 seconds. Original Spanish explanatory captions, ES/PT customer interactions and no audio. English-video compliance is pending by user instruction; do not claim this file satisfies the English rule. Automated browser use with fictional data; not hosted authentication or two-account acceptance.
+- English presentation: six slides plus notes, delivered by the separate worker. PPTX Library `libfile_2903b3baa6048191b0ea20acb3b7b8a3` v2; PDF `libfile_b38a58b1715c81918bfcb742f6ddc0b5` v2. Do not attach the Spanish V5 repository exports.
+- Reproduction and model limitations: repository README and [ML documentation](../ml/README.md).
 
-El sistema utiliza datos de demo inventados. No emite reembolsos, bloquea tarjetas ni decide fraude. El clasificador sólo propone hipótesis y requiere elección explícita. Sus resultados conservados proceden de un experimento de desarrollo con 256 textos y etiquetas de autoría IA, sin registros del organizador ni revisión humana; no presentamos esos resultados como validación independiente ni benchmark oficial/admisible del reto. Por separado, el QA de software local con fixtures dio 28/28 integraciones HTTP, 160/160 aserciones de contratos repetidas, 2/2 handoffs preparados ES/PT y 15/15 recorridos completos preparados con 5 intakes, 5 aclaraciones y 5 handoffs; son medidas separadas y no equivalen a casos financieros resueltos. Costo total por caso no medido.
+Reclama does not move funds, block cards, adjudicate fraud or issue refunds. The frozen classifier only suggests intent. Its archived comparison uses 256 AI-authored messages/labels in 128 ES/PT families, without organizer records or human review; it is not independent validation or an admissible challenge benchmark. Software QA metrics have separate denominators: 15 prepared local API sequences and nine assertions in one recorded UI walkthrough. They are not financial resolutions. Total cost per case is unknown.
 
-## Resolver antes de enviar
+## Before submission
 
-- El propietario pidió mantener demo y repositorio privados. La regla oficial pide **repositorio público**, sin excepción comprobada. [Resolver con aprobación explícita](ACCESS_APPROVAL_2026-09-30.md) la privacidad del repositorio y el acceso de jueces a la demo; no presentar estos enlaces como públicos. Comprobar permisos desde la audiencia prevista.
+1. Resolve the video-language requirement: the user stopped English video production and retained the original. Current `/guia` and judge-facing documentation are English locally; the hosted guide remains Spanish until an approved deployment. Frozen historical evidence is preserved with an English reviewer companion. No video exception is established.
+2. The official rule requires a public repository; the owner has retained privacy and no exception is established. Obtain explicit approval before changing privacy. Agree judge access and test the link with the intended audience.
+3. Complete normal hosted login, reload persistence and isolation between two real authorized accounts. The parent thread coordinates secure sign-in; do not duplicate or bypass it.
+4. Confirm the registered team name, final files and their access. Review English narration and Portuguese content with competent people where available; these are internal recommendations, not additional organizer requirements.
+5. Obtain explicit approval to send; retain the actual submission receipt. No email has been sent.
 
-- Confirmar el nombre de equipo registrado: «Reclama» es la identidad elegida para el proyecto, no una afirmación de registro oficial del equipo. Alinear el sufijo del repositorio si la inscripción usa otro nombre.
-- Completar sign-in normal en la URL privada del equipo, comprobar persistencia tras recarga y aislamiento con dos cuentas reales autorizadas. Registrar evidencia sin compartir credenciales.
-- No presentar el experimento de autoría IA como cumplimiento de la evaluación del reto. Documentar un protocolo y datos admisibles antes de cualquier claim de rendimiento independiente; revisión humana por sí sola no convierte estos textos en datos del organizador. Véase [corrección de procedencia](evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
-- Revisar con el equipo los PPTX/PDF y MP4 V5. La decodificación, los subtítulos y los fotogramas V5 se comprobaron técnicamente; falta escucha humana de pronunciación y decisión sobre si el montaje demuestra suficientemente la solución funcional.
-- Revisar portugués con una persona competente; la revisión existente es automática. Si se graba una demo continua, conservar el máximo oficial de 180 segundos.
-- Adjuntar los archivos finales, comprobar permisos de lectura y conservar el recibo de envío real.
-
-Plazo registrado desde aclaración oficial del 28 de septiembre: 5 de octubre de 2026, 23:59 UTC−5. Revalidar novedades antes de enviar. Meta interna: 20:00.
+Recorded deadline: 5 October 2026, 23:59 UTC−5. Video limit: three minutes. These are deadlines, not evidence of submission.

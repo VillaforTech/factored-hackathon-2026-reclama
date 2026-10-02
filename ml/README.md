@@ -1,46 +1,27 @@
-# Componente de intención y evidencia reproducible
+# Intent model and reproducible evidence
 
-## Corrección de procedencia · 1 de octubre de 2026
+## Provenance correction — 1 October 2026
 
-Estos datos son un **experimento de desarrollo de autoría IA**, no validación independiente ni un benchmark oficial/admisible del reto. Entrenamiento (634), selección (128) y conjunto reservado (256 mensajes / 128 familias ES/PT) son de autoría IA. El conjunto reservado no contiene registros del organizador ni revisión humana. El resultado v1 de 46/64 frente a 43/64 también es de autoría IA. Las métricas se conservan para auditoría, sin reutilizarlas como claim de rendimiento validado. `v2/protocol.md` permanece byte por byte por estar ligado al hash de congelación; su uso histórico de «independiente» queda corregido por este aviso.
+These results are an **AI-authored development experiment**, not independent validation or an official/admissible challenge benchmark. Training (634 messages), selection (128), and the reserved set (256 messages in 128 ES/PT families) were authored by AI. The reserved set contains no organizer records and has not received human review. The v1 result of 46/64 versus 43/64 is also AI-authored. Historical metrics are retained for audit, not presented as validated banking performance. `v2/protocol.md` remains byte-identical because it is bound to the freeze hash; its historical use of “independent” is corrected by this notice.
 
-See / Véase: [provenance correction](../docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
+See the [provenance correction](../docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md).
 
-Esta carpeta contiene dos clasificadores locales de intención ES/PT, sus corpus
-sintéticos, evaluación, modelos exportados y una implementación JavaScript sin
-dependencias. La app usa v2 como **hipótesis no confirmada**: el usuario elige el
-motivo y nunca se inicia una disputa por la predicción del modelo.
+The application uses v2 only as an **unconfirmed hypothesis**. The customer chooses the reason. Model predictions never initiate a dispute. Under the frozen thresholds, **v2 abstains on every reserved-set example**: `accepted` remains `false`, and `decision` is `clarify`. Its top-1 label may be displayed as guidance. Do not change thresholds to improve a demo. Identity, authorization, consent and writes are application responsibilities.
 
-**v2 se abstiene en todos los casos bajo los umbrales congelados.** Su etiqueta
-top-1 puede mostrarse para orientar, pero `accepted` permanece `false` y `decision`
-es `clarify`. No cambiar umbrales para mejorar una demo. Sesión, autorización,
-confirmación y escrituras pertenecen a la aplicación, no al clasificador.
+## Package
 
-## Contenido
+- `v1/`: word-TFIDF logistic regression, fixed bilingual rules baseline, corpus, reports, predictions and parity checks.
+- `v2/`: character-TFIDF logistic regression, authored training/selection data, frozen model, selection report, development experiment and audits.
+- `heldout-v2/`: 256 authored messages in 128 ES/PT families, prepared by a separate agent and withheld from v2 fitting until freezing. This process does not establish independent validation.
+- `verify_package.py`: hashes, imports and 20 fixed parity examples; no training, reevaluation or result modification.
 
-- `v1/`: modelo inicial word-TFIDF + regresión logística, baseline bilingüe fijo,
-  corpus, informe, predicciones y paridad.
-- `v2/`: char-TFIDF + regresión logística, entrenamiento/validación sintéticos,
-  modelo congelado, informe de selección, experimento de desarrollo y auditorías.
-- `heldout-v2/`: 256 mensajes sintéticos, 128 parejas/familias ES/PT preparadas por
-  otro agente; se mantuvieron ocultos al ajuste de v2 hasta la congelación.
-- `verify_package.py`: comprueba hashes, imports y 20 ejemplos fijos de paridad,
-  sin entrenar, reevaluar el test ni modificar resultados.
+Read the [v2 model card](v2/model-card.md), [frozen protocol](v2/protocol.md), [report](v2/test-report.json) and [reserved-set documentation](heldout-v2/README.md). Historical source documents remain unchanged and may be Spanish; the [English reviewer companion](../docs/JUDGE_README.md) explains their current interpretation. These messages are not real banking records and have no competent human Portuguese review.
 
-Consultar las limitaciones completas en [model-card de v2](v2/model-card.md),
-el [protocolo](v2/protocol.md), [test-report](v2/test-report.json) y el
-[documento del holdout](heldout-v2/README.md). Los mensajes fueron escritos por IA;
-no son registros bancarios reales ni cuentan con revisión humana de portugués.
+## Setup and verification
 
-## Preparación
+Run commands from the repository root containing `package.json` and `ml/`. The repository is currently private; publication requires a separate decision.
 
-Los comandos siguientes se ejecutan desde la raíz de este repositorio público,
-es decir, el directorio que contiene `package.json` y `ml/`.
-
-Probado con Python 3.12.14, NumPy 2.3.5, SciPy 1.18.1, scikit-learn 1.9.1 y Node
-v26.0.0. El runtime JavaScript de inferencia no necesita paquetes de npm. Python
-se utiliza para auditar o reproducir la evaluación offline; no es necesario para
-ejecutar el modelo dentro de la app.
+Previously verified with Python 3.12.14, NumPy 2.3.5, SciPy 1.18.1, scikit-learn 1.9.1 and Node v26.0.0. JavaScript inference has no npm dependencies. Python is needed for offline audit/reproduction, not application inference.
 
 ```bash
 python3.12 -m venv .venv
@@ -50,15 +31,11 @@ node ml/v1/verify-parity.mjs
 node ml/v2/verify-parity.mjs
 ```
 
-La comprobación Python importa `v1/train.py` y `v2/train_v2.py` exclusivamente para
-sus funciones puras de inferencia y métricas. Importarlos no ejecuta entrenamiento.
-El evaluador resuelve las carpetas hermanas `v1`, `v2` y `heldout-v2`; no depende de
-la antigua ubicación privada de investigación.
+Python imports `v1/train.py` and `v2/train_v2.py` only for pure inference and metric functions. Importing does not train. Paths resolve the adjacent `v1`, `v2` and `heldout-v2` folders, without the former private research location.
 
-## Reproducir la comparación sin ajustar el modelo
+## Reproduce the historical comparison without fitting
 
-La evaluación original ya está guardada. Para reproducirla, usar una carpeta
-nueva de salida; el script se niega a sobrescribir `test-report.json` existente:
+The original evaluation is archived. Use a fresh output directory; existing `test-report.json` cannot be overwritten:
 
 ```bash
 RECLAMA_EVAL_DIR="$(mktemp -d)"
@@ -68,56 +45,35 @@ RECLAMA_EVAL_DIR="$(mktemp -d)"
   --output-dir "$RECLAMA_EVAL_DIR"
 ```
 
-El script comprueba los hashes congelados, ejecuta los tres sistemas sobre las
-mismas entradas y escribe `test-report.json` y `predictions-heldout.jsonl` en esa
-carpeta. Usa semilla fija para 4000 réplicas bootstrap por familia. No entrena,
-selecciona ejemplos, cambia umbrales ni excluye errores. `--assets-dir` permite
-indicar otra copia idéntica de `v2`. `--help` muestra las opciones.
+The script verifies frozen hashes, applies all three systems to the same inputs, and writes `test-report.json` and `predictions-heldout.jsonl`. It uses a fixed seed for 4,000 family-bootstrap replicates. It does not train, select examples, change thresholds or exclude mistakes. `--assets-dir` accepts another identical v2 copy; see `--help`.
 
-Reproducir un cálculo no convierte el corpus en un nuevo test. Cualquier ajuste
-basado en estos errores necesitaría un protocolo nuevo y datos admisibles realmente independientes. Crear otro conjunto IA no acredita esa independencia.
+Recomputing a result does not create a new test. Changes informed by known errors require a new protocol and genuinely independent, admissible data. Another AI-authored reserved set does not establish independence.
 
-## Resultado histórico de desarrollo y límites
+## Historical development results and limits
 
-| Sobre los mismos 256 mensajes | Reglas | v1 | v2 |
-|---|---:|---:|---:|
-| Exactitud top-1 | 65,63% | 82,42% | 85,16% |
-| Macro-F1 | 0,6752 | 0,7904 | 0,8310 |
+| Same 256 authored messages | Rules | v1 | v2 |
+| --- | ---: | ---: | ---: |
+| Top-1 accuracy | 65.63% | 82.42% | 85.16% |
+| Macro-F1 | 0.6752 | 0.7904 | 0.8310 |
 
-v2 obtuvo más aciertos que reglas en este experimento de autoría IA; no es una mejora validada independientemente ni evidencia de cumplimiento del reto. Su mejora frente a v1 no es
-concluyente: intervalo de diferencia de exactitud del 95% [−1,17; 6,64] puntos.
-No se debe generalizar este resultado a consultas bancarias reales.
+v2 had more correct predictions than rules in this authored experiment. This is not independently validated improvement or proof of challenge compliance. Its accuracy difference against v1 was inconclusive: 95% interval [−1.17, 6.64] percentage points. Do not generalize to real customer requests.
 
-Limitaciones que cambian el uso del producto:
+- `other`: 9/32 correctly recognized.
+- Of 34 top-1 `unrecognized` predictions, 25 were correct and nine false.
+- The abstention policy failed its selection requirements and remained closed: accepted coverage 0%; selective precision undefined.
+- Softmax scores are not calibrated fraud/risk probabilities.
+- This experiment did not evaluate authorization, action safety or end-to-end resolution.
+- No exact normalized text overlap was found between train/selection and reserved data. That does not establish semantic independence or eliminate synthetic bias.
 
-- `other` se reconoce correctamente en **9/32** casos.
-- De 34 etiquetas top-1 `unrecognized`, **25 son correctas**; nueve son falsas.
-- La política de abstención falló sus requisitos de validación y se conservó
-  cerrada: **cobertura aceptada 0%**, precisión selectiva no definida.
-- Las probabilidades softmax no son probabilidades calibradas de fraude o riesgo.
-- No se evaluaron aquí autorizaciones, seguridad de acciones o resolución E2E.
-- No hay coincidencias textuales exactas normalizadas entre train/validation y
-  holdout; eso no demuestra independencia semántica ni elimina sesgo sintético.
+## Inference and timing
 
-## Inferencia y rendimiento
+Use `v2/model.json` with `v2/inference.mjs`; the v1 word extractor is incompatible with the character model. The model card documents the contract and ten parity vectors. The model is 682,953 bytes and makes no network calls.
 
-Para v2 se requieren `v2/model.json` y `v2/inference.mjs`. No usar el extractor de
-palabras de v1 con el modelo de caracteres de v2. El contrato exacto y los diez
-vectores de paridad están documentados en la model card. El modelo pesa 682.953
-bytes y no realiza llamadas de red.
+The archived warm local CPU benchmark reported p50 0.043 ms and p95 0.082 ms. It excludes model parsing, cold start, network, storage, authorization and UI. It is neither end-to-end latency nor hosting cost. `benchmark.mjs` overwrites `v2/cpu-benchmark.json`; preserve the archived measurement and write any new measurement separately.
 
-El benchmark guardado mide solo CPU local caliente: p50 0,043 ms y p95 0,082 ms.
-Excluye parseo del modelo, cold start, red, almacenamiento, autorización e interfaz.
-No es latencia E2E ni costo de hosting. `benchmark.mjs` puede repetirse para medir
-otra máquina, pero sobrescribe únicamente `v2/cpu-benchmark.json`; conviene guardar
-la medición nueva por separado si se quiere conservar la original.
+## Reproduce training as a separate artifact
 
-## Reproducir el entrenamiento desde el corpus final
-
-`train_from_corpus.py` entrena un **artefacto nuevo** desde las 634 filas `train` de
-`v2/corpus.jsonl`, con la configuración ya seleccionada: char-TFIDF, C=12,
-min_df=2, máximo 3500 features y regresión logística balanceada. No utiliza las
-filas de validación, no lee el holdout y no busca hiperparámetros ni umbrales.
+`train_from_corpus.py` trains a **new artifact** from the 634 training rows of `v2/corpus.jsonl`, using the selected configuration: character-TFIDF, C=12, min_df=2, at most 3,500 features, balanced logistic regression. It does not use selection rows, read the reserved set, or search hyperparameters/thresholds.
 
 ```bash
 RECLAMA_TRAIN_BASE="$(mktemp -d)"
@@ -125,30 +81,10 @@ RECLAMA_TRAIN_BASE="$(mktemp -d)"
   --output-dir "$RECLAMA_TRAIN_BASE/new-model"
 ```
 
-La salida es obligatoria, debe ser una carpeta inexistente y debe estar fuera de
-los directorios archivados `v1`, `v2` y `heldout-v2`. Se escriben `model.json` y
-`training-report.json` nuevos; no se modifican pesos, corpus o informes originales.
-Los controles de abstención permanecen cerrados y la confirmación explícita sigue
-siendo obligatoria.
+The output path is required, must not exist, and must be outside archived `v1`, `v2` and `heldout-v2` directories. New `model.json` and `training-report.json` files do not modify original weights, data or reports. Abstention remains closed and explicit confirmation remains mandatory.
 
-El informe nuevo compara vocabulario, clases y parámetros numéricos con el export
-congelado, indicando igualdad exacta y máxima diferencia absoluta por componente.
-**No se garantiza identidad numérica entre versiones de bibliotecas, plataformas
-o implementaciones de BLAS.** El hash del JSON nuevo difiere por diseño porque
-cambian versión y metadatos de procedencia, incluso cuando los parámetros son
-idénticos. No produce nuevas métricas de test ni demuestra nueva seguridad.
+The new report compares vocabulary, classes and numerical parameters with the frozen export. **Numerical identity is not guaranteed across library versions, platforms or BLAS implementations.** JSON hashes differ by design because version/provenance metadata changes. This produces no new test metric or safety evidence.
 
-Comprobación local realizada con las versiones indicadas: el entrenamiento tardó
-0,26 segundos y reprodujo exactamente clases, vocabulario, IDF, coeficientes e
-interceptos (máxima diferencia absoluta 0). Es evidencia de esa ejecución concreta,
-no garantía de igualdad entre entornos. El nuevo JSON tuvo otro hash por sus
-metadatos; el modelo original no cambió.
+One previously recorded run using the versions above took 0.26 seconds and exactly reproduced classes, vocabulary, IDF, coefficients and intercepts (maximum absolute difference 0). This is evidence of that run only, not a cross-environment guarantee. The original model remained unchanged.
 
-El código histórico `train_v2.py` conserva su contexto original y necesita las
-respuestas crudas de Ollama para volver a ensamblar el corpus. Esas respuestas no
-están empaquetadas: **usar `train_from_corpus.py`, no ejecutar el histórico como
-CLI**. Para reproducir desde el corpus público final no hacen falta Ollama, GPU,
-claves de API ni descargas de pesos.
-
-Si se alteran ejemplos, configuración o decisiones a partir de errores conocidos,
-será otro experimento. Una evaluación independiente requiere procedencia admisible y revisión apropiada, no solo otro conjunto IA reservado; conservar siempre los resultados presentes.
+Historical `train_v2.py` needs raw Ollama responses to reassemble its original corpus; they are not packaged. **Use `train_from_corpus.py`, not the historical training CLI.** Reproduction from the final packaged corpus needs no Ollama, GPU, API credentials or model-weight downloads. Changes based on known mistakes constitute a different experiment; preserve existing results.

@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-10-02T17:30:42Z",
+  "scope": "English guide local automated browser review; no login or case mutations",
+  "tool": "existing Playwright Python/Chromium; agent-browser unavailable",
+  "checks": [
+    {
+      "name": "guide HTTP 200",
+      "passed": true
+    },
+    {
+      "name": "English guide lang",
+      "passed": true
+    },
+    {
+      "name": "no error overlay",
+      "passed": true
+    },
+    {
+      "name": "eleven navigation chapters",
+      "passed": true
+    },
+    {
+      "name": "eleven distinct chapter headings",
+      "passed": true
+    },
+    {
+      "name": "data exercise both outcomes",
+      "passed": true
+    },
+    {
+      "name": "workflow rule both outcomes",
+      "passed": true
+    },
+    {
+      "name": "workflow step navigation",
+      "passed": true
+    },
+    {
+      "name": "architecture selector",
+      "passed": true
+    },
+    {
+      "name": "n-gram explorer PT example preserved",
+      "passed": true
+    },
+    {
+      "name": "ES/PT historical chart counts",
+      "passed": true
+    },
+    {
+      "name": "failure selector",
+      "passed": true
+    },
+    {
+      "name": "consent exercise",
+      "passed": true
+    },
+    {
+      "name": "continuous mode eleven chapters",
+      "passed": true
+    },
+    {
+      "name": "no document overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "no document overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "navigation to existing ES app",
+      "passed": true
+    },
+    {
+      "name": "no unexpected browser page or console errors",
+      "passed": true
+    }
+  ],
+  "passed": 18,
+  "total": 18,
+  "errors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://127.0.0.1:5357/api/session"
+    }
+  ],
+  "chapter_titles": [
+    "Receiving a dispute correctly is a complete problem.",
+    "We chose an action we can demonstrate.",
+    "Three datasets. Three different purposes.",
+    "Follow a request from start to finish.",
+    "AI proposes. The server controls. The database preserves.",
+    "What the AI does, exactly.",
+    "Every result has a denominator and a limit.",
+    "What happens when the happy path breaks.",
+    "We investigated, scoped, measured and corrected.",
+    "Deployment and submission are different states.",
+    "How to verify what you have read."
+  ],
+  "hosted_acceptance": false,
+  "human_language_review": false
+}

@@ -1,6 +1,6 @@
 # Reclama
 
-**De un cargo desconocido a un expediente verificable.** A working Spanish/Portuguese dispute-intake sandbox for the Factored AI & Data Hackathon 2026.
+**From an unrecognized charge to a verifiable case.** A working Spanish/Portuguese dispute-intake sandbox for the Factored AI & Data Hackathon 2026.
 
 Reclama identifies a customer's transaction, keeps source facts separate from their statement, obtains specific consent, persists one case and gives a human reviewer an auditable handoff. It does **not** adjudicate fraud, approve credit, issue refunds, freeze cards or move money.
 
@@ -10,7 +10,7 @@ The demo and repository are private at the owner’s request. Access is restrict
 
 Team: Roberto Villafuerte, Jorge Arguello and Daniel Andrade. Responsibilities proposed in `docs/DELIVERY_PLAN.md` must be agreed with the team; no individual expertise is assumed.
 
-**[Explore the interactive project guide (Spanish)](https://reclama-factored-2026.villafortech.chatgpt.site/guia)** — eleven chapters explain the product decision, data limitations, case lifecycle, architecture, learned model, evaluation, safeguards and delivery process. Interactive examples run locally in the page and do not create cases. The guide links to the exact V3 source and evidence it explains; it shares the demo's private access policy.
+**[Read the current English reviewer guide](docs/JUDGE_README.md)** — the local `/guia` now explains eleven chapters in English, preserving interactive examples. The [existing hosted guide](https://reclama-factored-2026.villafortech.chatgpt.site/guia) remains the previously deployed Spanish edition until an approved integration/deployment. Historical source links preserve their original evidence commits.
 
 ## Run locally
 
@@ -94,11 +94,10 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 
 ## Delivery artifacts
 
-- `docs/presentation/`: corrected, rendered six-slide V5 PPTX/PDF with visual and structural checks. Historical V4/V3 binaries remain superseded. Team review is still open.
-- `docs/video/GUION_VIDEO.md`: measured narration and subtitles for the V5 review MP4. It is a labeled montage of real local screenshots, not an uninterrupted live screen recording. The V4 MP4 remains historical and stale for evaluation claims; V5 still needs team listening and hosted acceptance before external use. `docs/DEMO_175S.md` redirects from the older script.
-- `docs/DELIVERY_PLAN.md`: daily plan and proposed team assignments through 5 October.
-- `docs/DELIVERY_STATUS.md`: verified delivery state and remaining external checks.
-- `docs/DEMO_GATE_2026-09-30.md`: prioritized acceptance gaps, requirement-to-evidence matrix and live rehearsal sequence.
+- English six-slide PPTX/PDF and notes: delivered separately to the existing Library identities, both version 2. See [delivery status](docs/DELIVERY_STATUS.md). Spanish V5 repository binaries and older exports remain historical, not the English submission files.
+- [Current continuous local interactive video](docs/video/interactive-v6/README.md): 107.320 seconds, 9/9 recorded assertions, ES/PT UI and Spanish explanatory subtitles, no voice. The user stopped English video production; originals are preserved and video-language compliance is pending.
+- [English reviewer guide](docs/JUDGE_README.md), [requirements/evidence matrix](docs/evidence/REQUIREMENTS_EVIDENCE_MATRIX_2026-10-01.md), [delivery status](docs/DELIVERY_STATUS.md) and [approval package](docs/ACCESS_APPROVAL_2026-09-30.md) are the current entry points. Earlier dated plans and media sources are historical.
+- [Unsent submission draft](docs/SUBMISSION_DRAFT.md) identifies outstanding language, evaluation and access issues. No push, merge, deployment, publicity or organizer submission is included in the local English correction.
 
 ## Official challenge references
 
@@ -107,3 +106,5 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 - [Deadline and three-minute video clarification](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809)
 
 The 28 September organizer clarification records a deadline of **5 October 2026, 23:59 UTC−5 (continental Ecuador)**; recheck later announcements before submission. The [event hub](https://www.factored.ai/careers/ai-data-hackathon) explicitly requires a public repository, a working deployed link, 4–6 slides and a video. No exception to the public-repository requirement has been verified. The owner has explicitly kept this project private for now; public release and the final submission package remain separate decisions. A built package is not an organizer submission receipt.
+
+[Organizer English-language clarification](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790871863271959): deliverables must be in English; customer interactions remain ES/PT. [Mock-data clarification](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790699312315549): generated mocks are not accepted for testing. The authored model comparison is development evidence only.

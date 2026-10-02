@@ -36,10 +36,10 @@ export function Note({
   title?: string;
 }) {
   const labels = {
-    fact: "Implementado / medido",
-    decision: "Decisión de diseño",
-    limit: "Límite de la evidencia",
-    pending: "Pendiente",
+    fact: "Implemented / measured",
+    decision: "Design decision",
+    limit: "Evidence limit",
+    pending: "Pending",
   };
   return (
     <aside className={`guide-note ${kind}`}>

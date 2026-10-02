@@ -32,130 +32,138 @@ import {
 function Overview() {
   return (
     <Section
-      eyebrow="01 / El propósito"
-      title="Recibir bien un reclamo es un problema completo."
-      intro="Reclama convierte un cargo que el cliente no reconoce en un expediente verificable para revisión humana. Ese es el resultado que construimos y medimos."
+      eyebrow="01 / Purpose"
+      title="Receiving a dispute correctly is a complete problem."
+      intro="Reclama turns an unrecognized charge into a verifiable case for human review. That is the outcome we build and measure."
     >
       <div className="guide-contrast">
         <div>
-          <span className="guide-label">Antes</span>
-          <h3>«No hice esta compra»</h3>
+          <span className="guide-label"> Before </span>
+          <h3> “I did not make this purchase” </h3>
           <p>
-            El cliente trae una declaración. Todavía no sabemos qué transacción
-            es, si existen cargos parecidos ni qué hechos la respaldan.
+            {" "}
+            The customer brings a statement. We still need to identify the
+            transaction, check similar charges and establish the supporting
+            facts.{" "}
           </p>
         </div>
         <ChevronRight aria-hidden="true" />
         <div>
-          <span className="guide-label">Después</span>
-          <h3>Solicitud recibida</h3>
+          <span className="guide-label"> After </span>
+          <h3> Request received </h3>
           <p>
-            Una transacción elegida, un relato confirmado, un identificador
-            persistente y un historial que la vista de revisor del mismo sandbox
-            puede consultar.
+            {" "}
+            A selected transaction, a confirmed statement, a persistent
+            identifier and a history available to the reviewer in the same
+            sandbox.{" "}
           </p>
         </div>
       </div>
       <div className="guide-grid three">
         <article>
           <ShieldCheck />
-          <h3>El cliente decide</h3>
+          <h3> The customer decides </h3>
           <p>
-            Selecciona el movimiento, el motivo y el texto que autoriza
-            registrar. Una predicción no sustituye su confirmación.
+            {" "}
+            They select the transaction, reason and text they authorize us to
+            record. A prediction cannot replace confirmation.{" "}
           </p>
         </article>
         <article>
           <Database />
-          <h3>El servidor comprueba</h3>
+          <h3> The server checks </h3>
           <p>
-            Identidad, titularidad, estado de la fuente, consentimiento y
-            repetición del envío se validan antes de guardar.
+            {" "}
+            Identity, ownership, source state, consent and repeated submissions
+            are checked before saving.{" "}
           </p>
         </article>
         <article>
           <BookOpen />
-          <h3>El revisor recibe contexto</h3>
+          <h3> The reviewer receives context </h3>
           <p>
-            Ve los hechos de la fuente, las afirmaciones del cliente y las
-            preguntas pendientes en campos separados.
+            {" "}
+            Source facts, customer statements and open questions appear in
+            separate fields.{" "}
           </p>
         </article>
       </div>
       <Note kind="fact">
-        La aplicación tiene interfaz ES/PT, dos personas ficticias, doce
-        transacciones, casos persistidos, revisión y auditoría. La versión
-        funcional V3 fue desplegada con CI aprobado; esta guía explica ese
-        código.
+        {" "}
+        The app has an ES/PT interface, two fictional personas, twelve
+        transactions, persisted cases, review and audit. Hosted V6 remains at
+        source 3ae216e; this English guide is a local correction awaiting
+        integration and deployment.{" "}
       </Note>
-      <h3>La promesa exacta</h3>
+      <h3> The exact promise </h3>
       <p>
-        Si la compra está registrada (<code>Approved</code>) y el motivo
-        confirmado es «cargo no reconocido», se recibe una disputa para
-        análisis. Otros motivos o estados generan una solicitud de soporte.
-        Registrar cualquiera de ellas no confirma fraude ni concede un
-        reembolso.
+        {" "}
+        If the purchase is recorded ( <code>Approved</code> ) and the confirmed
+        reason is “unrecognized charge”, a dispute intake is received for
+        analysis. Other reasons or states create a support request. Neither
+        outcome confirms fraud or grants a refund.{" "}
       </p>
       <Note kind="limit">
-        No hay integración con un banco real, movimiento de dinero, bloqueo de
-        tarjetas ni decisión crediticia. «Aprobado» en la transacción describe
-        su estado de origen; no significa «reclamo aprobado».
+        {" "}
+        There is no real bank integration, money movement, card blocking or
+        credit decision. “Approved” describes the source transaction state; it
+        does not mean “dispute approved”.{" "}
       </Note>
-      <h3>Para qué sirve cada capa</h3>
+      <h3> What each layer does </h3>
       <ol className="guide-reading-list">
         <li>
-          <strong>Producto:</strong> convertir una conversación ambigua en una
-          solicitud correcta.
+          <strong> Product: </strong> turn an ambiguous conversation into a
+          correctly scoped request.{" "}
         </li>
         <li>
-          <strong>Datos:</strong> saber qué información podemos usar y cuál
-          debemos rechazar.
+          <strong> Data: </strong> identify information we can use and
+          information we must reject.{" "}
         </li>
         <li>
-          <strong>IA:</strong> sugerir la intención de un mensaje, con errores
-          visibles.
+          <strong> AI: </strong> suggest message intent while exposing
+          errors.{" "}
         </li>
         <li>
-          <strong>Software:</strong> conservar el caso correcto y resistir
-          reintentos y sesiones inválidas.
+          <strong> Software: </strong> preserve the correct case and withstand
+          retries and invalid sessions.{" "}
         </li>
         <li>
-          <strong>Evaluación:</strong> distinguir lo que probamos de lo que
-          todavía desconocemos.
+          <strong> Evaluation: </strong> separate demonstrated behavior from
+          what remains unknown.{" "}
         </li>
       </ol>
-      <Source path="README.md" label="Alcance y estado de la implementación" />
+      <Source path="README.md" label="Implementation scope and status" />
     </Section>
   );
 }
 
 const choices = [
   {
-    title: "Disputas: recepción nueva",
-    verdict: "Elegida",
+    title: "Disputes: new intake",
+    verdict: "Selected",
     reason:
-      "Podemos comprobar una compra, recoger la declaración actual y verificar que se guardó un caso. El resultado es concreto y observable.",
+      "We can verify a purchase, collect the current statement and confirm that a case was saved. The result is concrete and observable.",
     evidence:
-      "Transacción, propietario, moneda, importe, fecha y estado; comercio cuando existe.",
-    cost: "Hay que desambiguar cargos y separar declaración de evidencia. No se reconstruyen quejas históricas ni se adjudica fraude.",
+      "Transaction, owner, currency, amount, date and state; merchant when available.",
+    cost: "Charges must be disambiguated and statements separated from evidence. We do not reconstruct historical complaints or adjudicate fraud.",
   },
   {
-    title: "Información y elegibilidad de crédito",
-    verdict: "Descartada para este equipo",
+    title: "Credit information and eligibility",
+    verdict: "Outside this team's scope",
     reason:
-      "Era viable como orientación bajo una política sintética explícita, pero requería añadir reglas de producto que el dataset no nos daba de forma suficiente.",
+      "Guidance under an explicit synthetic policy was feasible, but required additional product rules not sufficiently supported by the dataset.",
     evidence:
-      "Perfil, ingreso estimado y score no bastan para validar riesgo de impago ni una decisión económica.",
-    cost: "Un motor de reglas inventadas puede evaluarse contra esas mismas reglas, pero eso no valida que sean una buena política bancaria.",
+      "Profile, estimated income and score do not validate default risk or a financial decision.",
+    cost: "An invented rule engine can be tested against its own rules; that does not establish that they are good banking policy.",
   },
   {
-    title: "Reconstruir o resolver disputas antiguas",
-    verdict: "Descartada por evidencia insuficiente",
+    title: "Reconstructing or resolving old disputes",
+    verdict: "Insufficient evidence",
     reason:
-      "Las relaciones entre queja, producto e interacción no permiten construir expedientes históricos fiables en la muestra inspeccionada.",
+      "Complaint, product and interaction relationships do not support reliable historical case files in the inspected sample.",
     evidence:
-      "448 relaciones queja→producto no nulas tenían producto existente, pero el propietario no coincidía; origin_interaction_id estaba vacío en las 700 quejas.",
-    cost: "Unir solo por un ID existente daría una apariencia de trazabilidad mientras asocia evidencia de otra persona.",
+      "All 448 non-null complaint-to-product links pointed to existing products but had mismatched owners; origin_interaction_id was empty in all 700 complaints.",
+    cost: "Joining on an existing ID alone would suggest traceability while attaching another person's evidence.",
   },
 ];
 function Decisions() {
@@ -163,14 +171,14 @@ function Decisions() {
   const current = choices[choice];
   return (
     <Section
-      eyebrow="02 / La estrategia"
-      title="Elegimos una acción que podemos demostrar."
-      intro="La decisión no fue que las disputas fueran fáciles, sino que una recepción nueva permitía un resultado evaluable con menos supuestos financieros que crédito."
+      eyebrow="02 / Strategy"
+      title="We chose an action we can demonstrate."
+      intro="New intake provided an evaluable outcome with fewer financial assumptions than credit. This did not make disputes inherently easy."
     >
       <div
         className="guide-segment"
         role="group"
-        aria-label="Comparar alternativas"
+        aria-label="Compare alternatives"
       >
         {choices.map((c, i) => (
           <button
@@ -187,64 +195,69 @@ function Decisions() {
         <h3>{current.title}</h3>
         <p>{current.reason}</p>
         <dl>
-          <dt>Datos que la sostienen</dt>
+          <dt> Supporting data </dt>
           <dd>{current.evidence}</dd>
-          <dt>Coste o riesgo principal</dt>
+          <dt> Main cost or risk </dt>
           <dd>{current.cost}</dd>
         </dl>
       </div>
-      <h3>Cómo llegamos aquí</h3>
+      <h3> How we reached this decision </h3>
       <p>
-        La investigación comenzó comparando consultas y pagos, tarjetas,
-        disputas y crédito. La recomendación inicial más conservadora fue pagos.
-        Después acotaste la elección a disputas o crédito. Corregimos entonces
-        una distinción: unas quejas históricas defectuosas impiden reconstruir
-        esos expedientes, pero no impiden recibir una solicitud nueva sobre una
-        compra verificable.
+        {" "}
+        Research compared account inquiries and payments, cards, disputes and
+        credit. The first conservative recommendation was payments; the scope
+        later narrowed to disputes or credit. Unreliable historical complaints
+        prevent reconstructing those files, but do not prevent a new request
+        about a verifiable purchase.{" "}
       </p>
       <div className="guide-grid two">
         <article>
-          <h3>Lo que favorece al proyecto</h3>
+          <h3> What supports the project </h3>
           <p>
-            En una demo corta se puede ver una ambigüedad, una confirmación, una
-            escritura real y su recuperación. La seguridad y la ingeniería de
-            datos quedan visibles en el mismo flujo.
+            {" "}
+            A short demo can show ambiguity, confirmation, a real local write
+            and recovery. Security and data engineering become visible in the
+            same workflow.{" "}
           </p>
         </article>
         <article>
-          <h3>Lo que puede restarle fuerza</h3>
+          <h3> What could weaken it </h3>
           <p>
-            Puede parecer un formulario si no se explica el valor de localizar
-            el cargo, conservar evidencia y evitar errores. La IA actual
-            orienta; su aporte autónomo es deliberadamente limitado.
+            {" "}
+            It can look like a form unless we explain the value of finding the
+            charge, retaining evidence and avoiding mistakes. The current AI
+            advises; its autonomy is deliberately limited.{" "}
           </p>
         </article>
       </div>
-      <Note title="Criterio, no predicción de ganar">
-        La elección busca un resultado funcional y defendible. No tenemos una
-        base para asignar probabilidades de ganar ni para asegurar cómo lo
-        puntuarán los jueces.
+      <Note title="A defensible choice, without a prediction of winning">
+        {" "}
+        The choice targets a functional, defensible result. We have no basis for
+        assigning odds of winning or predicting the judges&apos; scores.{" "}
       </Note>
-      <Detail title="Rúbrica y requisitos: qué conocemos">
+      <Detail title="Rubric and requirements: what we know">
         <p>
-          En la revisión oficial del 28 de septiembre se localizaron dimensiones
-          cualitativas de solución funcional, razonamiento/documentación, AI
-          engineering, data engineering, ML y análisis; no pesos numéricos ni un
-          paquete de casos privados. Los pesos usados en la estrategia inicial
-          eran provisionales, no oficiales.
+          {" "}
+          The 28 September review found qualitative dimensions covering
+          functionality, reasoning/documentation, AI engineering, data
+          engineering, ML and analysis; no numeric weights or private test
+          package. Weights in the initial strategy were provisional, not
+          official.{" "}
         </p>
         <p>
-          También se documentaron un único flujo, español y portugués, baseline
-          y evaluación reservada, manejo de ambigüedad/fallos y entrega
-          reproducible. El experimento de desarrollo actual no acredita el
-          cumplimiento de esa evaluación. La grabación solo se revisó
-          parcialmente. Estas son observaciones de ese corte; no una garantía de
-          que no existan aclaraciones posteriores.
+          {" "}
+          The challenge calls for a complete workflow, Spanish and Portuguese, a
+          baseline and reserved evaluation, ambiguity/failure handling and
+          reproducibility. Our authored development experiment does not
+          establish evaluation compliance. The organizer&apos;s 2 October
+          clarification requires deliverables in English; customer interactions
+          remain ES/PT. Consult the current evidence matrix for later
+          corrections.{" "}
         </p>
       </Detail>
       <Source
         path="data-pipeline/data-card.md"
-        label="Evidencia de datos que condicionó la decisión"
+        label="Data evidence behind the decision"
       />
     </Section>
   );
@@ -253,78 +266,78 @@ function Decisions() {
 const chapters = [
   {
     id: "proposito",
-    title: "El propósito",
-    subtitle: "Qué resuelve y qué promete",
+    title: "Purpose",
+    subtitle: "The problem and exact promise",
     icon: BookOpen,
     render: Overview,
   },
   {
     id: "decision",
-    title: "La decisión",
-    subtitle: "Disputas frente a crédito",
+    title: "The decision",
+    subtitle: "Disputes versus credit",
     icon: GitBranch,
     render: Decisions,
   },
   {
     id: "datos",
-    title: "Los datos",
-    subtitle: "Tres fuentes, tres propósitos",
+    title: "The data",
+    subtitle: "Three sources, three purposes",
     icon: Database,
     render: DataChapter,
   },
   {
     id: "flujo",
-    title: "Un caso completo",
-    subtitle: "Recorre nueve etapas",
+    title: "A complete case",
+    subtitle: "Explore nine stages",
     icon: GitBranch,
     render: WorkflowChapter,
   },
   {
     id: "arquitectura",
-    title: "La arquitectura",
-    subtitle: "Responsabilidad de cada pieza",
+    title: "Architecture",
+    subtitle: "Each component's responsibility",
     icon: Layers3,
     render: ArchitectureChapter,
   },
   {
     id: "ia",
-    title: "Cómo funciona la IA",
-    subtitle: "Modelo, búsqueda y límites",
+    title: "How the AI works",
+    subtitle: "Model, search and limits",
     icon: Code2,
     render: ModelChapter,
   },
   {
     id: "evaluacion",
-    title: "Las pruebas",
-    subtitle: "Resultados y denominadores",
+    title: "Tests and evidence",
+    subtitle: "Results and denominators",
     icon: FlaskConical,
     render: EvaluationChapter,
   },
   {
     id: "seguridad",
-    title: "Seguridad y fallos",
-    subtitle: "Explora siete escenarios",
+    title: "Security and failures",
+    subtitle: "Explore seven scenarios",
     icon: ShieldCheck,
     render: SecurityChapter,
   },
   {
     id: "proceso",
-    title: "Cómo se construyó",
-    subtitle: "Iteraciones y compromisos",
+    title: "How it was built",
+    subtitle: "Iterations and tradeoffs",
     icon: Code2,
     render: BuildChapter,
   },
   {
     id: "entrega",
-    title: "Reproducir y terminar",
-    subtitle: "Estado, roles y próximos pasos",
+    title: "Reproduce and finish",
+    subtitle: "Status, roles and next steps",
     icon: Check,
     render: DeliveryChapter,
   },
   {
     id: "fuentes",
-    title: "Fuentes y glosario",
-    subtitle: "Verifica y profundiza",
+    title: "Sources and glossary",
+    subtitle: "Verify and explore further",
     icon: FileText,
     render: SourcesChapter,
   },
@@ -344,27 +357,30 @@ export default function ProjectGuide() {
   }
   const Current = chapters[chapter].render;
   return (
-    <div id="reclama-guide" lang="es">
+    <div id="reclama-guide" lang="en">
       <a className="guide-skip" href="#guide-content">
-        Saltar al contenido
+        {" "}
+        Skip to content{" "}
       </a>
       <header className="guide-header">
         <Link className="guide-brand" href="/">
           reclama<span>.</span>
         </Link>
-        <span className="guide-header-caption">Cuaderno del proyecto</span>
+        <span className="guide-header-caption"> Project notebook </span>
         <Link className="guide-demo-link" href="/">
-          Abrir la aplicación
+          {" "}
+          Open the app{" "}
         </Link>
       </header>
       <div className="guide-layout">
         <aside className="guide-sidebar">
-          <p className="guide-eyebrow">RECLAMA, POR DENTRO</p>
-          <h1>Entender cada decisión.</h1>
+          <p className="guide-eyebrow"> INSIDE RECLAMA </p>
+          <h1> Understand each decision. </h1>
           <p>
-            Del problema al despliegue: una guía para Roberto, Jorge y Daniel.
+            {" "}
+            From problem to deployment: a guide for the team and reviewers.{" "}
           </p>
-          <nav aria-label="Capítulos de la guía">
+          <nav aria-label="Guide chapters">
             {chapters.map((c, i) => (
               <button
                 key={c.id}
@@ -387,14 +403,15 @@ export default function ProjectGuide() {
             aria-pressed={continuous}
             onClick={() => setContinuous(!continuous)}
           >
-            {continuous ? "Volver a capítulos" : "Leer todo de corrido"}
+            {continuous ? "Return to chapters" : "Read all chapters"}
           </button>
           <div className="guide-cut">
-            <span>Lectura del código V3</span>
-            <strong>29 sep 2026 · c0d9fe6</strong>
+            <span> English review edition </span>
+            <strong> 2 Oct 2026 · local correction </strong>
             <p>
-              Hechos observados, razones de diseño y límites identificados por
-              separado.
+              {" "}
+              Observed facts, design reasons and known limits are distinguished
+              throughout.{" "}
             </p>
           </div>
         </aside>
@@ -404,17 +421,15 @@ export default function ProjectGuide() {
             tabIndex={-1}
             ref={heading}
             role="group"
-            aria-label={
-              continuous ? "Todos los capítulos" : chapters[chapter].title
-            }
+            aria-label={continuous ? "All chapters" : chapters[chapter].title}
           >
             <span>
               {continuous
-                ? "Todos los capítulos"
+                ? "All chapters"
                 : `${String(chapter + 1).padStart(2, "0")} / ${chapters.length}`}
             </span>
             <span className="guide-private">
-              <ShieldCheck size={14} /> Guía del equipo · acceso privado
+              <ShieldCheck size={14} /> Team guide · restricted access{" "}
             </span>
           </div>
           {continuous ? (
@@ -425,22 +440,26 @@ export default function ProjectGuide() {
           {!continuous && (
             <footer className="guide-pagination">
               <button disabled={chapter === 0} onClick={() => go(chapter - 1)}>
-                Anterior
+                {" "}
+                Previous{" "}
               </button>
               <span>{chapters[chapter].title}</span>
               <button
                 disabled={chapter === chapters.length - 1}
                 onClick={() => go(chapter + 1)}
               >
-                Siguiente capítulo
+                {" "}
+                Next chapter{" "}
               </button>
             </footer>
           )}
           <footer className="guide-footer">
-            Las simulaciones de esta guía son educativas: no crean casos ni
-            llaman a un banco.{" "}
+            {" "}
+            Guide simulations are educational: they create no cases and call no
+            bank.{" "}
             <a href={REPO} target="_blank" rel="noreferrer">
-              Repositorio privado
+              {" "}
+              Private repository{" "}
             </a>
           </footer>
         </main>

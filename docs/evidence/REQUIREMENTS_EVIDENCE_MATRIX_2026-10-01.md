@@ -1,81 +1,56 @@
-# Reclama — matriz de requisitos, evidencia y decisiones
+# Reclama — requirements, evidence and remaining decisions
 
-**Actualización: 2 de octubre de 2026.** Se conserva la identidad del archivo iniciado el 1 de octubre. Material privado para revisión; sin entrega a organizadores. Este corte añade la grabación interactiva y registra autorización de rama privada/PR borrador; no autoriza merge ni deploy. La página oficial y las dos aclaraciones de Slack se releyeron hoy. El Google Doc del reto no fue accesible mediante el navegador web de esta ejecución; no se atribuyen a él requisitos nuevos.
+**Updated 2 October 2026. Private review package; not submitted.** This retains the Library identity and original creation-date filename. Local English documentation is complete; the original video remains unchanged by user instruction. Full submission compliance is not claimed.
 
-## Fuentes oficiales y alcance
+## Official requirements and source coverage
 
-La [página oficial](https://www.factored.ai/careers/ai-data-hackathon) exige repo público, enlace funcional desplegado, 4–6 diapositivas, video máximo tres minutos e interacciones ES/PT. No especifica demo anónima. [Antonio confirmó](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809) 5 de octubre, 23:59 UTC−5. [Diego respondió sobre mocks](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790699312315549?thread_ts=1790698838.166839): permite generarlos con contexto pero excluye testing. El alcance para fixtures de QA de software no quedó aclarado; no se presume aceptación del experimento sintético como evaluación del reto. No se contactó a nadie.
+[André requires English deliverables](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790871863271959). That thread and the [mock-data clarification](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790699312315549?thread_ts=1790698838.166839) were reread on 2 October. The [event hub](https://www.factored.ai/careers/ai-data-hackathon), reviewed earlier the same day, requires a public repository, a working deployed link, 4–6 slides and a video. The recorded deadline is [5 October, 23:59 UTC−5; video at most three minutes](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809). Recheck final announcements before submission.
 
-Revisión competente de portugués, escucha humana y aceptación con dos cuentas reales son controles internos recomendados, no condiciones textuales adicionales que atribuyamos al organizador.
+The previously reviewed [challenge](https://docs.google.com/document/d/18AwONT8hQupRcfNPLFrPo6fHOJ_OUn1nBf-3jMnla2c/edit) calls for ES/PT customer interactions and an end-to-end banking workflow with a learned component compared against a baseline on a valid held-out set. Its Google Doc was not newly retrievable in the earlier 2 October browser check; no new clauses are attributed to it here. English explanation must coexist with ES/PT interaction. No numeric scoring weights or applicable exceptions are assumed.
 
-## Matriz
-
-| Criterio | Evidencia comprobada | Estado y límite |
+| Requirement / dimension | Verified evidence | Status and limitation |
 | --- | --- | --- |
-| Flujo focalizado y seguro | [Recorrido API del 2 oct](full-case-rerun-2026-10-02.json): 5/5 intakes ES guardados y releídos con auditoría; 5/5 ambigüedades PT aclaradas sin crear caso; 5/5 handoffs PT guardados y releídos. | QA local con datos inventados. No aceptación alojada, benchmark independiente ni resolución financiera. |
-| Interacciones ES/PT | [Revisión automática del 2 oct](language-review-2026-10-02.json): 195 pares literales, dos pares dinámicos y tres consultas de tablas; 18 claves del asistente por idioma con claves y placeholders iguales. Inspección automática de textos y tablas. | Se añadió PIN al error PT de datos sensibles. Build, TypeScript y lint posteriores pasaron. La documentación técnica `/guia` está en español; los flujos de cliente y revisor tienen ES/PT. Revisión humana PT pendiente. |
-| Autorización y consentimiento fuera del modelo | Backend conserva identidad, titularidad, borrador inmutable, confirmación, idempotencia y auditoría. [28/28 HTTP previos](http-integration-final.json), más los nuevos 15 recorridos. | La suite HTTP completa es evidencia previa, no se volvió a ejecutar hoy. El modelo no autoriza acciones. Dos cuentas reales siguen sin acreditar. |
-| Componente aprendido y baseline | Modelo congelado; 218/256 vs. 168/256 en el mismo conjunto, preservados como resultado histórico. [Corrección de procedencia](EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md); 6/6 comprobaciones pasaron hoy. | 256 mensajes/etiquetas de autoría IA, 128 familias ES/PT, sin registros del organizador ni revisión humana. **No es validación independiente ni benchmark admisible del reto.** |
-| Métricas y costo | 15 intentos, 70 solicitudes medidas; tabla siguiente. [Modelo condicional de costo](CASE_COST_MODEL_2026-09-30.md), tarifas revalidadas hoy. | Costo total desconocido; no USD 0. Sin tasa de resolución segura sobre workload representativo. Cero resoluciones financieras por diseño. |
-| Demo desplegada | [URL existente](https://reclama-factored-2026.villafortech.chatgpt.site): Sites V6, despliegue `appgdep_6abedf7171988191b1c8c4c75229a1e2` correcto; fuente `3ae216e005b9625a9bc68e4bbf082d86dec7e53b`. | `custom`, revisión 4, propietario y dos invitados autorizados. GET anónimo 401. Login normal, recarga y aislamiento A/B no corridos aquí; el hilo padre coordina la sesión segura en su navegador cloud y sigue pendiente la prueba de dos identidades reales. |
-| Repositorio público | [Repo](https://github.com/VillaforTech/factored-hackathon-2026-reclama), rama `codex/reclama`, SHA `3ae216e`; [PR #1](https://github.com/VillaforTech/factored-hackathon-2026-reclama/pull/1) integrado y [CI del SHA](https://github.com/VillaforTech/factored-hackathon-2026-reclama/actions/runs/36935070857) correcta. | **Sigue privado: requisito de público pendiente.** No hay excepción escrita. Confirmar nombre inscrito del equipo. CI no acredita aceptación alojada. |
-| Presentación | PPTX/PDF V5, seis diapositivas; hashes coinciden con [recibo de render](../presentation/render-v5.json). Exportaciones inspeccionadas previamente y preservadas. | V4 obsoleto. Revisión del equipo y edición nativa en PowerPoint no acreditadas. |
-| Video | [Grabación interactiva V6](../video/interactive-v6/README.md): 107,320 s, 1440×1000/25 fps, 9/9 comprobaciones, 14 subtítulos coincidentes. [Manifest](../video/interactive-v6/manifest.json) y recibo conservados. | Captura continua de clicks automatizados en localhost, sin cortes/aceleración; no login alojado. Narrativa textual, sin voz. V5 se conserva como montaje de referencia. |
-| Entrega | Destino oficial: `hackathon.admin@factored.ai`. [Borrador](../SUBMISSION_DRAFT.md) no enviado. | Sin recibo. Envío, privacidad y ampliación de audiencia requieren autorización expresa. |
+| English documentation | All eleven local `/guia` chapters, shared labels and metadata translated; 652 entries. Current README, ML README, reviewer companion, cost, delivery/access documents, submission draft and video documentation are English. Local guide browser checks 18/18. | Local correction only. Hosted guide remains the earlier Spanish edition until approved deployment. Frozen historical sources stay unchanged with an English companion. Video-language compliance remains pending. |
+| ES/PT interaction | Recorded ES intake and PT support handoff; previous automatic review covered 195 literal UI pairs and 18 assistant keys per locale. Customer app source is unchanged in this correction. | No competent human Portuguese review claimed. Spanish/Portuguese examples remain deliberately in their original language. |
+| Focused complete workflow | 15/15 prepared local API sequences: five ES intakes, five PT clarifications with no write, five PT handoffs. [Receipt](full-case-rerun-2026-10-02.json). | Engineering QA with invented fixtures, not representative banking evaluation or financial resolution. |
+| Safe controls and recovery | Identity, ownership, consent and idempotency remain outside the classifier. Original continuous UI take passed 9/9 assertions, including reload, reviewer version 2 and lost-response retry without duplication. | Local development identity only. Hosted login and two-real-account isolation are not established. No general zero-risk claim. |
+| Learned component and baseline | Frozen model; archived authored comparison 218/256 versus rules 168/256. Provenance/freeze checks 6/6 passed after translation. | 256 AI-authored messages in 128 ES/PT families, without organizer records or human review. **Not independent validation or an admissible challenge benchmark.** No retraining or relabeling performed. |
+| Admissible test feasibility | Read-only aggregate audit of existing CSVs: 700 complaints have five exact/normalized descriptions; each description mixes all four `case_type` values. 1,748 customer transcripts have 42 variants, all declared `es`; 7,095 contact reasons have six variants. Twelve existing partitions per table, zero additional local partitions. | No defensible eight-intent ES/PT held-out test established. `case_type` is not the intent taxonomy. Need suitable authorized unseen data, independent bilingual labels and a grouped protocol; human labeling cannot create missing diversity. No raw rows exported. |
+| Mock-data rule | Organizer permits generated mocks with context but excludes their use for testing. | No exception inferred. Scope for engineering QA fixtures remains unresolved; those checks are never presented as challenge-valid model testing. No organizer contacted. |
+| Latency and cost | Local sequence p50/p95: normal ES 110.15/265.60 ms; ambiguous PT 37.01/54.38 ms; handoff PT 101.37/104.55 ms. Five attempts per scenario, 70 measured requests. | Setup, login, browser rendering, human decisions and hosted network excluded. Build shared the Mac. Nearest-rank p95 equals the maximum at n=5. Total cost unknown; no financial-resolution denominator. |
+| Deployment and access | Existing [restricted demo](https://reclama-factored-2026.villafortech.chatgpt.site), V6 from `3ae216e005b9625a9bc68e4bbf082d86dec7e53b`. Recorded deployment succeeded; audience remains owner plus two authorized visitors. Anonymous GET returned 401. | No deployment from this correction. Parent coordinates secure hosted login; normal login, reload and real-account A/B checks remain pending. Anonymous denial does not establish failed normal login. |
+| Public repository | [Repository](https://github.com/VillaforTech/factored-hackathon-2026-reclama) remains private. Default `codex/reclama` at `3ae216e`; [draft PR #2](https://github.com/VillaforTech/factored-hackathon-2026-reclama/pull/2) remote `fa53b35` has passing CI. English changes are local on `codex/reclama-acceptance-v6-20261002`. | Official public-repository requirement unresolved. No push, merge, publication or deployment authorized here. Local changes do not inherit another SHA's CI. |
+| Presentation | Separate worker delivered English six-slide PPTX plus notes and PDF, both Library v2; parent confirmed completion. IDs below. | This worker did not alter or independently re-review those outputs. Spanish V5 repository binaries remain historical and must not be substituted. |
+| Video | Original continuous local capture: 107.320 seconds, fourteen Spanish explanatory subtitle cues, no audio. MP4/SRT exactly match original manifest hashes. No cuts or acceleration. | **English-video work stopped by explicit user instruction.** A local English render completed before the stop, was never delivery-validated or uploaded, and is retained separately in ignored work. Original video-language compliance remains unresolved; no exemption claimed. |
+| Organizer submission | [English unsent draft](../SUBMISSION_DRAFT.md) references the original interactive video and flags language/access/evaluation gaps. Recorded recipient `hackathon.admin@factored.ai`. | Not sent; no receipt. Recheck recipient/announcements and obtain explicit sending approval. |
 
-## Denominadores y latencia local del 2 de octubre
+## Checks and failures
 
-| Escenario | Intentos correctos / total | p50 / p95 de secuencia | Solicitudes medidas |
-| --- | --- | --- | --- |
-| Normal ES | 5/5 intakes persistidos y releídos | 110,15 / 265,60 ms | 30 |
-| Ambiguo PT | 5/5 aclaraciones sin caso nuevo | 37,01 / 54,38 ms | 10 |
-| Handoff PT | 5/5 solicitudes de soporte persistidas y releídas | 101,37 / 104,55 ms | 30 |
+- **Passed now:** TypeScript, application ESLint, production build, provenance/frozen evidence 6/6, guide browser 18/18, diff whitespace check. Assistant visually inspected desktop architecture and mobile overview; no document-width overflow at 1440/390 px.
+- **Corrected during review:** ten JSX apostrophe lint errors. Initial browser harness flagged the expected signed-out homepage `/api/session` 401; rerun recorded that exact response separately and found no unexpected errors.
+- **Video attempt:** the first English narration attempt failed because a 6.433-second phrase exceeded its 5.858-second slot. A shorter local render completed before the stop instruction. No full delivery review, listening claim or Library media replacement followed; originals were restored and hash-verified.
+- **Not run/completed:** hosted account acceptance, independent/challenge-valid model evaluation, human language/listening review, representative safe-resolution or harm rates, total billed cost, publication and organizer submission.
+- **Preservation:** original checkout at `6715df4`, earlier working copy at `fde31ef`, prior PR copy at `e2f58a6` and release copy at `3ae216e` were checked clean. Only the separate acceptance checkout changed. No private rows, credentials, model weights or another worker's slide files were changed.
 
-Reloj del primer mensaje hasta relectura/auditoría y conteo final, excluyendo login, preparación de run, navegador, red alojada, interacción y revisión humana. Cinco muestras por escenario; p95 por rango más cercano equivale al máximo. Servidor de desarrollo local compartiendo Mac con un build concurrente, sin controlar carga ni aislar arranque frío: son tiempos observados, no comparación de rendimiento ni SLA. No sumar estos intentos con 160 aserciones repetidas ni con 28 casos de prueba HTTP.
+The 15 API attempts, nine recorded UI assertions, 28 historical HTTP checks and 160 repeated contract assertions have separate denominators. They are not financial cases resolved. The 160 contract assertions created no cases. Zero financial resolutions is by design, not a zero-cost result.
 
-70 es el número de solicitudes dentro de las secuencias cronometradas; hubo solicitudes adicionales de preparación fuera del reloj. No hubo fallos de recorrido (0/15), pero el diseño preparado no estima inseguridad o daño en población real. El hash del modelo antes/después es idéntico: `cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a`.
+The [conditional cost model](CASE_COST_MODEL_2026-09-30.md) uses public Workers/D1 tariffs rechecked on 2 October; the actual Sites billing plan, billable CPU, database rows and invoice remain unmeasured. No runtime external-model API is required; total cost is still unknown.
 
-### Costo
+Human Portuguese review, human listening review and two-account acceptance are internal credibility/safety recommendations, not additional textual organizer clauses. The English deliverable rule and public-repository rule are official.
 
-CPU facturable, filas D1, almacenamiento, factura e infraestructura de Sites no medidos. El [modelo de costo](CASE_COST_MODEL_2026-09-30.md) usa tarifas condicionales de [Workers](https://developers.cloudflare.com/workers/platform/pricing/) y [D1](https://developers.cloudflare.com/d1/platform/pricing/) revalidadas el 2 oct; no se confirmó que sean el plan facturado del sitio. La inferencia empaquetada no necesita API externa de modelo; esto no convierte el costo total en cero. Costo por resolución financiera no definido, al no haber resoluciones financieras.
+## Retained Library identities
 
-## Pruebas pasadas, fallidas y no corridas
+| Artifact | Exact identity and state |
+| --- | --- |
+| English PPTX | `libfile_2903b3baa6048191b0ea20acb3b7b8a3`, v2, separate worker/parent confirmation; untouched here. |
+| English PDF | `libfile_b38a58b1715c81918bfcb742f6ddc0b5`, v2, separate worker/parent confirmation; untouched here. |
+| Original interactive video | `libfile_f5b35f28dae88191b47ae89ba8235bc5`, initial upload unchanged. |
+| Original Spanish SRT | `libfile_7f35053934f88191ad759fd0cf1aa3d0`, initial upload unchanged; identity re-resolved from Library. |
+| Original manifest | `libfile_8be706f0e53c81918977983db036cbf2`, initial upload unchanged. |
+| This matrix | `libfile_0cad1f86ce7c8191abf96eeb27e405a2`; use the confirmed replacement receipt for its current version. |
 
-- **Grabación interactiva:** 9/9 verificaciones y decodificación completa; subtítulos externos/incrustados 14/14; revisión visual de toda la secuencia mediante 36 muestras cada tres segundos y cuatro vistas ampliadas. La primera toma falló por un selector del contador; la segunda pasó completa, sin editar la primera para fingir continuidad.
-- **Pasadas hoy:** `npm run check`, `npm run build` tras la corrección PT; `npm run test:provenance` 6/6 (modelo/materiales congelados intactos); 15/15 recorridos preparados; comparación de claves/placeholders ES/PT; `git diff --check`.
-- **Advertencias sin fallo:** build advierte de `module.register()` deprecado y clasificación estática de rutas incompleta en vinext. No se cambiaron dependencias por estas advertencias.
-- **Bloqueo de entorno ya resuelto:** primera inicialización local de D1 necesitó permiso para loopback; la ejecución posterior funcionó. Se cerró el único servidor de esta tarea, puerto 5357.
-- **No corridas hoy:** suites completas HTTP/contexto/paridad (con evidencia previa/CI existente), login alojado/recarga/A-B, revisión humana PT, escucha humana y ASR semántico, evaluación independiente, costo facturable. Las comprobaciones técnicas anteriores de subtítulos/audio siguen asociadas al MP4 V5 cuyo hash no cambió.
+## Approval package
 
-## Separación local/remoto/entrega
+The [exact approval document](../ACCESS_APPROVAL_2026-09-30.md) separates local completion from consequences: approve any push/integration into `codex/reclama` and exact-SHA deployment; decide public repository or obtain a written exception; identify and authorize judge access; resolve evaluation and video-language compliance; separately authorize submission. Publication exposes repository history/code/media to third parties. The demo rule asks for a working link, not expressly anonymous access.
 
-- **Local nuevo:** `task-4/reclama-acceptance-v6`, rama `codex/reclama-acceptance-v6-20261002`. Un cambio de texto PT, documentación/evidencia y grabación/script locales. Commit/push privado y PR borrador autorizados; merge/deploy pendientes. Sin cambio del modelo, backend o permisos. Original `Documents/ChatGPT/Factored-Hackaton/app` limpio en `6715df4`; las otras copias estaban y siguen limpias.
-- **Remoto:** privado; base `codex/reclama` en `3ae216e`. PR #1 ya integrado, CI correcta. No presentar esa integración previa como pendiente ni como trabajo remoto ejecutado hoy.
-- **Alojado:** V6 desde `3ae216e`. La corrección PT nueva no está desplegada. No se realizó ningún nuevo despliegue.
-- **Entrega:** no confirmada; no se envió correo, invitación ni material al organizador.
-
-## Archivos nativos de Library confirmados
-
-| Artefacto vigente | Identidad y versión de Library | Acceso al archivo |
-| --- | --- | --- |
-| PPTX V5 | `libfile_2903b3baa6048191b0ea20acb3b7b8a3`, versión 1 | [Descargar PPTX](https://chatgpt.com/api/library/files/libfile_2903b3baa6048191b0ea20acb3b7b8a3/download) |
-| PDF V5 | `libfile_b38a58b1715c81918bfcb742f6ddc0b5`, versión 1 | [Descargar PDF](https://chatgpt.com/api/library/files/libfile_b38a58b1715c81918bfcb742f6ddc0b5/download) |
-| MP4 V5 | `libfile_ed7387abeea48191b6e2af7920f17acf`, versión 1 | [Descargar video](https://chatgpt.com/api/library/files/libfile_ed7387abeea48191b6e2af7920f17acf/download) |
-| MP4 interactivo V6 | `libfile_f5b35f28dae88191b47ae89ba8235bc5`, versión 0 | [Descargar grabación real local](https://chatgpt.com/api/library/files/libfile_f5b35f28dae88191b47ae89ba8235bc5/download) |
-| SRT interactivo V6 | `libfile_7f35053934f88191ad759fd0cf1aa3d0`, versión 0 | [Descargar subtítulos](https://chatgpt.com/api/library/files/libfile_7f35053934f88191ad759fd0cf1aa3d0/download) |
-| Manifest interactivo V6 | `libfile_8be706f0e53c81918977983db036cbf2`, versión 0 | [Descargar manifest](https://chatgpt.com/api/library/files/libfile_8be706f0e53c81918977983db036cbf2/download) |
-| Esta matriz | `libfile_0cad1f86ce7c8191abf96eeb27e405a2`; conservar identidad, versión final indicada en recibo de guardado | [Abrir matriz vigente](https://chatgpt.com/api/library/files/libfile_0cad1f86ce7c8191abf96eeb27e405a2/download) |
-
-No se duplicaron ni reescribieron PPTX/PDF/MP4. Los enlaces relativos de evidencia apuntan al checkout; los JSON nuevos sólo estarán en GitHub después de integrar el diff autorizado.
-
-## Paquete de aprobación para Roberto
-
-[Detalle y pasos A/B](../ACCESS_APPROVAL_2026-09-30.md). Decidir por separado:
-
-1. Commit/push privado y PR borrador ya autorizados. Aprobar por separado merge desde `codex/reclama-acceptance-v6-20261002` hacia `codex/reclama` y despliegue del SHA resultante conservando `custom`. Sustituiría V6 por la corrección PT; V5 ya está integrado.
-2. Publicar el repositorio después de revisar árbol e historial, o aportar excepción escrita. Consecuencia: código, medios e historial visibles para terceros. No hacerlo por inferencia.
-3. Facilitar identidades/correos exactos de jueces y autorizar sus invitaciones o acordar otro mecanismo. No se requieren nuevas cuentas para la prueba de equipo: ya hay propietario y dos invitados; sí hacen falta dos personas con sesiones reales independientes y un navegador controlable.
-4. A crea un caso ES, recarga y verifica el mismo expediente; B no puede leerlo/listarlo y crea un handoff PT propio; A tampoco accede al caso B. Guardar recibos/capturas sin credenciales. La identidad simulada de Ana/Lucas no demuestra aislamiento de cuentas.
-5. Revisar medios, confirmar el nombre de equipo y autorizar expresamente envío a `hackathon.admin@factored.ai`; después conservar recibo. Consultar a Diego sobre evaluación sólo con permiso separado.
-
-**Diferenciación defendible:** una recepción recuperable y explicable: selección de compra propia, hechos separados del relato, consentimiento ligado al borrador, recuperación sin duplicado y handoff con preguntas pendientes. Las pruebas internas acreditan comportamientos concretos; no demuestran ahorro bancario, superioridad frente a competidores ni novedad absoluta.
+For hosted acceptance, use two existing authorized members in independent normal sessions: A creates an ES intake and verifies the same case after reload; B cannot list/read A's case and creates/reloads a PT handoff; A cannot read B's case; A's own simulated reviewer update increments version and audit. No new accounts, credentials, cookie export or permission changes are needed or authorized here. No approval action or organizer contact was executed.
