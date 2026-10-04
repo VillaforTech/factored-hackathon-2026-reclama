@@ -1,5 +1,7 @@
 # Concrete approval package for Roberto
 
+> **4 October access checkpoint:** [Hosted QA report](evidence/HOSTED_ACCESS_QA_2026-10-04.md) verifies 8/8 anonymous denials and a working sign-in redirect. Current Sites policy lists the owner plus **one** external viewer, superseding the earlier visitor count below. Real-account A/B access, persistence and isolation remain untested because no supported browser session is connected here. This QA is authorized; publication, invitations and deployment remain unauthorized.
+
 **Updated 2 October 2026. No action below has been executed as part of the local English correction.** Earlier authorization produced PR #1 integration and hosted V6. The current instruction authorizes local completion and a local commit only. Privacy and sending require explicit approval.
 
 ## Exact destinations and current state
