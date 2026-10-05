@@ -6,11 +6,13 @@ Reclama identifies a customer's transaction, keeps source facts separate from th
 
 **[Open the private team demo](https://reclama-factored-2026.villafortech.chatgpt.site)** · **[Private team source](https://github.com/VillaforTech/factored-hackathon-2026-reclama)**
 
-The demo and repository are private at the owner’s request. Access is restricted to the owner and explicitly invited teammates. Case operations use normal ChatGPT sign-in and an isolated sandbox; there are no bank integrations. Hosted sign-in was blocked by the identity provider’s security verification in our automated browser, so the hosted authenticated workflow remains a separate acceptance item.
+The demo and repository are private at the owner’s request. Access is restricted to the owner and explicitly invited teammates. Case operations use normal ChatGPT sign-in and an isolated sandbox; there are no bank integrations. Normal hosted login, reload persistence and two-real-account isolation remain unverified. The 4 October check verified anonymous denial and the sign-in redirect; this environment has no supported connected authenticated browser session.
 
 Team: Roberto Villafuerte, Jorge Arguello and Daniel Andrade. Responsibilities proposed in `docs/DELIVERY_PLAN.md` must be agreed with the team; no individual expertise is assumed.
 
 **[Read the current English reviewer guide](docs/JUDGE_README.md)** — the local `/guia` now explains eleven chapters in English, preserving interactive examples. The [existing hosted guide](https://reclama-factored-2026.villafortech.chatgpt.site/guia) remains the previously deployed Spanish edition until an approved integration/deployment. Historical source links preserve their original evidence commits.
+
+**[5 October private release kit](docs/release/2026-10-05/START_HERE.md):** English six-slide PPTX/PDF, narration and exact recording path, reproduction, dependency notices and the approval checklist. The user records the final English video.
 
 ## Run locally
 
@@ -68,6 +70,8 @@ The learned model only interprets a message. It cannot select an account, change
 
 Measured official sample: 48,810 coherent transaction/product/customer links; 10,903 approved card purchases, including 531 with no merchant. All 448 non-null complaint/product links inspected had different owners and were quarantined. The sample uses 12 time cuts, not a representative random sample. No inspected record is certified as live bank state. Only aggregates are published.
 
+**Full-corpus update, 5 October:** 7,671 CSV files and 23,495,188 rows yield 47 distinct customer inputs in the complaint/transcript diagnostic. All are previously seen Spanish inputs. On 25 AI-agreement labels, frozen v2 matches 21 and rules match 25; all 47 routing decisions request clarification. This retrospective AI reference establishes no model advantage or independent ES/PT benchmark. See [current evidence and limits](docs/release/2026-10-05/EVIDENCE_LIMITS.md).
+
 **No independent model validation or challenge-valid benchmark is established.** The 256 reserved messages and their labels were AI-authored (128 ES/PT scenario families), contain no organizer records and have no human review. They support a development experiment only; separation from training and a frozen model do not make them independent validation.
 
 Historical development result, retained for audit: on those **256 AI-authored messages**, v2 scored **218/256 (85.16%)** versus **168/256 (65.63%)** for rules; macro-F1 was 0.8310 versus 0.6752. The paired-family bootstrap accuracy difference against rules was +19.53 percentage points (95% interval +11.72 to +27.34). ES accuracy: 85.94%; PT: 84.38%. V1 scored 211/256; the v2–v1 difference is not conclusive. These are authored, balanced development scenarios, not an official/challenge-valid or representative bank benchmark. The numeric difference and interval must not be presented as validated model improvement.
@@ -94,8 +98,8 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 
 ## Delivery artifacts
 
-- English six-slide PPTX/PDF and notes: delivered separately to the existing Library identities, both version 2. See [delivery status](docs/DELIVERY_STATUS.md). Spanish V5 repository binaries and older exports remain historical, not the English submission files.
-- [Current continuous local interactive video](docs/video/interactive-v6/README.md): 107.320 seconds, 9/9 recorded assertions, ES/PT UI and Spanish explanatory subtitles, no voice. The user stopped English video production; originals are preserved and video-language compliance is pending.
+- [Current English six-slide PPTX/PDF and recording kit](docs/release/2026-10-05/START_HERE.md). The English Library identities are preserved through replacement. The editable PPTX retains its native table and diagram. The PDF is a rendered review copy. Spanish V5 repository exports remain historical.
+- [Current continuous local interactive video](docs/video/interactive-v6/README.md): 107.320 seconds, 9/9 recorded assertions, ES/PT UI and Spanish explanatory subtitles, no voice. Originals are preserved. Roberto will record the final English demo using the current recording kit; no new video is produced by this release task.
 - [English reviewer guide](docs/JUDGE_README.md), [requirements/evidence matrix](docs/evidence/REQUIREMENTS_EVIDENCE_MATRIX_2026-10-01.md), [delivery status](docs/DELIVERY_STATUS.md) and [approval package](docs/ACCESS_APPROVAL_2026-09-30.md) are the current entry points. Earlier dated plans and media sources are historical.
 - [Unsent submission draft](docs/SUBMISSION_DRAFT.md) identifies outstanding language, evaluation and access issues. No push, merge, deployment, publicity or organizer submission is included in the local English correction.
 

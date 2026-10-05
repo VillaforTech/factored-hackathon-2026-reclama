@@ -1,5 +1,9 @@
 # Reclama delivery status
 
+> **5 October release checkpoint:** [Current release kit](release/2026-10-05/START_HERE.md), [exact approvals and email draft](release/2026-10-05/SUBMISSION_CHECKLIST.md), and [current evidence](release/2026-10-05/EVIDENCE_LIMITS.md) supersede the dated snapshot below. Existing demo remains V6 with custom access for owner plus one external viewer. No push, merge, deployment, privacy change, invitation or submission occurred. The final English video will be recorded by Roberto.
+
+## Earlier dated snapshot
+
 > **4 October access checkpoint:** [Hosted QA report](evidence/HOSTED_ACCESS_QA_2026-10-04.md) verifies 8/8 anonymous denials and a working sign-in redirect. Current Sites policy lists the owner plus **one** external viewer, superseding the earlier visitor count below. Real-account A/B access, persistence and isolation remain untested because no supported browser session is connected here. This QA is authorized; publication, invitations and deployment remain unauthorized.
 
 **2 October 2026. Review package only; not submitted.**

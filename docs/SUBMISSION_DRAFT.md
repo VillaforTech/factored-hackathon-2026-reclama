@@ -1,5 +1,9 @@
 # Submission draft — NOT SENT
 
+> **5 October draft update:** [Current release kit](release/2026-10-05/START_HERE.md), [exact approvals and email draft](release/2026-10-05/SUBMISSION_CHECKLIST.md), and [current evidence](release/2026-10-05/EVIDENCE_LIMITS.md) supersede the dated snapshot below. Existing demo remains V6 with custom access for owner plus one external viewer. No push, merge, deployment, privacy change, invitation or submission occurred. The final English video will be recorded by Roberto.
+
+## Earlier dated snapshot
+
 **English review draft, 2 October 2026.** [Organizer André requires all deliverables in English](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790871863271959). Preserve the required Spanish/Portuguese customer interactions. This package is not ready to submit while the language and access items below remain unresolved.
 
 Recipient listed by the event hub: `hackathon.admin@factored.ai`. Recheck final announcements before sending.

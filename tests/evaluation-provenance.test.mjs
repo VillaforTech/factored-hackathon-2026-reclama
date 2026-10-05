@@ -96,8 +96,17 @@ test("V5 render and measured sources match their current manifest", () => {
   assert.equal(manifest.status, "v5_private_review_render_not_submitted");
   assert.ok(manifest.video.format_duration_seconds < 180);
   assert.equal(sha(manifest.video.path), manifest.video.sha256);
+  // The current entry-point README can evolve. Keep the exact render-time
+  // document in the archive and continue checking the original manifest hash.
+  const historicalSources = {
+    "docs/video/README.md": "docs/video/archive/README-v5-render-source.md",
+  };
   for (const [path, metadata] of Object.entries(manifest.sources))
-    assert.equal(sha(path), metadata.sha256, `V5 source changed: ${path}`);
+    assert.equal(
+      sha(historicalSources[path] ?? path),
+      metadata.sha256,
+      `V5 source changed: ${path}`,
+    );
   assert.equal(manifest.qa.external_embedded_text_and_timestamp_match, true);
   assert.equal(manifest.qa.human_listening_review, false);
 });

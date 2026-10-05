@@ -1,5 +1,9 @@
 # Reclama — English reviewer guide
 
+> **Current private release kit:** [Current release kit](release/2026-10-05/START_HERE.md), [exact approvals and email draft](release/2026-10-05/SUBMISSION_CHECKLIST.md), and [current evidence](release/2026-10-05/EVIDENCE_LIMITS.md) supersede the dated snapshot below. Existing demo remains V6 with custom access for owner plus one external viewer. No push, merge, deployment, privacy change, invitation or submission occurred. The final English video will be recorded by Roberto.
+
+## Earlier dated snapshot
+
 **Private review package, 2 October 2026. Not submitted and not fully submission-compliant.** The local interactive `/guia` is English, with eleven chapters and its original examples. The currently hosted guide remains the earlier Spanish edition until an approved deployment. Customer-facing app interactions remain ES/PT as required.
 
 Reclama receives a card-dispute request that can be explained, recovered and handed to a human. It helps a customer locate the exact purchase, distinguishes source facts from unverified statements, requires specific consent and persists one auditable case even when a response is lost. This demonstrates controlled intake in a sandbox, not measured bank savings, competitor superiority or absolute novelty.

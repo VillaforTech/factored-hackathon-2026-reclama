@@ -1,0 +1,68 @@
+{
+  "created_at_utc": "2026-10-04T00:41:02.141890+00:00",
+  "status": "exploratory_ai_reference_not_independent_human_gold",
+  "valid_challenge_benchmark": false,
+  "source_files_verified_before_inference": 2194,
+  "source_rows_verified_before_inference": 238416,
+  "source_distinct_texts_total": 47,
+  "source_distinct_text_clusters": 1,
+  "language_coverage": {
+    "es_unique_texts": 47,
+    "pt_performance": null,
+    "pt_unique_texts": 0
+  },
+  "consensus_counts": {
+    "consensus_abstain": 1,
+    "consensus_accepted": 25,
+    "disagreement": 21
+  },
+  "consensus_accepted_class_support": {
+    "account_query": 21,
+    "other": 4
+  },
+  "routing_separate_from_top1": {
+    "all_distinct_texts_n": 47,
+    "consensus_accepted_texts_n": 25,
+    "correctness_unknown_for_disagreed_or_unadjudicated_texts": 22,
+    "v2_accepted_all_texts": 0,
+    "v2_accepted_rows_represented_not_independent": 0,
+    "v2_accepted_with_consensus_label": 0,
+    "v2_clarify_all_texts": 47,
+    "v2_coverage_all_texts": 0.0,
+    "v2_selective_accuracy_on_consensus_labels": null,
+    "v2_unrecognized_accepted_with_consensus_label": 0,
+    "v2_unrecognized_false_accept_against_ai_consensus": 0
+  },
+  "limitations": [
+    "All 47 distinct official texts appeared in the earlier 12-date sample; retrospective, not unseen.",
+    "Official text is synthetic and Spanish-only in this packet.",
+    "Two AI reviewers can share biases; agreement does not establish human ground truth.",
+    "Disagreements and ambiguous or multi-intent texts were excluded from AI-reference correctness by policy locked before inference, not selected by model success.",
+    "One grouping component prevents independent-cluster uncertainty estimates.",
+    "Row-weighted results describe repeated template frequency, not independent cases.",
+    "No end-to-end banking workflow, safety, cost, or latency measurement."
+  ],
+  "uncertainty": "No confidence intervals: one connected text component and AI-proposed labels; repeated rows are not independent observations.",
+  "frozen_model_sha256": "cb5be3f82c25aa337767c0f479b12a9b4c5d3cf5409d8b7d3ff0be3d6e51226a",
+  "frozen_rules_sha256": "c73e6c38e648d48a6c2277ed14973a414675f73bf24eb750db8f1129fb4e43c2",
+  "frozen_inference_sha256": "363667b67a23b2eec7e0fadbaca226e81d274d7bd8f5931ec8edc6cfc6de8590",
+  "ai_label_lock_sha256": "b278598d63ed269d2327d2685d0d3d058b0d2189f43d878502bf363aed8ec60f",
+  "whole_corpus": {
+    "csv_files": 7671,
+    "tables": 13,
+    "rows": 23495188
+  },
+  "top1_matches_against_ai_reference_only": {
+    "rules_top1_unique": {
+      "correct": 25,
+      "n": 25
+    },
+    "v2_top1_unique": {
+      "correct": 21,
+      "n": 25
+    }
+  },
+  "source_report_sha256": "f74f0f78d2c9cc9b3a13ea60d38a5f80e7f6f2f89415a4a960ca61e7f1c3feb7",
+  "source_inventory_manifest_sha256": "63ddcfa783fa8d45afc6e4ed94f4439259c262e8129556fb661bfd2e46eb3bd4",
+  "private_rows_included": false
+}

@@ -1,0 +1,24 @@
+{
+  "date_utc": "2026-10-05",
+  "pptx_sha256": "43f272cac394013cb167a3cec1e331ee6d1283d028e4189c91e4f1812cd8b331",
+  "pdf_sha256": "b2b2b3852ce232c2e365fe953b6e5f9cf52ddb02c04cdfc265625b92875f6041",
+  "slides": 6,
+  "all_slides_visually_reviewed_by_assistant": true,
+  "all_pdf_pages_visually_reviewed_by_assistant": true,
+  "source_fonts": [
+    "Arial"
+  ],
+  "size_emu": [
+    12192000,
+    6858000
+  ],
+  "native_table_slide": 5,
+  "native_diagram_preserved": true,
+  "human_review": false,
+  "microsoft_powerpoint_editing_verified": false,
+  "pdf_method": "Final artifact-tool renders at 2x; six raster pages with destination links. Text remains editable in PPTX, not searchable in PDF.",
+  "native_pdf_export_attempt": "Keynote AppleEvent timed out; no native PDF success claimed",
+  "source_pptx_library_id": "libfile_2903b3baa6048191b0ea20acb3b7b8a3",
+  "source_pptx_library_version": 2,
+  "source_pptx_sha256": "f4b983544455816ff371c50c6b4578c41036fc10d0d87eee49e98988e30703ac"
+}
