@@ -36,7 +36,7 @@ This is an internal release-quality check supporting the claim that the link wor
 
 To: `hackathon.admin@factored.ai`
 
-Subject: `Factored AI & Data Hackathon 2026 — Reclama — Roberto Villafuerte, Jorge Arguello and Daniel Andrade`
+Subject: `Factored AI & Data Hackathon 2026 — Reclama — Roberto Villafuerte`
 
 Reclama is a Spanish/Portuguese card-dispute intake sandbox. It separates source facts from customer statements, obtains explicit consent and creates a recoverable case with an audit trail for human review. It does not adjudicate fraud or issue refunds.
 

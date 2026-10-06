@@ -20,5 +20,24 @@
   "native_pdf_export_attempt": "Keynote AppleEvent timed out; no native PDF success claimed",
   "source_pptx_library_id": "libfile_2903b3baa6048191b0ea20acb3b7b8a3",
   "source_pptx_library_version": 2,
-  "source_pptx_sha256": "f4b983544455816ff371c50c6b4578c41036fc10d0d87eee49e98988e30703ac"
+  "source_pptx_sha256": "f4b983544455816ff371c50c6b4578c41036fc10d0d87eee49e98988e30703ac",
+  "participant_correction": {
+    "verified_at_utc": "2026-10-06T05:12:47.670362+00:00",
+    "sole_submission_participant": "Roberto Villafuerte",
+    "scope": "Slide 1 participant line only. Other text and notes preserved.",
+    "all_six_slides_and_pdf_pages_visually_reviewed_by_assistant": true,
+    "pptx_sha256": "aa725bff6375fed48b05e83d38486feb85e8eb80c04cb1051e067b204df2f06f",
+    "pdf_sha256": "9f953327b6a0cccfb8a54b8c391a609ed9bfbd0cedee611423e0be3a76e9aaf3",
+    "previous_top_level_hashes": "Preserved as the original October 5 review receipt."
+  },
+  "access_correction": {
+    "verified_at_utc": "2026-10-06T05:20:48.930596+00:00",
+    "scope": "Slide 6 access status and notes updated to public repository, landing page and guide; case sign-in required; real-account login and two-account isolation not validated.",
+    "all_six_pdf_pages_rendered_and_reviewed_by_assistant": true,
+    "pptx_pages_1_to_5_text_unchanged": true,
+    "pdf_pages_1_to_5_content_streams_unchanged": true,
+    "pptx_sha256": "d929e5b5581d665527deb6e35dc05054034952d3f538511314d154f7c7ca3d48",
+    "pdf_sha256": "024a941408fac2902852f9e9277f0e2ac6c63cc38047e24557d29aece8cb1f10",
+    "source_library_version": 4
+  }
 }
