@@ -1,0 +1,47 @@
+{
+  "checked_utc": "2026-10-04 00:39:06 UTC",
+  "project_id": "appgprj_6abc00f0842c819197acbfaf114112a0",
+  "site_status": "active",
+  "url": "https://reclama-factored-2026.villafortech.chatgpt.site",
+  "latest_saved_version": 6,
+  "deployment": {
+    "version": 6,
+    "status": "succeeded",
+    "source_sha": "3ae216e005b9625a9bc68e4bbf082d86dec7e53b",
+    "updated_at": "2026-10-01T22:33:09.206241+00:00"
+  },
+  "policy": {
+    "mode": "custom",
+    "revision": 4,
+    "updated_at": "2026-09-29T23:12:26.175446+00:00",
+    "workspace_account_count": 1,
+    "external_visitor_count": 1,
+    "allowed_user_roles": [
+      {
+        "label": "A",
+        "role": "owner",
+        "external": false
+      },
+      {
+        "label": "B",
+        "role": "viewer",
+        "external": true
+      }
+    ],
+    "group_count": 0,
+    "unchanged_during_check": true
+  },
+  "browser_access": {
+    "supported_browser_control_tool_available": false,
+    "real_visitor_sessions_inspected": 0,
+    "account_a_authenticated_workflow": "not_run",
+    "account_b_authenticated_workflow": "not_run"
+  },
+  "sensitive_fields_omitted": [
+    "emails",
+    "account IDs",
+    "access grant IDs",
+    "service credentials",
+    "OAuth query parameters"
+  ]
+}

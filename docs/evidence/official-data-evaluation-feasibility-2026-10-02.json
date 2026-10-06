@@ -1,0 +1,137 @@
+{
+  "created_utc": "2026-10-02T17:31:34Z",
+  "scope": "Read-only aggregate inspection of already downloaded organizer CSVs; no acquisition, row export, labeling, model changes or scoring",
+  "normalization": "Unicode NFKD, lowercase, remove combining marks, collapse whitespace; punctuation retained",
+  "tables": {
+    "complaints": {
+      "files": 12,
+      "additional_files_beyond_existing_manifest": 0,
+      "rows": 700,
+      "text_field": "description",
+      "nonempty_texts": 700,
+      "unique_exact_texts": 5,
+      "unique_normalized_texts": 5,
+      "duplicate_text_excess_rows": 695,
+      "origin_interaction_id_nonempty": 0,
+      "case_type_counts": {
+        "Complaint": 435,
+        "Claim": 169,
+        "Suggestion": 27,
+        "Request": 69
+      },
+      "category_counts": {
+        "Transactions": 148,
+        "Technical": 142,
+        "Branch": 128,
+        "Service": 123,
+        "Fees": 159
+      },
+      "description_group_contingencies": [
+        {
+          "group": 1,
+          "rows": 159,
+          "case_type_counts": {
+            "Complaint": 98,
+            "Suggestion": 7,
+            "Request": 14,
+            "Claim": 40
+          },
+          "category_counts": {
+            "Fees": 159
+          }
+        },
+        {
+          "group": 2,
+          "rows": 148,
+          "case_type_counts": {
+            "Complaint": 101,
+            "Claim": 35,
+            "Request": 8,
+            "Suggestion": 4
+          },
+          "category_counts": {
+            "Transactions": 148
+          }
+        },
+        {
+          "group": 3,
+          "rows": 142,
+          "case_type_counts": {
+            "Suggestion": 5,
+            "Request": 16,
+            "Claim": 31,
+            "Complaint": 90
+          },
+          "category_counts": {
+            "Technical": 142
+          }
+        },
+        {
+          "group": 4,
+          "rows": 128,
+          "case_type_counts": {
+            "Complaint": 72,
+            "Claim": 33,
+            "Request": 15,
+            "Suggestion": 8
+          },
+          "category_counts": {
+            "Branch": 128
+          }
+        },
+        {
+          "group": 5,
+          "rows": 123,
+          "case_type_counts": {
+            "Complaint": 74,
+            "Request": 16,
+            "Claim": 30,
+            "Suggestion": 3
+          },
+          "category_counts": {
+            "Service": 123
+          }
+        }
+      ],
+      "language_metadata_present": false,
+      "text_language_assessment": "Not independently labeled; no language inference exported from complaint text."
+    },
+    "call_transcripts": {
+      "files": 12,
+      "additional_files_beyond_existing_manifest": 0,
+      "rows": 1748,
+      "text_field": "customer_text",
+      "nonempty_texts": 1748,
+      "unique_exact_texts": 42,
+      "unique_normalized_texts": 42,
+      "duplicate_text_excess_rows": 1706,
+      "declared_detected_language_counts": {
+        "es": 1748
+      },
+      "language_metadata_is_human_verified": false,
+      "customer_texts_containing_saldo": 1748,
+      "unique_full_texts": 290,
+      "distinct_detected_intents_values": 2,
+      "detected_intents_are_not_human_ground_truth": true
+    },
+    "call_center_interactions": {
+      "files": 12,
+      "additional_files_beyond_existing_manifest": 0,
+      "rows": 7095,
+      "text_field": "contact_reason",
+      "nonempty_texts": 7095,
+      "unique_exact_texts": 6,
+      "unique_normalized_texts": 6,
+      "duplicate_text_excess_rows": 7089,
+      "reason_category_counts": {
+        "Transaccional": 2422,
+        "Comercial": 559,
+        "Retención": 223,
+        "Queja": 1284,
+        "Producto": 1547,
+        "Técnico": 1060
+      }
+    }
+  },
+  "conclusion": "No defensible current eight-intent ES/PT held-out benchmark established. Only the existing 12 partitions per inspected table are local; no additional unseen partitions found. Complaint case_type is a different taxonomy; descriptions are highly repeated with mixed labels. Transcript language metadata does not supply Portuguese coverage or human intent truth. A valid protocol requires authorized suitable data, independent human labels for the frozen eight intents, bilingual coverage and group-separated unseen cases; do not fabricate mappings or score against detected labels."
+}

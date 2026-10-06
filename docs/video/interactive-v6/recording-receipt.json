@@ -1,0 +1,123 @@
+{
+  "format": "Continuous automated browser interaction, local fictional sandbox",
+  "source_base_sha": "3ae216e005b9625a9bc68e4bbf082d86dec7e53b",
+  "app_page_sha256": "5f7b5341af2ece45b251dfb343fbac76386b316d0006959c96930ce4a2990fd2",
+  "created_utc": "2026-10-02T09:46:25Z",
+  "hosted_acceptance": false,
+  "real_account_isolation": false,
+  "human_operator": false,
+  "financial_resolutions": 0,
+  "narration": "Spanish timed captions, no voice track",
+  "video_edits": "None in raw WebM; any MP4 is a single-input transcode without cuts or speedup",
+  "steps": [
+    {
+      "at_seconds": 1.708,
+      "caption": "Reclama: recepción de disputas ES/PT.\nGrabación continua automatizada, local y con datos ficticios."
+    },
+    {
+      "at_seconds": 9.034,
+      "caption": "Inicio simulado de desarrollo.\nEsto no acredita el login de la demo alojada."
+    },
+    {
+      "at_seconds": 17.403,
+      "caption": "Dos compras parecidas no prueban duplicidad.\nLa app pide elegir: no registra un caso automáticamente."
+    },
+    {
+      "at_seconds": 24.89,
+      "caption": "La persona elige el movimiento exacto y el motivo.\nSu declaración se conserva como relato, no como hecho probado."
+    },
+    {
+      "at_seconds": 31.009,
+      "caption": "Hechos, relato y preguntas pendientes están separados.\nEl envío exige consentimiento explícito."
+    },
+    {
+      "at_seconds": 37.326,
+      "caption": "Expediente recibido para revisión humana.\nNo hay decisión de fraude ni reembolso."
+    },
+    {
+      "at_seconds": 45.26,
+      "caption": "Recargo el navegador y recupero el mismo expediente.\nPersistencia local observada, no aceptación alojada."
+    },
+    {
+      "at_seconds": 53.656,
+      "caption": "El revisor simulado añade una nota y el caso pasa a versión 2.\nLa auditoría conserva recepción y actualización."
+    },
+    {
+      "at_seconds": 66.965,
+      "caption": "Em português: a compra está revertida.\nO sistema prepara suporte, sem prometer reembolso."
+    },
+    {
+      "at_seconds": 74.5,
+      "caption": "Fallo provocado del sandbox: se guardó, pero se perdió la respuesta.\nRepetimos la misma solicitud, sin cambiar su identidad."
+    },
+    {
+      "at_seconds": 80.609,
+      "caption": "Resposta recuperada: um único expediente de suporte.\nEl retry recupera el caso existente; no crea otro."
+    },
+    {
+      "at_seconds": 88.577,
+      "caption": "Relectura y auditoría del handoff portugués tras recarga.\nLa revisión financiera sigue pendiente."
+    },
+    {
+      "at_seconds": 95.46,
+      "caption": "El clasificador sólo orienta y sigue congelado.\nSu experimento sintético no es validación independiente."
+    },
+    {
+      "at_seconds": 101.462,
+      "caption": "Demo local comprobada; faltan login alojado y dos cuentas reales.\nCosto total desconocido. Sin fondos ni resoluciones financieras."
+    }
+  ],
+  "checks": [
+    {
+      "name": "ambiguity returns two candidates without selecting",
+      "passed": true
+    },
+    {
+      "name": "consent starts unchecked",
+      "passed": true
+    },
+    {
+      "name": "ES intake persisted",
+      "passed": true
+    },
+    {
+      "name": "ES case survives local browser reload",
+      "passed": true
+    },
+    {
+      "name": "review advances case version",
+      "passed": true
+    },
+    {
+      "name": "Portuguese message processed",
+      "passed": true
+    },
+    {
+      "name": "explicit simulated response loss",
+      "passed": true
+    },
+    {
+      "name": "retry recovers persisted PT handoff",
+      "passed": true
+    },
+    {
+      "name": "PT readback after reload has one case and receipt",
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "case_es": {
+    "id": "RC-1C5D2366",
+    "kind": "dispute_intake",
+    "status": "received",
+    "version": 1
+  },
+  "case_pt": {
+    "id": "RC-B495D939",
+    "kind": "support_handoff",
+    "status": "received",
+    "version": 1
+  },
+  "interaction_wall_seconds": 107.466,
+  "raw_video_filename": "fedbc086ea04ba034347a0605b15bb0a.webm"
+}

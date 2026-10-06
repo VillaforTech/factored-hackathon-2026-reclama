@@ -1,0 +1,126 @@
+{
+  "format": "Continuous automated browser interaction, local fictional sandbox",
+  "source_base_sha": "bea69a5cb4d924f474526354bb96fb7ad3a8ee89",
+  "app_page_sha256": "5f7b5341af2ece45b251dfb343fbac76386b316d0006959c96930ce4a2990fd2",
+  "created_utc": "2026-10-05T04:11:08Z",
+  "hosted_acceptance": false,
+  "real_account_isolation": false,
+  "human_operator": false,
+  "financial_resolutions": 0,
+  "narration": "None. Rehearsal only; no video or audio produced.",
+  "video_edits": "No media recording.",
+  "steps": [
+    {
+      "at_seconds": 4.307,
+      "caption": "Reclama: recepción de disputas ES/PT.\nGrabación continua automatizada, local y con datos ficticios."
+    },
+    {
+      "at_seconds": 6.041,
+      "caption": "Inicio simulado de desarrollo.\nEsto no acredita el login de la demo alojada."
+    },
+    {
+      "at_seconds": 9.405,
+      "caption": "Dos compras parecidas no prueban duplicidad.\nLa app pide elegir: no registra un caso automáticamente."
+    },
+    {
+      "at_seconds": 11.411,
+      "caption": "Elegimos la compra exacta y el motivo.\nEl relato no es un hecho verificado."
+    },
+    {
+      "at_seconds": 12.1,
+      "caption": "Hechos, relato y preguntas pendientes están separados.\nEl envío exige consentimiento explícito."
+    },
+    {
+      "at_seconds": 13.034,
+      "caption": "Expediente recibido para revisión humana.\nNo hay decisión de fraude ni reembolso."
+    },
+    {
+      "at_seconds": 15.642,
+      "caption": "Recargo el navegador y recupero el mismo expediente.\nPersistencia local observada, no aceptación alojada."
+    },
+    {
+      "at_seconds": 18.326,
+      "caption": "El revisor simulado añade una nota y el caso pasa a versión 2.\nLa auditoría conserva recepción y actualización."
+    },
+    {
+      "at_seconds": 26.206,
+      "caption": "Em português: a compra está revertida.\nO sistema prepara suporte, sem prometer reembolso."
+    },
+    {
+      "at_seconds": 28.282,
+      "caption": "Fallo simulado: caso guardado, respuesta perdida.\nReintentamos la misma solicitud."
+    },
+    {
+      "at_seconds": 28.954,
+      "caption": "Resposta recuperada: um único expediente de suporte.\nEl retry recupera el caso existente; no crea otro."
+    },
+    {
+      "at_seconds": 32.555,
+      "caption": "Relectura y auditoría del handoff portugués tras recarga.\nLa revisión financiera sigue pendiente."
+    },
+    {
+      "at_seconds": 34.187,
+      "caption": "El modelo sólo orienta y sigue congelado.\nSu experimento no es validación independiente."
+    },
+    {
+      "at_seconds": 34.301,
+      "caption": "Faltan login alojado y prueba de dos cuentas reales.\nSin resolución financiera; costo total desconocido."
+    }
+  ],
+  "checks": [
+    {
+      "name": "ambiguity returns two candidates without selecting",
+      "passed": true
+    },
+    {
+      "name": "consent starts unchecked",
+      "passed": true
+    },
+    {
+      "name": "ES intake persisted",
+      "passed": true
+    },
+    {
+      "name": "ES case survives local browser reload",
+      "passed": true
+    },
+    {
+      "name": "review advances case version",
+      "passed": true
+    },
+    {
+      "name": "Portuguese message processed",
+      "passed": true
+    },
+    {
+      "name": "explicit simulated response loss",
+      "passed": true
+    },
+    {
+      "name": "retry recovers persisted PT handoff",
+      "passed": true
+    },
+    {
+      "name": "PT readback after reload has one case and receipt",
+      "passed": true
+    },
+    {
+      "name": "mobile no horizontal overflow",
+      "passed": true
+    }
+  ],
+  "status": "passed",
+  "case_es": {
+    "id": "RC-C635727D",
+    "kind": "dispute_intake",
+    "status": "received",
+    "version": 1
+  },
+  "case_pt": {
+    "id": "RC-E6067337",
+    "kind": "support_handoff",
+    "status": "received",
+    "version": 1
+  },
+  "interaction_wall_seconds": 34.656
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-10-02T10:37:26.188897+00:00",
+  "status": "private_review_not_submitted",
+  "capture": "Actual continuous Playwright Chromium viewport recording of UI actions against loopback; invented fixtures only",
+  "source_base_sha": "3ae216e005b9625a9bc68e4bbf082d86dec7e53b",
+  "app_page_sha256": "5f7b5341af2ece45b251dfb343fbac76386b316d0006959c96930ce4a2990fd2",
+  "recording_script": "tests/record-local-demo.py",
+  "recording_script_sha256": "7cf91ad473b1a64f8c05e9dd4b2cddfdf43bb874cbf2c21b6f190656fd2a9e69",
+  "raw_webm_sha256": "796621510cd0bf37e7d098bc9d04cd00dc9cc74089ea8c1e7068d06e4a549062",
+  "raw_webm_kept_local": true,
+  "video": {
+    "path": "docs/video/interactive-v6/Reclama_demo_local_v6_interactive.mp4",
+    "sha256": "7199c1ea7ca561f1def80b64ffd993bb0917fd4e2e191e7db8fd5c187b1c762e",
+    "bytes": 6845610,
+    "duration_seconds": 107.32,
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1440,
+        "height": 1000,
+        "r_frame_rate": "25/1",
+        "duration": "107.320000",
+        "nb_frames": "2683"
+      },
+      {
+        "codec_name": "mov_text",
+        "codec_type": "subtitle",
+        "r_frame_rate": "0/0",
+        "duration": "107.320000",
+        "nb_frames": "29"
+      }
+    ]
+  },
+  "subtitles": {
+    "path": "docs/video/interactive-v6/Reclama_demo_local_v6_interactive.srt",
+    "sha256": "918874ab8e94a9e9a521b88ad219588c9eb432665832c9050d0b4cbcd20dc0c4",
+    "cue_count": 14,
+    "external_embedded_cues_match": true,
+    "max_characters_per_second": 17.58,
+    "selectable_default_track": true,
+    "burned_into_picture": false
+  },
+  "narration": "Timed text only; no voice or audio track",
+  "processing": {
+    "single_video_input": true,
+    "cuts": 0,
+    "speed_multiplier": 1,
+    "inserted_still_images": 0,
+    "post_capture_changes": "H264 transcode; four captions shortened for readability; final caption clamped to video duration. Picture stream unchanged during subtitle remux."
+  },
+  "verification": {
+    "full_decode": "passed",
+    "browser_checks": {
+      "passed": 9,
+      "total": 9
+    },
+    "visual_review_by_assistant": {
+      "whole_sequence_sampled": true,
+      "sample_interval_seconds": 3,
+      "sequence_samples": 36,
+      "full_size_details_seconds": [
+        32,
+        55,
+        76,
+        89
+      ],
+      "earlier_overview_samples": 8,
+      "frame_by_frame_review": false,
+      "findings_requiring_rerecording": 0
+    },
+    "hosted_login": false,
+    "real_account_isolation": false,
+    "human_pt_review": false,
+    "human_audio_review": "not applicable: no audio track"
+  },
+  "take_history": [
+    {
+      "take": 1,
+      "result": "automation locator failure after local reload; tab label gained count suffix; not an app persistence failure; excluded from final video"
+    },
+    {
+      "take": 2,
+      "result": "9/9 checks passed; full continuous take used"
+    }
+  ],
+  "limits": [
+    "Local sandbox only, not normal hosted login or two-account acceptance.",
+    "One prepared walkthrough is software QA, not a representative banking benchmark.",
+    "No money movement, refunds or fraud adjudication.",
+    "Total cost unknown. Frozen authored model experiment is not independent validation."
+  ]
+}

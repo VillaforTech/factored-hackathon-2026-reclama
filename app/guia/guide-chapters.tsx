@@ -7,81 +7,85 @@ export function DataChapter() {
   const [join, setJoin] = useState<string | null>(null);
   return (
     <Section
-      eyebrow="03 / Evidencia de origen"
-      title="Tres conjuntos de datos. Tres propósitos distintos."
-      intro="No entrenamos la IA con los movimientos que ves en pantalla. Tampoco convertimos las quejas históricas en expedientes de la demo."
+      eyebrow="03 / Source evidence"
+      title="Three datasets. Three different purposes."
+      intro="The AI is not trained on the transactions shown in the app. Historical complaints are not converted into demo cases."
     >
       <div className="guide-grid three">
         <article>
-          <span className="guide-label">Investigación</span>
-          <h3>Dataset oficial</h3>
+          <span className="guide-label"> Research </span>
+          <h3> Official dataset </h3>
           <p>
-            Sirvió para perfilar relaciones, detectar problemas y decidir qué
-            información podía sostener un flujo.
+            {" "}
+            Used to profile relationships, identify problems and decide which
+            information could support a workflow.{" "}
           </p>
         </article>
         <article>
-          <span className="guide-label">Producto</span>
-          <h3>Fixture inventado</h3>
+          <span className="guide-label"> Product </span>
+          <h3> Invented fixtures </h3>
           <p>
-            Ana, Lucas, tres tarjetas y doce transacciones creadas desde cero
-            permiten repetir la demo sin distribuir filas originales.
+            {" "}
+            Ana, Lucas, three cards and twelve transactions created from scratch
+            make the demo repeatable without distributing original rows.{" "}
           </p>
         </article>
         <article>
-          <span className="guide-label">Aprendizaje</span>
-          <h3>Conversaciones ES/PT</h3>
+          <span className="guide-label"> Learning </span>
+          <h3> ES/PT conversations </h3>
           <p>
-            Mensajes sintéticos separados para entrenar, seleccionar y medir
-            intención. No son conversaciones bancarias reales.
+            {" "}
+            Separate synthetic messages for training, selection and intent
+            measurement. They are not real bank conversations.{" "}
           </p>
         </article>
       </div>
-      <h3>Cómo investigamos</h3>
+      <h3> How we investigated </h3>
       <p>
-        Se inspeccionaron 50 archivos: las dimensiones completas de 150.000
-        clientes y 400.000 productos, más doce cortes temporales de
-        transacciones, quejas, interacciones y transcripciones. También
-        analizamos el subconjunto de productos de tarjeta. No se procesaron las
-        aproximadamente 19 millones de filas del conjunto completo.
+        {" "}
+        We inspected 50 files: complete dimensions of 150,000 customers and
+        400,000 products, plus twelve time cuts of transactions, complaints,
+        interactions and transcripts. We also examined the card-product subset.
+        We did not process the roughly 19 million rows in the full dataset.{" "}
       </p>
       <div
         className="guide-table-wrap"
         tabIndex={0}
         role="region"
-        aria-label="Observaciones del dataset"
+        aria-label="Dataset observations"
       >
         <table>
           <caption>
-            Observaciones de nuestra muestra, no de toda la población
+            {" "}
+            Observations from our sample, not the full population{" "}
           </caption>
           <thead>
             <tr>
-              <th>Observación</th>
-              <th>Consecuencia</th>
+              <th> Observation </th>
+              <th> Consequence </th>
             </tr>
           </thead>
           <tbody>
             {[
               [
-                "48.810 transacciones con propietario y moneda coherentes",
-                "Se puede comprobar la relación antes de utilizar una compra.",
+                "48,810 transactions with consistent owner and currency",
+                "The relationship can be checked before using a purchase.",
               ],
               [
-                "10.903 compras de tarjeta aprobadas; 531 sin comercio",
-                "Un comercio desconocido permanece desconocido.",
+                "10,903 approved card purchases; 531 without a merchant",
+                "An unknown merchant remains unknown.",
               ],
               [
-                "448/448 relaciones queja→producto con distinto propietario",
-                "Se pone en cuarentena la relación: existir no equivale a pertenecer.",
+                "448/448 complaint-to-product links with mismatched owners",
+                "Quarantine the relationship: existence does not establish ownership.",
               ],
               [
-                "1.748 transcripciones; 42 textos de cliente distintos, todos con «saldo»",
-                "No sostienen un corpus variado de disputas ni aportan portugués observado.",
+                "1,748 transcripts; 42 distinct customer texts, all containing “saldo” (balance)",
+                "They do not support a varied dispute corpus or provide observed Portuguese examples.",
               ],
               [
-                "12.268 fechas de proceso anteriores al día del evento",
-                "La fecha de carga no se interpreta como evidencia de disponibilidad temporal.",
+                "12,268 processing dates earlier than the event day",
+                "The load date is not interpreted as evidence of temporal availability.",
               ],
             ].map(([a, b]) => (
               <tr key={a}>
@@ -93,29 +97,33 @@ export function DataChapter() {
         </table>
       </div>
       <Note kind="limit">
-        La selección de cortes es temporal, no aleatoria: no estima prevalencia
-        bancaria. Las anomalías invalidan una unión o una interpretación; no
-        demuestran que toda una queja sea falsa. Las dimensiones estáticas
-        tampoco reconstruyen por sí solas la titularidad histórica.
+        {" "}
+        Time cuts are not a random sample and do not estimate banking
+        prevalence. Anomalies invalidate a join or interpretation; they do not
+        prove an entire complaint false. Static dimensions alone cannot
+        reconstruct historical ownership.{" "}
       </Note>
       <div className="guide-lab">
         <span className="guide-label">
-          Prueba de criterio · ejemplo inventado
+          {" "}
+          Judgment exercise · invented example{" "}
         </span>
-        <h3>El producto existe. ¿La unión es válida?</h3>
+        <h3> The product exists. Is the join valid? </h3>
         <div className="guide-code-pair">
-          <code>queja: cliente_A → producto_7</code>
-          <code>producto_7 → propietario cliente_B</code>
+          <code> complaint: customer_A → product_7 </code>
+          <code> product_7 → owner customer_B </code>
         </div>
         <div className="guide-segment">
           <button aria-pressed={join === "id"} onClick={() => setJoin("id")}>
-            Sí: el ID existe
+            {" "}
+            Yes: the ID exists{" "}
           </button>
           <button
             aria-pressed={join === "owner"}
             onClick={() => setJoin("owner")}
           >
-            No: el titular no coincide
+            {" "}
+            No: the owner differs{" "}
           </button>
         </div>
         {join && (
@@ -124,111 +132,119 @@ export function DataChapter() {
             role="status"
           >
             {join === "owner"
-              ? "Exacto. La clave foránea pasa, pero la propiedad falla. Esa evidencia no puede entrar al expediente de cliente_A."
-              : "Encontrar el producto solo comprueba existencia. Falta comprobar que pertenece al cliente de la queja."}
+              ? "Correct. The foreign key passes, but ownership fails. This evidence cannot enter customer_A's case."
+              : "Finding the product only establishes existence. We still need to verify that it belongs to the complainant."}
           </p>
         )}
       </div>
-      <h3>Por qué inventamos doce movimientos</h3>
+      <h3> Why we invented twelve transactions </h3>
       <ul>
         <li>
-          Dos compras de Luna Digital por USD 84,90, separadas por siete
-          minutos, obligan a desambiguar.
+          {" "}
+          Two Luna Digital purchases for USD 84.90, seven minutes apart, force
+          disambiguation.{" "}
         </li>
         <li>
-          Approved, Pending, Reversed y Declined obligan a distinguir estados.
+          {" "}
+          Approved, Pending, Reversed and Declined require different state
+          handling.{" "}
         </li>
         <li>
-          Comercio ausente y monedas USD/COP/ARS obligan a respetar la fuente.
-          El idioma no determina la moneda.
+          {" "}
+          Missing merchants and USD/COP/ARS currencies require fidelity to the
+          source. Language does not determine currency.{" "}
         </li>
         <li>
-          Un snapshot fijo al 17 de junio de 2026, sourceVersion y sourceRef
-          permiten identificar qué evidencia se mostró.
+          {" "}
+          A fixed 17 June 2026 snapshot, sourceVersion and sourceRef identify
+          the evidence shown.{" "}
         </li>
       </ul>
-      <Detail title="Dinero, procedencia y privacidad">
+      <Detail title="Money, provenance and privacy">
         <p>
-          USD 84,90 se almacena como <code>amountMinor: 8490</code> y{" "}
-          <code>currency: USD</code>. Son unidades menores enteras; no se
-          almacena dinero como aproximaciones decimales ni se convierte moneda
-          automáticamente.
+          {" "}
+          USD 84.90 is stored as <code>amountMinor: 8490</code> and{" "}
+          <code>currency: USD</code> . Values are integer minor units; money is
+          not stored as approximate decimals and currencies are not converted
+          automatically.{" "}
         </p>
         <p>
-          Ninguna fila, identificador, importe o comercio del fixture se copió
-          de los originales. El origen sintético del dataset no se tomó como
-          licencia automática para redistribuirlo. Los CSV privados y el
-          documento de acceso quedan fuera del repositorio.
-        </p>
-      </Detail>
-      <Detail title="Proceso reproducible de datos">
-        <p>
-          Inventario autorizado → muestra temporal → tipos y esquema →
-          existencia, propietario y moneda → perfil de anomalías → cuarentena de
-          relaciones inválidas → informe agregado. El fixture posterior prueba
-          esos contratos, pero no representa usuarios reales.
+          {" "}
+          No fixture row, identifier, amount or merchant was copied from the
+          originals. A synthetic dataset was not treated as automatic permission
+          to redistribute it. Private CSVs and the access document stay outside
+          the repository.{" "}
         </p>
       </Detail>
-      <Source path="data-pipeline/data-card.md" label="Tarjeta de datos" />
-      <Source path="data-pipeline/report.json" label="Perfil agregado" />
+      <Detail title="Reproducible data process">
+        <p>
+          {" "}
+          Authorized inventory → time sample → types and schema → existence,
+          owner and currency → anomaly profile → quarantine invalid
+          relationships → aggregate report. The later fixtures test those
+          contracts but do not represent real users.{" "}
+        </p>
+      </Detail>
+      <Source path="data-pipeline/data-card.md" label="Data card" />
+      <Source path="data-pipeline/report.json" label="Aggregate profile" />
     </Section>
   );
 }
 
 const flow = [
   [
-    "Entrar",
-    "Cuenta de plataforma",
-    "Sites/ChatGPT proporciona la identidad real. El cuerpo de la petición no puede elegir al propietario.",
-    "Sin identidad: SIGN_IN_REQUIRED.",
+    "Sign in",
+    "Platform account",
+    "Sites/ChatGPT supplies the real identity. The request body cannot choose the owner.",
+    "Without identity: SIGN_IN_REQUIRED.",
   ],
   [
-    "Abrir sandbox",
-    "Sesión de 30 minutos",
-    "Se elige Ana o Lucas y un rol de demostración. El servidor devuelve una cookie opaca.",
-    "La persona ficticia y la cuenta real son distintas.",
+    "Open sandbox",
+    "30-minute session",
+    "Choose Ana or Lucas and a demo role. The server returns an opaque cookie.",
+    "The fictional persona and real account are different.",
   ],
   [
-    "Encontrar la compra",
-    "Búsqueda + hipótesis",
-    "El mensaje produce intención orientativa y candidatos por importe, comercio, moneda, tarjeta y fecha.",
-    "Ni un candidato único se selecciona automáticamente.",
+    "Find the purchase",
+    "Search + hypothesis",
+    "The message produces advisory intent and candidates by amount, merchant, currency, card and date.",
+    "Even a single candidate is never selected automatically.",
   ],
   [
-    "Elegir y documentar",
-    "Decisión del cliente",
-    "La persona selecciona transacción y motivo; escribe el relato o copia literalmente su mensaje.",
-    "La declaración no se convierte en hecho comprobado.",
+    "Select and document",
+    "Customer decision",
+    "The customer selects the transaction and reason, then writes a statement or copies their message verbatim.",
+    "A statement does not become a verified fact.",
   ],
   [
-    "Preparar",
-    "Borrador de 10 minutos",
-    "El servidor guarda el resumen, la huella de la compra y un token ligado a la sesión. Para corregir, se prepara otro.",
-    "Todavía no existe un caso presentado.",
+    "Prepare",
+    "10-minute draft",
+    "The server stores the summary, purchase fingerprint and session-bound token. Corrections require a new draft.",
+    "No submitted case exists yet.",
   ],
   [
-    "Confirmar",
-    "Consentimiento específico",
-    "El cliente revisa hechos, relato y preguntas pendientes; confirma el borrador, su token y una clave de idempotencia.",
-    "No envía un importe editable que sustituya la fuente.",
+    "Confirm",
+    "Specific consent",
+    "The customer reviews facts, statement and open questions; confirms the draft and token with an idempotency key.",
+    "No editable amount replaces the source value.",
   ],
   [
-    "Guardar y verificar",
-    "Caso persistente",
-    "Se revalidan sesión, propiedad, caducidad, fuente y repetición. Se inserta el caso con auditoría y se lee lo guardado.",
-    "El comprobante se devuelve después de persistir.",
+    "Save and verify",
+    "Persistent case",
+    "Session, ownership, expiry, source and replay are checked again. The case and audit are inserted, then the saved record is read back.",
+    "The receipt is returned after persistence.",
   ],
   [
-    "Revisar",
-    "Handoff humano",
-    "Un revisor del sandbox añade una nota y marca «en revisión» o «falta información» con control de versión.",
-    "Ningún estado confirma fraude ni concede reembolso.",
+    "Review",
+    "Human handoff",
+    "A sandbox reviewer adds a note and marks “under review” or “more information needed” using version checks.",
+    "No status confirms fraud or grants a refund.",
   ],
   [
-    "Recuperar",
-    "Continuidad",
-    "Al reabrir el recorrido se recuperan casos y eventos. Un recorrido nuevo conserva los anteriores.",
-    "El chat en memoria no es un historial persistente completo.",
+    "Recover",
+    "Continuity",
+    "Reopening a run retrieves its cases and events. A new run preserves previous runs.",
+    "In-memory chat is not a complete persistent history.",
   ],
 ];
 export function WorkflowChapter() {
@@ -239,15 +255,11 @@ export function WorkflowChapter() {
   const dispute = status === "Approved" && reason === "unrecognized";
   return (
     <Section
-      eyebrow="04 / El recorrido"
-      title="Sigue una solicitud de principio a fin."
-      intro="Avanza o elige un paso. Cada uno combina una decisión humana con una comprobación concreta del sistema."
+      eyebrow="04 / Workflow"
+      title="Follow a request from start to finish."
+      intro="Advance or select a step. Each combines a human decision with a concrete system check."
     >
-      <div
-        className="guide-flowsteps"
-        role="group"
-        aria-label="Pasos de una solicitud"
-      >
+      <div className="guide-flowsteps" role="group" aria-label="Request stages">
         {flow.map((s, i) => (
           <button
             key={s[0]}
@@ -261,7 +273,8 @@ export function WorkflowChapter() {
       </div>
       <div className="guide-flowcard" aria-live="polite">
         <span className="guide-label">
-          Paso {step + 1} · {c[1]}
+          {" "}
+          Step {step + 1} · {c[1]}
         </span>
         <h3>{c[0]}</h3>
         <p>{c[2]}</p>
@@ -271,21 +284,22 @@ export function WorkflowChapter() {
         </div>
         <div className="guide-inline-actions">
           <button disabled={step === 0} onClick={() => setStep(step - 1)}>
-            Paso anterior
+            {" "}
+            Previous step{" "}
           </button>
           <button disabled={step === 8} onClick={() => setStep(step + 1)}>
-            Paso siguiente
+            {" "}
+            Next step{" "}
           </button>
         </div>
       </div>
       <div className="guide-lab">
-        <span className="guide-label">
-          Regla del prototipo · sin guardar datos
-        </span>
-        <h3>¿Qué tipo de expediente se recibe?</h3>
+        <span className="guide-label"> Prototype rule · no data saved </span>
+        <h3> Which kind of case is received? </h3>
         <div className="guide-controls">
           <label>
-            Estado de la transacción
+            {" "}
+            Transaction state{" "}
             <select value={status} onChange={(e) => setStatus(e.target.value)}>
               {["Approved", "Pending", "Reversed", "Declined"].map((x) => (
                 <option key={x}>{x}</option>
@@ -293,131 +307,129 @@ export function WorkflowChapter() {
             </select>
           </label>
           <label>
-            Motivo confirmado
+            {" "}
+            Confirmed reason{" "}
             <select value={reason} onChange={(e) => setReason(e.target.value)}>
-              <option value="unrecognized">Cargo no reconocido</option>
-              <option value="duplicate">Posible duplicado</option>
-              <option value="merchant_issue">Problema con el comercio</option>
-              <option value="other">Necesito revisión</option>
+              <option value="unrecognized"> Unrecognized charge </option>
+              <option value="duplicate"> Possible duplicate </option>
+              <option value="merchant_issue"> Merchant issue </option>
+              <option value="other"> Review needed </option>
             </select>
           </label>
         </div>
         <div className="guide-lab-result" role="status">
-          <span className="guide-label">Resultado simulado</span>
-          <strong>
-            {dispute ? "Recepción de disputa" : "Solicitud de soporte"}
-          </strong>
+          <span className="guide-label"> Simulated result </span>
+          <strong>{dispute ? "Dispute intake" : "Support request"}</strong>
           <p>
             {dispute
-              ? "La compra está registrada y el cliente confirma que no la reconoce. Se recibe una solicitud para revisión humana."
-              : "Esta combinación se deriva a soporte. No se cambia el estado del movimiento ni se presenta como una disputa adjudicada."}
+              ? "The purchase is recorded and the customer confirms they do not recognize it. A request is received for human review."
+              : "This combination goes to support. The transaction state does not change and no dispute is adjudicated."}
           </p>
           <code>{dispute ? "dispute_intake" : "support_handoff"}</code>
         </div>
       </div>
       <Note>
-        Esta bifurcación es una regla explícita del sandbox, no una política
-        bancaria verificada, un plazo legal ni una regla de una red de tarjetas.
+        {" "}
+        This branch is an explicit sandbox rule, not verified banking policy, a
+        legal deadline or a card-network rule.{" "}
       </Note>
-      <Detail title="Qué queda guardado y qué no">
+      <Detail title="What is saved and what is not">
         <p>
-          Se guardan sesiones, recorridos, borradores, casos, auditoría y
-          métricas instrumentadas. El relato confirmado y una copia de los
-          hechos quedan en el caso. Los mensajes del chat viven en React:
-          recargar no reconstruye la conversación completa. Cambiar ES/PT
-          conserva el formulario durante la sesión.
+          {" "}
+          Sessions, runs, drafts, cases, audit and instrumented metrics are
+          stored. The confirmed statement and a copy of the facts remain in the
+          case. Chat messages live in React: reloading does not restore the full
+          conversation. Switching ES/PT preserves the form during the
+          session.{" "}
         </p>
       </Detail>
-      <Source
-        path="lib/server/domain.ts"
-        label="Regla de recepción frente a soporte"
-      />
-      <Source path="lib/server/api.ts" label="Ciclo de operaciones" />
+      <Source path="lib/server/domain.ts" label="Intake versus support rule" />
+      <Source path="lib/server/api.ts" label="Operation lifecycle" />
     </Section>
   );
 }
 
 const modules = [
   [
-    "Interfaz",
+    "Interface",
     "app/page.tsx",
     "React + TypeScript",
-    "Mantiene conversación, selección, formulario y revisión. Muestra hechos y alegaciones por separado; no decide permisos.",
-    "Una sola aplicación comparte la lógica de operaciones ES/PT y facilita demostrar ambos lados.",
+    "Maintains conversation, selection, form and review. Displays facts and allegations separately; does not decide permissions.",
+    "One application shares ES/PT operation logic and makes both sides demonstrable.",
   ],
   [
-    "Identidad y sesión",
+    "Identity and session",
     "app/chatgpt-auth.ts",
-    "Sites + sesión propia",
-    "La plataforma aporta la cuenta real. El servidor deriva el espacio del propietario y liga la cookie a persona, rol, recorrido y caducidad.",
-    "Reutiliza el acceso de Sites; otro hosting necesita su propia integración de identidad comprobada.",
+    "Sites + application session",
+    "The platform supplies the real account. The server derives the owner's workspace and binds the cookie to persona, role, run and expiry.",
+    "Reuses Sites access; another host needs its own verified identity integration.",
   ],
   [
-    "API y contratos",
+    "API and contracts",
     "lib/server/api.ts",
     "Cloudflare Worker + Zod",
-    "Valida JSON estricto, origen, tamaño, sesión, rol, propietario, consentimiento y versión. SQL parametrizado.",
-    "Las reglas críticas se comprueban aunque alguien modifique la interfaz.",
+    "Validates strict JSON, origin, size, session, role, owner, consent and version. Uses parameterized SQL.",
+    "Critical rules are checked even if someone changes the interface.",
   ],
   [
-    "Modelo de intención",
+    "Intent model",
     "lib/server/model.ts",
-    "TF-IDF + regresión logística",
-    "Sugiere una de ocho intenciones; no autoriza operaciones y no estima riesgo de fraude.",
-    "Inferencia dentro del Worker, sin proveedor de modelos externo en runtime.",
+    "TF-IDF + logistic regression",
+    "Suggests one of eight intents; neither authorizes operations nor estimates fraud risk.",
+    "Inference runs inside the Worker without an external model provider at runtime.",
   ],
   [
-    "Asistente contextual",
+    "Contextual assistant",
     "lib/assistant.ts",
-    "Búsqueda determinista",
-    "Cruza importe, moneda, comercio, tarjeta y fecha con transacciones propias. Explica ambigüedad, ausencia y conflictos.",
-    "Candidatos verificables separados de la etiqueta aprendida y de la selección del cliente.",
+    "Deterministic search",
+    "Matches amount, currency, merchant, card and date against owned transactions. Explains ambiguity, absence and conflicts.",
+    "Verifiable candidates remain separate from the learned label and customer selection.",
   ],
   [
-    "Fuente de demo",
+    "Demo source",
     "lib/data/demo.json",
-    "Snapshot inventado",
-    "Dos personas, tres tarjetas y doce movimientos con corte, versión y referencias; no son datos vivos.",
-    "Escenarios repetibles sin publicar registros originales.",
+    "Invented snapshot",
+    "Two personas, three cards and twelve transactions with cutoff, version and references; these are not live data.",
+    "Repeatable scenarios without publishing original records.",
   ],
   [
-    "Persistencia y auditoría",
+    "Persistence and audit",
     "db/schema.ts",
     "D1 / SQLite",
-    "Guarda borradores y casos. Índices únicos evitan duplicados; triggers registran cambios en la misma operación.",
-    "Base relacional pequeña y observable; no es un ledger bancario ni auditoría criptográfica.",
+    "Stores drafts and cases. Unique indexes prevent duplicates; triggers record changes within the same operation.",
+    "A small, observable relational database; not a banking ledger or cryptographic audit.",
   ],
 ];
 const endpoints = [
-  ["GET /api/runs", "Recorridos de la cuenta"],
-  ["POST /api/runs", "Nuevo recorrido y sesión; máximo 50 adicionales"],
-  ["POST /api/session", "Abrir persona/rol en recorrido propio"],
-  ["GET /api/session", "Contexto vigente y snapshot"],
-  ["PATCH /api/session", "Cambiar solo idioma"],
-  ["GET /api/transactions", "Movimientos propios; rol cliente"],
-  ["POST /api/message", "Hipótesis y candidatos"],
-  ["POST /api/drafts", "Preparar resumen validado"],
-  ["POST /api/cases", "Confirmar y persistir"],
-  ["GET /api/cases", "Casos autorizados"],
-  ["GET /api/cases/:id", "Detalle e historial autorizado"],
-  ["PATCH /api/cases/:id", "Revisión con nota y versión"],
-  ["POST /api/demo/fault", "Expiración o respuesta perdida simuladas"],
-  ["GET /api/metrics", "Hasta 200 operaciones instrumentadas del recorrido"],
+  ["GET /api/runs", "Account runs"],
+  ["POST /api/runs", "New run and session; at most 50 additional runs"],
+  ["POST /api/session", "Open persona/role in an owned run"],
+  ["GET /api/session", "Current context and snapshot"],
+  ["PATCH /api/session", "Change language only"],
+  ["GET /api/transactions", "Owned transactions; customer role"],
+  ["POST /api/message", "Hypothesis and candidates"],
+  ["POST /api/drafts", "Prepare validated summary"],
+  ["POST /api/cases", "Confirm and persist"],
+  ["GET /api/cases", "Authorized cases"],
+  ["GET /api/cases/:id", "Authorized detail and history"],
+  ["PATCH /api/cases/:id", "Review with note and version"],
+  ["POST /api/demo/fault", "Simulated expiry or lost response"],
+  ["GET /api/metrics", "Up to 200 instrumented operations in the run"],
 ];
 export function ArchitectureChapter() {
   const [node, setNode] = useState(0);
   const m = modules[node];
   return (
     <Section
-      eyebrow="05 / Arquitectura"
-      title="La IA propone. El servidor controla. La base conserva."
-      intro="Selecciona una pieza para ver su responsabilidad, su límite y el código que la implementa."
+      eyebrow="05 / Architecture"
+      title="AI proposes. The server controls. The database preserves."
+      intro="Select a component to see its responsibility, limits and implementation."
     >
       <div className="guide-architecture">
         <div
           className="guide-architecture-map"
           role="group"
-          aria-label="Componentes de Reclama"
+          aria-label="Reclama components"
         >
           {modules.map((m, i) => (
             <button
@@ -434,58 +446,59 @@ export function ArchitectureChapter() {
           ))}
         </div>
         <div className="guide-module" aria-live="polite">
-          <span className="guide-label">Responsabilidad</span>
+          <span className="guide-label"> Responsibility </span>
           <h3>{m[0]}</h3>
           <p>{m[3]}</p>
-          <h4>Por qué está así</h4>
+          <h4> Why this design </h4>
           <p>{m[4]}</p>
           <Source path={m[1]} />
         </div>
       </div>
-      <h3>Límites de confianza</h3>
+      <h3> Trust boundaries </h3>
       <div className="guide-pipeline">
-        <span>Navegador</span>
+        <span> Browser </span>
         <b>→</b>
-        <span>Identidad y API</span>
+        <span> Identity and API </span>
         <b>→</b>
-        <span>Contratos y consentimiento</span>
+        <span> Contracts and consent </span>
         <b>→</b>
-        <span>D1 y lectura posterior</span>
+        <span> D1 and read-after-write </span>
       </div>
       <p>
-        Al crear o modificar un caso, el servidor obtiene los importes y
-        propietarios de la fuente, y el rol autorizado de la sesión. Una
-        predicción nunca concede permisos. El inicio de sesión del sandbox sí
-        permite elegir un rol ficticio, incluido revisor, dentro del espacio
-        propio; no representa autorización de un banco real.
+        {" "}
+        When creating or updating a case, the server obtains amounts and owners
+        from the source, and the authorized role from the session. Predictions
+        never grant permissions. Sandbox sign-in allows choosing a fictional
+        role, including reviewer, within the owner&apos;s workspace; it does not
+        represent real bank authorization.{" "}
       </p>
-      <Detail title="Qué hay en las seis tablas">
+      <Detail title="Inside the six tables">
         <div
           className="guide-table-wrap"
           tabIndex={0}
           role="region"
-          aria-label="Tablas de persistencia"
+          aria-label="Persistence tables"
         >
           <table>
             <thead>
               <tr>
-                <th>Tabla</th>
-                <th>Responsabilidad</th>
+                <th> Table </th>
+                <th> Responsibility </th>
               </tr>
             </thead>
             <tbody>
               {[
+                ["sessions", "Persona, role, language, expiry and demo fault."],
+                ["demo_runs", "Run ownership and date."],
+                ["drafts", "Summary, session, token and fact fingerprint."],
                 [
-                  "sessions",
-                  "Persona, rol, idioma, vencimiento y fallo de demo.",
+                  "cases",
+                  "Statement, evidence, state, version and current note.",
                 ],
-                ["demo_runs", "Propiedad y fecha del recorrido."],
-                ["drafts", "Resumen, sesión, token y huella de los hechos."],
-                ["cases", "Relato, evidencia, estado, versión y nota actual."],
-                ["audit", "Evento, actor interno, versión, estado y fecha."],
+                ["audit", "Event, internal actor, version, state and date."],
                 [
                   "attempts",
-                  "Operación instrumentada, resultado, latencia y fecha.",
+                  "Instrumented operation, result, latency and date.",
                 ],
               ].map(([a, b]) => (
                 <tr key={a}>
@@ -499,27 +512,29 @@ export function ArchitectureChapter() {
           </table>
         </div>
         <p>
-          Las tarjetas y compras vienen del fixture versionado. D1 conserva el
-          trabajo realizado sobre ellas.
+          {" "}
+          Cards and purchases come from versioned fixtures. D1 preserves the
+          work performed on them.{" "}
         </p>
       </Detail>
-      <Detail title="Mapa completo de la API">
+      <Detail title="Complete API map">
         <p>
-          Todas las rutas exigen identidad de plataforma. El flujo necesita
-          además sesión válida; crear/listar recorridos y abrir sesión son las
-          excepciones a este segundo requisito.
+          {" "}
+          Every route requires platform identity. The workflow also requires a
+          valid session; creating/listing runs and opening a session are
+          exceptions to that second requirement.{" "}
         </p>
         <div
           className="guide-table-wrap"
           tabIndex={0}
           role="region"
-          aria-label="Operaciones de la API"
+          aria-label="API operations"
         >
           <table>
             <thead>
               <tr>
-                <th>Ruta</th>
-                <th>Propósito</th>
+                <th> Route </th>
+                <th> Purpose </th>
               </tr>
             </thead>
             <tbody>
@@ -535,24 +550,26 @@ export function ArchitectureChapter() {
           </table>
         </div>
       </Detail>
-      <Detail title="Por qué no microservicios, colas o RAG">
+      <Detail title="Why no microservices, queues or RAG">
         <p>
-          El flujo cabe en una aplicación y una base relacional. Más servicios
-          introducirían coordinación sin resolver una necesidad demostrada del
-          prototipo. Tampoco tenemos un corpus documental bancario validado que
-          justifique presentar RAG como parte del producto. Es una decisión de
-          alcance, no una afirmación de que esas técnicas sean inútiles.
+          {" "}
+          The workflow fits one application and one relational database. More
+          services would add coordination without meeting a demonstrated
+          prototype need. We also lack a validated banking document corpus that
+          would justify presenting RAG as a product capability. This is a scope
+          decision, not a claim that those techniques lack value.{" "}
         </p>
       </Detail>
       <Note kind="limit">
-        El rol revisor se elige dentro del propio sandbox para ensayar ambos
-        lados. No es autenticación de empleados ni gestión real de permisos de
-        un banco.
+        {" "}
+        The reviewer role is selected within the same sandbox to rehearse both
+        sides. It is not workforce authentication or real bank permission
+        management.{" "}
       </Note>
-      <Source path="db/schema.ts" label="Esquema" />
+      <Source path="db/schema.ts" label="Schema" />
       <Source
         path="drizzle/0000_misty_nightshade.sql"
-        label="Índices y triggers"
+        label="Indexes and triggers"
       />
     </Section>
   );
@@ -575,77 +592,83 @@ export function ModelChapter() {
   });
   return (
     <Section
-      eyebrow="06 / El componente aprendido"
-      title="Qué hace la IA, exactamente."
-      intro="En ejecución no hay un LLM generando respuestas. Hay un clasificador aprendido y, por separado, búsqueda y orientación deterministas."
+      eyebrow="06 / The learned component"
+      title="What the AI does, exactly."
+      intro="No LLM generates responses at runtime. A learned classifier operates separately from deterministic search and guidance."
     >
       <div className="guide-grid two">
         <article>
-          <span className="guide-label">Aprendido con ejemplos</span>
-          <h3>Intención del mensaje</h3>
+          <span className="guide-label"> Learned from examples </span>
+          <h3> Message intent </h3>
           <p>
-            TF-IDF convierte fragmentos de texto en números. La regresión
-            logística los combina para proponer una de ocho clases.
+            {" "}
+            TF-IDF converts text fragments into numbers. Logistic regression
+            combines them to suggest one of eight classes.{" "}
           </p>
         </article>
         <article>
-          <span className="guide-label">Programado y verificable</span>
-          <h3>Candidatos y siguiente paso</h3>
+          <span className="guide-label"> Programmed and verifiable </span>
+          <h3> Candidates and next step </h3>
           <p>
-            El asistente compara pistas como «84,90 USD» con transacciones. Un
-            score nunca concede permiso ni selecciona un cargo.
+            {" "}
+            The assistant compares clues such as “84,90 USD” against
+            transactions. A score never grants permission or selects a
+            charge.{" "}
           </p>
         </article>
       </div>
       <div className="guide-chips">
         {[
-          "Cargo no reconocido",
-          "Posible duplicado",
-          "Problema con comercio",
-          "Reembolso",
-          "Tarjeta perdida",
-          "Consulta de cuenta",
-          "Consulta de crédito",
-          "Otra / ambigua",
+          "Unrecognized charge",
+          "Possible duplicate",
+          "Merchant issue",
+          "Refund",
+          "Lost card",
+          "Account inquiry",
+          "Credit inquiry",
+          "Other / ambiguous",
         ].map((x) => (
           <span key={x}>{x}</span>
         ))}
       </div>
       <p>
-        Clasificar «reembolso» significa que el cliente lo solicita. No
-        demuestra derecho a recibirlo ni que exista una herramienta para
-        hacerlo.
+        {" "}
+        Classifying “refund” means the customer requests one. It establishes
+        neither entitlement nor an available tool to issue it.{" "}
       </p>
-      <h3>Del texto a la hipótesis</h3>
+      <h3> From text to hypothesis </h3>
       <ol className="guide-reading-list">
         <li>
-          <strong>Normalizar:</strong> Unicode, minúsculas, quitar marcas de
-          acento y extraer tokens.
+          <strong> Normalize: </strong> Unicode, lowercase, remove accent marks
+          and extract tokens.{" "}
         </li>
         <li>
-          <strong>Fragmentar:</strong> secuencias de tres, cuatro y cinco
-          caracteres de cada palabra, con espacios en los extremos.
+          <strong> Split: </strong> sequences of three, four and five characters
+          from each word, padded with spaces.{" "}
         </li>
         <li>
-          <strong>Ponderar:</strong> TF-IDF asigna peso por frecuencia y rareza
-          en entrenamiento; el vector se normaliza.
+          <strong> Weight: </strong> TF-IDF weights features by training
+          frequency and rarity; the vector is normalized.{" "}
         </li>
         <li>
-          <strong>Clasificar:</strong> pesos e interceptos aprendidos producen
-          puntuaciones; softmax las compara entre clases.
+          <strong> Classify: </strong> learned weights and intercepts produce
+          scores; softmax compares classes.{" "}
         </li>
         <li>
-          <strong>Aplicar política:</strong> los umbrales congelados deciden si
-          aceptar. En V2 no se acepta ninguna; se exige elección explícita.
+          <strong> Apply policy: </strong> frozen thresholds determine
+          acceptance. V2 accepts no prediction; explicit choice is
+          required.{" "}
         </li>
       </ol>
       <div className="guide-lab">
         <span className="guide-label">
-          Explora el extractor · no es una predicción
+          {" "}
+          Explore the extractor · not a prediction{" "}
         </span>
-        <h3>¿Qué es un n-grama de caracteres?</h3>
+        <h3> What is a character n-gram? </h3>
         <label className="guide-input-label">
-          Palabra o frase corta
+          {" "}
+          Word or short phrase{" "}
           <input
             value={word}
             maxLength={50}
@@ -653,18 +676,14 @@ export function ModelChapter() {
             spellCheck={false}
           />
         </label>
-        <div
-          className="guide-segment"
-          role="group"
-          aria-label="Tamaño del fragmento"
-        >
+        <div className="guide-segment" role="group" aria-label="Fragment size">
           {[3, 4, 5].map((n) => (
             <button
               key={n}
               aria-pressed={size === n}
               onClick={() => setSize(n)}
             >
-              {n} caracteres
+              {n} characters{" "}
             </button>
           ))}
         </div>
@@ -674,90 +693,98 @@ export function ModelChapter() {
           ))}
         </div>
         <p className="guide-small">
-          {grams.length} fragmentos; se muestran hasta 42. ␣ es un espacio. El
-          modelo real combina los tres tamaños y solo usa su vocabulario
-          aprendido. Este explorador no consulta pesos ni calcula intención; el
-          texto permanece local, sin guardarse ni enviarse.
+          {grams.length} fragments; up to 42 shown. ␣ is a space. The actual
+          model combines all three sizes and uses only its learned vocabulary.
+          This explorer does not read weights or compute intent; text stays
+          local and is neither stored nor transmitted.{" "}
         </p>
       </div>
-      <Detail title="Un poco de matemática, sin magia">
+      <Detail title="A little mathematics">
         <p>
-          Para una característica conocida:{" "}
-          <code>x = (1 + ln(repeticiones)) × IDF</code>. Se divide el vector por
-          su norma L2. Cada clase calcula{" "}
-          <code>z = intercepto + suma(peso × x)</code>. Softmax compara esos
-          valores. No se ha demostrado calibración probabilística: no es
-          «probabilidad de fraude».
+          {" "}
+          For a known feature: <code> x = (1 + ln(count)) × IDF </code> . Divide
+          the vector by its L2 norm. Each class computes{" "}
+          <code> z = intercept + sum(weight × x) </code> . Softmax compares
+          these values. Probability calibration has not been established: this
+          is not a “probability of fraud”.{" "}
         </p>
         <p>
-          El JSON exportado contiene vocabulario, IDF, pesos, interceptos y
-          política. JavaScript reproduce el cálculo de Python; no reentrena ni
-          recalcula IDF con cada mensaje.
+          {" "}
+          The exported JSON contains vocabulary, IDF, weights, intercepts and
+          policy. JavaScript reproduces the Python calculation without
+          retraining or recalculating IDF per message.{" "}
         </p>
       </Detail>
-      <h3>De reglas a V2</h3>
+      <h3> From rules to V2 </h3>
       <div className="guide-timeline">
         <article>
-          <span>Reglas</span>
+          <span> Rules </span>
           <div>
-            <h3>Un baseline real</h3>
+            <h3> A substantive baseline </h3>
             <p>
-              Patrones bilingües ponderados, señales compuestas y negación
-              explícita; no una regla trivial que siempre elige la clase
-              mayoritaria.
+              {" "}
+              Weighted bilingual patterns, combined signals and explicit
+              negation; not a trivial majority-class rule.{" "}
             </p>
           </div>
         </article>
         <article>
           <span>V1</span>
           <div>
-            <h3>Palabras y bigramas</h3>
+            <h3> Words and bigrams </h3>
             <p>
-              320 mensajes IA: 192 train, 64 validación y 64 test. El test
-              original dio 46/64 frente a 43/64 de reglas, sin mejora
-              concluyente. Una revisión de política tras ver agregados dejó el
-              experimento como exploratorio.
+              {" "}
+              320 AI-authored messages: 192 training, 64 validation and 64 test.
+              The original test scored 46/64 versus 43/64 for rules, without
+              conclusive improvement. A policy revision after viewing aggregate
+              results made this an exploratory experiment.{" "}
             </p>
           </div>
         </article>
         <article>
           <span>V2</span>
           <div>
-            <h3>Caracteres y congelación previa</h3>
+            <h3> Characters and prior freezing </h3>
             <p>
-              634 mensajes train y 128 de validación. Nueve candidatos:
-              word/char/hybrid y C=1/4/12. Ganó char, C=12 y 3.500
-              características por macro-F1 de validación. No se eligió mirando
-              el conjunto de desarrollo reservado, también creado por IA.
+              {" "}
+              634 training messages and 128 validation messages. Nine
+              candidates: word/char/hybrid with C=1/4/12. Character features,
+              C=12 and 3,500 features won on validation macro-F1. Selection did
+              not use the reserved development set, which was also
+              AI-authored.{" "}
             </p>
           </div>
         </article>
       </div>
-      <Detail title="Dónde usamos un LLM durante el desarrollo">
+      <Detail title="Where an LLM was used during development">
         <p>
-          Gemma2 9B local generó 314 mensajes conservados. Se sumaron 192 del
-          train V1 y 128 escritos/curados por IA. Se registraron 99 entradas
-          rechazadas, incluidas entradas de metadatos, por errores de
-          estructura, etiquetas, repetición o duplicación.
+          {" "}
+          Local Gemma2 9B generated 314 retained messages. These joined 192 V1
+          training messages and 128 AI-written/curated messages. We logged 99
+          rejected entries, including metadata entries, for structure, label,
+          repetition or duplication issues.{" "}
         </p>
         <p>
-          El LLM ayudó a producir datos de entrenamiento; no responde en
-          producción. No enviamos registros bancarios a un proveedor generativo.
-          Las etiquetas IA y el portugués aún requieren revisión humana.
+          {" "}
+          The LLM helped produce training data; it does not respond in
+          production. Bank records were not sent to a generative provider. AI
+          labels and Portuguese still lack human review; that review is an
+          internal recommendation.{" "}
         </p>
       </Detail>
-      <Note kind="limit" title="El gate falló y lo mantuvimos cerrado">
-        La validación exigía ≥95% de exactitud selectiva, al menos ocho «no
-        reconocido» aceptados y cero falsos aceptados de esa clase. Ninguna
-        combinación cumplió todo. V2 se abstiene siempre: muestra top-1 como
-        hipótesis, no como motivo confirmado.
+      <Note kind="limit" title="The gate failed and remains closed">
+        {" "}
+        Validation required ≥95% selective accuracy, at least eight accepted
+        “unrecognized” examples and zero false acceptances of that class. No
+        combination met all criteria. V2 always abstains: it shows top-1 as a
+        hypothesis, never a confirmed reason.{" "}
       </Note>
       <Source
         path="ml/v2/model-card.md"
-        label="Model card V2 con procedencia corregida"
+        label="V2 model card with corrected provenance"
       />
-      <Source path="ml/v2/protocol.md" label="Protocolo histórico congelado" />
-      <Source path="lib/assistant.ts" label="Componente determinista" />
+      <Source path="ml/v2/protocol.md" label="Frozen historical protocol" />
+      <Source path="lib/assistant.ts" label="Deterministic component" />
     </Section>
   );
 }
@@ -773,27 +800,28 @@ export function EvaluationChapter() {
         : [84, 102, 108];
   return (
     <Section
-      eyebrow="07 / Evaluación"
-      title="Cada resultado tiene un denominador y un límite."
-      intro="Clasificación, seguridad de una escritura y experiencia en navegador se miden por separado. Un resultado no valida automáticamente las otras capas."
+      eyebrow="07 / Evaluation"
+      title="Every result has a denominator and a limit."
+      intro="Classification, write safety and browser experience are measured separately. A result does not automatically validate other layers."
     >
-      <Note kind="limit" title="No hay validación independiente acreditada">
-        El conjunto reservado contiene 256 mensajes de autoría IA en 128
-        familias ES/PT, sin registros del organizador ni revisión humana. Es un
-        experimento de desarrollo; no constituye un benchmark oficial ni válido
-        del reto. Separar autores y congelar pesos no cambia esa procedencia.
+      <Note kind="limit" title="Independent validation is not established">
+        {" "}
+        The reserved set contains 256 AI-authored messages in 128 ES/PT
+        families, without organizer records or human review. It is a development
+        experiment, not an official or challenge-valid benchmark. Separate
+        authors and frozen weights do not change its provenance.{" "}
       </Note>
-      <Detail title="Resultados históricos del experimento de desarrollo">
-        <h3>Mismos textos creados por IA para los tres sistemas</h3>
+      <Detail title="Historical development-experiment results">
+        <h3> The same AI-authored texts for all three systems </h3>
         <div
           className="guide-segment"
           role="group"
-          aria-label="Idioma evaluado"
+          aria-label="Evaluated language"
         >
           {[
             ["all", "ES + PT"],
-            ["es", "Español"],
-            ["pt", "Portugués"],
+            ["es", "Spanish"],
+            ["pt", "Portuguese"],
           ].map(([id, label]) => (
             <button
               key={id}
@@ -805,13 +833,13 @@ export function EvaluationChapter() {
           ))}
         </div>
         <div className="guide-chart" aria-live="polite">
-          {["Reglas", "Modelo V1", "Modelo V2"].map((name, i) => (
+          {["Rules", "Model V1", "Model V2"].map((name, i) => (
             <div key={name} className="guide-bar-row">
               <div>
                 <strong>{name}</strong>
                 <span>
                   {scores[i]}/{n} ·{" "}
-                  {((100 * scores[i]) / n).toLocaleString("es-EC", {
+                  {((100 * scores[i]) / n).toLocaleString("en-US", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}
@@ -828,139 +856,147 @@ export function EvaluationChapter() {
           ))}
         </div>
         <p className="guide-small">
-          Exactitud top-1: coincidencia entre la etiqueta más probable y la
-          referencia de autoría IA. No es validación independiente, rendimiento
-          sobre datos del reto ni porcentaje de disputas resueltas.
+          {" "}
+          Top-1 accuracy: agreement between the highest-scoring label and an
+          AI-authored reference. This is not independent validation,
+          challenge-data performance or a percentage of disputes resolved.{" "}
         </p>
-        <h3>Comparación histórica ES+PT · 256 mensajes de desarrollo</h3>
+        <h3> Historical ES+PT comparison · 256 development messages </h3>
         <div className="guide-grid two">
           <article>
-            <h4>V2 frente a reglas</h4>
+            <h4> V2 versus rules </h4>
             <p>
-              +19,53 puntos de exactitud; intervalo bootstrap por familia del
-              95% [11,72; 27,34]. Macro-F1: 0,8310 frente a 0,6752.
+              {" "}
+              +19.53 accuracy points; 95% family-bootstrap interval [11.72,
+              27.34]. Macro-F1: 0.8310 versus 0.6752.{" "}
             </p>
           </article>
           <article>
-            <h4>V2 frente a V1</h4>
+            <h4> V2 versus V1 </h4>
             <p>
-              +2,73 puntos; intervalo [−1,17; 6,64]. Incluye cero: no hay
-              superioridad concluyente frente a V1.
+              {" "}
+              +2.73 points; interval [−1.17, 6.64]. It includes zero:
+              superiority over V1 is not conclusive.{" "}
             </p>
           </article>
         </div>
-        <Note kind="limit" title="El promedio oculta errores importantes">
-          V2 reconoce solo 9/32 mensajes «other». De 34 sugerencias
-          «unrecognized», nueve son incorrectas. Su top-1 no puede sustituir la
-          elección del usuario.
+        <Note kind="limit" title="The average hides important errors">
+          {" "}
+          V2 recognizes only 9/32 “other” messages. Nine of 34 “unrecognized”
+          suggestions are wrong. Top-1 cannot replace the user&apos;s choice.{" "}
         </Note>
       </Detail>
-      <h3>Controles del experimento y sus límites</h3>
+      <h3> Experiment controls and their limits </h3>
       <ol className="guide-reading-list">
         <li>
-          <strong>Pares juntos:</strong> la misma situación ES/PT permanece en
-          una partición.
+          <strong> Pairs together: </strong> the same ES/PT scenario stays in
+          one partition.{" "}
         </li>
         <li>
-          <strong>Validación para elegir:</strong> configuración y umbrales se
-          seleccionan sin el conjunto de desarrollo reservado, también creado
-          por IA.
+          <strong> Validation for selection: </strong> configuration and
+          thresholds are selected without the reserved development set, also
+          AI-authored.{" "}
         </li>
         <li>
-          <strong>Congelación:</strong> hashes fijan modelo, corpus, scripts y
-          política antes de abrir el holdout.
+          <strong> Freeze: </strong> hashes fix the model, corpus, scripts and
+          policy before opening the holdout.{" "}
         </li>
         <li>
-          <strong>Autor separado:</strong> otro agente IA produjo 256 textos,
-          128 familias, 32 por clase; no es adjudicación humana.
+          <strong> Separate author: </strong> another AI agent produced 256
+          texts, 128 families and 32 messages per class; this is not human
+          adjudication.{" "}
         </li>
         <li>
-          <strong>Mismas entradas:</strong> reglas, V1 y V2 ven los mismos
-          textos, sin etiquetas ni IDs.
+          <strong> Same inputs: </strong> rules, V1 and V2 see the same texts
+          without labels or IDs.{" "}
         </li>
         <li>
-          <strong>Sin retocar:</strong> si los errores del test influyen en una
-          mejora, deja de ser una comparación reservada. Un nuevo conjunto de
-          autoría IA tampoco acredita por sí solo validación independiente.
+          <strong> No retuning: </strong> if test errors influence an
+          improvement, the comparison is no longer reserved. A new AI-authored
+          set alone would not establish independent validation either.{" "}
         </li>
       </ol>
-      <Detail title="Exactitud, precisión, recall y macro-F1">
+      <Detail title="Accuracy, precision, recall and macro-F1">
         <ul>
           <li>
-            <strong>Exactitud:</strong> aciertos sobre todos los ejemplos.
+            <strong> Accuracy: </strong> correct predictions divided by all
+            examples.{" "}
           </li>
           <li>
-            <strong>Precisión:</strong> de las sugerencias de una clase, cuántas
-            son correctas.
+            <strong> Precision: </strong> the fraction of a class&apos;s suggestions
+            that are correct.{" "}
           </li>
           <li>
-            <strong>Recall:</strong> de los ejemplos de referencia de esa clase,
-            cuántos encontramos.
+            <strong>Recall:</strong> the fraction of reference examples of that
+            class that are found.{" "}
           </li>
           <li>
-            <strong>Macro-F1:</strong> promedia el equilibrio de
-            precisión/recall dando igual peso a cada clase.
+            <strong>Macro-F1:</strong> averages the precision/recall balance,
+            giving every class equal weight.{" "}
           </li>
           <li>
-            <strong>Bootstrap por familia:</strong> remuestrea situaciones
-            completas con ambos idiomas porque sus traducciones están
-            relacionadas.
+            <strong> Family bootstrap: </strong> resamples complete bilingual
+            scenarios because their translations are related.{" "}
           </li>
         </ul>
       </Detail>
-      <Detail title="Abstenerse siempre no significa 100% de seguridad">
+      <Detail title="Always abstaining does not mean 100% safety">
         <p>
-          La cobertura de aceptación es 0%. La exactitud selectiva es indefinida
-          porque no hay aceptaciones. Se puede medir top-1 como hipótesis aunque
-          no tenga autoridad para dirigir una operación.
+          {" "}
+          Acceptance coverage is 0%. Selective accuracy is undefined because
+          nothing is accepted. Top-1 can be measured as a hypothesis even though
+          it has no authority to route an operation.{" "}
         </p>
       </Detail>
       <div
         className="guide-table-wrap"
         tabIndex={0}
         role="region"
-        aria-label="Resultados de pruebas de software"
+        aria-label="Software test results"
       >
         <table>
-          <caption>Evidencia de software del commit funcional V3</caption>
+          <caption>
+            {" "}
+            Historical software evidence from the functional V3 commit{" "}
+          </caption>
           <thead>
             <tr>
-              <th>Prueba</th>
-              <th>Resultado</th>
-              <th>Qué cubre</th>
+              <th> Test </th>
+              <th> Result </th>
+              <th> Coverage </th>
             </tr>
           </thead>
           <tbody>
             {[
               [
-                "HTTP original",
+                "Original HTTP suite",
                 "28/28",
-                "Flujo y controles a través de la API.",
+                "Workflow and controls through the API.",
               ],
               [
-                "Recorridos e idioma",
+                "Runs and language",
                 "16/16",
-                "Borrador, recuperación, reintento y aislamiento de recorridos.",
+                "Draft, recovery, retry and run isolation.",
               ],
               [
-                "Contexto obsoleto",
+                "Stale context",
                 "9/9",
-                "Peticiones de una pestaña con contexto anterior.",
+                "Requests from a tab retaining previous context.",
               ],
               [
-                "Asistente determinista",
+                "Deterministic assistant",
                 "20/20",
-                "Matching, ambigüedad, propiedad y orientación.",
+                "Matching, ambiguity, ownership and guidance.",
               ],
               [
-                "Paridad Python/JS V2",
+                "Python/JS V2 parity",
                 "10/10",
-                "Portado numérico; no valida las etiquetas.",
+                "Numeric port; does not validate labels.",
               ],
               [
-                "Navegador",
-                "Recorrido observado",
-                "Creación, revisión, recuperación y móvil local a 390px.",
+                "Browser",
+                "Observed walkthrough",
+                "Creation, review, recovery and local mobile layout at 390px.",
               ],
             ].map(([a, b, c]) => (
               <tr key={a}>
@@ -973,41 +1009,48 @@ export function EvaluationChapter() {
         </table>
       </div>
       <Note kind="pending">
-        Todo el corpus del experimento fue creado y etiquetado por IA. Las
-        pruebas de software con fixtures tampoco validan la calidad del modelo.
-        Faltan evaluación independiente admisible, revisión humana ES/PT y
-        aceptación con dos cuentas reales en producción. Cero coincidencias
-        textuales exactas no demuestra independencia semántica ni
-        representatividad bancaria.
+        {" "}
+        The entire experiment corpus was AI-authored and labeled. Fixture-based
+        software tests do not validate model quality. Challenge-admissible
+        independent evaluation and hosted two-account acceptance remain missing.
+        Human ES/PT review is also recommended. Zero exact text overlaps
+        establishes neither semantic independence nor banking
+        representativeness.{" "}
       </Note>
-      <h3>Latencia y coste</h3>
+      <h3> Latency and cost </h3>
       <p>
-        CPU local caliente del modelo: p95 0,082 ms. Excluye red, carga del
-        JSON, arranque, autenticación, almacenamiento e interfaz. No es latencia
-        E2E. No hay llamadas externas al modelo en runtime; hosting y operación
-        no están medidos completamente, así que no afirmamos coste total cero.
+        {" "}
+        Historical warm local model CPU p95: 0.082 ms, excluding network, JSON
+        loading, startup, authentication, storage and UI. The 2 October local
+        API sequences measured normal ES p50/p95 110.15/265.60 ms, ambiguous PT
+        37.01/54.38 ms, and handoff PT 101.37/104.55 ms, with five attempts per
+        scenario and 70 measured requests. Setup and user time are excluded;
+        with n=5, p95 is the maximum. No external model API is called at
+        runtime. Total hosting and operation cost is unknown.{" "}
       </p>
       <p className="guide-small">
-        Los enlaces del experimento conservan la versión histórica. Sus términos
-        de «independiente» quedan supersedidos por esta corrección de
-        procedencia; los archivos congelados no se reescriben.
+        {" "}
+        Experiment links preserve historical versions. Any historical
+        “independent” terminology is superseded by the provenance correction;
+        frozen files are not rewritten.{" "}
       </p>
       <Source
         path="docs/evidence/EVALUATION_PROVENANCE_CORRECTION_2026-10-01.md"
-        label="Corrección de procedencia · 1 oct 2026"
+        label="Provenance correction · 1 Oct 2026"
       />
       <Source
         path="ml/v2/test-report.json"
-        label="Experimento de desarrollo histórico"
+        label="Historical development experiment"
       />
-      <Source path="docs/evidence/BROWSER_V3.md" label="Aceptación local" />
+      <Source path="docs/evidence/BROWSER_V3.md" label="Local acceptance" />
       <a
         className="guide-source"
         href={`${REPO}/actions/runs/36624297648`}
         target="_blank"
         rel="noreferrer"
       >
-        CI de V3
+        {" "}
+        Historical V3 CI{" "}
       </a>
     </Section>
   );
@@ -1015,60 +1058,60 @@ export function EvaluationChapter() {
 
 const failures = [
   [
-    "Respuesta perdida",
+    "Lost response",
     "503 SIMULATED_TIMEOUT",
-    "El servidor guarda el caso y se pierde la respuesta.",
-    "Reintentar con la misma clave y borrador.",
-    "Se devuelve el original; no se duplica.",
-    "La clave identifica una operación; no autentica al usuario.",
+    "The server saves the case, but the response is lost.",
+    "Retry with the same key and draft.",
+    "The original is returned without duplication.",
+    "The key identifies an operation; it does not authenticate the user.",
   ],
   [
-    "Caso ajeno",
+    "Another owner's case",
     "404 NOT_FOUND",
-    "Un cliente consulta otra persona; cualquier rol consulta otro recorrido o propietario.",
-    "El servidor restringe por propietario y recorrido. Para clientes, también por persona.",
-    "Se rechaza ese acceso. El revisor sí puede consultar ambas personas de su propio recorrido.",
-    "El revisor es un rol ficticio dentro del mismo sandbox. Las pruebas locales no sustituyen dos cuentas reales alojadas.",
+    "A customer queries another persona; any role queries another run or owner.",
+    "The server scopes by owner and run; customers are also scoped by persona.",
+    "Access is rejected. A reviewer can inspect both personas within their own run.",
+    "Reviewer is a fictional role in the same sandbox. Local tests do not replace two real hosted accounts.",
   ],
   [
-    "Sesión expirada",
+    "Expired session",
     "401 SESSION_EXPIRED",
-    "La sesión deja de ser válida.",
-    "Limpiar datos y controles, cancelar peticiones y abrir otra sesión.",
-    "Los casos guardados se pueden recuperar.",
-    "Un borrador ligado a la sesión anterior necesita nueva preparación.",
+    "The session is no longer valid.",
+    "Clear data and controls, cancel requests and open another session.",
+    "Saved cases can be recovered.",
+    "A draft bound to the old session must be prepared again.",
   ],
   [
-    "Otra pestaña",
+    "Another tab",
     "409 SESSION_CONTEXT_CHANGED",
-    "Otra pestaña cambia la cookie compartida mientras esta conserva contexto anterior.",
-    "Comparar la huella esperada; descartar respuestas de una generación vieja.",
-    "Se exige recuperar el contexto.",
-    "El marcador es opcional para clientes API y nunca sustituye autorización.",
+    "Another tab changes the shared cookie while this tab retains stale context.",
+    "Compare the expected context fingerprint and discard responses from an old generation.",
+    "The current context must be recovered.",
+    "The marker is optional for API clients and never replaces authorization.",
   ],
   [
-    "Evidencia distinta",
+    "Changed evidence",
     "SOURCE_CHANGED",
-    "La transacción ya no coincide con la huella del borrador.",
-    "Rechazar la confirmación de hechos obsoletos.",
-    "Preparar y revisar un nuevo resumen.",
-    "La fuente de esta demo es estática; el contrato contempla cambios futuros.",
+    "The transaction no longer matches the draft fingerprint.",
+    "Reject confirmation of stale facts.",
+    "Prepare and review a new summary.",
+    "The demo source is static; the contract anticipates future changes.",
   ],
   [
-    "Dos revisores",
+    "Two reviewers",
     "409 VERSION_CONFLICT",
-    "Ambos leen v1; uno actualiza a v2 antes del segundo.",
-    "El UPDATE exige la versión que se leyó.",
-    "Se rechaza la escritura vieja para no sobrescribir silenciosamente.",
-    "No se fusionan notas; audit no guarda todas las notas completas.",
+    "Both read v1; one updates to v2 before the other.",
+    "The UPDATE requires the version originally read.",
+    "The stale write is rejected to prevent silent overwriting.",
+    "Notes are not merged; the audit does not retain every full note.",
   ],
   [
-    "Texto sensible",
+    "Sensitive text",
     "422 SENSITIVE_CONTENT",
-    "El texto contiene patrones de PIN, contraseña, correo o tarjeta completa.",
-    "Rechazar antes de agregar el mensaje aceptado al chat.",
-    "Se pide retirar la información sensible.",
-    "Regex no es prevención exhaustiva de fugas: usar solo datos inventados.",
+    "The text contains PIN, password, email or full-card patterns.",
+    "Reject before adding the accepted message to chat.",
+    "Ask the user to remove sensitive information.",
+    "Regex is not comprehensive leak prevention: use invented data only.",
   ],
 ];
 export function SecurityChapter() {
@@ -1076,15 +1119,11 @@ export function SecurityChapter() {
   const f = failures[fault];
   return (
     <Section
-      eyebrow="08 / Controles y fallos"
-      title="Qué ocurre cuando el camino feliz se rompe."
-      intro="Selecciona un escenario. Los controles residen fuera del modelo y tienen respuestas observables."
+      eyebrow="08 / Controls and failures"
+      title="What happens when the happy path breaks."
+      intro="Select a scenario. Controls operate outside the model and have observable responses."
     >
-      <div
-        className="guide-segment"
-        role="group"
-        aria-label="Escenario de fallo"
-      >
+      <div className="guide-segment" role="group" aria-label="Failure scenario">
         {failures.map((f, i) => (
           <button
             key={f[0]}
@@ -1100,86 +1139,95 @@ export function SecurityChapter() {
         <h3>{f[0]}</h3>
         <ol>
           <li>
-            <strong>Qué pasa:</strong> {f[2]}
+            <strong> What happens: </strong> {f[2]}
           </li>
           <li>
-            <strong>Qué hacemos:</strong> {f[3]}
+            <strong> What we do: </strong> {f[3]}
           </li>
           <li>
-            <strong>Resultado:</strong> {f[4]}
+            <strong> Result: </strong> {f[4]}
           </li>
         </ol>
-        <p className="guide-small">Límite: {f[5]}</p>
+        <p className="guide-small"> Limit: {f[5]}</p>
       </div>
-      <h3>Idempotencia, sin jerga</h3>
+      <h3> Idempotency in plain language </h3>
       <p>
-        Repetir la misma operación con la misma clave y contenido devuelve el
-        resultado original. Reusar la clave con otro contenido produce{" "}
-        <code>IDEMPOTENCY_CONFLICT</code>; otra clave para el mismo movimiento
-        produce <code>CASE_ALREADY_EXISTS</code>.
+        {" "}
+        Repeating the same operation with the same key and content returns the
+        original result. Reusing the key with different content produces{" "}
+        <code>IDEMPOTENCY_CONFLICT</code> ; a different key for the same
+        transaction produces <code>CASE_ALREADY_EXISTS</code>.
       </p>
       <p>
-        Dos índices únicos refuerzan el código: recorrido + clave, y recorrido +
-        cliente + transacción. Esto también protege carreras concurrentes: no
-        dependemos solo de comprobar primero y escribir después.
+        {" "}
+        Two unique indexes reinforce the code: run + key, and run + customer +
+        transaction. They also protect against concurrent races; safety does not
+        depend only on checking before writing.{" "}
       </p>
-      <Detail title="Cuenta, persona, rol, sesión y recorrido">
+      <Detail title="Account, persona, role, session and run">
         <dl>
-          <dt>Cuenta real</dt>
-          <dd>Identidad autenticada por Sites/ChatGPT.</dd>
-          <dt>Persona</dt>
-          <dd>Ana o Lucas dentro del sandbox de esa cuenta.</dd>
-          <dt>Rol</dt>
-          <dd>Cliente/revisor ficticio para demostrar ambos lados.</dd>
-          <dt>Sesión</dt>
-          <dd>Contexto temporal del servidor ligado a cookie opaca.</dd>
-          <dt>Recorrido</dt>
+          <dt> Real account </dt>
+          <dd> Identity authenticated by Sites/ChatGPT. </dd>
+          <dt> Persona </dt>
+          <dd> Ana or Lucas within that account&apos;s sandbox. </dd>
+          <dt> Role </dt>
+          <dd> Fictional customer/reviewer roles demonstrate both sides. </dd>
+          <dt> Session </dt>
+          <dd> Temporary server context bound to an opaque cookie. </dd>
+          <dt> Run </dt>
           <dd>
-            Espacio del propietario para repetir la demo conservando los casos
-            previos; máximo 50 adicionales.
+            {" "}
+            An owner-scoped space for repeating the demo while preserving
+            earlier cases; at most 50 additional runs.{" "}
           </dd>
-          <dt>Contexto</dt>
+          <dt> Context </dt>
           <dd>
-            Huella no secreta de la sesión que detecta pestañas desactualizadas;
-            no concede permisos.
+            {" "}
+            A non-secret session fingerprint detects stale tabs; it grants no
+            permissions.{" "}
           </dd>
         </dl>
       </Detail>
-      <Detail title="Qué protege el consentimiento">
+      <Detail title="What protects consent">
         <p>
-          Borrador inmutable, diez minutos de vigencia, token, misma
-          sesión/persona/recorrido, <code>confirmed:true</code> y una fuente sin
-          cambios. Es confirmación técnica de un resumen específico, no firma
-          electrónica certificada ni garantía legal.
+          {" "}
+          An immutable draft, ten-minute validity, token, same
+          session/persona/run, <code>confirmed:true</code> and an unchanged
+          source. This is technical confirmation of a specific summary, not a
+          certified electronic signature or legal guarantee.{" "}
         </p>
         <p>
-          Un reintento válido puede recuperar el caso original aunque el
-          borrador haya caducado, porque se busca primero esa operación. No
-          permite crear un caso nuevo desde un borrador vencido.
+          {" "}
+          A valid retry can recover the original case even after the draft
+          expires because the operation is looked up first. It cannot create a
+          new case from an expired draft.{" "}
         </p>
       </Detail>
-      <Detail title="Auditoría atómica y sus límites">
+      <Detail title="Atomic audit and its limits">
         <p>
-          Un trigger registra el evento en la misma operación que crea o
-          actualiza el caso. La interfaz no tiene que recordar una segunda
-          llamada.
+          {" "}
+          A trigger records an event in the same operation that creates or
+          updates a case. The interface need not remember a second call.{" "}
         </p>
         <p>
-          No es cadena criptográfica inalterable ni event sourcing completo.
-          Guarda evento, estado, actor, versión y fecha. La nota actual está en
-          el caso; una edición la reemplaza y el historial no conserva cada nota
-          íntegra.
+          {" "}
+          This is not an immutable cryptographic chain or complete event
+          sourcing. It stores event, state, actor, version and date. The case
+          contains the current note; editing replaces it, and history does not
+          retain every complete note.{" "}
         </p>
       </Detail>
       <Note kind="fact">
-        Escrituras con origen exacto, JSON limitado y esquemas Zod estrictos.
-        Cookie HttpOnly, SameSite=Lax y Secure en HTTPS. Propiedad, expiración y
-        rol siguen siendo necesarios: ninguna defensa reemplaza a las demás.
+        {" "}
+        Mutations require exact origin, bounded JSON and strict Zod schemas. The
+        cookie is HttpOnly, SameSite=Lax and Secure on HTTPS. Ownership, expiry
+        and role checks remain necessary; each defense has a distinct
+        purpose.{" "}
       </Note>
-      <Source path="lib/server/api.ts" label="Controles del servidor" />
+      <Source path="lib/server/api.ts" label="Server controls" />
       <Source
         path="docs/evidence/RUNS_SECURITY_REVIEW.md"
-        label="Revisión de aislamiento"
+        label="Isolation review"
       />
     </Section>
   );
@@ -1188,41 +1236,41 @@ export function SecurityChapter() {
 export function BuildChapter() {
   return (
     <Section
-      eyebrow="09 / Proceso"
-      title="Investigamos, acotamos, medimos y corregimos."
-      intro="El proyecto cambió cuando aparecieron datos o fallos que invalidaban una suposición. Los primeros documentos son historia, no siempre descripción del código actual."
+      eyebrow="09 / Process"
+      title="We investigated, scoped, measured and corrected."
+      intro="The project changed when data or failures invalidated assumptions. Early documents are historical records and may not describe the current code."
     >
       <div className="guide-timeline">
         {[
           [
-            "Investigar",
-            "Requisitos y viabilidad",
-            "Enunciado, kickoff, diccionario, resumen, mensajes y parte de la grabación. Perfilado de relaciones antes de decidir qué prometer.",
+            "Investigate",
+            "Requirements and feasibility",
+            "Challenge, kickoff, dictionary, summary, messages and part of the recording. Relationships were profiled before deciding what to promise.",
           ],
           [
-            "Acotar",
-            "Recepción nueva de disputas",
-            "Separar registrar una solicitud de adjudicarla. Definir un final observable: recibir, persistir y entregar a un revisor.",
+            "Scope",
+            "New dispute intake",
+            "Separate receiving a request from adjudicating it. Define an observable endpoint: receive, persist and hand off to a reviewer.",
           ],
           [
-            "Construir",
-            "Flujo con controles",
-            "Sesión, movimientos propios, borrador, confirmación, persistencia y auditoría; estados y contratos explícitos.",
+            "Build",
+            "Workflow with controls",
+            "Session, owned transactions, draft, confirmation, persistence and audit; explicit states and contracts.",
           ],
           [
-            "Aprender",
-            "Baseline, V1 y V2",
-            "El primer experimento no justificó autonomía. El segundo añadió diversidad y congeló antes del nuevo test. No se ocultaron resultados negativos.",
+            "Learn",
+            "Baseline, V1 and V2",
+            "The first experiment did not justify autonomy. The second added diversity and froze decisions before a new test. Negative results were retained.",
           ],
           [
-            "Revisar",
-            "Correcciones de V3",
-            "Cambiar idioma borraba trabajo; «84,90» no encontraba el importe; repetir la demo agotaba casos; dos pestañas podían divergir. Se corrigieron estado, búsqueda, recorridos y contexto.",
+            "Review",
+            "V3 corrections",
+            "Switching language erased work; “84,90” failed amount search; repeated demos exhausted cases; two tabs could diverge. State, search, runs and context were corrected.",
           ],
           [
-            "Entregar",
-            "Código, build y despliegue",
-            "Paquete construido desde el commit subido a GitHub y Sites. CI contra D1 local nueva. La versión V3 terminó desplegada y privada.",
+            "Deliver",
+            "Code, build and deployment",
+            "Historical packages were built from commits pushed to GitHub and Sites, with CI on fresh local D1. Hosted V6 now uses 3ae216e with restricted access. The current English correction remains local and does not change deployment.",
           ],
         ].map(([a, b, c]) => (
           <article key={a}>
@@ -1234,47 +1282,47 @@ export function BuildChapter() {
           </article>
         ))}
       </div>
-      <h3>Ventajas y costes de la tecnología</h3>
+      <h3> Technology benefits and costs </h3>
       <div
         className="guide-table-wrap"
         tabIndex={0}
         role="region"
-        aria-label="Decisiones de tecnología"
+        aria-label="Technology decisions"
       >
         <table>
           <thead>
             <tr>
-              <th>Elección</th>
-              <th>Ventaja buscada</th>
-              <th>Límite</th>
+              <th> Choice </th>
+              <th> Intended benefit </th>
+              <th> Limit </th>
             </tr>
           </thead>
           <tbody>
             {[
               [
                 "React + TypeScript",
-                "Interfaz ES/PT y tipos compartidos.",
-                "Los tipos no validan peticiones en runtime. La vista principal creció y convendría dividirla.",
+                "ES/PT interface and shared types.",
+                "Types do not validate runtime requests. The main view has grown and would benefit from decomposition.",
               ],
               [
                 "Vinext / Worker",
-                "Usar el entorno Sites existente y una API desplegable.",
-                "Acoplamiento a runtime e identidad; otro hosting requiere adaptación.",
+                "Reuse the existing Sites environment and a deployable API.",
+                "Runtime and identity coupling; another host requires adaptation.",
               ],
               [
                 "D1 / SQLite",
-                "Persistencia, índices únicos y operaciones pequeñas.",
-                "Sin demostración de alta carga, operación bancaria o recuperación de desastre.",
+                "Persistence, unique indexes and small operations.",
+                "No demonstration of high load, banking operation or disaster recovery.",
               ],
               [
-                "Clasificador local",
-                "Pequeño, reproducible y sin API de modelo en runtime.",
-                "Menor flexibilidad conversacional; dificultad con contexto, negación y ambigüedad.",
+                "Local classifier",
+                "Small, reproducible and without a runtime model API.",
+                "Less conversational flexibility; difficulty with context, negation and ambiguity.",
               ],
               [
-                "HTTP + navegador",
-                "Verificar contratos y experiencia.",
-                "Local no prueba por sí solo OAuth ni aislamiento real alojado.",
+                "HTTP + browser",
+                "Verify contracts and experience.",
+                "Local testing alone does not prove OAuth or real hosted isolation.",
               ],
             ].map(([a, b, c]) => (
               <tr key={a}>
@@ -1286,23 +1334,28 @@ export function BuildChapter() {
           </tbody>
         </table>
       </div>
-      <Note title="De propuesta a implementación">
-        La estrategia original contemplaba un LLM y decía que el prototipo aún
-        no existía. El código actual usa clasificador local, asistente
-        determinista y casos persistentes. No debemos presentar una intención
-        inicial como funcionalidad implementada.
+      <Note title="From proposal to implementation">
+        {" "}
+        The original strategy considered an LLM and described a prototype not
+        yet built. Current code uses a local classifier, deterministic assistant
+        and persistent cases. An initial intention must not be presented as an
+        implemented feature.{" "}
       </Note>
-      <Detail title="Cómo se distribuyó el trabajo entre agentes">
+      <Detail title="How agent work was divided">
         <p>
-          Investigación de datos, entrenamiento, autoría del holdout, revisión
-          adversarial y pruebas se separaron en tareas acotadas. El integrador
-          manejó código y despliegue. Separar al autor del test del
-          entrenamiento reduce contaminación directa; no equivale a evaluación
-          humana independiente.
+          {" "}
+          Data research, training, holdout authorship, adversarial review and
+          tests were separated into bounded tasks. The integrator handled code
+          and deployment. Separating the test author from training reduces
+          direct contamination; it does not establish independent human
+          evaluation.{" "}
         </p>
       </Detail>
-      <Source path=".github/workflows/verify.yml" label="Pipeline CI" />
-      <Source path="docs/evidence/BROWSER_V3.md" label="Aceptación V3" />
+      <Source path=".github/workflows/verify.yml" label="CI pipeline" />
+      <Source
+        path="docs/evidence/BROWSER_V3.md"
+        label="Historical V3 acceptance"
+      />
     </Section>
   );
 }
@@ -1311,41 +1364,56 @@ export function DeliveryChapter() {
   const [answer, setAnswer] = useState<number | null>(null);
   return (
     <Section
-      eyebrow="10 / Reproducir y terminar"
-      title="Desplegar y entregar no son el mismo estado."
-      intro="La aplicación funcional existe. La aceptación con cuentas reales, el material final y el envío requieren su propia evidencia."
+      eyebrow="10 / Reproduce and finish"
+      title="Deployment and submission are different states."
+      intro="The functional app exists. Real-account acceptance, final materials and submission each need their own evidence."
     >
       <div className="guide-grid two">
         <article>
           <Check />
-          <h3>Confirmado en V3</h3>
+          <h3> Confirmed before this correction </h3>
           <ul>
-            <li>Código subido y repositorio privado.</li>
-            <li>Versión desplegada con acceso restringido.</li>
-            <li>CI verde en c0d9fe6.</li>
-            <li>Recorrido local, revisión y recuperación del caso.</li>
+            <li> Private repository; default branch at 3ae216e. </li>
+            <li> Hosted V6 with restricted access. </li>
+            <li> Draft PR #2 CI passed at fa53b35. </li>
+            <li> Local walkthrough, case review and recovery. </li>
           </ul>
         </article>
         <article>
           <CircleHelp />
-          <h3>Pendiente</h3>
+          <h3> Pending </h3>
           <ul>
-            <li>Login normal y aislamiento con dos cuentas reales.</li>
-            <li>Revisión humana ES/PT y de etiquetas.</li>
-            <li>Actualizar slides y video finales.</li>
-            <li>Decisión de publicación, envío y recibo.</li>
+            <li>
+              {" "}
+              Normal hosted login and isolation across two real accounts.{" "}
+            </li>
+            <li>
+              {" "}
+              Challenge-valid evaluation; recommended human ES/PT and label
+              review.{" "}
+            </li>
+            <li>
+              {" "}
+              Video-language compliance: original preserved by user
+              instruction.{" "}
+            </li>
+            <li> Publication decision, organizer submission and receipt. </li>
           </ul>
         </article>
       </div>
       <Note kind="limit">
-        La prueba automática del login alojado encontró una verificación de
-        seguridad del proveedor. No se eludió. Un despliegue «succeeded» no
-        demuestra que una persona completó el flujo autenticado.
+        {" "}
+        Automated hosted sign-in encountered the identity provider&apos;s security
+        verification and did not bypass it. A successful deployment does not
+        establish completion of the authenticated workflow. Hosted acceptance is
+        coordinated separately.{" "}
       </Note>
-      <h3>Desde un clon limpio</h3>
+      <h3> From a clean clone </h3>
       <p>
-        Acceso al repositorio privado, Node.js 22.13+ y Python 3.11+ para app y
-        pruebas básicas. El modelo exportado no necesita GPU ni clave de API.
+        {" "}
+        Private repository access, Node.js 22.13+ and Python 3.11+ support the
+        app and basic tests. The exported model needs neither GPU nor API
+        key.{" "}
       </p>
       <pre>
         <code>
@@ -1361,11 +1429,12 @@ export function DeliveryChapter() {
         </code>
       </pre>
       <p>
-        Abre la URL que imprima el servidor y usa el inicio de sesión local
-        documentado. Esa identidad es de desarrollo: no expongas el servidor ni
-        confíes en sus encabezados fuera del entorno previsto.
+        {" "}
+        Open the server&apos;s printed URL and use the documented local sign-in. This
+        is a development identity: do not expose the server or trust its headers
+        outside the intended environment.{" "}
       </p>
-      <Detail title="Verificar aplicación y contratos">
+      <Detail title="Verify app and contracts">
         <pre>
           <code>
             {[
@@ -1380,121 +1449,138 @@ export function DeliveryChapter() {
           </code>
         </pre>
         <p>
-          Las pruebas HTTP crean casos ficticios; no borran anteriores. La suite
-          original necesita una base local nueva para un pase completo. Si el
-          fixture se agotó, usa un checkout separado de verificación; no borres
-          datos silenciosamente.
+          {" "}
+          HTTP tests create fictional cases and preserve earlier ones. The
+          original suite needs a fresh local database for a full pass. If
+          fixtures are exhausted, use a separate verification checkout; do not
+          silently delete data.{" "}
         </p>
       </Detail>
-      <Detail title="Reproducir el modelo sin alterar el original">
+      <Detail title="Reproduce the model without altering the original">
         <p>
-          El README ML documenta el entorno Python y{" "}
-          <code>train_from_corpus.py --output-dir CARPETA_NUEVA</code>. Entrena
-          desde los 634 textos train seleccionados, sin usar validación ni
-          holdout y fuera de los artefactos congelados.
+          {" "}
+          The ML README documents the Python environment and{" "}
+          <code> train_from_corpus.py --output-dir NEW_DIRECTORY </code> . It
+          trains from the selected 634 training texts, without validation or
+          holdout data and outside the frozen artifact paths.{" "}
         </p>
         <p>
-          Reproducir parámetros no es nueva evaluación independiente. Si se
-          ajusta a errores conocidos, hace falta otro test reservado.
+          {" "}
+          Reproducing parameters is not new independent evaluation. Adapting to
+          known errors requires another reserved test.{" "}
         </p>
-        <Source path="ml/README.md" label="Comandos vigentes ML" />
+        <Source path="ml/README.md" label="Current ML commands" />
       </Detail>
-      <h3>Responsabilidades propuestas</h3>
+      <h3> Proposed responsibilities </h3>
       <div
         className="guide-table-wrap"
         tabIndex={0}
         role="region"
-        aria-label="Responsabilidades propuestas del equipo"
+        aria-label="Proposed team responsibilities"
       >
         <table>
           <thead>
             <tr>
-              <th>Persona</th>
-              <th>Trabajo propuesto</th>
-              <th>Evidencia de cierre</th>
+              <th> Person </th>
+              <th> Proposed work </th>
+              <th> Completion evidence </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Roberto</td>
-              <td>Integración, aceptación alojada y preservar experimentos.</td>
-              <td>Dos cuentas verificadas y versión congelada.</td>
+              <td>
+                {" "}
+                Integration, hosted acceptance and preservation of
+                experiments.{" "}
+              </td>
+              <td> Two verified accounts and a frozen version. </td>
             </tr>
             <tr>
               <td>Jorge</td>
-              <td>Clon limpio y revisión de controles/flujo cliente.</td>
-              <td>Registro reproducible de ejecución y hallazgos.</td>
+              <td> Clean clone and customer-flow/control review. </td>
+              <td> Reproducible execution log and findings. </td>
             </tr>
             <tr>
               <td>Daniel</td>
-              <td>Experiencia, escenarios bilingües y materiales.</td>
-              <td>Recorrido ensayado, revisión lingüística y video fiel.</td>
+              <td> Experience, bilingual scenarios and materials. </td>
+              <td>
+                {" "}
+                Rehearsed walkthrough, language review and faithful video.{" "}
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
       <p className="guide-small">
-        Las asignaciones de Jorge y Daniel deben acordarse con ellos; no son
-        habilidades ni compromisos confirmados.
+        {" "}
+        Jorge&apos;s and Daniel&apos;s assignments require their agreement; expertise and
+        commitments are not assumed.{" "}
       </p>
-      <Detail title="Plan diario hasta la entrega">
+      <Detail title="Original daily plan · not a completion record">
         <ul>
           <li>
-            <strong>30 sep:</strong> login normal, dos cuentas y móvil.
+            <strong> 30 Sep: </strong> normal login, two accounts and
+            mobile.{" "}
           </li>
           <li>
-            <strong>1 oct:</strong> auditoría de etiquetas y portugués,
-            preservando el test congelado.
+            <strong> 1 Oct: </strong> label and Portuguese audit while
+            preserving the frozen test.{" "}
           </li>
           <li>
-            <strong>2 oct:</strong> cerrar fallos críticos y medir con
-            denominadores claros.
+            <strong> 2 Oct: </strong> close critical defects and measure with
+            clear denominators.{" "}
           </li>
           <li>
-            <strong>3 oct:</strong> congelar alcance y reproducir desde clon
-            limpio.
+            <strong> 3 Oct: </strong> freeze scope and reproduce from a clean
+            clone.{" "}
           </li>
           <li>
-            <strong>4 oct:</strong> actualizar demo y seis diapositivas;
-            verificar cada afirmación.
+            <strong> 4 Oct: </strong> check the demo and six slides; verify
+            every claim.{" "}
           </li>
           <li>
-            <strong>5 oct:</strong> comprobar enlaces, permisos y paquete;
-            enviar temprano y conservar recibo.
+            <strong> 5 Oct: </strong> check links, permissions and package; send
+            only after approval and retain the receipt.{" "}
           </li>
         </ul>
         <p>
-          La aclaración oficial revisada el 28 de septiembre fijó el 5 de
-          octubre a las 23:59 UTC−5, Ecuador continental. Meta interna: 20:00.
-          Revisar el último anuncio antes de enviar. La entrega documentada
-          requiere repositorio público, demo o excepción local explicada, 4–6
-          diapositivas y video máximo de tres minutos.
+          {" "}
+          The reviewed deadline clarification states 5 October at 23:59 UTC−5,
+          continental Ecuador. The earlier internal target was 20:00. Recheck
+          final announcements before sending. The event hub requires a public
+          repository, a working deployed link, 4–6 slides and a video of at most
+          three minutes. The organizer also requires English deliverables. No
+          applicable exception is established.{" "}
         </p>
       </Detail>
-      <Note kind="pending" title="Privacidad por decisión tuya">
-        Demo y repositorio deben seguir privados hasta una nueva instrucción. El
-        requisito de publicación al entregar no autoriza publicarlos ahora. Los
-        usuarios GitHub no sustituyen los correos de acceso al sitio.
+      <Note kind="pending" title="Privacy remains the owner's decision">
+        {" "}
+        The demo retains its restricted audience and the repository remains
+        private until explicitly authorized otherwise. A public-repository
+        requirement does not authorize publication now. GitHub usernames do not
+        substitute for site-access identities.{" "}
       </Note>
-      <h3>Cuándo cambiaríamos de rumbo</h3>
+      <h3> When we would change direction </h3>
       <p>
-        Si no podemos reproducir propiedad coherente o evaluar una recepción
-        segura, reducimos a soporte con evidencia. Crédito solo sería
-        alternativa con catálogo y política explícitos evaluables. Si el modelo
-        no mejora una tarea, limitamos su papel o usamos formulario. Un control
-        crítico fallido bloquea esa versión.
+        {" "}
+        If coherent ownership or safe intake cannot be demonstrated, reduce the
+        workflow to support with evidence. Credit would require an evaluable
+        catalog and explicit policy. If a model does not improve the task, limit
+        its role or use the form. A failed critical control blocks that
+        version.{" "}
       </p>
       <div className="guide-lab">
-        <span className="guide-label">Comprueba la idea central</span>
-        <h3>
-          ¿Puede un resultado de desarrollo autorizar una disputa por sí solo?
-        </h3>
+        <span className="guide-label"> Check the central idea </span>
+        <h3> Can a development result authorize a dispute by itself? </h3>
         <div className="guide-segment">
           <button aria-pressed={answer === 0} onClick={() => setAnswer(0)}>
-            Sí, con score alto
+            {" "}
+            Yes, with a high score{" "}
           </button>
           <button aria-pressed={answer === 1} onClick={() => setAnswer(1)}>
-            No: faltan selección y confirmación
+            {" "}
+            No: selection and confirmation are missing{" "}
           </button>
         </div>
         {answer !== null && (
@@ -1503,13 +1589,13 @@ export function DeliveryChapter() {
             role="status"
           >
             {answer === 1
-              ? "Exacto. La métrica mide etiquetas sintéticas; no aporta identidad, propiedad, consentimiento ni evidencia de fraude."
-              : "Un score no concede permisos. Además, la política V2 se abstiene de aceptar predicciones: siguen siendo necesarias las validaciones y la confirmación."}
+              ? "Correct. The metric measures synthetic labels; it supplies no identity, ownership, consent or evidence of fraud."
+              : "A score grants no permissions. V2's policy also abstains from accepting predictions: validation and confirmation remain necessary."}
           </p>
         )}
       </div>
-      <Source path="docs/DELIVERY_PLAN.md" label="Plan propuesto" />
-      <Source path="docs/SUBMISSION_DRAFT.md" label="Entrega no enviada" />
+      <Source path="docs/DELIVERY_PLAN.md" label="Proposed plan" />
+      <Source path="docs/SUBMISSION_DRAFT.md" label="Unsent submission draft" />
     </Section>
   );
 }
@@ -1517,79 +1603,78 @@ export function DeliveryChapter() {
 export function SourcesChapter() {
   return (
     <Section
-      eyebrow="11 / Referencias"
-      title="Cómo verificar lo que acabas de leer."
-      intro="Los enlaces de código apuntan al commit funcional V3, c0d9fe6, para conservar la evidencia que sustenta la explicación. El repositorio sigue privado."
+      eyebrow="11 / References"
+      title="How to verify what you have read."
+      intro="Historical source links remain pinned to functional V3, c0d9fe6, with provenance corrections linked separately. Current local English explanations do not imply that this edition is deployed. The repository remains private."
     >
       <div className="guide-grid two">
         <article>
-          <h3>Hechos implementados</h3>
+          <h3> Implemented facts </h3>
           <p>
-            Derivan de código y ejecuciones guardadas. Una prueba confirma su
-            escenario y entorno, no cualquier situación futura.
+            {" "}
+            Derived from code and saved runs. A test establishes its scenario
+            and environment, not every future situation.{" "}
           </p>
         </article>
         <article>
-          <h3>Razones y límites</h3>
+          <h3> Reasons and limits </h3>
           <p>
-            Las decisiones explican compromisos. Las limitaciones identifican lo
-            que el código o las mediciones todavía no prueban.
+            {" "}
+            Decisions explain tradeoffs. Limitations identify what code and
+            measurements do not yet establish.{" "}
           </p>
         </article>
       </div>
-      <h3>Fuentes del proyecto</h3>
+      <h3> Project sources </h3>
       <div className="guide-source-list">
         {[
-          ["README.md", "Visión general y reproducción"],
-          ["data-pipeline/data-card.md", "Datos y privacidad"],
-          ["data-pipeline/report.json", "Perfil agregado"],
-          ["ml/v1/model-card.md", "V1: experimento exploratorio"],
-          ["ml/v2/model-card.md", "V2: resultados y errores"],
-          ["ml/v2/protocol.md", "Protocolo congelado"],
-          ["ml/heldout-v2/README.md", "Procedencia del conjunto de desarrollo"],
-          ["lib/server/api.ts", "API y autorización"],
-          ["lib/assistant.ts", "Búsqueda determinista"],
-          ["docs/evidence/BROWSER_V3.md", "Navegador"],
-          [
-            "docs/evidence/http-context-results.json",
-            "Contexto entre pestañas",
-          ],
+          ["README.md", "Overview and reproduction"],
+          ["data-pipeline/data-card.md", "Data and privacy"],
+          ["data-pipeline/report.json", "Aggregate profile"],
+          ["ml/v1/model-card.md", "V1: exploratory experiment"],
+          ["ml/v2/model-card.md", "V2: results and errors"],
+          ["ml/v2/protocol.md", "Frozen protocol"],
+          ["ml/heldout-v2/README.md", "Development-set provenance"],
+          ["lib/server/api.ts", "API and authorization"],
+          ["lib/assistant.ts", "Deterministic search"],
+          ["docs/evidence/BROWSER_V3.md", "Browser"],
+          ["docs/evidence/http-context-results.json", "Cross-tab context"],
           [".github/workflows/verify.yml", "CI"],
         ].map(([path, label]) => (
           <Source key={path} path={path} label={label} />
         ))}
       </div>
-      <h3>Fuentes oficiales</h3>
+      <h3> Official sources </h3>
       <p>
-        Revisadas en la investigación del 28 de septiembre. En esta edición, el
-        lector web no pudo reabrir el hub ni Google Docs; no afirmamos una nueva
-        revisión completa de Slack o la grabación.
+        {" "}
+        The original research was conducted on 28 September. Later verified
+        clarifications include English deliverables and restrictions on mock
+        data for testing. Links below preserve the original sources; this is not
+        a claim to have reviewed every later message or the complete kickoff
+        recording.{" "}
       </p>
       <ul className="guide-official">
         {[
           [
             "https://docs.google.com/document/d/18AwONT8hQupRcfNPLFrPo6fHOJ_OUn1nBf-3jMnla2c/edit",
-            "Enunciado en Google Docs",
+            "Challenge in Google Docs",
           ],
-          [
-            "https://www.factored.ai/careers/ai-data-hackathon",
-            "Página del evento",
-          ],
+          ["https://www.factored.ai/careers/ai-data-hackathon", "Event page"],
           [
             "https://factored-hackathon.slack.com/files/U0C3R316RQT/F0C4EU9MQS1/datathon_2026_kickoff.pdf",
-            "Diapositivas del kickoff",
+            "Kickoff slides",
           ],
           [
             "https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809",
-            "Plazo y duración máxima del video",
+            "Deadline and maximum video duration",
           ],
           [
             "https://factored-hackathon.slack.com/archives/C0BU1199KFX/p1790389966930169?thread_ts=1790377325.677879",
-            "Herramientas locales y despliegue",
+            "Local tools and deployment",
           ],
           [
             "https://factored-hackathon.slack.com/archives/C0BU1199KFX/p1790366324592219?thread_ts=1790363080.139599",
-            "Componente aprendido y baseline",
+            "Learned component and baseline",
           ],
         ].map(([url, label]) => (
           <li key={url}>
@@ -1600,51 +1685,52 @@ export function SourcesChapter() {
         ))}
       </ul>
       <Note kind="limit">
-        El resumen habla de aproximadamente 19 millones de filas y trece tablas.
-        Nuestro perfil es una muestra acotada. No se copian aquí documentos que
-        contienen información privada de acceso.
+        {" "}
+        The summary describes roughly 19 million rows and thirteen tables. Our
+        profile uses a bounded sample. Documents containing private access
+        information are not reproduced here.{" "}
       </Note>
-      <h3>Glosario para leer el código</h3>
+      <h3> Code-reading glossary </h3>
       {[
         [
-          "Sandbox y fixture",
-          "Sandbox es un entorno de prueba. Fixture es un conjunto controlado y repetible para provocar escenarios sin usar datos reales.",
+          "Sandbox and fixture",
+          "A sandbox is a test environment. A fixture is a controlled, repeatable set for exercising scenarios without real data. Engineering fixtures do not establish challenge-testing compliance.",
         ],
         [
-          "Snapshot y procedencia",
-          "Un corte de datos y su origen: sourceRef identifica una fila inventada; sourceVersion, su versión. El hash del borrador permite detectar cambios en sus hechos.",
+          "Snapshot and provenance",
+          "A data cutoff and its origin: sourceRef identifies an invented row; sourceVersion identifies its version. The draft hash detects changes to its facts.",
         ],
         [
-          "Train, validation y holdout",
-          "Train aprende pesos; validation selecciona configuración y política; holdout reserva datos hasta fijar decisiones. Aquí las tres particiones son de autoría IA: la separación no acredita validación independiente ni un benchmark válido del reto.",
+          "Train, validation and holdout",
+          "Training learns weights; validation selects configuration and policy; holdout reserves data until decisions are fixed. All three partitions here are AI-authored: separation establishes neither independent validation nor a challenge-valid benchmark.",
         ],
         [
-          "Leakage o fuga de evaluación",
-          "Información del supuesto test influye en entrenamiento o decisiones. Separar familias y congelar reduce vías concretas, pero no elimina todo sesgo.",
+          "Evaluation leakage",
+          "Information from an alleged test influences training or decisions. Separating families and freezing artifacts reduces specific pathways but does not remove all bias.",
         ],
         [
-          "Abstención",
-          "La política puede negarse a aceptar aunque siempre exista una clase con mayor puntuación. En V2 toda etiqueta es una hipótesis no confirmada.",
+          "Abstention",
+          "The policy can refuse acceptance even when a class has the highest score. In V2 every label remains an unconfirmed hypothesis.",
         ],
         [
-          "Idempotencia",
-          "Repetir la misma operación con igual clave y contenido devuelve el original sin duplicar su efecto.",
+          "Idempotency",
+          "Repeating the same operation with the same key and content returns the original without duplicating its effect.",
         ],
         [
-          "Atomicidad",
-          "Una operación se completa como unidad o falla. El trigger evita una escritura independiente de auditoría que pudiera olvidarse.",
+          "Atomicity",
+          "An operation completes as one unit or fails. The trigger prevents a separate audit write from being forgotten.",
         ],
         [
-          "Concurrencia optimista",
-          "El servidor actualiza solo si sigue vigente la versión leída; en caso contrario exige volver a consultar.",
+          "Optimistic concurrency",
+          "The server updates only if the previously read version is still current; otherwise the client must query again.",
         ],
         [
-          "Paridad",
-          "Comparar salidas numéricas del mismo modelo en dos implementaciones. Pueden coincidir perfectamente y aun así clasificar mal.",
+          "Parity",
+          "Compare numeric outputs of one model in two implementations. They can agree perfectly and still classify incorrectly.",
         ],
         [
-          "CI, build y despliegue",
-          "CI ejecuta checks; build produce el paquete; despliegue publica una versión. Ninguno equivale a aceptación con cuentas reales o recibo del hackathon.",
+          "CI, build and deployment",
+          "CI runs checks; a build produces a package; deployment publishes a version. None establishes real-account acceptance or a hackathon submission receipt.",
         ],
       ].map(([title, text]) => (
         <Detail key={title} title={title}>
