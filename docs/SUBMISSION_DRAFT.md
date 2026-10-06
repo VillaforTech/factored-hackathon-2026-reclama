@@ -8,7 +8,7 @@
 
 Recipient listed by the event hub: `hackathon.admin@factored.ai`. Recheck final announcements before sending.
 
-Proposed subject: Factored AI & Data Hackathon 2026 — Reclama — Roberto Villafuerte, Jorge Arguello and Daniel Andrade
+Proposed subject: Factored AI & Data Hackathon 2026 — Reclama — Roberto Villafuerte
 
 We present Reclama, a focused Spanish/Portuguese card-dispute intake workflow. Customers select an exact transaction, review source facts separately from their unverified statement, provide explicit consent, and receive a persisted case with an audit trail for human review.
 

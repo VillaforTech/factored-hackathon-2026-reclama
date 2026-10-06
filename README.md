@@ -4,15 +4,15 @@
 
 Reclama identifies a customer's transaction, keeps source facts separate from their statement, obtains specific consent, persists one case and gives a human reviewer an auditable handoff. It does **not** adjudicate fraud, approve credit, issue refunds, freeze cards or move money.
 
-**[Open the private team demo](https://reclama-factored-2026.villafortech.chatgpt.site)** · **[Private team source](https://github.com/VillaforTech/factored-hackathon-2026-reclama)**
+**[Open the public demo](https://reclama-factored-2026.villafortech.chatgpt.site)** · **[Public source](https://github.com/VillaforTech/factored-hackathon-2026-reclama)**
 
-The demo and repository are private at the owner’s request. Access is restricted to the owner and explicitly invited teammates. Case operations use normal ChatGPT sign-in and an isolated sandbox; there are no bank integrations. Normal hosted login, reload persistence and two-real-account isolation remain unverified. The 4 October check verified anonymous denial and the sign-in redirect; this environment has no supported connected authenticated browser session.
+The repository, demo landing page and English guide are public following explicit owner approval. The case workflow requires normal ChatGPT sign-in; it is not an anonymous banking service, and there are no bank integrations. Live version 7 was deployed from `52a7ed063f103d812f36225ee15e17664ca029a1`; [CI passed for that exact commit](https://github.com/VillaforTech/factored-hackathon-2026-reclama/actions/runs/37416039359). Anonymous HTTP requests returned 200 for the repository, landing page and guide, and `401 SIGN_IN_REQUIRED` for `/api/bootstrap`. A separate HTTP sign-in request returned 403; this does not prove failure in a normal browser. Normal hosted login, reload persistence and isolation between two real accounts remain unverified.
 
-Team: Roberto Villafuerte, Jorge Arguello and Daniel Andrade. Responsibilities proposed in `docs/DELIVERY_PLAN.md` must be agreed with the team; no individual expertise is assumed.
+Submission participant: Roberto Villafuerte. Earlier team planning in `docs/DELIVERY_PLAN.md` is retained as history, not as the participant list for this submission.
 
-**[Read the current English reviewer guide](docs/JUDGE_README.md)** — the local `/guia` now explains eleven chapters in English, preserving interactive examples. The [existing hosted guide](https://reclama-factored-2026.villafortech.chatgpt.site/guia) remains the previously deployed Spanish edition until an approved integration/deployment. Historical source links preserve their original evidence commits.
+**[Read the English reviewer guide](https://reclama-factored-2026.villafortech.chatgpt.site/guia)** — the deployed `/guia` explains eleven chapters in English, preserving interactive examples. Historical documentation and source links preserve their original evidence commits.
 
-**[5 October private release kit](docs/release/2026-10-05/START_HERE.md):** English six-slide PPTX/PDF, narration and exact recording path, reproduction, dependency notices and the approval checklist. The user records the final English video.
+**[5 October release kit](docs/release/2026-10-05/START_HERE.md):** English six-slide PPTX/PDF, narration and exact recording path, reproduction, dependency notices and the approval checklist. The user records the final English video.
 
 ## Run locally
 
@@ -109,6 +109,6 @@ A bank deployment would replace invented fixtures with an authenticated, read-on
 - [Event hub](https://www.factored.ai/careers/ai-data-hackathon)
 - [Deadline and three-minute video clarification](https://factored-hackathon.slack.com/archives/C0BU54YAKMG/p1790614675075619?thread_ts=1790611564.552809)
 
-The 28 September organizer clarification records a deadline of **5 October 2026, 23:59 UTC−5 (continental Ecuador)**; recheck later announcements before submission. The [event hub](https://www.factored.ai/careers/ai-data-hackathon) explicitly requires a public repository, a working deployed link, 4–6 slides and a video. No exception to the public-repository requirement has been verified. The owner has explicitly kept this project private for now; public release and the final submission package remain separate decisions. A built package is not an organizer submission receipt.
+The 28 September organizer clarification records a deadline of **5 October 2026, 23:59 UTC−5 (continental Ecuador)**; recheck later announcements before submission. The [event hub](https://www.factored.ai/careers/ai-data-hackathon) explicitly requires a public repository, a working deployed link, 4–6 slides and a video. No exception to the public-repository requirement has been verified. The owner subsequently authorized the public repository and demo entry point. Public release does not establish timely organizer submission; submission receipts are separate evidence.
 
 [Organizer English-language clarification](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790871863271959): deliverables must be in English; customer interactions remain ES/PT. [Mock-data clarification](https://factored-hackathon.slack.com/archives/C0BUZCY0TUY/p1790699312315549): generated mocks are not accepted for testing. The authored model comparison is development evidence only.
